@@ -1,0 +1,13 @@
+book_filename: "MathStat"
+rmd_files:
+  html: ["index.Rmd", "syl.Rmd", "01-Probability.Rmd"]
+    #latex: ["index.Rmd", "syl.Rmd"]
+  latex: ["index.Rmd", "01-Probability.Rmd"]
+delete_merged_file: true
+language:
+  label:
+    fig: "FIGURE "
+    tab: "TABLE "
+  ui:
+    edit: "Edit"
+    chapter_name: "Chapter "

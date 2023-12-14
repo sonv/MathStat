@@ -1,0 +1,10 @@
+---
+title: "MATH 310: Mathematical Statistics (brief notes)"
+author: "Truong-Son Van"
+site: "bookdown::bookdown_site"
+classoption: openany
+--- 
+# Disclaimer {-}
+This is class notes for Mathematical Statistics at Fublbright University Vietnam. 
+I claim no originality in this work as it is mostly taken from the reference books.
+However, all errors and typos are solely mine.

@@ -1,0 +1,124 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Copenhagen}
+%% Remove draft for real article, put twocolumn for two columns
+\usetheme{metropolis}
+
+\usepackage[utf8]{inputenc}
+\newtheorem*{question}{Question}
+
+\newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
+\newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
+\newcommand{\vect}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+%% commentary bubble
+\newcommand{\SV}[2][]{\sidenote[colback=green!10]{\textbf{SV\xspace #1:} #2}}
+
+%% Title 
+\title{ Multivariable Calculus \\ Day 5 \\ Integrals of vector functions} 
+\institute{Fulbright University Vietnam}
+%\author[1]{Co-author}
+\author{Truong-Son Van}
+\date{Spring 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+    \frametitle{Refresher}
+    Let 
+    $$\vect{r}(t) = \langle \cos(t), t^2, \sin(t) \rangle$$
+    \begin{itemize}
+        \item Compute $\vect{s}(t)=\vect{r}'(t)/|\vect{r}'(t)|$
+        \item Compute $\vect{s}'(t)\cdot \vect{r}'(t)$
+    \end{itemize}
+
+\end{frame}
+
+
+\section{Integrals}
+
+\begin{frame}
+    \frametitle{Coordinate-wise integrals}
+    Indefinite integral
+\begin{equation*}
+    \int \vect{r}(t) \, dt = \left\langle \int r_1(t) \, dt, \int r_2(t) \, dt, \int r_3(t) \, dt \right\rangle = \vect{R}(t) + \vect{C} \,. 
+\end{equation*}
+
+Definite integral
+\begin{equation*}
+    \int_a^b \vect{r}(t) \, dt = \left\langle \int_a^b r_1(t) \, dt, \int_a^b r_2(t) \, dt, \int_a^b r_3(t) \, dt \right\rangle \,. 
+\end{equation*}
+
+Fundamental Theorem of Calculus
+\begin{equation*}
+    \int_a^b \vect{r}(t) \, dt =  ?
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    Compute
+         $$\vect{R}(t) = \int (\cos(t)\vect{i} + \vect{j} - 2t\vect{k}) \, dt \,.$$
+    Compute 
+        $$\int_0^\pi \langle \cos(t), 1, -2t  \rangle \, dt \,. $$
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{ Arc length}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    Compute the length of the line segment
+    \begin{equation*}
+        \vect{r}(t) = \langle 1,1,1 \rangle + t \langle 2,2,2 \rangle \,, t\in [0, 4] \,.
+    \end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Space curve}
+    A vector function that is continuous.
+
+    \begin{example}
+        \begin{equation*}
+            \vect{r}(t) = \langle \cos(t), \sin(t), t \rangle
+        \end{equation*}
+    \end{example}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    Compute the length of the following curve
+    \begin{equation*}
+        \vect{r}(t) = 
+        \begin{cases}
+            \langle 1,1,1 \rangle + t \vect{i} \,, t \in [0,1] \\
+            \vect{r}(1) + (t-1) \vect{j} \,, t \in [1,2] \,.
+        \end{cases}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Question}
+    How can you compute the length of any curve?
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Worksheet}
+    \begin{itemize}
+        \item Compute the length of the curve
+            $$\vect{r}(t) =  \langle \cos(t) ,\sin(t), t \rangle$$
+            where $t\in [0,2\pi]$.
+        \item Compute the length of the curve made by the graph of the function
+    $$ f(x) = x^3 $$
+    where $x \in [1,4]$.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
+

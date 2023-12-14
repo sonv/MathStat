@@ -1,0 +1,162 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Copenhagen}
+%% Remove draft for real article, put twocolumn for two columns
+\usetheme{metropolis}
+\usepackage{multicol}
+\usepackage[style=british]{csquotes}
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip1em
+  \hbox{}\nobreak\hfill #1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}\openautoquote\hspace*{-.7ex}}
+  {\unskip\closeautoquote\vspace*{1mm}\signed{\usebox\mybox}\end{quote}}
+
+\usepackage[utf8]{inputenc}
+\newtheorem*{question}{Question}
+\newtheorem*{proposition}{Proposition}
+
+\newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
+\newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
+\newcommand{\vect}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+%% commentary bubble
+\newcommand{\SV}[2][]{\sidenote[colback=green!10]{\textbf{SV\xspace #1:} #2}}
+
+\title{ Multivariable Calculus \\ Day  23 \\ Vector Calculus: Line integrals (cont.)}
+\date{Spring 2023}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}
+    \frametitle{Recap worksheet}
+    Evaluate
+    \begin{equation*}
+        \int_{C} y^2 \, dx + x\, dy \,, \qquad i = 1,2
+    \end{equation*}
+    \begin{enumerate}
+        \item where \(C\) is the line segment from \((-5,-3) \to (0,2)\) 
+        \item where \(C\) is the arc of the parabola \(x = 4-y^2\) from \((-5,-3) \to (0,2)\).
+        \item repeat the above two steps with 
+            \begin{equation*}
+                P = x\,, \qquad Q = y \,.
+            \end{equation*}
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Question}
+    When is a vector field $\vect{F}$ in $\R^2$ conservative?
+\end{frame}
+
+
+\begin{frame}
+\begin{definition}
+Let \(\mathbf{F}\) be a continuous vector field with domain \(D\), we say that the
+line integral
+\begin{equation*}
+    \int_C \mathbf{F} \cdot d\mathbf{r} 
+\end{equation*}
+is \textbf{independent of path} if
+\begin{equation*}
+    \int_{C_1} \mathbf{F}\cdot d\mathbf{r} 
+    =
+    \int_{C_2} \mathbf{F} \cdot d\mathbf{r} 
+\end{equation*}
+\end{definition}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Independence of path and conservative vector fields}
+    \begin{theorem}
+    \(\int_C \mathbf{F}\cdot d\mathbf{r}\) is independent of path in \(D\) if and only if
+    \(\oint_\Gamma \mathbf{F} \cdot d\mathbf{r} = 0\) for every closed path \(\Gamma \) in \(D\).
+    \end{theorem}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    Prove the above theorem.
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+A domain \(D\) is said to be \textbf{open} if around each point, we can draw an open ball around it.
+A domain \(D\) is said to be \textbf{connected} if for any two points, there is a path that connect them
+together.
+A domain \(D\) is said to be \textbf{simply connected} if is connected and there's no hole in it.
+\end{definition}
+\end{frame}
+
+
+\begin{frame}
+\begin{theorem}
+Suppose \(\mathbf{F}\) is a vector field that is continuous on an open
+connected region \(D\).
+If \(\int_C \mathbf{F} \cdot d \mathbf{r}\) is independent of path in \(D\),
+then \(\mathbf{F}\) is a conservative vector field on \(D\).
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Is there an easier way?}
+    \pause
+    Clairaut's theorem
+    If $\vect{F}$ is conservative then
+    \begin{equation*}
+        \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \,.
+    \end{equation*}
+
+    \pause
+
+    Is the converse true?
+\end{frame}
+
+\begin{frame}
+    What happens when $\vect{F}$ is not conservative?
+\end{frame}
+
+\begin{frame}
+    \frametitle{Green's Theorem}
+\begin{theorem}[Green's Theorem]
+Let \(D\) be an open bounded simply connected domain in \(\mathbb{R}^2\),
+\(\Gamma\) be the boundary of \(D\),
+and \(\mathbf{F} = P\mathbf{i} + Q \mathbf{j}\) be a vector field.
+If \(P\) and \(Q\) have continuous partial derivatives on an open region
+that contains \(D\), then
+\begin{equation*}
+    \int_\Gamma \mathbf{F} \cdot d \ell  = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA \,.
+\end{equation*}
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}
+\begin{theorem}
+Let \(\mathbf{F} = P\mathbf{i} + Q\mathbf{j}\) be a vector field on an open simply connected
+region \(D\). Suppose that
+\(P\) and \(Q\) have continuous first-order partial derivatives and
+\begin{equation*}
+    \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}
+\end{equation*}
+through out \(D\).
+Then \(\mathbf{F}\) is conservative.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Computing the area of any region bounded by a curve}
+    \url{https://www.youtube.com/watch?v=aLSx1eM27P4}
+\end{frame}
+
+
+
+\end{document}
+

@@ -1,0 +1,105 @@
+\documentclass[aspectratio=169,handout]{beamer}
+\usetheme{Copenhagen}
+%% Remove draft for real article, put twocolumn for two columns
+\usetheme{metropolis}
+\usepackage{multicol}
+
+\usepackage[utf8]{inputenc}
+\newtheorem*{question}{Question}
+
+\newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
+\newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
+\newcommand{\vect}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+%% commentary bubble
+\newcommand{\SV}[2][]{\sidenote[colback=green!10]{\textbf{SV\xspace #1:} #2}}
+
+%% Title 
+\title{ Multivariable Calculus \\ Day 9\\ Partial derivatives} 
+\institute{Fulbright University Vietnam}
+%\author[1]{Co-author}
+\author{Truong-Son Van}
+\date{Spring 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{A word about continuity}
+\begin{frame}
+    A function $f$ is continuous at $\vect{a}$ if
+    \begin{equation*}
+        \lim_{\vect{x} \to \vect{a}} f(\vect{x}) = f(\vect{a}) \,.
+    \end{equation*}
+
+    $\epsilon -\delta$ definition?
+\end{frame}
+
+\begin{frame}
+    \frametitle{Partial derivative}
+    \begin{equation*}
+        f(x,y) = \frac{x^2 \sin (2y)}{32}
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Partial derivative and graph}
+    \url{https://www.youtube.com/watch?v=dfvnCHqzK54}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Formal definition}
+Given a function \(f(x,y)\). The partial derivative of \(f\) with respect to \(x\) and \((a,b)\),
+denoted by \(f_x(a,b)\), is defined to be
+\begin{equation*}
+    f_x(a,b) = \lim_{h\to 0} \frac{ f(a+h,b) - f(a,b)}{h} \,.
+\end{equation*}
+Likewise, the partial derivative of \(f\) with respect to \(y\) and \((a,b)\),
+denoted by \(f_y(a,b)\), is defined to be
+\begin{equation*}
+    f_y(a,b) = \lim_{h\to 0} \frac{ f(a,b+h) - f(a,b)}{h} \,.
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Mixed partial derivatives}
+    One can keep taking partial derivatives derivatives of higher order
+    as each partial derivative again results in a multivariable scalar function.
+
+    \begin{equation*}
+        f_{xy} = (f_x)_y = \partial_y(\partial_x f) = \partial_{yx}f \,.
+    \end{equation*}
+
+    Be careful with the notations.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    Compute all of the mixed derivatives of second order for the functions
+    \begin{equation*}
+        f(x,y) = e^x \sin y \,,
+    \end{equation*}
+    and
+    \begin{equation*}
+        u(x,t) = \sin(x-at) \,,
+    \end{equation*}
+    where $a$ is a constant.
+
+    What do you notice about the mixed derivatives?
+\end{frame}
+
+\begin{frame}
+    \frametitle{Worksheet}
+    You have seen the normal distribution at least once in your FUV life.
+
+    \begin{enumerate}
+        \item Look up the formula for the 2 dimensional normal distribution with mean zero and variance $t$.
+        \item Compute all the mixed partial derivatives in terms of $x,y$ (or $x_1, x_2$).
+        \item Compute the derivative in $t$ of the normal distribution.
+        \item What do you see?
+    \end{enumerate}
+\end{frame}
+
+\end{document}
+
