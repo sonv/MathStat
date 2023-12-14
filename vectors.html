@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Vectors | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="1 Vectors | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Vectors | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Vectors | MATH 310: Mathematical Statistics (brief notes)" />
+  
+  
+  
+
+<meta name="author" content="Truong-Son Van" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="syllabus.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#key-information"><i class="fa fa-check"></i>Key information</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#textbooks-and-references"><i class="fa fa-check"></i>Textbooks and references</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-description"><i class="fa fa-check"></i>Course description</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#learning-objectives"><i class="fa fa-check"></i>Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#assessment"><i class="fa fa-check"></i>Assessment</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#core-content"><i class="fa fa-check"></i>Core content</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-description"><i class="fa fa-check"></i>Project description</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-guidelines"><i class="fa fa-check"></i>Project Guidelines</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-timeline"><i class="fa fa-check"></i>Project Timeline</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#possible-topics"><i class="fa fa-check"></i>Possible topics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#late-assignments"><i class="fa fa-check"></i>Late assignments</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#time-expectations"><i class="fa fa-check"></i>Time expectations</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#collaboration-plagiarism"><i class="fa fa-check"></i>Collaboration &amp; Plagiarism</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#learning-support"><i class="fa fa-check"></i>Learning Support</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#wellbeing"><i class="fa fa-check"></i>Wellbeing</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#tentative-course-schedule"><i class="fa fa-check"></i>Tentative Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="vectors.html"><a href="vectors.html#basics"><i class="fa fa-check"></i><b>1.1</b> Basics</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#rules-to-manipulate-vectors"><i class="fa fa-check"></i>Rules to manipulate vectors</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#properties-of-vector-operations"><i class="fa fa-check"></i>Properties of vector operations</a></li>
+<li class="chapter" data-level="1.2" data-path="vectors.html"><a href="vectors.html#products"><i class="fa fa-check"></i><b>1.2</b> Products</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="vectors.html"><a href="vectors.html#dot-product"><i class="fa fa-check"></i><b>1.2.1</b> Dot product</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#properties-of-dot-product"><i class="fa fa-check"></i>Properties of dot product</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#projection"><i class="fa fa-check"></i>Projection</a></li>
+<li class="chapter" data-level="1.2.2" data-path="vectors.html"><a href="vectors.html#d-special-cross-product"><i class="fa fa-check"></i><b>1.2.2</b> 3D special: Cross product</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 310: Mathematical Statistics (brief notes)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectors" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Vectors<a href="vectors.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="basics" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Basics<a href="vectors.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Reading: Stewart Chapter 12, Thomas Calculus Chapter 12,
+Active Calculus Chapter 9</strong></p>
+<p>You should be able to answer the following questions after reading this section:</p>
+<ul>
+<li><p>What is a vector?</p></li>
+<li><p>What does it mean for two vectors to be equal?</p></li>
+<li><p>How do we add two vectors together and multiply a vector by a scalar?</p></li>
+<li><p>How do we determine the magnitude of a vector?</p></li>
+<li><p>What is a unit vector</p></li>
+<li><p>How do we find a unit vector in the direction of a given vector?</p></li>
+</ul>
+<p>Typically, we talk about 3-dimensional vectors (as discussed in Stewart and Thomas).
+However, since talking about <span class="math inline">\(n\)</span>-dimensional vectors doesn’t
+require much more effort,
+we will talk about <span class="math inline">\(n\)</span>-dimensional vectors instead.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 1.1  </strong></span>An <span class="math inline">\(n\)</span>-dimensional Euclidean space <span class="math inline">\(\mathbb{R}^n\)</span>
+is the Cartesian product of <span class="math inline">\(n\)</span> Euclidean spaces <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-2" class="definition"><strong>Definition 1.2  </strong></span>An <span class="math inline">\(n\)</span>-dimensional vector <span class="math inline">\(\textbf{v}\in \mathbb{R}^n\)</span> is a tuple
+<span class="math display">\[\begin{equation}
+    \textbf{v} = \langle v_1,\dots, v_n \rangle \,,
+\end{equation}\]</span>
+where <span class="math inline">\(v_i \in \mathbb{R}\)</span>.</p>
+</div>
+<p>In dimensions less than or equal to 3, we represent a vector
+geometrically by an arrow, whose length represents the magnitude.</p>
+<div class="remark">
+<p><span id="unlabeled-div-3" class="remark"><em>Remark</em>. </span>A point in <span class="math inline">\(\mathbb{R}^n\)</span> is also represented by an <span class="math inline">\(n\)</span>-tuple
+but with round brackets.
+A vector connecting two points <span class="math inline">\(A= (a_1, \dots, a_n)\)</span>
+and <span class="math inline">\(B=(b_1, \dots, b_n)\)</span> can be constructed as
+<span class="math display">\[\begin{equation*}
+    \textbf{x} =  \langle b_1-a_1, \dots, b_n - a_n \rangle \,.
+\end{equation*}\]</span></p>
+<p>We denote the above vector as <span class="math inline">\(\vec{AB}\)</span> where <span class="math inline">\(A\)</span> is the tail (initial point)
+and <span class="math inline">\(B\)</span> is the tip/head (terminal point).
+We denote <span class="math inline">\(\textbf{0}\)</span> to be the zero vector, i.e.,
+<span class="math display">\[\begin{equation*}
+    \textbf{0} = \langle 0, \dots, 0 \rangle \,.
+\end{equation*}\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 1.3  </strong></span>The length of a vector <span class="math inline">\(\textbf{v}\)</span> (denoted by <span class="math inline">\(| \textbf{v}|\)</span>) is defined to be
+<span class="math display">\[\begin{equation}
+    |\textbf{v}| = \sqrt{ v_1^2 + \dots + v_n^2} \,.
+\end{equation}\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 1.4  </strong></span>A unit vector is a vector that has magnitude 1.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-6" class="exercise"><strong>Exercise 1.1  </strong></span>Turn a vector <span class="math inline">\(\textbf{v} \in \mathbb{R}^n\)</span> into a unit vector with the same
+direction.</p>
+</div>
+</div>
+<div id="rules-to-manipulate-vectors" class="section level2 unnumbered hasAnchor">
+<h2>Rules to manipulate vectors<a href="vectors.html#rules-to-manipulate-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let <span class="math inline">\(\textbf{a}, \textbf{b} \in \mathbb{R}^n\)</span> and <span class="math inline">\(c,d \in \mathbb{R}\)</span>. Then,</p>
+<p><span class="math display">\[\begin{equation*}
+    c( \textbf{a} + \textbf{b}) = \langle c a_1 + c b_1, \dots, c a_n + c b_n \rangle  
+    = c\textbf{a} + c\textbf{b} \,,
+\end{equation*}\]</span>
+and
+<span class="math display">\[\begin{equation*}
+(c+d) \textbf{a} = c\mathbf{a} + d\mathbf{a} \,.
+\end{equation*}\]</span></p>
+<p>These formulas are deceptively simple. Make sure you understand all the implications.</p>
+<p>Because of this rule, sometimes it is good to write vectors in terms of elementary vectors:
+<span class="math display">\[\begin{equation*}
+    \mathbf{u} = u_1 \mathbf{e_1} + \dots + u_n \mathbf{e_n} \,,
+\end{equation*}\]</span>
+where
+<span class="math inline">\(e_i = \langle 0,\dots, 1, \dots, 0\rangle\)</span> is the vector which has zero at all entries
+except that the <span class="math inline">\(i^{th}\)</span> entry is 1.</p>
+<p>In 3D,
+<span class="math display">\[\begin{equation*}
+    \mathbf{e_1} = \mathbf{i} \,, \qquad
+    \mathbf{e_2} = \mathbf{j} \,, \qquad
+    \mathbf{e_3} = \mathbf{k} \,.
+\end{equation*}\]</span></p>
+</div>
+<div id="properties-of-vector-operations" class="section level2 unnumbered hasAnchor">
+<h2>Properties of vector operations<a href="vectors.html#properties-of-vector-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Read the book</p>
+<p>(Make sure you understand the geometric intepretation)</p>
+</div>
+<div id="products" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Products<a href="vectors.html#products" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dot-product" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Dot product<a href="vectors.html#dot-product" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>How is the dot product of two vectors defined and what geometric information does it tell us?</p></li>
+<li><p>How can we tell if two vectors in <span class="math inline">\(\mathbb{R}^n\)</span>
+are perpendicular?</p></li>
+<li><p>How do we find the projection of one vector onto another?</p></li>
+</ul>
+<div class="definition">
+<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 1.5  </strong></span>The dot product of vectors <span class="math inline">\(\textbf{u} = \langle u_1, \dots, u_n \rangle\)</span>
+and <span class="math inline">\(\textbf{v} = \langle v_1, \dots, v_n \rangle\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span> is the
+scalar
+<span class="math display">\[\begin{equation*}
+    \textbf{u} \cdot \textbf{v} = u_1 v_1 +\dots + u_n v_n \,.
+\end{equation*}\]</span></p>
+</div>
+</div>
+<div id="properties-of-dot-product" class="section level3 unnumbered hasAnchor">
+<h3>Properties of dot product<a href="vectors.html#properties-of-dot-product" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(\textbf{u}, \textbf{v}, \textbf{w} \in \mathbb{R}^n\)</span>. Then,</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\textbf{u}\cdot \textbf{v} = \textbf{v}\cdot \textbf{u}\)</span>,</p></li>
+<li><p><span class="math inline">\((\textbf{u} + \textbf{v})\cdot \textbf{w} = (\textbf{u}\cdot \textbf{w}) + (\textbf{v}\cdot \textbf{w})\)</span>,</p></li>
+<li><p>If <span class="math inline">\(c\)</span> is a scalar, then <span class="math inline">\((c \textbf{u})\cdot \textbf{w} = c (\textbf{u}\cdot \textbf{w})\)</span>.</p></li>
+</ol>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-8" class="theorem"><strong>Theorem 1.1  (Law of cosine) </strong></span>If <span class="math inline">\(\theta\)</span> is the angle between the vectors <span class="math inline">\(\textbf{u}\)</span> and <span class="math inline">\(\textbf{v}\)</span>, then
+<span class="math display">\[\begin{equation*}
+        \textbf{u}\cdot \textbf{v} = |\textbf{u}|| \textbf{v}| \cos \theta \,.
+   \end{equation*}\]</span></p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-9" class="corollary"><strong>Corollary 1.1  </strong></span>Two vectors <span class="math inline">\(\textbf{u}\)</span> and <span class="math inline">\(\textbf{v}\)</span> are orthogonal to each other
+if <span class="math inline">\(\textbf{u} \cdot \textbf{v} = 0\)</span>.</p>
+</div>
+</div>
+<div id="projection" class="section level3 unnumbered hasAnchor">
+<h3>Projection<a href="vectors.html#projection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(\textbf{u}, \textbf{v}\in \mathbb{R}^n\)</span>. The component of <span class="math inline">\(\textbf{u}\)</span>
+in the direction of <span class="math inline">\(\textbf{v}\)</span> is the scalar
+<span class="math display">\[\begin{equation*}
+\mathrm{comp}_{\mathbf{v}}\mathbf{u} = \frac{\mathbf{u}\cdot \mathbf{v}}{|\mathbf{v}|} \,,
+\end{equation*}\]</span>
+and the projection of <span class="math inline">\(\mathbf{u}\)</span> onto <span class="math inline">\(\mathbf{v}\)</span> is the vector
+<span class="math display">\[\begin{equation*}
+    \mathrm{proj}_{\mathbf{v}}\mathbf{u}
+    =\left( \mathbf{u}\cdot \frac{\mathbf{v}}{|\mathbf{v}|}\right) \frac{\mathbf{v}}{|\mathbf{v}|}
+    = \frac{\mathbf{u}\cdot \mathbf{v}}{\mathbf{v} \cdot\mathbf{v}} \mathbf{v} \,.
+\end{equation*}\]</span></p>
+<p>Read the book for more details.
+Make sure you understand the geometric meaning.</p>
+</div>
+<div id="d-special-cross-product" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> 3D special: Cross product<a href="vectors.html#d-special-cross-product" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This concept is very specific to <span class="math inline">\(\mathbb{R}^3\)</span>.
+It will not make sense in other dimensions.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-10" class="definition"><strong>Definition 1.6  </strong></span>Let <span class="math inline">\(\mathbf{a}, \mathbf{b} \in \mathbb{R}^3\)</span>.
+The cross product of <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> is defined to be
+<span class="math display">\[\begin{equation*}
+    \mathbf{a} \times \mathbf{b} = \langle a_2 b_3 - a_3 b_2, a_3b_1 - a_1 b_3, a_1b_2 - a_2b_1 \rangle \,.
+\end{equation*}\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-11" class="theorem"><strong>Theorem 1.2  </strong></span>Let <span class="math inline">\(\theta\)</span> be the angle between <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>. Then,
+<span class="math display">\[\begin{equation*}
+    | \mathbf{a} \times \mathbf{b} | = |\mathbf{a}||\mathbf{b}| \sin\theta \,.
+\end{equation*}\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-12" class="theorem"><strong>Theorem 1.3  </strong></span>The vector <span class="math inline">\(\mathbf{a}\times \mathbf{b}\)</span> is orthogonal to both <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>.</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="syllabus.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

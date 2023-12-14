@@ -1,2 +1,0 @@
-# MathStat
-Mathematical Statistics Class
