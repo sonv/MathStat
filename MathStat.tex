@@ -4,20 +4,17 @@
 %
 \documentclass[
   openany]{book}
-\usepackage{amsmath,amssymb}
-\usepackage{iftex}
-\ifPDFTeX
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -36,9 +33,16 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MATH 310: Mathematical Statistics (brief notes)},
+  pdfauthor={Truong-Son Van},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
+\usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -64,19 +68,8 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
-\hypersetup{
-  pdftitle={MATH 310: Mathematical Statistics (brief notes)},
-  pdfauthor={Truong-Son Van},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{MATH 310: Mathematical Statistics (brief notes)}
 \author{Truong-Son Van}
@@ -106,7 +99,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\chapter*{Disclaimer}\label{disclaimer}
+\hypertarget{disclaimer}{%
+\chapter*{Disclaimer}\label{disclaimer}}
 
 
 This is class notes for Mathematical Statistics at Fublbright University Vietnam.
@@ -135,8 +129,10 @@ However, all errors and typos are solely mine.
 \chapter*{PART 1: Background}\label{part-1-background}
 
 
-\chapter{Probability}\label{probability}
+\hypertarget{probability}{%
+\chapter{Probability}\label{probability}}
 
+<<<<<<< HEAD
 \begin{quote}
 ``If we have an atom that is in an excited state and so is going to emit a photon, we cannot say when it will emit the photon. It has a certain amplitude to emit the photon at any time, and we can predict only a probability for emission; we cannot predict the future exactly.''
 
@@ -302,10 +298,82 @@ Prove the following:
 \end{exercise}
 
 \section{Inequalities}\label{inequalities}
+=======
+\hypertarget{review}{%
+\section{Review}\label{review}}
 
-\section{Law of Large Numbers}\label{law-of-large-numbers}
+\hypertarget{inequalities}{%
+\section{Inequalities}\label{inequalities}}
+>>>>>>> 96d400cfb3e262a81a817b1d77a423e73c99bc3d
 
-\section{Central Limit Theorem}\label{central-limit-theorem}
+\hypertarget{law-of-large-numbers}{%
+\section{Law of Large Numbers}\label{law-of-large-numbers}}
+
+\hypertarget{central-limit-theorem}{%
+\section{Central Limit Theorem}\label{central-limit-theorem}}
+
+\hypertarget{sampling-and-estimating-cdf-and-statistical-functionals}{%
+\chapter{Sampling and Estimating CDF and Statistical Functionals}\label{sampling-and-estimating-cdf-and-statistical-functionals}}
+
+\hypertarget{empirical-distribution}{%
+\section{Empirical Distribution}\label{empirical-distribution}}
+
+\hypertarget{statistical-functionals}{%
+\section{Statistical Functionals}\label{statistical-functionals}}
+
+\hypertarget{bootstrap}{%
+\section{Bootstrap}\label{bootstrap}}
+
+\hypertarget{parametric-inference-parameter-estimation}{%
+\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}}
+
+\hypertarget{method-of-moments}{%
+\section{Method of Moments}\label{method-of-moments}}
+
+\hypertarget{method-of-maximum-likelihood}{%
+\section{Method of Maximum Likelihood}\label{method-of-maximum-likelihood}}
+
+\hypertarget{bayesian-approach}{%
+\section{Bayesian Approach}\label{bayesian-approach}}
+
+\hypertarget{expectation-maximization-algorithm}{%
+\section{Expectation-Maximization Algorithm}\label{expectation-maximization-algorithm}}
+
+\hypertarget{unbiased-estimators}{%
+\section{Unbiased Estimators}\label{unbiased-estimators}}
+
+\hypertarget{efficiency-cramer-rao-inequality}{%
+\section{Efficiency: Cramer-Rao Inequality}\label{efficiency-cramer-rao-inequality}}
+
+\hypertarget{sufficiency-and-unbiasedness-rao-blackwell-theorem}{%
+\section{Sufficiency and Unbiasedness: Rao-Blackwell Theorem}\label{sufficiency-and-unbiasedness-rao-blackwell-theorem}}
+
+\hypertarget{hypothesis-testing}{%
+\chapter{Hypothesis Testing}\label{hypothesis-testing}}
+
+\hypertarget{neyman-pearson-lemma}{%
+\section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}}
+
+\hypertarget{wald-test}{%
+\section{Wald Test}\label{wald-test}}
+
+\hypertarget{likelihood-ratio-test}{%
+\section{Likelihood Ratio Test}\label{likelihood-ratio-test}}
+
+\hypertarget{comparing-samples}{%
+\section{Comparing samples}\label{comparing-samples}}
+
+\hypertarget{linear-least-squares}{%
+\chapter{Linear Least Squares}\label{linear-least-squares}}
+
+\hypertarget{simple-linear-regression}{%
+\section{Simple Linear Regression}\label{simple-linear-regression}}
+
+\hypertarget{matrix-approach}{%
+\section{Matrix Approach}\label{matrix-approach}}
+
+\hypertarget{statistical-properties}{%
+\section{Statistical Properties}\label{statistical-properties}}
 
 \chapter*{PART 2: Inference}\label{part-2-inference}
 
