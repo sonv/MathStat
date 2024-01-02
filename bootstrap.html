@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="MATH 310: Mathematical Statistics (brief notes)" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <title>Chapter 4 Bootstrap | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="Chapter 4 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="Chapter 4 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="Chapter 4 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="syllabus.html"/>
+<link rel="prev" href="parametric-inference-parameter-estimation.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,16 +48,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -101,25 +98,14 @@
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#wellbeing"><i class="fa fa-check"></i>Wellbeing</a></li>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#tentative-course-schedule"><i class="fa fa-check"></i>Tentative Course Schedule</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="part-1-background.html"><a href="part-1-background.html"><i class="fa fa-check"></i>PART 1: Background</a></li>
 <li class="chapter" data-level="1" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="probability.html"><a href="probability.html#review"><i class="fa fa-check"></i><b>1.1</b> Review</a>
-<ul>
-<li class="chapter" data-level="1.1.1" data-path="probability.html"><a href="probability.html#probability-space"><i class="fa fa-check"></i><b>1.1.1</b> Probability Space</a></li>
-<li class="chapter" data-level="1.1.2" data-path="probability.html"><a href="probability.html#random-variables"><i class="fa fa-check"></i><b>1.1.2</b> Random Variables</a></li>
-</ul></li>
+<li class="chapter" data-level="1.1" data-path="probability.html"><a href="probability.html#review"><i class="fa fa-check"></i><b>1.1</b> Review</a></li>
 <li class="chapter" data-level="1.2" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.2</b> Inequalities</a></li>
 <li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.3</b> Law of Large Numbers</a></li>
 <li class="chapter" data-level="1.4" data-path="probability.html"><a href="probability.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.4</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="part-2-inference.html"><a href="part-2-inference.html"><i class="fa fa-check"></i>PART 2: Inference</a></li>
-<li class="chapter" data-level="2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>2</b> Sampling, Estimating CDF and Statistical Functionals</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution"><i class="fa fa-check"></i><b>2.1</b> Empirical Distribution</a></li>
-<li class="chapter" data-level="2.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals"><i class="fa fa-check"></i><b>2.2</b> Statistical Functionals</a></li>
-<li class="chapter" data-level="2.3" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#bootstrap"><i class="fa fa-check"></i><b>2.3</b> Bootstrap</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="sampling-and-estimating-cdf-and-statistical-functionals.html"><a href="sampling-and-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>2</b> Sampling and Estimating CDF and Statistical Functionals</a></li>
 <li class="chapter" data-level="3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>3</b> Parametric Inference (Parameter Estimation)</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-moments"><i class="fa fa-check"></i><b>3.1</b> Method of Moments</a></li>
@@ -130,19 +116,19 @@
 <li class="chapter" data-level="3.6" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#efficiency-cramer-rao-inequality"><i class="fa fa-check"></i><b>3.6</b> Efficiency: Cramer-Rao Inequality</a></li>
 <li class="chapter" data-level="3.7" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#sufficiency-and-unbiasedness-rao-blackwell-theorem"><i class="fa fa-check"></i><b>3.7</b> Sufficiency and Unbiasedness: Rao-Blackwell Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
+<li class="chapter" data-level="4" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>4</b> Bootstrap</a></li>
+<li class="chapter" data-level="5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>5</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#neyman-pearson-lemma"><i class="fa fa-check"></i><b>4.1</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#wald-test"><i class="fa fa-check"></i><b>4.2</b> Wald Test</a></li>
-<li class="chapter" data-level="4.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#likelihood-ratio-test"><i class="fa fa-check"></i><b>4.3</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#comparing-samples"><i class="fa fa-check"></i><b>4.4</b> Comparing samples</a></li>
+<li class="chapter" data-level="5.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#neyman-pearson-lemma"><i class="fa fa-check"></i><b>5.1</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="5.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#wald-test"><i class="fa fa-check"></i><b>5.2</b> Wald Test</a></li>
+<li class="chapter" data-level="5.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#likelihood-ratio-test"><i class="fa fa-check"></i><b>5.3</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="5.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#comparing-samples"><i class="fa fa-check"></i><b>5.4</b> Comparing samples</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
-<li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
+<li class="chapter" data-level="6" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>6</b> Linear Least Squares</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="linear-least-squares.html"><a href="linear-least-squares.html#simple-linear-regression"><i class="fa fa-check"></i><b>5.1</b> Simple Linear Regression</a></li>
-<li class="chapter" data-level="5.2" data-path="linear-least-squares.html"><a href="linear-least-squares.html#matrix-approach"><i class="fa fa-check"></i><b>5.2</b> Matrix Approach</a></li>
-<li class="chapter" data-level="5.3" data-path="linear-least-squares.html"><a href="linear-least-squares.html#statistical-properties"><i class="fa fa-check"></i><b>5.3</b> Statistical Properties</a></li>
+<li class="chapter" data-level="6.1" data-path="linear-least-squares.html"><a href="linear-least-squares.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-least-squares.html"><a href="linear-least-squares.html#matrix-approach"><i class="fa fa-check"></i><b>6.2</b> Matrix Approach</a></li>
+<li class="chapter" data-level="6.3" data-path="linear-least-squares.html"><a href="linear-least-squares.html#statistical-properties"><i class="fa fa-check"></i><b>6.3</b> Statistical Properties</a></li>
 </ul></li>
 </ul>
 
@@ -161,15 +147,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MATH 310: Mathematical Statistics (brief notes)</h1>
-<p class="author"><em>Truong-Son Van</em></p>
-</div>
-<div id="disclaimer" class="section level1 unnumbered hasAnchor">
-<h1>Disclaimer<a href="index.html#disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is class notes for Mathematical Statistics at Fublbright University Vietnam.
-I claim no originality in this work as it is mostly taken from the reference books.
-However, all errors and typos are solely mine.</p>
+<div id="bootstrap" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Bootstrap<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
 </div>
             </section>
@@ -177,8 +156,8 @@ However, all errors and typos are solely mine.</p>
           </div>
         </div>
       </div>
-
-<a href="syllabus.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="parametric-inference-parameter-estimation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -232,20 +211,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

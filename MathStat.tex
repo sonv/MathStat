@@ -82,6 +82,23 @@
 \author{Truong-Son Van}
 \date{}
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -96,21 +113,246 @@ This is class notes for Mathematical Statistics at Fublbright University Vietnam
 I claim no originality in this work as it is mostly taken from the reference books.
 However, all errors and typos are solely mine.
 
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ \\
+ \\
+\newcommand{\vect}{\mathbf} \\
+\newcommand{\R}{\mathbb{R}} \\
+\newcommand{\N}{\mathbb{N}} \\
+\renewcommand{\P}{\mathbb{P}} \\
+\newcommand{\cP}{\mathcal{P}} \\
+\newcommand{\cF}{\mathcal{F}} \\
+\newcommand{\cB}{\mathcal{B}} \\
+ \\
+\end{longtable}
+
 \newpage
 
-\newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
-\newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
-\newcommand{\vect}{\mathbf}
-\newcommand{\R}{\mathbb{R}}
+\chapter*{PART 1: Background}\label{part-1-background}
+
 
 \chapter{Probability}\label{probability}
 
+\begin{quote}
+``If we have an atom that is in an excited state and so is going to emit a photon, we cannot say when it will emit the photon. It has a certain amplitude to emit the photon at any time, and we can predict only a probability for emission; we cannot predict the future exactly.''
+
+\hfill --- Richard Feynman
+\end{quote}
+
 \section{Review}\label{review}
+
+\subsection{Probability Space}\label{probability-space}
+
+\begin{definition}[Sigma-algebra]
+
+Let \(\Omega\) be a set.
+A set \(\Sigma \subseteq \mathcal{P}(\Omega)\) of subsets of \(\Omega\) is called a \(\sigma\)-algebra
+of \(\Omega\) if
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\Omega\in \Sigma\)
+\item
+  \(F \in \Sigma \implies F^C \in \Sigma\)
+\item
+  If \(F_n \in \Sigma\) for all \(n\in \mathbb{N}\), then
+  \[ \bigcup_n F_n \in \Sigma .\]
+\end{enumerate}
+
+\end{definition}
+
+A Borel \(\sigma\)-algebra is the smallest \(\sigma\)-algebra that contains all the open sets.
+
+\begin{definition}[Probability Space]
+A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), where
+\(\Omega\) is a set called \emph{sample space}, \(\mathcal{F}\) is a \(\sigma\)-algebra on \(\Omega\),
+\(\mathbb{P}: \mathcal{F}\to [0,1]\), called a \emph{Probability Measure}, is a function that satisfies the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(P(\Omega) =1\),
+\item
+  If \(F\) is a disjoint union of \(\left\{ F_n \right\}_{n=1}^\infty\), then
+  \[ \mathbb{P}(F) = \sum_{n=1}^\infty \mathbb{P}(F_n) . \]
+\end{enumerate}
+
+Each element \(\omega \in \Omega\) is called an \emph{outcome} and each subset \(A \in \mathcal{F}\)
+is called an \emph{event}.
+\end{definition}
+
+Philosophically, the \(\sigma\)-algebra represents the details of information we could have access to.
+There are certain events that are building blocks of knowledge and that we don't have
+access to finer details.
+
+\begin{definition}[Independent Events]
+Let \(A, B \in \mathcal{F}\) be events. We say that \(A\) and \(B\) are independent
+if
+\[ \mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B)  \,. \]
+\end{definition}
+
+\begin{definition}[Conditional Probability]
+Let \(A, B \in \mathcal{F}\) be events such that \(\mathbb{P}(B) >0\). Then, the conditional probability of
+\(A\) given \(B\) is
+\[ \mathbb{P}(A \vert B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \,. \]
+\end{definition}
+
+\begin{theorem}[Bayes's Theorem]
+Let \(A, B \in \mathcal{F}\) be events such that \(\mathbb{P}(A)>0\) and \(\mathbb{P}(B) >0\).
+Then,
+\[\mathbb{P}(A | B) = \frac{\mathbb{P}(B | A) \ P(A)}{\mathbb{P}(B)} \,.\]
+\end{theorem}
+
+In modern statistics, there are names for the above terms:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\mathbb{P}(A | B)\) is called \emph{Posterior Probability},
+\item
+  \(\mathbb{P}(B | A)\) is called \emph{Likelihood},
+\item
+  \(\mathbb{P}(A)\) is called \emph{Prior Probability},
+\item
+  \(\mathbb{P}(B)\) is called \emph{Evidence}.
+\end{enumerate}
+
+The theorem is often expressed in words as:
+
+\[ \text{Posterior Probability} = \frac{\text{Likelihood} \times \text{Prior Probability}}{\text{Evidence}} \]
+
+It is a good idea to ponder why those mathematical terms have those names.
+
+\subsection{Random Variables}\label{random-variables}
+
+The notion of probability alone isn't sufficient for us to describe ideas about the world.
+We need to have a notion of objects that associated with probabilities.
+This brings about the idea of \emph{random variable}.
+
+\begin{definition}[Random Variable]
+
+Let \((\Omega, \mathcal{B}(\Omega), \mathbb{P})\) and \((S, \mathcal{B}(S))\).
+A random variable is a (Borel measurable) function from \(\Omega \to S\).
+
+\begin{itemize}
+\tightlist
+\item
+  \(S\) is called the \emph{state space} of \(X\).
+\end{itemize}
+
+\end{definition}
+
+In this course, we will restrict our attentions to two types of random variables: discrete and continuous.
+
+\begin{definition}[Discrete RV]
+\(X: \Omega \to S\) is called
+a discrete RV if \(S\) is a countable set.
+\end{definition}
+
+\begin{definition}[Continuous RV]
+A random variable \(X\) is continuous if there exists a function \(f_X\) such that \(f_X(x) \geq 0\)
+for all \(x, \int_{-\infty}^{\infty} f_X(x) d x=1\) and for every \(a \leq b\),
+\[
+\mathbb{P}(a<X<b)=\int_a^b f_X(x) d x .
+\]
+
+The function \(f_X\) is called the probability density function (PDF). We have that
+\[
+F_X(x)=\int_{-\infty}^x f_X(t) d t
+\]
+and \(f_X(x)=F_X^{\prime}(x)\) at all points \(x\) at which \(F_X\) is differentiable.
+\end{definition}
+
+\begin{exercise}
+Create a random variable that represents the results of \(n\) coin flips.
+\end{exercise}
+
+\begin{definition}[Cumulative Distribution Function]
+Given a RV \(X:\Omega \to \mathbb{R}\).
+The \emph{cumulative distribution function of \(X\)} or CDF, is
+a function \(F_X : \mathbb{R}\to [0,1]\)
+defined by
+\[ F_X (x) = \mathbb{P}(X \leq x) \,. \]
+\end{definition}
+
+\begin{exercise}
+
+Let \(X:\Omega \to \mathbb{R}\) be an RV and \(F_X\) be its CDF.
+Prove the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(F\) is non-decreasing: if \(x_1 \leq x_2\), then \(F(x_1) \leq F(x_2)\).
+\item
+  \(F\) is normalized:
+  \[ \lim_{x\to -\infty} F(x) = 0 \,,\]
+  and
+  \[ \lim_{x\to \infty} F(x) = 1 \,.\]
+\item
+  \(F\) is right-continuous:
+  \[ F(x) = F(x+) = \lim_{y \searrow x} F(y) \,.\]
+\end{enumerate}
+
+\end{exercise}
 
 \section{Inequalities}\label{inequalities}
 
 \section{Law of Large Numbers}\label{law-of-large-numbers}
 
 \section{Central Limit Theorem}\label{central-limit-theorem}
+
+\chapter*{PART 2: Inference}\label{part-2-inference}
+
+
+\chapter{Sampling, Estimating CDF and Statistical Functionals}\label{sampling-estimating-cdf-and-statistical-functionals}
+
+\section{Empirical Distribution}\label{empirical-distribution}
+
+\section{Statistical Functionals}\label{statistical-functionals}
+
+\section{Bootstrap}\label{bootstrap}
+
+\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}
+
+\section{Method of Moments}\label{method-of-moments}
+
+\section{Method of Maximum Likelihood}\label{method-of-maximum-likelihood}
+
+\section{Bayesian Approach}\label{bayesian-approach}
+
+\section{Expectation-Maximization Algorithm}\label{expectation-maximization-algorithm}
+
+\section{Unbiased Estimators}\label{unbiased-estimators}
+
+\section{Efficiency: Cramer-Rao Inequality}\label{efficiency-cramer-rao-inequality}
+
+\section{Sufficiency and Unbiasedness: Rao-Blackwell Theorem}\label{sufficiency-and-unbiasedness-rao-blackwell-theorem}
+
+\chapter{Hypothesis Testing}\label{hypothesis-testing}
+
+\section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}
+
+\section{Wald Test}\label{wald-test}
+
+\section{Likelihood Ratio Test}\label{likelihood-ratio-test}
+
+\section{Comparing samples}\label{comparing-samples}
+
+\chapter*{PART 3: Models}\label{part-3-models}
+
+
+\chapter{Linear Least Squares}\label{linear-least-squares}
+
+\section{Simple Linear Regression}\label{simple-linear-regression}
+
+\section{Matrix Approach}\label{matrix-approach}
+
+\section{Statistical Properties}\label{statistical-properties}
 
 \end{document}

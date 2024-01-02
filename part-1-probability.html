@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>PART 1: Probability | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="PART 1: Probability | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="PART 1: Probability | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PART 1: Probability | MATH 310: Mathematical Statistics (brief notes)" />
+  
+  
+  
+
+<meta name="author" content="Truong-Son Van" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="syllabus.html"/>
+<link rel="next" href="sampling-and-estimating-cdf-and-statistical-functionals.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>Mathematical Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#key-information"><i class="fa fa-check"></i>Key information</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#textbooks-and-references"><i class="fa fa-check"></i>Textbooks and references</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-description"><i class="fa fa-check"></i>Course description</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#learning-objectives"><i class="fa fa-check"></i>Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#assessment"><i class="fa fa-check"></i>Assessment</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#core-content"><i class="fa fa-check"></i>Core content</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-description"><i class="fa fa-check"></i>Project description</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-guidelines"><i class="fa fa-check"></i>Project Guidelines</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project-timeline"><i class="fa fa-check"></i>Project Timeline</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#possible-topics"><i class="fa fa-check"></i>Possible topics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#late-assignments"><i class="fa fa-check"></i>Late assignments</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#time-expectations"><i class="fa fa-check"></i>Time expectations</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#collaboration-plagiarism"><i class="fa fa-check"></i>Collaboration &amp; Plagiarism</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#learning-support"><i class="fa fa-check"></i>Learning Support</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#wellbeing"><i class="fa fa-check"></i>Wellbeing</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#tentative-course-schedule"><i class="fa fa-check"></i>Tentative Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-1-probability.html"><a href="part-1-probability.html"><i class="fa fa-check"></i>PART 1: Probability</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="part-1-probability.html"><a href="part-1-probability.html#review"><i class="fa fa-check"></i><b>0.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="part-1-probability.html"><a href="part-1-probability.html#probability-space"><i class="fa fa-check"></i><b>0.1.1</b> Probability Space</a></li>
+<li class="chapter" data-level="0.1.2" data-path="part-1-probability.html"><a href="part-1-probability.html#random-variables"><i class="fa fa-check"></i><b>0.1.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="part-1-probability.html"><a href="part-1-probability.html#inequalities"><i class="fa fa-check"></i><b>0.2</b> Inequalities</a></li>
+<li class="chapter" data-level="0.3" data-path="part-1-probability.html"><a href="part-1-probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>0.3</b> Law of Large Numbers</a></li>
+<li class="chapter" data-level="0.4" data-path="part-1-probability.html"><a href="part-1-probability.html#central-limit-theorem"><i class="fa fa-check"></i><b>0.4</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="sampling-and-estimating-cdf-and-statistical-functionals.html"><a href="sampling-and-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>1</b> Sampling and Estimating CDF and Statistical Functionals</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="sampling-and-estimating-cdf-and-statistical-functionals.html"><a href="sampling-and-estimating-cdf-and-statistical-functionals.html#empirical-distribution"><i class="fa fa-check"></i><b>1.1</b> Empirical Distribution</a></li>
+<li class="chapter" data-level="1.2" data-path="sampling-and-estimating-cdf-and-statistical-functionals.html"><a href="sampling-and-estimating-cdf-and-statistical-functionals.html#statistical-functionals"><i class="fa fa-check"></i><b>1.2</b> Statistical Functionals</a></li>
+<li class="chapter" data-level="1.3" data-path="sampling-and-estimating-cdf-and-statistical-functionals.html"><a href="sampling-and-estimating-cdf-and-statistical-functionals.html#bootstrap"><i class="fa fa-check"></i><b>1.3</b> Bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>2</b> Parametric Inference (Parameter Estimation)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-moments"><i class="fa fa-check"></i><b>2.1</b> Method of Moments</a></li>
+<li class="chapter" data-level="2.2" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-maximum-likelihood"><i class="fa fa-check"></i><b>2.2</b> Method of Maximum Likelihood</a></li>
+<li class="chapter" data-level="2.3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#bayesian-approach"><i class="fa fa-check"></i><b>2.3</b> Bayesian Approach</a></li>
+<li class="chapter" data-level="2.4" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#expectation-maximization-algorithm"><i class="fa fa-check"></i><b>2.4</b> Expectation-Maximization Algorithm</a></li>
+<li class="chapter" data-level="2.5" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#unbiased-estimators"><i class="fa fa-check"></i><b>2.5</b> Unbiased Estimators</a></li>
+<li class="chapter" data-level="2.6" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#efficiency-cramer-rao-inequality"><i class="fa fa-check"></i><b>2.6</b> Efficiency: Cramer-Rao Inequality</a></li>
+<li class="chapter" data-level="2.7" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#sufficiency-and-unbiasedness-rao-blackwell-theorem"><i class="fa fa-check"></i><b>2.7</b> Sufficiency and Unbiasedness: Rao-Blackwell Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>3</b> Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#neyman-pearson-lemma"><i class="fa fa-check"></i><b>3.1</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#wald-test"><i class="fa fa-check"></i><b>3.2</b> Wald Test</a></li>
+<li class="chapter" data-level="3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#likelihood-ratio-test"><i class="fa fa-check"></i><b>3.3</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#comparing-samples"><i class="fa fa-check"></i><b>3.4</b> Comparing samples</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>4</b> Linear Least Squares</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="linear-least-squares.html"><a href="linear-least-squares.html#simple-linear-regression"><i class="fa fa-check"></i><b>4.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="4.2" data-path="linear-least-squares.html"><a href="linear-least-squares.html#matrix-approach"><i class="fa fa-check"></i><b>4.2</b> Matrix Approach</a></li>
+<li class="chapter" data-level="4.3" data-path="linear-least-squares.html"><a href="linear-least-squares.html#statistical-properties"><i class="fa fa-check"></i><b>4.3</b> Statistical Properties</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 310: Mathematical Statistics (brief notes)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-1-probability" class="section level1 unnumbered hasAnchor" number="">
+<h1>PART 1: Probability<a href="part-1-probability.html#part-1-probability" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>“If we have an atom that is in an excited state and so is going to emit a photon, we cannot say when it will emit the photon. It has a certain amplitude to emit the photon at any time, and we can predict only a probability for emission; we cannot predict the future exactly.”</p>
+<footer>
+— Richard Feynman
+</footer>
+</blockquote>
+<div id="review" class="section level2 hasAnchor" number="0.1">
+<h2><span class="header-section-number">0.1</span> Review<a href="part-1-probability.html#review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="probability-space" class="section level3 hasAnchor" number="0.1.1">
+<h3><span class="header-section-number">0.1.1</span> Probability Space<a href="part-1-probability.html#probability-space" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 0.1  (Sigma-algebra) </strong></span>Let <span class="math inline">\(\Omega\)</span> be a set.
+A set <span class="math inline">\(\Sigma \subseteq \mathcal{P}(\Omega)\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is called a <span class="math inline">\(\sigma\)</span>-algebra
+of <span class="math inline">\(\Omega\)</span> if</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Omega\in \Sigma\)</span></p></li>
+<li><p><span class="math inline">\(F \in \Sigma \implies F^C \in \Sigma\)</span></p></li>
+<li><p>If <span class="math inline">\(F_n \in \Sigma\)</span> for all <span class="math inline">\(n\in \mathbb{N}\)</span>, then
+<span class="math display">\[ \bigcup_n F_n \in \Sigma .\]</span></p></li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-2" class="definition"><strong>Definition 0.2  (Probability Space) </strong></span>A <em>Probability Space</em> is a triple <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span>, where
+<span class="math inline">\(\Omega\)</span> is a set called <em>sample space</em>, <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\Omega\)</span>,
+<span class="math inline">\(\mathbb{P}: \mathcal{F}\to [0,1]\)</span>, called a <em>Probability Measure</em>, is a function that satisfies the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(P(\Omega) =1\)</span>,</p></li>
+<li><p>If <span class="math inline">\(F\)</span> is a disjoint union of <span class="math inline">\(\left\{ F_n \right\}_{n=1}^\infty\)</span>, then
+<span class="math display">\[ \mathbb{P}(F) = \sum_{n=1}^\infty \mathbb{P}(F_n) . \]</span></p></li>
+</ol>
+</div>
+<p>Philosophically, the <span class="math inline">\(\sigma\)</span>-algebra represents the details of information we could have access to.
+There are certain events that are building blocks of knowledge and that we don’t have
+access to finer details.</p>
+<p>(Example)</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 0.3  (Independent Events) </strong></span>todo</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 0.4  (Conditional Probability) </strong></span>todo</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-5" class="theorem"><strong>Theorem 0.1  (Bayes's Theorem) </strong></span>todo</p>
+</div>
+</div>
+<div id="random-variables" class="section level3 hasAnchor" number="0.1.2">
+<h3><span class="header-section-number">0.1.2</span> Random Variables<a href="part-1-probability.html#random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="inequalities" class="section level2 hasAnchor" number="0.2">
+<h2><span class="header-section-number">0.2</span> Inequalities<a href="part-1-probability.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="law-of-large-numbers" class="section level2 hasAnchor" number="0.3">
+<h2><span class="header-section-number">0.3</span> Law of Large Numbers<a href="part-1-probability.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="central-limit-theorem" class="section level2 hasAnchor" number="0.4">
+<h2><span class="header-section-number">0.4</span> Central Limit Theorem<a href="part-1-probability.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="syllabus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling-and-estimating-cdf-and-statistical-functionals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MathStat.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
