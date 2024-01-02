@@ -250,27 +250,55 @@ A random variable is a (Borel measurable) function from \(\Omega \to S\).
 In this course, we will restrict our attentions to two types of random variables: discrete and continuous.
 
 \begin{definition}[Discrete RV]
+
 \(X: \Omega \to S\) is called
 a discrete RV if \(S\) is a countable set.
+
+\begin{itemize}
+\tightlist
+\item
+  A \emph{probability function} or \emph{probability mass function} for \(X\) is a function
+  \(f_X: S \to [0,1]\) defined by
+  \[ f_X(x) = \mathbb{P}(X = x) \,. \]
+\end{itemize}
+
 \end{definition}
+
+In contrast to the simplicity of discrete RV. Continuous RVs are a little bit messier to describe.
+This is because of the lack of background in measure theory so we can talk about this concept in
+a more precise way.
 
 \begin{definition}[Continuous RV]
-A random variable \(X\) is continuous if there exists a function \(f_X\) such that \(f_X(x) \geq 0\)
-for all \(x, \int_{-\infty}^{\infty} f_X(x) d x=1\) and for every \(a \leq b\),
-\[
-\mathbb{P}(a<X<b)=\int_a^b f_X(x) d x .
-\]
+A \emph{continuous random variable} is a measurable function \(X:\Omega \to S\) is continuous
+if it satisfies the following conditions:
 
-The function \(f_X\) is called the probability density function (PDF). We have that
-\[
-F_X(x)=\int_{-\infty}^x f_X(t) d t
-\]
-and \(f_X(x)=F_X^{\prime}(x)\) at all points \(x\) at which \(F_X\) is differentiable.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(S = \mathbb{R}^n\) for some \(n\in \mathbb{N}\).
+\item
+  There exists an (integrable) function \(f_X\) such that \(f_X(x) \geq 0\)
+  for all \(x, \int_{\mathbb{R}^n} f_X(x) d x=1\) and for every open cube \(C \subseteq \mathbb{R}^n\),
+  \[
+  \mathbb{P}(X\in C)=\int_C f_X(x) dV .
+  \]
+\end{enumerate}
+
+The function \(f_X\) is called the \emph{probability density function (PDF)}.
 \end{definition}
+
+There are more general concepts of continuous RV where we don't need to require
+\(S\) to be a Euclidean space as in the above definition.
+However, such concepts require the readers to be familiar with advanced subjects
+like Topology and Measure Theory. It is particularly important to know these two
+subjects
+in order to thoroughly understand Stochastic Processes.
 
 \begin{exercise}
 Create a random variable that represents the results of \(n\) coin flips.
 \end{exercise}
+
+For real-valued RV \(X:\Omega \to \mathbb{R}\) we have the concept of cumulative distribution function.
 
 \begin{definition}[Cumulative Distribution Function]
 Given a RV \(X:\Omega \to \mathbb{R}\).
@@ -279,6 +307,15 @@ a function \(F_X : \mathbb{R}\to [0,1]\)
 defined by
 \[ F_X (x) = \mathbb{P}(X \leq x) \,. \]
 \end{definition}
+
+\begin{exercise}
+Given a real-valued continuous RV \(X: \Omega \to \mathbb{R}\), prove that
+\[
+F_X(x)=\int_{-\infty}^x f_X(t) d t
+\]
+is differentiable for every \(x\)
+and \(f_X(x)=F_X^{\prime}(x)\).
+\end{exercise}
 
 \begin{exercise}
 
