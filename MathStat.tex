@@ -308,6 +308,9 @@ defined by
 \[ F_X (x) = \mathbb{P}(X \leq x) \,. \]
 \end{definition}
 
+Notationally, we use the notation \(X\sim F\) to mean
+RV \(X\) with distribution \(F\).
+
 \begin{exercise}
 Given a real-valued continuous RV \(X: \Omega \to \mathbb{R}\), prove that
 \[
@@ -315,6 +318,12 @@ F_X(x)=\int_{-\infty}^x f_X(t) d t
 \]
 is differentiable for every \(x\)
 and \(f_X(x)=F_X^{\prime}(x)\).
+\end{exercise}
+
+\begin{exercise}
+Let \(X\) be an RV with CDF \(F\) and \(Y\) with CDF \(G\).
+Suppose \(F(x) = G(x)\) for all \(x\). Show that
+\[ \mathbb{P}(X \in A) = \mathbb{P}(Y \in B) \,.\]
 \end{exercise}
 
 \begin{exercise}
@@ -337,6 +346,34 @@ Prove the following:
 \end{enumerate}
 
 \end{exercise}
+
+\subsection{Joint distribution of RVs}\label{joint-distribution-of-rvs}
+
+\subsection{Some important random variables}\label{some-important-random-variables}
+
+\subsection{Independent random variables}\label{independent-random-variables}
+
+Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
+We denote
+\[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]
+
+\begin{definition}
+Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
+We say that \(X\) and \(Y\) are independent if,
+for every \(A, B \in \mathcal{B}(S)\), we have
+\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]
+and write \(X \perp Y\).
+\end{definition}
+
+\begin{definition}
+Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
+Suppose that \(f_Y(y) >0\).
+The conditional probability mass function of \(X\) given \(Y\) is
+\[ f_{X|Y} (x|y) =
+\frac{f_{X,Y}(x,y)}{f_Y(y)} \,.\]
+\end{definition}
+
+\subsection{Transformations of RVs}\label{transformations-of-rvs}
 
 \section{Inequalities}\label{inequalities}
 

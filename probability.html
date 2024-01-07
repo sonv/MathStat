@@ -108,6 +108,10 @@
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="probability.html"><a href="probability.html#probability-space"><i class="fa fa-check"></i><b>1.1.1</b> Probability Space</a></li>
 <li class="chapter" data-level="1.1.2" data-path="probability.html"><a href="probability.html#random-variables"><i class="fa fa-check"></i><b>1.1.2</b> Random Variables</a></li>
+<li class="chapter" data-level="1.1.3" data-path="probability.html"><a href="probability.html#joint-distribution-of-rvs"><i class="fa fa-check"></i><b>1.1.3</b> Joint distribution of RVs</a></li>
+<li class="chapter" data-level="1.1.4" data-path="probability.html"><a href="probability.html#some-important-random-variables"><i class="fa fa-check"></i><b>1.1.4</b> Some important random variables</a></li>
+<li class="chapter" data-level="1.1.5" data-path="probability.html"><a href="probability.html#independent-random-variables"><i class="fa fa-check"></i><b>1.1.5</b> Independent random variables</a></li>
+<li class="chapter" data-level="1.1.6" data-path="probability.html"><a href="probability.html#transformations-of-rvs"><i class="fa fa-check"></i><b>1.1.6</b> Transformations of RVs</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.2</b> Inequalities</a></li>
 <li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.3</b> Law of Large Numbers</a></li>
@@ -281,6 +285,8 @@ a function <span class="math inline">\(F_X : \mathbb{R}\to [0,1]\)</span>
 defined by
 <span class="math display">\[ F_X (x) = \mathbb{P}(X \leq x) \,. \]</span></p>
 </div>
+<p>Notationally, we use the notation <span class="math inline">\(X\sim F\)</span> to mean
+RV <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>.</p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 1.2  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
 <span class="math display">\[
@@ -290,7 +296,12 @@ is differentiable for every <span class="math inline">\(x\)</span>
 and <span class="math inline">\(f_X(x)=F_X^{\prime}(x)\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 1.3  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 1.3  </strong></span>Let <span class="math inline">\(X\)</span> be an RV with CDF <span class="math inline">\(F\)</span> and <span class="math inline">\(Y\)</span> with CDF <span class="math inline">\(G\)</span>.
+Suppose <span class="math inline">\(F(x) = G(x)\)</span> for all <span class="math inline">\(x\)</span>. Show that
+<span class="math display">\[ \mathbb{P}(X \in A) = \mathbb{P}(Y \in B) \,.\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 1.4  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
 Prove the following:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(F\)</span> is non-decreasing: if <span class="math inline">\(x_1 \leq x_2\)</span>, then <span class="math inline">\(F(x_1) \leq F(x_2)\)</span>.</p></li>
@@ -302,6 +313,35 @@ and
 <span class="math display">\[ F(x) = F(x+) = \lim_{y \searrow x} F(y) \,.\]</span></p></li>
 </ol>
 </div>
+</div>
+<div id="joint-distribution-of-rvs" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Joint distribution of RVs<a href="probability.html#joint-distribution-of-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+We denote
+<span class="math display">\[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+We say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if,
+for every <span class="math inline">\(A, B \in \mathcal{B}(S)\)</span>, we have
+<span class="math display">\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]</span>
+and write <span class="math inline">\(X \perp Y\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+Suppose that <span class="math inline">\(f_Y(y) &gt;0\)</span>.
+The conditional probability mass function of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is
+<span class="math display">\[ f_{X|Y} (x|y) =
+\frac{f_{X,Y}(x,y)}{f_Y(y)} \,.\]</span></p>
+</div>
+</div>
+<div id="transformations-of-rvs" class="section level3 hasAnchor" number="1.1.6">
+<h3><span class="header-section-number">1.1.6</span> Transformations of RVs<a href="probability.html#transformations-of-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
 <div id="inequalities" class="section level2 hasAnchor" number="1.2">
