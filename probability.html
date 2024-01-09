@@ -285,8 +285,8 @@ a function <span class="math inline">\(F_X : \mathbb{R}\to [0,1]\)</span>
 defined by
 <span class="math display">\[ F_X (x) = \mathbb{P}(X \leq x) \,. \]</span></p>
 </div>
-<p>Notationally, we use the notation <span class="math inline">\(X\sim F\)</span> to mean
-RV <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>.</p>
+<p><strong>Notationally, we use the notation <span class="math inline">\(X\sim F\)</span> to mean
+RV <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>.</strong></p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 1.2  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
 <span class="math display">\[
@@ -316,24 +316,71 @@ and
 </div>
 <div id="joint-distribution-of-rvs" class="section level3 hasAnchor" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> Joint distribution of RVs<a href="probability.html#joint-distribution-of-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We denote
 <span class="math display">\[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]</span></p>
+<p>For discrete RVs, the joint probability function of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is
+<span class="math display">\[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]</span></p>
+<p>For continuous RVs, the situations are more complicated.</p>
+</div>
+<div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Point mass distribution (Dirac delta):
+Given a discrete probability <span class="math inline">\(X: \Omega \to S\)</span>. <span class="math inline">\(X\)</span> has a point mass distribution at <span class="math inline">\(a \in S\)</span>
+if
+<span class="math display">\[ \mathbb{P}( X = a) = 1.\]</span>
+We call <span class="math inline">\(X\)</span> a point mass RV and write <span class="math inline">\(X \sim \delta_a\)</span>.</p>
+<p><em>Question.</em> Suppose <span class="math inline">\(S = \mathbb{N}\)</span>. Write down <span class="math inline">\(F_X\)</span> for the point mass RV <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Discrete uniform distribution:
+<span class="math inline">\(f_X(k) = \frac 1 n\,,\)</span>
+<span class="math inline">\(k \in \{1,\dots, n\}\)</span>.</p></li>
+<li><p>Bernoulli distribution:
+let <span class="math inline">\(X:\Omega \to \{0,1\}\)</span> be RV that represents a binary coin flip.
+Suppose <span class="math inline">\(\mathbb{P}(X = 1) = p\)</span> for some <span class="math inline">\(p \in [0,1]\)</span>.
+Then <span class="math inline">\(X\)</span> has a Bernoulli distribution, written as <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span>.
+The probability function is
+<span class="math display">\[f_X(x) = p^x (1-p)^{1-x}.\]</span>
+We write <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span>.</p></li>
+<li><p>Binomial distribution:
+let <span class="math inline">\(X:\Omega \to \mathbb{N}\)</span> be the RV that represents the number of heads out of <span class="math inline">\(n\)</span> independent coin flips.
+Then
+<span class="math display">\[ f_X = \begin{cases}
+{n \choose x} p^x (1-p)^{n-x}\,, x\in \{0,1,\dots, n\}\\
+     0 \,, \text{otherwise}
+\end{cases}\]</span>
+We write <span class="math inline">\(X \sim \text{Binomial}(n,p)\)</span>.</p></li>
+<li><p>Poisson distribution: <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span>.
+<span class="math display">\[f_X (x) = e^{-\lambda} \frac{\lambda^x}{x!}\,, x \geq 0.\]</span>
+<span class="math inline">\(X\)</span> is a RV that describe a given number of events occurring in a
+fixed interval of time or space if these events occur with a known constant mean rate and
+independently of the time since the last event</p></li>
+</ol>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 1.5  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
+that <span class="math inline">\(np = \lambda\)</span> always.
+Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>For <span class="math inline">\(n\)</span> very very large, what is the behaviour of<br />
+<span class="math display">\[ \frac{n!}{(n-x)!} \,.\]</span>
+(You should just get some power of <span class="math inline">\(n\)</span>)</p></li>
+<li><p>Show that
+<span class="math display">\[\lim_{n\to \infty} f_{X_{n,p}}(x) = \frac{\lambda^x e^{-\lambda}}{x!}.\]</span></p></li>
+<li><p>Interpret this result.</p></li>
+</ol>
+</div>
+</div>
+<div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if,
 for every <span class="math inline">\(A, B \in \mathcal{B}(S)\)</span>, we have
 <span class="math display">\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]</span>
 and write <span class="math inline">\(X \perp Y\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 Suppose that <span class="math inline">\(f_Y(y) &gt;0\)</span>.
 The conditional probability mass function of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is
 <span class="math display">\[ f_{X|Y} (x|y) =

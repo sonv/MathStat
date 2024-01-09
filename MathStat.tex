@@ -113,22 +113,16 @@ This is class notes for Mathematical Statistics at Fublbright University Vietnam
 I claim no originality in this work as it is mostly taken from the reference books.
 However, all errors and typos are solely mine.
 
-\begin{longtable}[]{@{}l@{}}
-\toprule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
- \\
- \\
-\newcommand{\vect}{\mathbf} \\
-\newcommand{\R}{\mathbb{R}} \\
-\newcommand{\N}{\mathbb{N}} \\
-\renewcommand{\P}{\mathbb{P}} \\
-\newcommand{\cP}{\mathcal{P}} \\
-\newcommand{\cF}{\mathcal{F}} \\
-\newcommand{\cB}{\mathcal{B}} \\
- \\
-\end{longtable}
+\newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
+\newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
+\newcommand{\vect}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cB}{\mathcal{B}}
+\newtheorem{question}{Question}
 
 \newpage
 
@@ -308,8 +302,8 @@ defined by
 \[ F_X (x) = \mathbb{P}(X \leq x) \,. \]
 \end{definition}
 
-Notationally, we use the notation \(X\sim F\) to mean
-RV \(X\) with distribution \(F\).
+\textbf{Notationally, we use the notation \(X\sim F\) to mean
+RV \(X\) with distribution \(F\).}
 
 \begin{exercise}
 Given a real-valued continuous RV \(X: \Omega \to \mathbb{R}\), prove that
@@ -349,13 +343,78 @@ Prove the following:
 
 \subsection{Joint distribution of RVs}\label{joint-distribution-of-rvs}
 
-\subsection{Some important random variables}\label{some-important-random-variables}
-
-\subsection{Independent random variables}\label{independent-random-variables}
-
 Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
 We denote
 \[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]
+
+For discrete RVs, the joint probability function of \(X\) and \(Y\) is
+\[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]
+
+For continuous RVs, the situations are more complicated.
+
+\subsection{Some important random variables}\label{some-important-random-variables}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Point mass distribution (Dirac delta):
+  Given a discrete probability \(X: \Omega \to S\). \(X\) has a point mass distribution at \(a \in S\)
+  if
+  \[ \mathbb{P}( X = a) = 1.\]
+  We call \(X\) a point mass RV and write \(X \sim \delta_a\).
+
+  \emph{Question.} Suppose \(S = \mathbb{N}\). Write down \(F_X\) for the point mass RV \(X\).
+\item
+  Discrete uniform distribution:
+  \(f_X(k) = \frac 1 n\,,\)
+  \(k \in \{1,\dots, n\}\).
+\item
+  Bernoulli distribution:
+  let \(X:\Omega \to \{0,1\}\) be RV that represents a binary coin flip.
+  Suppose \(\mathbb{P}(X = 1) = p\) for some \(p \in [0,1]\).
+  Then \(X\) has a Bernoulli distribution, written as \(X \sim \text{Bernoulli}(p)\).
+  The probability function is
+  \[f_X(x) = p^x (1-p)^{1-x}.\]
+  We write \(X \sim \text{Bernoulli}(p)\).
+\item
+  Binomial distribution:
+  let \(X:\Omega \to \mathbb{N}\) be the RV that represents the number of heads out of \(n\) independent coin flips.
+  Then
+  \[ f_X = \begin{cases}
+  {n \choose x} p^x (1-p)^{n-x}\,, x\in \{0,1,\dots, n\}\\
+       0 \,, \text{otherwise}
+  \end{cases}\]
+  We write \(X \sim \text{Binomial}(n,p)\).
+\item
+  Poisson distribution: \(X \sim \text{Poisson}(\lambda)\).
+  \[f_X (x) = e^{-\lambda} \frac{\lambda^x}{x!}\,, x \geq 0.\]
+  \(X\) is a RV that describe a given number of events occurring in a
+  fixed interval of time or space if these events occur with a known constant mean rate and
+  independently of the time since the last event
+\end{enumerate}
+
+\begin{exercise}
+
+Let \(X_{n,p} \sim \text{Binomial}(n,p)\). Suppose that as \(n\to \infty\), \(p \to 0\) in such a way
+that \(np = \lambda\) always.
+Let \(x\in \mathbb{N}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For \(n\) very very large, what is the behaviour of\\
+  \[ \frac{n!}{(n-x)!} \,.\]
+  (You should just get some power of \(n\))
+\item
+  Show that
+  \[\lim_{n\to \infty} f_{X_{n,p}}(x) = \frac{\lambda^x e^{-\lambda}}{x!}.\]
+\item
+  Interpret this result.
+\end{enumerate}
+
+\end{exercise}
+
+\subsection{Independent random variables}\label{independent-random-variables}
 
 \begin{definition}
 Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
