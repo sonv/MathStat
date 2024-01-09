@@ -189,8 +189,17 @@ of <span class="math inline">\(\Omega\)</span> if</p>
 </ol>
 </div>
 <p>A Borel <span class="math inline">\(\sigma\)</span>-algebra is the smallest <span class="math inline">\(\sigma\)</span>-algebra that contains all the open sets.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 1.1  </strong></span>It turns out that if <span class="math inline">\(\Omega\)</span> is a discrete set, it is typical to have the set of open sets contain every set of singletons, i.e.,
+the set <span class="math inline">\(\{ a \}\)</span> is open for every <span class="math inline">\(a\in \Omega\)</span>.
+Take this as an assumption, show that
+for any discrete set <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(\mathcal{B}(\Omega) = \mathcal{P}(\Omega)\)</span>.</p>
+</div>
+<p>What open sets really are is not important for now. The important thing is that for <span class="math inline">\(\mathbb{R}^n\)</span>
+open sets are made of open intervals/ open boxes.
+Your typical intuitions still work.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-2" class="definition"><strong>Definition 1.2  (Probability Space) </strong></span>A <em>Probability Space</em> is a triple <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span>, where
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 1.2  (Probability Space) </strong></span>A <em>Probability Space</em> is a triple <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span>, where
 <span class="math inline">\(\Omega\)</span> is a set called <em>sample space</em>, <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\Omega\)</span>,
 <span class="math inline">\(\mathbb{P}: \mathcal{F}\to [0,1]\)</span>, called a <em>Probability Measure</em>, is a function that satisfies the following:</p>
 <ol style="list-style-type: decimal">
@@ -205,17 +214,17 @@ is called an <em>event</em>.</p>
 There are certain events that are building blocks of knowledge and that we don’t have
 access to finer details.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 1.3  (Independent Events) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events. We say that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 1.3  (Independent Events) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events. We say that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent
 if
 <span class="math display">\[ \mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B)  \,. \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 1.4  (Conditional Probability) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events such that <span class="math inline">\(\mathbb{P}(B) &gt;0\)</span>. Then, the conditional probability of
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 1.4  (Conditional Probability) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events such that <span class="math inline">\(\mathbb{P}(B) &gt;0\)</span>. Then, the conditional probability of
 <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is
 <span class="math display">\[ \mathbb{P}(A \vert B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \,. \]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-5" class="theorem"><strong>Theorem 1.1  (Bayes's Theorem) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events such that <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> and <span class="math inline">\(\mathbb{P}(B) &gt;0\)</span>.
+<p><span id="thm:unlabeled-div-6" class="theorem"><strong>Theorem 1.1  (Bayes's Theorem) </strong></span>Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be events such that <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> and <span class="math inline">\(\mathbb{P}(B) &gt;0\)</span>.
 Then,
 <span class="math display">\[\mathbb{P}(A | B) = \frac{\mathbb{P}(B | A) \ P(A)}{\mathbb{P}(B)} \,.\]</span></p>
 </div>
@@ -236,7 +245,7 @@ Then,
 We need to have a notion of objects that associated with probabilities.
 This brings about the idea of <em>random variable</em>.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 1.5  (Random Variable) </strong></span>Let <span class="math inline">\((\Omega, \mathcal{B}(\Omega), \mathbb{P})\)</span> be a probability space and <span class="math inline">\((S, \mathcal{B}(S))\)</span> a <span class="math inline">\(\sigma\)</span>-algebra.
+<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 1.5  (Random Variable) </strong></span>Let <span class="math inline">\((\Omega, \mathcal{B}(\Omega), \mathbb{P})\)</span> be a probability space and <span class="math inline">\((S, \mathcal{B}(S))\)</span> a <span class="math inline">\(\sigma\)</span>-algebra.
 A random variable is a (Borel measurable) function from <span class="math inline">\(\Omega \to S\)</span>.</p>
 <ul>
 <li><span class="math inline">\(S\)</span> is called the <em>state space</em> of <span class="math inline">\(X\)</span>.</li>
@@ -244,7 +253,7 @@ A random variable is a (Borel measurable) function from <span class="math inline
 </div>
 <p>In this course, we will restrict our attentions to two types of random variables: discrete and continuous.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 1.6  (Discrete RV) </strong></span><span class="math inline">\(X: \Omega \to S\)</span> is called
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 1.6  (Discrete RV) </strong></span><span class="math inline">\(X: \Omega \to S\)</span> is called
 a discrete RV if <span class="math inline">\(S\)</span> is a countable set.</p>
 <ul>
 <li>A <em>probability function</em> or <em>probability mass function</em> for <span class="math inline">\(X\)</span> is a function
@@ -256,7 +265,7 @@ a discrete RV if <span class="math inline">\(S\)</span> is a countable set.</p>
 This is because of the lack of background in measure theory so we can talk about this concept in
 a more precise way.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 1.7  (Continuous RV) </strong></span>A <em>continuous random variable</em> is a measurable function <span class="math inline">\(X:\Omega \to S\)</span> is continuous
+<p><span id="def:unlabeled-div-9" class="definition"><strong>Definition 1.7  (Continuous RV) </strong></span>A <em>continuous random variable</em> is a measurable function <span class="math inline">\(X:\Omega \to S\)</span> is continuous
 if it satisfies the following conditions:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(S = \mathbb{R}^n\)</span> for some <span class="math inline">\(n\in \mathbb{N}\)</span>.</p></li>
@@ -275,11 +284,11 @@ like Topology and Measure Theory. It is particularly important to know these two
 subjects
 in order to thoroughly understand Stochastic Processes.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-9" class="exercise"><strong>Exercise 1.1  </strong></span>Create a random variable that represents the results of <span class="math inline">\(n\)</span> coin flips.</p>
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 1.2  </strong></span>Create a random variable that represents the results of <span class="math inline">\(n\)</span> coin flips.</p>
 </div>
 <p>For real-valued RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> we have the concept of cumulative distribution function.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-10" class="definition"><strong>Definition 1.8  (Cumulative Distribution Function) </strong></span>Given a RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span>.
+<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 1.8  (Cumulative Distribution Function) </strong></span>Given a RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span>.
 The <em>cumulative distribution function of <span class="math inline">\(X\)</span></em> or CDF, is
 a function <span class="math inline">\(F_X : \mathbb{R}\to [0,1]\)</span>
 defined by
@@ -288,7 +297,7 @@ defined by
 <p><strong>Notationally, we use the notation <span class="math inline">\(X\sim F\)</span> to mean
 RV <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>.</strong></p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 1.2  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 1.3  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
 <span class="math display">\[
 F_X(x)=\int_{-\infty}^x f_X(t) d t
 \]</span>
@@ -296,12 +305,12 @@ is differentiable for every <span class="math inline">\(x\)</span>
 and <span class="math inline">\(f_X(x)=F_X^{\prime}(x)\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 1.3  </strong></span>Let <span class="math inline">\(X\)</span> be an RV with CDF <span class="math inline">\(F\)</span> and <span class="math inline">\(Y\)</span> with CDF <span class="math inline">\(G\)</span>.
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 1.4  </strong></span>Let <span class="math inline">\(X\)</span> be an RV with CDF <span class="math inline">\(F\)</span> and <span class="math inline">\(Y\)</span> with CDF <span class="math inline">\(G\)</span>.
 Suppose <span class="math inline">\(F(x) = G(x)\)</span> for all <span class="math inline">\(x\)</span>. Show that
 <span class="math display">\[ \mathbb{P}(X \in A) = \mathbb{P}(Y \in B) \,.\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 1.4  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 1.5  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
 Prove the following:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(F\)</span> is non-decreasing: if <span class="math inline">\(x_1 \leq x_2\)</span>, then <span class="math inline">\(F(x_1) \leq F(x_2)\)</span>.</p></li>
@@ -319,9 +328,11 @@ and
 <p>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We denote
 <span class="math display">\[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]</span></p>
-<p>For discrete RVs, the joint probability function of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is
+<p>For discrete RVs, the joint probability function of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> has the following meaning
 <span class="math display">\[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]</span></p>
-<p>For continuous RVs, the situations are more complicated.</p>
+<p>For continuous RVs, the situations are more complicated as we can’t make sense of <span class="math inline">\(\mathbb{P}(X = x; Y = y)\)</span> (this is always 0 in most situation and in some other situation, one can’t even talk about it– this is a topic of more advanced course in measure theory).
+However, we can have
+<span class="math display">\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{X,Y} (x,y) \, dx dy \,.\]</span></p>
 </div>
 <div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -357,7 +368,7 @@ fixed interval of time or space if these events occur with a known constant mean
 independently of the time since the last event</p></li>
 </ol>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 1.5  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
+<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 1.6  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
 that <span class="math inline">\(np = \lambda\)</span> always.
 Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <ol style="list-style-type: decimal">
@@ -373,14 +384,14 @@ Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
 <h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if,
 for every <span class="math inline">\(A, B \in \mathcal{B}(S)\)</span>, we have
 <span class="math display">\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]</span>
 and write <span class="math inline">\(X \perp Y\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-17" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 Suppose that <span class="math inline">\(f_Y(y) &gt;0\)</span>.
 The conditional probability mass function of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is
 <span class="math display">\[ f_{X|Y} (x|y) =

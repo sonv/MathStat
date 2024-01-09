@@ -162,6 +162,17 @@ of \(\Omega\) if
 
 A Borel \(\sigma\)-algebra is the smallest \(\sigma\)-algebra that contains all the open sets.
 
+\begin{exercise}
+It turns out that if \(\Omega\) is a discrete set, it is typical to have the set of open sets contain every set of singletons, i.e.,
+the set \(\{ a \}\) is open for every \(a\in \Omega\).
+Take this as an assumption, show that
+for any discrete set \(\Omega\), \(\mathcal{B}(\Omega) = \mathcal{P}(\Omega)\).
+\end{exercise}
+
+What open sets really are is not important for now. The important thing is that for \(\mathbb{R}^n\)
+open sets are made of open intervals/ open boxes.
+Your typical intuitions still work.
+
 \begin{definition}[Probability Space]
 A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), where
 \(\Omega\) is a set called \emph{sample space}, \(\mathcal{F}\) is a \(\sigma\)-algebra on \(\Omega\),
@@ -347,10 +358,12 @@ Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
 We denote
 \[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]
 
-For discrete RVs, the joint probability function of \(X\) and \(Y\) is
+For discrete RVs, the joint probability function of \(X\) and \(Y\) has the following meaning
 \[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]
 
-For continuous RVs, the situations are more complicated.
+For continuous RVs, the situations are more complicated as we can't make sense of \(\mathbb{P}(X = x; Y = y)\) (this is always 0 in most situation and in some other situation, one can't even talk about it-- this is a topic of more advanced course in measure theory).
+However, we can have
+\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{X,Y} (x,y) \, dx dy \,.\]
 
 \subsection{Some important random variables}\label{some-important-random-variables}
 
