@@ -170,6 +170,7 @@ Interestingly, \(\mathbb{R}\) and \(\emptyset\) are called clopen sets (here's a
 
 A Borel \(\sigma\)-algebra is the smallest \(\sigma\)-algebra that contains all the open sets.
 We denote the Borel \(\sigma\)-algebra of a set \(\Omega\) to be \(\mathcal{B}(\Omega)\).
+This is a rather abstract definition. There is no clear way to construct a sigma algebra from a collection of sets. However, the construction is not important as the reassurance that this object does exist to give us nice domains to work with when we define a probability measure (see below definition).
 
 \begin{exercise}
 (\emph{Challenging-- not required but good for the brain})
@@ -182,6 +183,27 @@ for any discrete set \(\Omega\), \(\mathcal{B}(\Omega) = \mathcal{P}(\Omega)\).
 What open sets really are is not important for now. The important thing is that for \(\mathbb{R}^n\)
 open sets are made of open intervals/ open boxes.
 Your typical intuitions still work.
+
+Philosophically, the \(\sigma\)-algebra represents the details of information we could have access to.
+There are certain events that are building blocks of knowledge and that we don't have
+access to finer details.
+
+Think about the \(\sigma\)-algebra as a consistent model of what can be known (observed). For example, you can never know
+what's going on in the houses on the street unless you have been to them.
+But somehow, together, you are still able to piece all the information you have about the houses
+to make sense of the world. This is related to the problem of information. How much information is enough to be useful in certain situation?!
+
+To have a consistent system is not the same as to know everything. The system
+you see/invent can never be exhaustively true, but you can still say something about
+the reality if you can have a system that is consistent with what you observe. This
+is why we do sampling!!
+
+When you have a consistent model, you now want to encode the model in such a way
+that it helps you with describing/predict the reality you see.
+A way to do that with no full knowledge of anything is to assign the certain number
+to measure the chance for something to happen at a given time.
+This encoding needs to happen on the model you constructed. This leads to the following definition of
+probability space.
 
 \begin{definition}[Probability Space]
 A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), where
@@ -200,10 +222,6 @@ A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), wh
 Each element \(\omega \in \Omega\) is called an \emph{outcome} and each subset \(A \in \mathcal{F}\)
 is called an \emph{event}.
 \end{definition}
-
-Philosophically, the \(\sigma\)-algebra represents the details of information we could have access to.
-There are certain events that are building blocks of knowledge and that we don't have
-access to finer details.
 
 \begin{definition}[Independent Events]
 Let \(A, B \in \mathcal{F}\) be events. We say that \(A\) and \(B\) are independent
