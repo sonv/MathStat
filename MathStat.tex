@@ -389,11 +389,22 @@ We denote
 \[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]
 
 For discrete RVs, the joint probability function of \(X\) and \(Y\) has the following meaning
-\[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]
+\[f_{XY}(x,y) = \mathbb{P}(X = x; Y = y)\]
 
 For continuous RVs, the situations are more complicated as we can't make sense of \(\mathbb{P}(X = x; Y = y)\) (this is always 0 in most situation and in some other situation, one can't even talk about it-- this is a topic of more advanced course in measure theory).
 However, we can have
-\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{X,Y} (x,y) \, dx dy \,.\]
+\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{XY} (x,y) \, dx dy \,.\]
+
+Another way to look at the above is the following.
+We can even consider
+\(X: \Omega \to S^n\),
+where \(n\geq 2\).
+Instead of thinking about this as one RV, we can think about this
+as a vector of RVs:
+\[ X = \begin{pmatrix} X_1 \\ \vdots \\ X_n \end{pmatrix},\]
+where \(X_1, \dots X_n: \Omega \to S\) are RVs.
+Because of this, we have can write the density function as
+\[ f_X(x) = f_{X_1 X_2 \dots X_n}(x)\]
 
 \subsection{Some important random variables}\label{some-important-random-variables}
 

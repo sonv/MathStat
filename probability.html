@@ -354,10 +354,20 @@ and
 We denote
 <span class="math display">\[ \mathbb{P}(X \in A; Y \in B) = \mathbb{P}(\{X\in A\} \cap \{Y \in B \}) \,. \]</span></p>
 <p>For discrete RVs, the joint probability function of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> has the following meaning
-<span class="math display">\[f_{X,Y}(x,y) = \mathbb{P}(X = x; Y = y)\]</span></p>
+<span class="math display">\[f_{XY}(x,y) = \mathbb{P}(X = x; Y = y)\]</span></p>
 <p>For continuous RVs, the situations are more complicated as we can’t make sense of <span class="math inline">\(\mathbb{P}(X = x; Y = y)\)</span> (this is always 0 in most situation and in some other situation, one can’t even talk about it– this is a topic of more advanced course in measure theory).
 However, we can have
-<span class="math display">\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{X,Y} (x,y) \, dx dy \,.\]</span></p>
+<span class="math display">\[\mathbb{P}(X \in A; Y \in B) = \int_{X \in A} \int_{Y \in B} f_{XY} (x,y) \, dx dy \,.\]</span></p>
+<p>Another way to look at the above is the following.
+We can even consider
+<span class="math inline">\(X: \Omega \to S^n\)</span>,
+where <span class="math inline">\(n\geq 2\)</span>.
+Instead of thinking about this as one RV, we can think about this
+as a vector of RVs:
+<span class="math display">\[ X = \begin{pmatrix} X_1 \\ \vdots \\ X_n \end{pmatrix},\]</span>
+where <span class="math inline">\(X_1, \dots X_n: \Omega \to S\)</span> are RVs.
+Because of this, we have can write the density function as
+<span class="math display">\[ f_X(x) = f_{X_1 X_2 \dots X_n}(x)\]</span></p>
 </div>
 <div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
