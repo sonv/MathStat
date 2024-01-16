@@ -406,6 +406,34 @@ where \(X_1, \dots X_n: \Omega \to S\) are RVs.
 Because of this, we have can write the density function as
 \[ f_X(x) = f_{X_1 X_2 \dots X_n}(x)\]
 
+Some people call \(X\) a random vector.
+
+\(f_{X_1\dots X_n}\) is called the joint probability distribution.
+
+\begin{exercise}
+
+True or false:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(f_{XY}(x,y) = f_{X}(x) + f_{Y}(y)\)
+\item
+  \(f_{XY}(x,y) = f_{X}(x) f_{Y}(y)\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{definition}[Marginal density]
+The marginal density of \(X_i\) is
+\[f_{X_i}(x_i) = \int f_{X_1\dots X_n}(x_1, \dots, x_n) \, dx_1\dots dx_{i-1} dx_{i+1} \dots dx_n\]
+(integrate coordinate except the \(i\)-th coordinate.
+\end{definition}
+
+\begin{exercise}
+Can you construct \(f_{XY}\) if you know \(f_X\) and \(f_Y\)?
+\end{exercise}
+
 \subsection{Some important random variables}\label{some-important-random-variables}
 
 \begin{enumerate}
@@ -445,6 +473,9 @@ Because of this, we have can write the density function as
   \(X\) is a RV that describe a given number of events occurring in a
   fixed interval of time or space if these events occur with a known constant mean rate and
   independently of the time since the last event
+\item
+  Gaussian: \(X \sim N(\sigma,\mu)\).
+  \[f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)}.\]
 \end{enumerate}
 
 \begin{exercise}
@@ -478,15 +509,68 @@ for every \(A, B \in \mathcal{B}(S)\), we have
 and write \(X \perp Y\).
 \end{definition}
 
+So, if \(X\) and \(Y\) are independent,
+\[f_{XY}(x,y) = f_X(x) f_Y(y).\]
+
 \begin{definition}
 Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
 Suppose that \(f_Y(y) >0\).
 The conditional probability mass function of \(X\) given \(Y\) is
-\[ f_{X|Y} (x|y) =
-\frac{f_{X,Y}(x,y)}{f_Y(y)} \,.\]
+\[ f_{X|Y} (x|y) = \frac{f_{XY}(x,y)}{f_Y(y)} \,.\]
 \end{definition}
 
+\begin{exercise}
+Let
+\[ f(x,y) = \begin{cases} x+y \,, 0\leq x \leq 1, 0 \leq y \leq 1\\
+            0\,, \text{otherwise} \end{cases}.\]
+What is \(\mathbb{P}( X < 1/4 \vert Y = 1/3)\).
+\end{exercise}
+
+Note that the above exercise is a little bit weird and counter-intuitive.
+While
+\(\mathbb{P}( X < 1/4 , Y = 1/3) = 0\) (why?),
+\(\mathbb{P}( X < 1/4 | Y = 1/3) \not= 0\)
+
+A very important RV is the \emph{multivariate Normal RV}, which obeys the
+following density function
+
+\[f(x; \mu, \Sigma) = \frac{1}{(2\pi)^{n/2} | \Sigma |^{1/2}} \exp\big( -\frac{1}{2} (x-mu)^T \Sigma^{-1} (x-\mu)  \big).\]
+
 \subsection{Transformations of RVs}\label{transformations-of-rvs}
+
+Sometimes, we don't work with RV directly but certain characteristics of RVs.
+Those characteristics are represented by certain transformation.
+If the functions are nice enough, we can actually have a recipe to generate
+the probability density function.
+
+Suppose \(g: S^n \to \mathbb{R}\) and \(Z = g(X_1, \dots, X_n)\).
+Let \(A_z = \{ (x_1,\dots, x_n): g(x_1,\dots, x_n) \leq z \}\).
+Then
+\[F_Z(z) = \mathbb{P}(Z \leq z) = \mathbb{P}(g(X_1, \dots, X_n) \leq z) = \int_{A_z} f_{X_1\dots X_n}(x_1,\dots,x_n) \, dx_1\dots dx_n, \]
+and
+\[f_Z(z) = F_Z'(z).\]
+
+\begin{exercise}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Let \(X, Y \sim \text{Uniform}(0,1)\) be independent RVs, i.e.,
+  \[f_{X}(x) = f_{Y}(y) = 1\,.\]
+  What is the density function for the RV \(Z = X + Y\)?
+\item
+  Same question but \(X, Y \sim N(0,1)\).
+\end{enumerate}
+
+\end{exercise}
+
+\begin{definition}
+RVs that are independent and share the same distribution are called
+\emph{independent and identically distributed} RVs.
+
+We often shorthand this by IID RVs.
+\end{definition}
 
 \section{Inequalities}\label{inequalities}
 

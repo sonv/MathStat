@@ -368,6 +368,23 @@ as a vector of RVs:
 where <span class="math inline">\(X_1, \dots X_n: \Omega \to S\)</span> are RVs.
 Because of this, we have can write the density function as
 <span class="math display">\[ f_X(x) = f_{X_1 X_2 \dots X_n}(x)\]</span></p>
+<p>Some people call <span class="math inline">\(X\)</span> a random vector.</p>
+<p><span class="math inline">\(f_{X_1\dots X_n}\)</span> is called the joint probability distribution.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 1.6  </strong></span>True or false:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(f_{XY}(x,y) = f_{X}(x) + f_{Y}(y)\)</span></p></li>
+<li><p><span class="math inline">\(f_{XY}(x,y) = f_{X}(x) f_{Y}(y)\)</span></p></li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.9  (Marginal density) </strong></span>The marginal density of <span class="math inline">\(X_i\)</span> is <F12>
+<span class="math display">\[f_{X_i}(x_i) = \int f_{X_1\dots X_n}(x_1, \dots, x_n) \, dx_1\dots dx_{i-1} dx_{i+1} \dots dx_n\]</span>
+(integrate coordinate except the <span class="math inline">\(i\)</span>-th coordinate.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-17" class="exercise"><strong>Exercise 1.7  </strong></span>Can you construct <span class="math inline">\(f_{XY}\)</span> if you know <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>?</p>
+</div>
 </div>
 <div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> Some important random variables<a href="probability.html#some-important-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -401,9 +418,11 @@ We write <span class="math inline">\(X \sim \text{Binomial}(n,p)\)</span>.</p></
 <span class="math inline">\(X\)</span> is a RV that describe a given number of events occurring in a
 fixed interval of time or space if these events occur with a known constant mean rate and
 independently of the time since the last event</p></li>
+<li><p>Gaussian: <span class="math inline">\(X \sim N(\sigma,\mu)\)</span>.
+<span class="math display">\[f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)}.\]</span></p></li>
 </ol>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 1.6  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
+<p><span id="exr:unlabeled-div-18" class="exercise"><strong>Exercise 1.8  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
 that <span class="math inline">\(np = \lambda\)</span> always.
 Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <ol style="list-style-type: decimal">
@@ -419,22 +438,60 @@ Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
 <h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.9  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-19" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if,
 for every <span class="math inline">\(A, B \in \mathcal{B}(S)\)</span>, we have
 <span class="math display">\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]</span>
 and write <span class="math inline">\(X \perp Y\)</span>.</p>
 </div>
+<p>So, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent,
+<span class="math display">\[f_{XY}(x,y) = f_X(x) f_Y(y).\]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-17" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-20" class="definition"><strong>Definition 1.11  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 Suppose that <span class="math inline">\(f_Y(y) &gt;0\)</span>.
 The conditional probability mass function of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is
-<span class="math display">\[ f_{X|Y} (x|y) =
-\frac{f_{X,Y}(x,y)}{f_Y(y)} \,.\]</span></p>
+<span class="math display">\[ f_{X|Y} (x|y) = \frac{f_{XY}(x,y)}{f_Y(y)} \,.\]</span></p>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Exercise 1.9  </strong></span>Let
+<span class="math display">\[ f(x,y) = \begin{cases} x+y \,, 0\leq x \leq 1, 0 \leq y \leq 1\\
+            0\,, \text{otherwise} \end{cases}.\]</span>
+What is <span class="math inline">\(\mathbb{P}( X &lt; 1/4 \vert Y = 1/3)\)</span>.</p>
+</div>
+<p>Note that the above exercise is a little bit weird and counter-intuitive.
+While
+<span class="math inline">\(\mathbb{P}( X &lt; 1/4 , Y = 1/3) = 0\)</span> (why?),
+<span class="math inline">\(\mathbb{P}( X &lt; 1/4 | Y = 1/3) \not= 0\)</span></p>
+<p>A very important RV is the <em>multivariate Normal RV</em>, which obeys the
+following density function</p>
+<p><span class="math display">\[f(x; \mu, \Sigma) = \frac{1}{(2\pi)^{n/2} | \Sigma |^{1/2}} \exp\big( -\frac{1}{2} (x-mu)^T \Sigma^{-1} (x-\mu)  \big).\]</span></p>
 </div>
 <div id="transformations-of-rvs" class="section level3 hasAnchor" number="1.1.6">
 <h3><span class="header-section-number">1.1.6</span> Transformations of RVs<a href="probability.html#transformations-of-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes, we don’t work with RV directly but certain characteristics of RVs.
+Those characteristics are represented by certain transformation.
+If the functions are nice enough, we can actually have a recipe to generate
+the probability density function.</p>
+<p>Suppose <span class="math inline">\(g: S^n \to \mathbb{R}\)</span> and <span class="math inline">\(Z = g(X_1, \dots, X_n)\)</span>.
+Let <span class="math inline">\(A_z = \{ (x_1,\dots, x_n): g(x_1,\dots, x_n) \leq z \}\)</span>.
+Then
+<span class="math display">\[F_Z(z) = \mathbb{P}(Z \leq z) = \mathbb{P}(g(X_1, \dots, X_n) \leq z) = \int_{A_z} f_{X_1\dots X_n}(x_1,\dots,x_n) \, dx_1\dots dx_n, \]</span>
+and
+<span class="math display">\[f_Z(z) = F_Z&#39;(z).\]</span></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Exercise 1.10  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(X, Y \sim \text{Uniform}(0,1)\)</span> be independent RVs, i.e.,
+<span class="math display">\[f_{X}(x) = f_{Y}(y) = 1\,.\]</span>
+What is the density function for the RV <span class="math inline">\(Z = X + Y\)</span>?</p></li>
+<li><p>Same question but <span class="math inline">\(X, Y \sim N(0,1)\)</span>.</p></li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 1.12  </strong></span>RVs that are independent and share the same distribution are called
+<em>independent and identically distributed</em> RVs.</p>
+<p>We often shorthand this by IID RVs.</p>
+</div>
 </div>
 </div>
 <div id="inequalities" class="section level2 hasAnchor" number="1.2">
