@@ -112,6 +112,8 @@
 <li class="chapter" data-level="1.1.4" data-path="probability.html"><a href="probability.html#some-important-random-variables"><i class="fa fa-check"></i><b>1.1.4</b> Some important random variables</a></li>
 <li class="chapter" data-level="1.1.5" data-path="probability.html"><a href="probability.html#independent-random-variables"><i class="fa fa-check"></i><b>1.1.5</b> Independent random variables</a></li>
 <li class="chapter" data-level="1.1.6" data-path="probability.html"><a href="probability.html#transformations-of-rvs"><i class="fa fa-check"></i><b>1.1.6</b> Transformations of RVs</a></li>
+<li class="chapter" data-level="1.1.7" data-path="probability.html"><a href="probability.html#expectation"><i class="fa fa-check"></i><b>1.1.7</b> Expectation</a></li>
+<li class="chapter" data-level="1.1.8" data-path="probability.html"><a href="probability.html#moment-generating-and-characteristics-functions"><i class="fa fa-check"></i><b>1.1.8</b> Moment Generating and Characteristics Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.2</b> Inequalities</a></li>
 <li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.3</b> Law of Large Numbers</a></li>
@@ -300,6 +302,16 @@ for all <span class="math inline">\(x, \int_{\mathbb{R}^n} f_X(x) d x=1\)</span>
 </ol>
 <p>The function <span class="math inline">\(f_X\)</span> is called the <em>probability density function (PDF)</em>.</p>
 </div>
+<p>If two RVs <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> share the same probability function, we say that they
+have the same distribution and denote them by
+<span class="math display">\[ X \stackrel{d}{=}Y.\]</span></p>
+<p>In this case we also say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>equal in distribution</strong>.</p>
+<div class="remark">
+<p><span id="unlabeled-div-10" class="remark"><em>Remark</em>. </span>To make the presentation more compact and clean,
+notationally, we will write
+<span class="math display">\[ \int f(x)  dx \]</span>
+to mean both integral (for continuous RV) and summation (for discrete RV).</p>
+</div>
 <p>There are more general concepts of continuous RV where we don’t need to require
 <span class="math inline">\(S\)</span> to be a Euclidean space as in the above definition.
 However, such concepts require the readers to be familiar with advanced subjects
@@ -307,11 +319,11 @@ like Topology and Measure Theory. It is particularly important to know these two
 subjects
 in order to thoroughly understand Stochastic Processes.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 1.2  </strong></span>Create a random variable that represents the results of <span class="math inline">\(n\)</span> coin flips.</p>
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 1.2  </strong></span>Create a random variable that represents the results of <span class="math inline">\(n\)</span> coin flips.</p>
 </div>
 <p>For real-valued RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> we have the concept of cumulative distribution function.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 1.8  (Cumulative Distribution Function) </strong></span>Given a RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span>.
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 1.8  (Cumulative Distribution Function) </strong></span>Given a RV <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span>.
 The <em>cumulative distribution function of <span class="math inline">\(X\)</span></em> or CDF, is
 a function <span class="math inline">\(F_X : \mathbb{R}\to [0,1]\)</span>
 defined by
@@ -320,7 +332,7 @@ defined by
 <p><strong>Notationally, we use the notation <span class="math inline">\(X\sim F\)</span> to mean
 RV <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>.</strong></p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 1.3  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 1.3  </strong></span>Given a real-valued continuous RV <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, prove that
 if <span class="math inline">\(f_X\)</span> is continuous then
 <span class="math display">\[
 F_X(x)=\int_{-\infty}^x f_X(t) d t
@@ -329,13 +341,13 @@ is differentiable for every <span class="math inline">\(x\)</span>
 and <span class="math inline">\(f_X(x)=F_X^{\prime}(x)\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 1.4  </strong></span>Let <span class="math inline">\(X\)</span> be an RV with CDF <span class="math inline">\(F\)</span> and <span class="math inline">\(Y\)</span> with CDF <span class="math inline">\(G\)</span>.
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 1.4  </strong></span>Let <span class="math inline">\(X\)</span> be an RV with CDF <span class="math inline">\(F\)</span> and <span class="math inline">\(Y\)</span> with CDF <span class="math inline">\(G\)</span>.
 Suppose <span class="math inline">\(F(x) = G(x)\)</span> for all <span class="math inline">\(x\)</span>. Show that for every set <span class="math inline">\(A\)</span> that
 is a countable union of open intervals,
 <span class="math display">\[ \mathbb{P}(X \in A) = \mathbb{P}(Y \in A) \,.\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 1.5  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
+<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 1.5  </strong></span>Let <span class="math inline">\(X:\Omega \to \mathbb{R}\)</span> be an RV and <span class="math inline">\(F_X\)</span> be its CDF.
 Prove the following:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(F\)</span> is non-decreasing: if <span class="math inline">\(x_1 \leq x_2\)</span>, then <span class="math inline">\(F(x_1) \leq F(x_2)\)</span>.</p></li>
@@ -371,19 +383,19 @@ Because of this, we have can write the density function as
 <p>Some people call <span class="math inline">\(X\)</span> a random vector.</p>
 <p><span class="math inline">\(f_{X_1\dots X_n}\)</span> is called the joint probability distribution.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 1.6  </strong></span>True or false:</p>
+<p><span id="exr:unlabeled-div-16" class="exercise"><strong>Exercise 1.6  </strong></span>True or false:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(f_{XY}(x,y) = f_{X}(x) + f_{Y}(y)\)</span></p></li>
 <li><p><span class="math inline">\(f_{XY}(x,y) = f_{X}(x) f_{Y}(y)\)</span></p></li>
 </ol>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 1.9  (Marginal density) </strong></span>The marginal density of <span class="math inline">\(X_i\)</span> is <F12>
+<p><span id="def:unlabeled-div-17" class="definition"><strong>Definition 1.9  (Marginal density) </strong></span>The marginal density of <span class="math inline">\(X_i\)</span> is <F12>
 <span class="math display">\[f_{X_i}(x_i) = \int f_{X_1\dots X_n}(x_1, \dots, x_n) \, dx_1\dots dx_{i-1} dx_{i+1} \dots dx_n\]</span>
 (integrate coordinate except the <span class="math inline">\(i\)</span>-th coordinate.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-17" class="exercise"><strong>Exercise 1.7  </strong></span>Can you construct <span class="math inline">\(f_{XY}\)</span> if you know <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>?</p>
+<p><span id="exr:unlabeled-div-18" class="exercise"><strong>Exercise 1.7  </strong></span>Can you construct <span class="math inline">\(f_{XY}\)</span> if you know <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>?</p>
 </div>
 </div>
 <div id="some-important-random-variables" class="section level3 hasAnchor" number="1.1.4">
@@ -422,7 +434,7 @@ independently of the time since the last event</p></li>
 <span class="math display">\[f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)}.\]</span></p></li>
 </ol>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-18" class="exercise"><strong>Exercise 1.8  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 1.8  </strong></span>Let <span class="math inline">\(X_{n,p} \sim \text{Binomial}(n,p)\)</span>. Suppose that as <span class="math inline">\(n\to \infty\)</span>, <span class="math inline">\(p \to 0\)</span> in such a way
 that <span class="math inline">\(np = \lambda\)</span> always.
 Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <ol style="list-style-type: decimal">
@@ -438,7 +450,7 @@ Let <span class="math inline">\(x\in \mathbb{N}\)</span>.</p>
 <div id="independent-random-variables" class="section level3 hasAnchor" number="1.1.5">
 <h3><span class="header-section-number">1.1.5</span> Independent random variables<a href="probability.html#independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-19" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-20" class="definition"><strong>Definition 1.10  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 We say that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if,
 for every <span class="math inline">\(A, B \in \mathcal{B}(S)\)</span>, we have
 <span class="math display">\[ \mathbb{P}( X \in A; Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B) \,, \]</span>
@@ -447,13 +459,13 @@ and write <span class="math inline">\(X \perp Y\)</span>.</p>
 <p>So, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent,
 <span class="math display">\[f_{XY}(x,y) = f_X(x) f_Y(y).\]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-20" class="definition"><strong>Definition 1.11  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 1.11  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> and <span class="math inline">\(Y: \Omega \to S\)</span> be RVs.
 Suppose that <span class="math inline">\(f_Y(y) &gt;0\)</span>.
 The conditional probability mass function of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is
 <span class="math display">\[ f_{X|Y} (x|y) = \frac{f_{XY}(x,y)}{f_Y(y)} \,.\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Exercise 1.9  </strong></span>Let
+<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Exercise 1.9  </strong></span>Let
 <span class="math display">\[ f(x,y) = \begin{cases} x+y \,, 0\leq x \leq 1, 0 \leq y \leq 1\\
             0\,, \text{otherwise} \end{cases}.\]</span>
 What is <span class="math inline">\(\mathbb{P}( X &lt; 1/4 \vert Y = 1/3)\)</span>.</p>
@@ -479,7 +491,7 @@ Then
 and
 <span class="math display">\[f_Z(z) = F_Z&#39;(z).\]</span></p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Exercise 1.10  </strong></span></p>
+<p><span id="exr:unlabeled-div-23" class="exercise"><strong>Exercise 1.10  </strong></span></p>
 <ol style="list-style-type: decimal">
 <li><p>Let <span class="math inline">\(X, Y \sim \text{Uniform}(0,1)\)</span> be independent RVs, i.e.,
 <span class="math display">\[f_{X}(x) = f_{Y}(y) = 1\,.\]</span>
@@ -488,9 +500,127 @@ What is the density function for the RV <span class="math inline">\(Z = X + Y\)<
 </ol>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 1.12  </strong></span>RVs that are independent and share the same distribution are called
+<p><span id="def:unlabeled-div-24" class="definition"><strong>Definition 1.12  </strong></span>RVs that are independent and share the same distribution are called
 <em>independent and identically distributed</em> RVs.</p>
 <p>We often shorthand this by IID RVs.</p>
+</div>
+</div>
+<div id="expectation" class="section level3 hasAnchor" number="1.1.7">
+<h3><span class="header-section-number">1.1.7</span> Expectation<a href="probability.html#expectation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 1.13  </strong></span>Let <span class="math inline">\(X\)</span> be a RV.</p>
+<ol style="list-style-type: decimal">
+<li><p>The <em>expected value</em>, or <em>expectation</em>, or <em>mean</em>, or <em>first moment</em> of <span class="math inline">\(X\)</span> is defined to be
+<span class="math display">\[ \mathbb{E}X = \int x f(x)  dx. \]</span></p></li>
+<li><p>The <em>variance</em> of <span class="math inline">\(X\)</span> is defined to be
+<span class="math display">\[\mathbb{E}\left( X - \mathbb{E}X \right)^2\]</span></p></li>
+</ol>
+<p>We often denote <span class="math inline">\(\mu_X\)</span> to be the expectation of <span class="math inline">\(X\)</span>, <span class="math inline">\(\sigma_X^2\)</span> (<span class="math inline">\(\mathrm{Var}(X), \mathbb{V}(X)\)</span>) to be the variance of <span class="math inline">\(X\)</span>.</p>
+<p>The square root of the variance, <span class="math inline">\(\sigma\)</span>, is called the <em>standard deviation</em>.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-26" class="theorem"><strong>Theorem 1.2  </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> be a RV, <span class="math inline">\(r: S \to S\)</span> be a function and <span class="math inline">\(Y = r(X)\)</span>.
+Then <span class="math display">\[ \mathbb{E}Y = \mathbb{E}(r(X)) = \int r(x) f(x)  dx \]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-27" class="exercise"><strong>Exercise 1.11  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(X \sim \text{Uniform}(0,1)\)</span>. Compute <span class="math inline">\(\mathbb{E}Y\)</span>, where
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(Y = e^X\)</span>.</li>
+<li><span class="math inline">\(Y = \max(X, 1-X)\)</span></li>
+</ol></li>
+<li>Let <span class="math inline">\(X,Y\)</span> be RVs that have jointly uniform distribution on the unit square.
+Compute <span class="math inline">\(\mathbb{E}(X^2 + Y^2)\)</span>.</li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-28" class="definition"><strong>Definition 1.14  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. The <em>covariance</em> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined by
+<span class="math display">\[ \mathrm{Cov}(X,Y) = \mathbb{E}\left( (X- \mu_X)(Y - \mu_Y)   \right) .\]</span></p>
+<p>The <em>correlation</em> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined to be
+<span class="math display">\[ \rho_{X,Y} = \frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y} \,.\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-29" class="theorem"><strong>Theorem 1.3  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1, \dots, n\)</span> be RVs and <span class="math inline">\(a_i\)</span>’s be constants.
+Then
+<span class="math display">\[ \mathbb{E}\left(\sum_i a_i X_i \right) = \sum_i a_i \mathbb{E}X_i. \]</span></p></li>
+<li><p><span class="math display">\[ \mathbb{V}X_i = \mathbb{E}(X_i^2) - \mu_{X_i}^2 \]</span></p></li>
+<li><p><span class="math display">\[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) \]</span></p></li>
+<li><p><span class="math display">\[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) + 2\sum_{i&lt;j} a_i a_j \mathrm{Cov}(X_i, X_j) \,. \]</span></p></li>
+<li><p>Suppose further that <span class="math inline">\(X_i\)</span>’s are independent, then
+<span class="math display">\[ \mathbb{E}\left( \prod_{i=1}^n X_i  \right) = \prod_{i=1}^n \mathbb{E}X_i\]</span>
+and
+<span class="math display">\[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) \,. \]</span></p></li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-30" class="definition"><strong>Definition 1.15  (Conditional Expectation) </strong></span>Let <span class="math inline">\(X,Y:\Omega \to S\)</span>, where <span class="math inline">\(S\)</span> is either <span class="math inline">\(\mathbb{N}\)</span> or <span class="math inline">\(\mathbb{R}\)</span>.
+The conditional expectation of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> is a RV <span class="math inline">\(\mathbb{E}[X | Y] : \Omega \to \mathbb{R}\)</span>
+that satisfies the following
+<span class="math display">\[ \mathbb{E}[X | Y](y) := \mathbb{E}[X | Y = y] = \int x f_{X|Y}(x|y) \, dx . \]</span>
+If <span class="math inline">\(r:S^2 \to S\)</span> is a function, then
+<span class="math display">\[ \mathbb{E}[r(X,Y) | Y = y] = \int r(x,y) f_{X|Y}(x|y) \, dx .\]</span></p>
+</div>
+<p>One can generalize this definition to higher dimension via the coordinate-wise conditional
+expectation. We will omit this definition in order to keep the presentation simple.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-31" class="theorem"><strong>Theorem 1.4  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be Rvs. We have that
+<span class="math display">\[ \mathbb{E}[ \mathbb{E}[X | Y]] = \mathbb{E}X. \]</span></p>
+</div>
+</div>
+<div id="moment-generating-and-characteristics-functions" class="section level3 hasAnchor" number="1.1.8">
+<h3><span class="header-section-number">1.1.8</span> Moment Generating and Characteristics Functions<a href="probability.html#moment-generating-and-characteristics-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 1.16  </strong></span>Let <span class="math inline">\(X\)</span> be a RV.
+1. The <em>moment generating function</em> MGF, or <em>Laplace transform</em>, of <span class="math inline">\(X\)</span> is <span class="math inline">\(\varphi: \mathbb{R}\to \mathbb{R}\)</span> defined by
+<span class="math display">\[ \varphi_X (t) = \mathbb{E}\left( e^{t X}  \right),  \]</span>
+where <span class="math inline">\(t\)</span> varies over the real numbers.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>The <em>characteristics function</em>, or <em>Fourier transform</em> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\varphi: \mathbb{R}\to \mathbb{C}\)</span> defined by
+<span class="math display">\[\phi_X(\theta) = \mathbb{E}e^{i\theta X} .\]</span></li>
+</ol>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-33" class="lemma"><strong>Lemma 1.1  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(X\)</span> be a RV and <span class="math inline">\(Y = aX + b\)</span>, then
+<span class="math display">\[ \varphi_Y(t) = e^{bt} \varphi_{X}(at)\]</span></p></li>
+<li><p><span class="math display">\[ \varphi_X^{(k)}(0) = \mathbb{E}(X^k) \]</span></p></li>
+<li><p>Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i= 1, \dots, n\)</span> be independent RVs and <span class="math inline">\(Y = \sum_i X_i\)</span>.
+Then
+<span class="math display">\[ \varphi_Y (t) = \prod \varphi_{X_i}(t). \]</span></p></li>
+<li><p><span class="math display">\[| \phi (\theta) | \leq 1\]</span></p></li>
+<li><p>Denote <span class="math inline">\(\overline{z}\)</span> to be the complex conjugate of <span class="math inline">\(z\)</span> in the complex plane.
+<span class="math display">\[ \phi_{-X} (\theta) = \overline{\phi_X (\theta)} \]</span></p></li>
+<li><p><span class="math display">\[\phi_Y (\theta) = e^{i b \theta} \phi(a\theta) \]</span></p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-34" class="exercise"><strong>Exercise 1.12  </strong></span>Prove the above lemma.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-35" class="exercise"><strong>Exercise 1.13  </strong></span>Let <span class="math inline">\(X \sim \exp(1)\)</span>, i.e,
+<span class="math display">\[ f_X(x) = \begin{cases} e^{-x} \,, x \geq 0 \\ 0 \,, x &lt; 0 \,. \end{cases}\]</span>
+Compute <span class="math inline">\(\varphi_X\)</span>.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-36" class="theorem"><strong>Theorem 1.5  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-37" class="proof"><em>Proof</em> (Special case). </span>The full proof of this is beyond this class (and could be a great topic for a project).
+However, we will prove this for discrete RVs.</p>
+<p>(to be written)</p>
+</div>
+<p>We have a similar statement for characteristics function. However, the proof of this is a little more manageable.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-38" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-39" class="proof"><em>Proof</em>. </span>to be written</p>
 </div>
 </div>
 </div>

@@ -116,8 +116,14 @@ However, all errors and typos are solely mine.
 \newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
 \newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
 \newcommand{\vect}{\mathbf}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eqd}{\stackrel{d}{=}}
+\newcommand{\V}{\mathbb{V}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cF}{\mathcal{F}}
@@ -319,6 +325,19 @@ if it satisfies the following conditions:
 
 The function \(f_X\) is called the \emph{probability density function (PDF)}.
 \end{definition}
+
+If two RVs \(X\) and \(Y\) share the same probability function, we say that they
+have the same distribution and denote them by
+\[ X \stackrel{d}{=}Y.\]
+
+In this case we also say that \(X\) and \(Y\) are \textbf{equal in distribution}.
+
+\begin{remark}
+To make the presentation more compact and clean,
+notationally, we will write
+\[ \int f(x)  dx \]
+to mean both integral (for continuous RV) and summation (for discrete RV).
+\end{remark}
 
 There are more general concepts of continuous RV where we don't need to require
 \(S\) to be a Euclidean space as in the above definition.
@@ -571,6 +590,182 @@ RVs that are independent and share the same distribution are called
 
 We often shorthand this by IID RVs.
 \end{definition}
+
+\subsection{Expectation}\label{expectation}
+
+\begin{definition}
+Let \(X\) be a RV.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The \emph{expected value}, or \emph{expectation}, or \emph{mean}, or \emph{first moment} of \(X\) is defined to be
+  \[ \mathbb{E}X = \int x f(x)  dx. \]
+\item
+  The \emph{variance} of \(X\) is defined to be
+  \[\mathbb{E}\left( X - \mathbb{E}X \right)^2\]
+\end{enumerate}
+
+We often denote \(\mu_X\) to be the expectation of \(X\), \(\sigma_X^2\) (\(\mathrm{Var}(X), \mathbb{V}(X)\)) to be the variance of \(X\).
+
+The square root of the variance, \(\sigma\), is called the \emph{standard deviation}.
+\end{definition}
+
+\begin{theorem}
+Let \(X:\Omega \to S\) be a RV, \(r: S \to S\) be a function and \(Y = r(X)\).
+Then \[ \mathbb{E}Y = \mathbb{E}(r(X)) = \int r(x) f(x)  dx \]
+\end{theorem}
+
+\begin{exercise}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Let \(X \sim \text{Uniform}(0,1)\). Compute \(\mathbb{E}Y\), where
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    \(Y = e^X\).
+  \item
+    \(Y = \max(X, 1-X)\)
+  \end{enumerate}
+\item
+  Let \(X,Y\) be RVs that have jointly uniform distribution on the unit square.
+  Compute \(\mathbb{E}(X^2 + Y^2)\).
+\end{enumerate}
+
+\end{exercise}
+
+\begin{definition}
+Let \(X\) and \(Y\) be RVs. The \emph{covariance} between \(X\) and \(Y\) is defined by
+\[ \mathrm{Cov}(X,Y) = \mathbb{E}\left( (X- \mu_X)(Y - \mu_Y)   \right) .\]
+
+The \emph{correlation} of \(X\) and \(Y\) is defined to be
+\[ \rho_{X,Y} = \frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y} \,.\]
+\end{definition}
+
+\begin{theorem}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Let \(X_i\), \(i=1, \dots, n\) be RVs and \(a_i\)'s be constants.
+  Then
+  \[ \mathbb{E}\left(\sum_i a_i X_i \right) = \sum_i a_i \mathbb{E}X_i. \]
+\item
+  \[ \mathbb{V}X_i = \mathbb{E}(X_i^2) - \mu_{X_i}^2 \]
+\item
+  \[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) \]
+\item
+  \[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) + 2\sum_{i<j} a_i a_j \mathrm{Cov}(X_i, X_j) \,. \]
+\item
+  Suppose further that \(X_i\)'s are independent, then
+  \[ \mathbb{E}\left( \prod_{i=1}^n X_i  \right) = \prod_{i=1}^n \mathbb{E}X_i\]
+  and
+  \[ \mathbb{V}\left( \sum_i a_i X_i  \right) = \sum_i a_i^2 \mathbb{V}(X_i) \,. \]
+\end{enumerate}
+
+\end{theorem}
+
+\begin{definition}[Conditional Expectation]
+Let \(X,Y:\Omega \to S\), where \(S\) is either \(\mathbb{N}\) or \(\mathbb{R}\).
+The conditional expectation of \(X\) given \(Y\) is a RV \(\mathbb{E}[X | Y] : \Omega \to \mathbb{R}\)
+that satisfies the following
+\[ \mathbb{E}[X | Y](y) := \mathbb{E}[X | Y = y] = \int x f_{X|Y}(x|y) \, dx . \]
+If \(r:S^2 \to S\) is a function, then
+\[ \mathbb{E}[r(X,Y) | Y = y] = \int r(x,y) f_{X|Y}(x|y) \, dx .\]
+\end{definition}
+
+One can generalize this definition to higher dimension via the coordinate-wise conditional
+expectation. We will omit this definition in order to keep the presentation simple.
+
+\begin{theorem}
+Let \(X\) and \(Y\) be Rvs. We have that
+\[ \mathbb{E}[ \mathbb{E}[X | Y]] = \mathbb{E}X. \]
+\end{theorem}
+
+\subsection{Moment Generating and Characteristics Functions}\label{moment-generating-and-characteristics-functions}
+
+\begin{definition}
+
+Let \(X\) be a RV.
+1. The \emph{moment generating function} MGF, or \emph{Laplace transform}, of \(X\) is \(\varphi: \mathbb{R}\to \mathbb{R}\) defined by
+\[ \varphi_X (t) = \mathbb{E}\left( e^{t X}  \right),  \]
+where \(t\) varies over the real numbers.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The \emph{characteristics function}, or \emph{Fourier transform} of \(X\) is \(\varphi: \mathbb{R}\to \mathbb{C}\) defined by
+  \[\phi_X(\theta) = \mathbb{E}e^{i\theta X} .\]
+\end{enumerate}
+
+\end{definition}
+
+\begin{lemma}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Let \(X\) be a RV and \(Y = aX + b\), then
+  \[ \varphi_Y(t) = e^{bt} \varphi_{X}(at)\]
+\item
+  \[ \varphi_X^{(k)}(0) = \mathbb{E}(X^k) \]
+\item
+  Let \(X_i\), \(i= 1, \dots, n\) be independent RVs and \(Y = \sum_i X_i\).
+  Then
+  \[ \varphi_Y (t) = \prod \varphi_{X_i}(t). \]
+\item
+  \[| \phi (\theta) | \leq 1\]
+\item
+  Denote \(\overline{z}\) to be the complex conjugate of \(z\) in the complex plane.
+  \[ \phi_{-X} (\theta) = \overline{\phi_X (\theta)} \]
+\item
+  \[\phi_Y (\theta) = e^{i b \theta} \phi(a\theta) \]
+\end{enumerate}
+
+\end{lemma}
+
+\begin{exercise}
+Prove the above lemma.
+\end{exercise}
+
+\begin{exercise}
+Let \(X \sim \exp(1)\), i.e,
+\[ f_X(x) = \begin{cases} e^{-x} \,, x \geq 0 \\ 0 \,, x < 0 \,. \end{cases}\]
+Compute \(\varphi_X\).
+\end{exercise}
+
+\begin{theorem}
+Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
+\[ X  \stackrel{d}{=}Y \,.\]
+\end{theorem}
+
+\begin{proof}[Special case]
+The full proof of this is beyond this class (and could be a great topic for a project).
+However, we will prove this for discrete RVs.
+
+(to be written)
+\end{proof}
+
+We have a similar statement for characteristics function. However, the proof of this is a little more manageable.
+
+\begin{theorem}
+Let \(X\) and \(Y\) be RVs. If \(\phi_X(t) = \phi_Y(t)\) for all \(t\) in an interval around 0, then
+\[ X  \stackrel{d}{=}Y \,.\]
+\end{theorem}
+
+\begin{proof}
+to be written
+\end{proof}
 
 \section{Inequalities}\label{inequalities}
 
