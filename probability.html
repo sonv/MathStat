@@ -605,22 +605,31 @@ Then
 <span class="math display">\[ f_X(x) = \begin{cases} e^{-x} \,, x \geq 0 \\ 0 \,, x &lt; 0 \,. \end{cases}\]</span>
 Compute <span class="math inline">\(\varphi_X\)</span>.</p>
 </div>
+<p>Recall that two RVs <span class="math inline">\(X \stackrel{d}{=}Y\)</span> means that <span class="math inline">\(F_X (x) = F_Y(x)\)</span>.
+Two common ways to characterize the equality in distribution are
+to use the generating functions and the characteristic functions.</p>
+<p>These ideas are not orginally from probability but from engineering/mechanics, where Laplace and Fourier transforms are understood very well
+since the 18th century.</p>
 <div class="theorem">
 <p><span id="thm:unlabeled-div-36" class="theorem"><strong>Theorem 1.5  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
-<div class="proof">
-<p><span id="unlabeled-div-37" class="proof"><em>Proof</em> (Special case). </span>The full proof of this is beyond this class (and could be a great topic for a project).
+<p>The full proof of this is beyond this class (and could be a great topic for a project).
 However, we will prove this for discrete RVs.</p>
-<p>(to be written)</p>
-</div>
-<p>We have a similar statement for characteristics function. However, the proof of this is a little more manageable.</p>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-38" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<div class="proposition">
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 1.1  (Discrete RV case) </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \mathbb{N}\)</span> be discrete RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-39" class="proof"><em>Proof</em>. </span>to be written</p>
+<p><span id="unlabeled-div-38" class="proof"><em>Proof</em>. </span>(to be written)</p>
+</div>
+<p>We have a similar statement for characteristics function. However, the proof of this is a little more manageable.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-39" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-40" class="proof"><em>Proof</em>. </span>to be written</p>
 </div>
 </div>
 </div>

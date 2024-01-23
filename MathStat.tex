@@ -744,15 +744,27 @@ Let \(X \sim \exp(1)\), i.e,
 Compute \(\varphi_X\).
 \end{exercise}
 
+Recall that two RVs \(X \stackrel{d}{=}Y\) means that \(F_X (x) = F_Y(x)\).
+Two common ways to characterize the equality in distribution are
+to use the generating functions and the characteristic functions.
+
+These ideas are not orginally from probability but from engineering/mechanics, where Laplace and Fourier transforms are understood very well
+since the 18th century.
+
 \begin{theorem}
 Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
 \[ X  \stackrel{d}{=}Y \,.\]
 \end{theorem}
 
-\begin{proof}[Special case]
 The full proof of this is beyond this class (and could be a great topic for a project).
 However, we will prove this for discrete RVs.
 
+\begin{proposition}[Discrete RV case]
+Let \(X,Y: \Omega \to \mathbb{N}\) be discrete RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
+\[ X  \stackrel{d}{=}Y \,.\]
+\end{proposition}
+
+\begin{proof}
 (to be written)
 \end{proof}
 
