@@ -757,16 +757,29 @@ Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in 
 \end{theorem}
 
 The full proof of this is beyond this class (and could be a great topic for a project).
-However, we will prove this for discrete RVs.
+However, we will prove this for finte RVs.
 
-\begin{proposition}[Discrete RV case]
-Let \(X,Y: \Omega \to \mathbb{N}\) be discrete RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
+\begin{proposition}[Finite RV case]
+Let \(X,Y: \Omega \to \{1,2, \dots, N\}\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) in an interval around in an interval
+\((-\epsilon , \epsilon)\), then
 \[ X  \stackrel{d}{=}Y \,.\]
 \end{proposition}
 
 \begin{proof}
-(to be written)
+We have that
+\[ \varphi_X (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( X = i) \]
+and
+\[ \varphi_Y (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( Y = i). \]
+Therefore,
+\[ 0 = \varphi_X(t) - \varphi_Y(t) = \sum_{i=1}^N (e^t)^i \left( \mathbb{P}(X = i) - \mathbb{P}(Y = i)  \right) \]
+for every \(t \in (-\epsilon , \epsilon)\).
+Therefore, as the above is a polynomial,
+\[ \mathbb{P}( X = i) = \mathbb{P}(Y = i) \]
+where \(i = 1, \dots, N\).
 \end{proof}
+
+Note that if the above summation is infinite, then we cannot conclude that \(X\) and \(Y\)
+has the same distribution easily as we just did.
 
 We have a similar statement for characteristics function. However, the proof of this is a little more manageable.
 

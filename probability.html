@@ -615,14 +615,26 @@ since the 18th century.</p>
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
 <p>The full proof of this is beyond this class (and could be a great topic for a project).
-However, we will prove this for discrete RVs.</p>
+However, we will prove this for finte RVs.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 1.1  (Discrete RV case) </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \mathbb{N}\)</span> be discrete RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 1.1  (Finite RV case) </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \{1,2, \dots, N\}\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> in an interval around in an interval
+<span class="math inline">\((-\epsilon , \epsilon)\)</span>, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-38" class="proof"><em>Proof</em>. </span>(to be written)</p>
+<p><span id="unlabeled-div-38" class="proof"><em>Proof</em>. </span>We have that
+<span class="math display">\[ \varphi_X (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( X = i) \]</span>
+and
+<span class="math display">\[ \varphi_Y (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( Y = i). \]</span>
+Therefore,
+<span class="math display">\[ 0 = \varphi_X(t) - \varphi_Y(t) = \sum_{i=1}^N (e^t)^i \left( \mathbb{P}(X = i) - \mathbb{P}(Y = i)  \right) \]</span>
+for every <span class="math inline">\(t \in (-\epsilon , \epsilon)\)</span>.
+Therefore, as the above is a polynomial,
+<span class="math display">\[ \mathbb{P}( X = i) = \mathbb{P}(Y = i) \]</span>
+where <span class="math inline">\(i = 1, \dots, N\)</span>.</p>
 </div>
+<p>Note that if the above summation is infinite, then we cannot conclude that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>
+has the same distribution easily as we just did.</p>
 <p>We have a similar statement for characteristics function. However, the proof of this is a little more manageable.</p>
 <div class="theorem">
 <p><span id="thm:unlabeled-div-39" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
