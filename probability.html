@@ -113,15 +113,11 @@
 <li class="chapter" data-level="1.1.5" data-path="probability.html"><a href="probability.html#independent-random-variables"><i class="fa fa-check"></i><b>1.1.5</b> Independent random variables</a></li>
 <li class="chapter" data-level="1.1.6" data-path="probability.html"><a href="probability.html#transformations-of-rvs"><i class="fa fa-check"></i><b>1.1.6</b> Transformations of RVs</a></li>
 <li class="chapter" data-level="1.1.7" data-path="probability.html"><a href="probability.html#expectation"><i class="fa fa-check"></i><b>1.1.7</b> Expectation</a></li>
+<li class="chapter" data-level="1.1.8" data-path="probability.html"><a href="probability.html#moment-generating-and-characteristics-functions"><i class="fa fa-check"></i><b>1.1.8</b> Moment Generating and Characteristics Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="probability.html"><a href="probability.html#moment-generating-and-characteristic-functions"><i class="fa fa-check"></i><b>1.2</b> Moment Generating and Characteristic Functions</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="probability.html"><a href="probability.html#moment-generating-functions"><i class="fa fa-check"></i><b>1.2.1</b> Moment Generating Functions</a></li>
-<li class="chapter" data-level="1.2.2" data-path="probability.html"><a href="probability.html#characteristic-functions"><i class="fa fa-check"></i><b>1.2.2</b> Characteristic Functions</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.3</b> Inequalities</a></li>
-<li class="chapter" data-level="1.4" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.4</b> Law of Large Numbers</a></li>
-<li class="chapter" data-level="1.5" data-path="probability.html"><a href="probability.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="1.2" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.2</b> Inequalities</a></li>
+<li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.3</b> Law of Large Numbers</a></li>
+<li class="chapter" data-level="1.4" data-path="probability.html"><a href="probability.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.4</b> Central Limit Theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-2-inference.html"><a href="part-2-inference.html"><i class="fa fa-check"></i>PART 2: Inference</a></li>
 <li class="chapter" data-level="2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>2</b> Sampling, Estimating CDF and Statistical Functionals</a>
@@ -574,16 +570,15 @@ expectation. We will omit this definition in order to keep the presentation simp
 <span class="math display">\[ \mathbb{E}[ \mathbb{E}[X | Y]] = \mathbb{E}X. \]</span></p>
 </div>
 </div>
-</div>
-<div id="moment-generating-and-characteristic-functions" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Moment Generating and Characteristic Functions<a href="probability.html#moment-generating-and-characteristic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="moment-generating-and-characteristics-functions" class="section level3 hasAnchor" number="1.1.8">
+<h3><span class="header-section-number">1.1.8</span> Moment Generating and Characteristics Functions<a href="probability.html#moment-generating-and-characteristics-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
 <p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 1.16  </strong></span>Let <span class="math inline">\(X\)</span> be a RV.
 1. The <em>moment generating function</em> MGF, or <em>Laplace transform</em>, of <span class="math inline">\(X\)</span> is <span class="math inline">\(\varphi: \mathbb{R}\to \mathbb{R}\)</span> defined by
 <span class="math display">\[ \varphi_X (t) = \mathbb{E}\left( e^{t X}  \right),  \]</span>
 where <span class="math inline">\(t\)</span> varies over the real numbers.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>The <em>characteristic function</em>, or <em>Fourier transform</em> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\varphi: \mathbb{R}\to \mathbb{C}\)</span> defined by
+<li>The <em>characteristics function</em>, or <em>Fourier transform</em> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\varphi: \mathbb{R}\to \mathbb{C}\)</span> defined by
 <span class="math display">\[\phi_X(\theta) = \mathbb{E}e^{i\theta X} .\]</span></li>
 </ol>
 </div>
@@ -615,30 +610,19 @@ Two common ways to characterize the equality in distribution are
 to use the generating functions and the characteristic functions.</p>
 <p>These ideas are not orginally from probability but from engineering/mechanics, where Laplace and Fourier transforms are understood very well
 since the 18th century.</p>
-<div class="exercise">
-<p><span id="exr:moments" class="exercise"><strong>Exercise 1.14  </strong></span>In general, differentiation is not commutative with integration, that is
-<span class="math display">\[ \frac{d}{dt} \int \not= \int \frac{d}{dt}. \]</span>
-However, assuming that this is true for certain moment generating functions <span class="math inline">\(\varphi_X\)</span>.
-Show that
-<span class="math display">\[ \varphi_X^{(n)}(0) = \mathbb{E}( X^n),\]</span>
-where <span class="math inline">\(f^{(n)}\)</span> denotes the <span class="math inline">\(n\)</span>-th derivative of <span class="math inline">\(f\)</span>.
-<span class="math inline">\(\mathbb{E}(X^n)\)</span> is called the <span class="math inline">\(n\)</span>-th moment of <span class="math inline">\(X\)</span> and it tells you the tail behavior of <span class="math inline">\(f_X\)</span>.</p>
-</div>
-<div id="moment-generating-functions" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Moment Generating Functions<a href="probability.html#moment-generating-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="theorem">
-<p><span id="thm:moment-generating" class="theorem"><strong>Theorem 1.5  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<p><span id="thm:unlabeled-div-36" class="theorem"><strong>Theorem 1.5  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
 <p>The full proof of this is beyond this class (and could be a great topic for a project).
 However, we will prove this for finte RVs.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-36" class="proposition"><strong>Proposition 1.1  (Finite RV case) </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \{1,2, \dots, N\}\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> in an interval around in an interval
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 1.1  (Finite RV case) </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \{1,2, \dots, N\}\)</span> be RVs. If <span class="math inline">\(\varphi_X(t) = \varphi_Y(t)\)</span> in an interval around in an interval
 <span class="math inline">\((-\epsilon , \epsilon)\)</span>, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-37" class="proof"><em>Proof</em>. </span>We have that
+<p><span id="unlabeled-div-38" class="proof"><em>Proof</em>. </span>We have that
 <span class="math display">\[ \varphi_X (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( X = i) \]</span>
 and
 <span class="math display">\[ \varphi_Y (t) = \mathbb{E}( e^{tX}) = \sum_{i= 1}^N e^{it}\mathbb{P}( Y = i). \]</span>
@@ -650,119 +634,25 @@ Therefore, as the above is a polynomial,
 where <span class="math inline">\(i = 1, \dots, N\)</span>.</p>
 </div>
 <p>Note that if the above summation is infinite, then we cannot conclude that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>
-has the same distribution as easily as we just did. More work has to be done to show
-this.</p>
-<p>A note of caution: the assumption that <span class="math inline">\(\varphi_X = \varphi_Y\)</span> in an interval around <span class="math inline">\(0\)</span>
-is crucial in general.</p>
-<p>An interesting observation arises: for analytic functions we have the Taylor series
-<span class="math display">\[ f(x) = \sum_{i=0}^\infty \frac{f^{(n)}(0)}{n!} x^n. \]</span>
-Exercise <a href="probability.html#exr:moments">1.14</a> tells you that the <span class="math inline">\(n\)</span>-th derivative at <span class="math inline">\(0\)</span>
-of a moment generating function would be the <span class="math inline">\(n\)</span>-th moment of the RV.</p>
-<p>Question: Is knowing the moments of <span class="math inline">\(X\)</span> enough to determine its probability distribution?</p>
-<p>The answer is NO. One can take a look at the discussion about this problem here:
-<a href="https://mathoverflow.net/questions/3525/when-are-probability-distributions-completely-determined-by-their-moments" class="uri">https://mathoverflow.net/questions/3525/when-are-probability-distributions-completely-determined-by-their-moments</a>.</p>
-<p>However, things are nice for finite RVs.</p>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-38" class="proposition"><strong>Proposition 1.2  </strong></span>Let <span class="math inline">\(X,Y: \Omega \to \{1,2, \dots, N\}\)</span> be RVs. Suppose that
-<span class="math display">\[ \mathbb{E}(X^n) = \mathbb{E}(Y^n) &lt; \infty\]</span>
-for every <span class="math inline">\(n\in \mathbb{N}\)</span>. Then
-<span class="math display">\[ X \stackrel{d}{=}Y .\]</span></p>
-</div>
-<div class="proof">
-<p><span id="unlabeled-div-39" class="proof"><em>Proof</em>. </span>Consider
-<span class="math display">\[ \varphi_X(t) = \mathbb{E}(e^{Xt}) = \sum_{i = 1}^N e^{it} \mathbb{P}( X = i). \]</span>
-This is a finite sums of analytic functions and is, therefore, analytic.
-Thus, <span class="math inline">\(\varphi_X\)</span> can be expanded into Taylor series, i.e.,
-<span class="math display">\[ \varphi_X(t)  = \sum_{n=0}^\infty \frac{\varphi_X^{(n)}(0)}{n!} t^n
-= \sum_{n=0}^\infty \frac{\mathbb{E}(X^n)}{n!} t^n.\]</span>
-This means that the moments of <span class="math inline">\(X\)</span> determines its moment generating function
-(which may not be true in general).</p>
-<p>A similar argument can be made for <span class="math inline">\(\varphi_Y\)</span> and as the coefficents of the
-Taylor series are the same (being the moments of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>), we conclude
-that
-<span class="math display">\[\varphi_X = \varphi_Y.\]</span>
-Therefore,
-by Theorem <a href="probability.html#thm:moment-generating">1.5</a>,
-<span class="math display">\[ X \stackrel{d}{=}Y, \]</span>
-as desired.</p>
-</div>
-</div>
-<div id="characteristic-functions" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Characteristic Functions<a href="probability.html#characteristic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Similar idea with the moment generating functions, but
-characteristic functions are easier to work with and we don’t have to
-work with special case of finite RVs.</p>
+has the same distribution easily as we just did.</p>
+<p>We have a similar statement for characteristics function. However, the proof of this is a little more manageable.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-40" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
+<p><span id="thm:unlabeled-div-39" class="theorem"><strong>Theorem 1.6  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be RVs. If <span class="math inline">\(\phi_X(t) = \phi_Y(t)\)</span> for all <span class="math inline">\(t\)</span> in an interval around 0, then
 <span class="math display">\[ X  \stackrel{d}{=}Y \,.\]</span></p>
 </div>
-<p>In order to prove this theorem, we need the following important result, called
-inversion formula of the characteristic functions.</p>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-41" class="theorem"><strong>Theorem 1.7  (Inversion Formula) </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> be a RV (either continuous or discrete)
-and <span class="math inline">\(\phi_X\)</span> be its characteristic function.
-Then
-<span class="math display">\[  \lim_{T \to \infty} \frac{1}{2\pi}\int_{-T}^T \frac{e^{-i\theta a}
-- e^{-i\theta b}}{i\theta} \phi_X(\theta) \, d\theta
-= \mathbb{P}( a &lt; X &lt; b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right). \]</span></p>
-</div>
 <div class="proof">
-<p><span id="unlabeled-div-42" class="proof"><em>Proof</em>. </span>We have
-<span class="math display">\[\begin{aligned}
-\frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta
-&amp; = \frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \int_{\mathbb{R}} e^{i\theta x} f_X(x) \, d\theta dx \\
-&amp; = \int_{\mathbb{R}}\frac{1}{\pi} \int_{-T}^T \frac{ e^{ i \theta (x - a)} - e^{i \theta (x- b)}}{ 2 i\theta}  f_X(x) \, d\theta dx \\
-\end{aligned}\]</span></p>
-<p>Note that since <span class="math inline">\(\cos(t)/t\)</span> is odd and <span class="math inline">\(\sin(t)/t\)</span> is even, and that <span class="math inline">\(e^{i\theta} = \cos(\theta) + i \sin(\theta)\)</span>,
-we have
-<span class="math display">\[ \frac{1}{2}\int_{-T}^T \frac{e^{i\theta c}}{i \theta} = \int_0^T \frac{\sin(\theta c)}{\theta} \, d\theta. \]</span></p>
-<p>Therefore,
-<span class="math display">\[
-\begin{aligned}
-\frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta
-&amp;= \frac{1}{\pi} \int_{\mathbb{R}} \int_0^T \left(  \frac{\sin((x - a)\theta)}{\theta} -  \frac{\sin((x - b)\theta)}{\theta} \right) f_X(x) \, d\theta dx
-\end{aligned}
-\]</span>
-Taking the limit <span class="math inline">\(T\to\infty\)</span> and using the fact that
-<span class="math display">\[
-\lim_{T \to \infty}\int_0^T \frac{\sin ((x-a)\theta)}{\theta} d\theta =
-\begin{cases}
-    \frac{-\pi}{2} \,, &amp; x &lt; a \,,\\
-    \frac{\pi}{2} \,, &amp; x &gt; a \,, \\
-    0 \,, &amp; x = a \,.
-\end{cases}\]</span>
-Therefore,
-<span class="math display">\[
-\begin{aligned}
-\lim_{T\to \infty}\frac{1}{2\pi}
-\int_{\mathbb{R}}\int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta dx
-&amp;=
-\left(\int_{(a,\infty)} f_X(x) \, dx  - \int_{ (-\infty, a]} f_X(x) \, dx \right)\\
-&amp; \quad -
-\left(\int_{(b,\infty)} f_X(x) \, dx  - \int_{ (-\infty, b]} f_X(x) \, dx \right) \\
-&amp;= (\mathbb{P}(X&gt;a) - \mathbb{P}(X\leq a)) - (\mathbb{P}(X&gt;b) - \mathbb{P}(X\leq b)) \\
-&amp;= \mathbb{P}( a &lt; X &lt; b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right),
-\end{aligned}
-\]</span>
-as desired.</p>
-</div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-43" class="exercise"><strong>Exercise 1.15  </strong></span>Verify that
-<span class="math display">\[\lim_{T \to \infty} \int_0^\infty \frac{\sin(x)}{x} \, dx = \frac{\pi}{2}.\]</span>
-If you can’t, watch this:
-<a href="https://www.youtube.com/watch?v=Bq5TB6cZNng" class="uri">https://www.youtube.com/watch?v=Bq5TB6cZNng</a>.</p>
-<p>Another way is to use contour integral from complex analysis (TODO: write instructions).</p>
+<p><span id="unlabeled-div-40" class="proof"><em>Proof</em>. </span>to be written</p>
 </div>
 </div>
 </div>
-<div id="inequalities" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Inequalities<a href="probability.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inequalities" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Inequalities<a href="probability.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="law-of-large-numbers" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Law of Large Numbers<a href="probability.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="law-of-large-numbers" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Law of Large Numbers<a href="probability.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="central-limit-theorem" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Central Limit Theorem<a href="probability.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="central-limit-theorem" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Central Limit Theorem<a href="probability.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

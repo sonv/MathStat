@@ -689,7 +689,7 @@ Let \(X\) and \(Y\) be Rvs. We have that
 \[ \mathbb{E}[ \mathbb{E}[X | Y]] = \mathbb{E}X. \]
 \end{theorem}
 
-\section{Moment Generating and Characteristic Functions}\label{moment-generating-and-characteristic-functions}
+\subsection{Moment Generating and Characteristics Functions}\label{moment-generating-and-characteristics-functions}
 
 \begin{definition}
 
@@ -703,7 +703,7 @@ where \(t\) varies over the real numbers.
 \setcounter{enumi}{1}
 \tightlist
 \item
-  The \emph{characteristic function}, or \emph{Fourier transform} of \(X\) is \(\varphi: \mathbb{R}\to \mathbb{C}\) defined by
+  The \emph{characteristics function}, or \emph{Fourier transform} of \(X\) is \(\varphi: \mathbb{R}\to \mathbb{C}\) defined by
   \[\phi_X(\theta) = \mathbb{E}e^{i\theta X} .\]
 \end{enumerate}
 
@@ -751,20 +751,8 @@ to use the generating functions and the characteristic functions.
 These ideas are not orginally from probability but from engineering/mechanics, where Laplace and Fourier transforms are understood very well
 since the 18th century.
 
-\begin{exercise}
-\protect\hypertarget{exr:moments}{}\label{exr:moments}In general, differentiation is not commutative with integration, that is
-\[ \frac{d}{dt} \int \not= \int \frac{d}{dt}. \]
-However, assuming that this is true for certain moment generating functions \(\varphi_X\).
-Show that
-\[ \varphi_X^{(n)}(0) = \mathbb{E}( X^n),\]
-where \(f^{(n)}\) denotes the \(n\)-th derivative of \(f\).
-\(\mathbb{E}(X^n)\) is called the \(n\)-th moment of \(X\) and it tells you the tail behavior of \(f_X\).
-\end{exercise}
-
-\subsection{Moment Generating Functions}\label{moment-generating-functions}
-
 \begin{theorem}
-\protect\hypertarget{thm:moment-generating}{}\label{thm:moment-generating}Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
+Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
 \[ X  \stackrel{d}{=}Y \,.\]
 \end{theorem}
 
@@ -791,125 +779,18 @@ where \(i = 1, \dots, N\).
 \end{proof}
 
 Note that if the above summation is infinite, then we cannot conclude that \(X\) and \(Y\)
-has the same distribution as easily as we just did. More work has to be done to show
-this.
+has the same distribution easily as we just did.
 
-A note of caution: the assumption that \(\varphi_X = \varphi_Y\) in an interval around \(0\)
-is crucial in general.
-
-An interesting observation arises: for analytic functions we have the Taylor series
-\[ f(x) = \sum_{i=0}^\infty \frac{f^{(n)}(0)}{n!} x^n. \]
-Exercise \ref{exr:moments} tells you that the \(n\)-th derivative at \(0\)
-of a moment generating function would be the \(n\)-th moment of the RV.
-
-Question: Is knowing the moments of \(X\) enough to determine its probability distribution?
-
-The answer is NO. One can take a look at the discussion about this problem here:
-\url{https://mathoverflow.net/questions/3525/when-are-probability-distributions-completely-determined-by-their-moments}.
-
-However, things are nice for finite RVs.
-
-\begin{proposition}
-Let \(X,Y: \Omega \to \{1,2, \dots, N\}\) be RVs. Suppose that
-\[ \mathbb{E}(X^n) = \mathbb{E}(Y^n) < \infty\]
-for every \(n\in \mathbb{N}\). Then
-\[ X \stackrel{d}{=}Y .\]
-\end{proposition}
-
-\begin{proof}
-Consider
-\[ \varphi_X(t) = \mathbb{E}(e^{Xt}) = \sum_{i = 1}^N e^{it} \mathbb{P}( X = i). \]
-This is a finite sums of analytic functions and is, therefore, analytic.
-Thus, \(\varphi_X\) can be expanded into Taylor series, i.e.,
-\[ \varphi_X(t)  = \sum_{n=0}^\infty \frac{\varphi_X^{(n)}(0)}{n!} t^n 
- = \sum_{n=0}^\infty \frac{\mathbb{E}(X^n)}{n!} t^n.\]
-This means that the moments of \(X\) determines its moment generating function
-(which may not be true in general).
-
-A similar argument can be made for \(\varphi_Y\) and as the coefficents of the
-Taylor series are the same (being the moments of \(X\) and \(Y\)), we conclude
-that
-\[\varphi_X = \varphi_Y.\]
-Therefore,
-by Theorem \ref{thm:moment-generating},
-\[ X \stackrel{d}{=}Y, \]
-as desired.
-\end{proof}
-
-\subsection{Characteristic Functions}\label{characteristic-functions}
-
-Similar idea with the moment generating functions, but
-characteristic functions are easier to work with and we don't have to
-work with special case of finite RVs.
+We have a similar statement for characteristics function. However, the proof of this is a little more manageable.
 
 \begin{theorem}
 Let \(X\) and \(Y\) be RVs. If \(\phi_X(t) = \phi_Y(t)\) for all \(t\) in an interval around 0, then
 \[ X  \stackrel{d}{=}Y \,.\]
 \end{theorem}
 
-In order to prove this theorem, we need the following important result, called
-inversion formula of the characteristic functions.
-
-\begin{theorem}[Inversion Formula]
-Let \(X:\Omega \to S\) be a RV (either continuous or discrete)
-and \(\phi_X\) be its characteristic function.
-Then
-\[  \lim_{T \to \infty} \frac{1}{2\pi}\int_{-T}^T \frac{e^{-i\theta a} 
-- e^{-i\theta b}}{i\theta} \phi_X(\theta) \, d\theta
-= \mathbb{P}( a < X < b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right). \]
-\end{theorem}
-
 \begin{proof}
-We have
-\[\begin{aligned}
-\frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta
-& = \frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \int_{\mathbb{R}} e^{i\theta x} f_X(x) \, d\theta dx \\
-& = \int_{\mathbb{R}}\frac{1}{\pi} \int_{-T}^T \frac{ e^{ i \theta (x - a)} - e^{i \theta (x- b)}}{ 2 i\theta}  f_X(x) \, d\theta dx \\
-\end{aligned}\]
-
-Note that since \(\cos(t)/t\) is odd and \(\sin(t)/t\) is even, and that \(e^{i\theta} = \cos(\theta) + i \sin(\theta)\),
-we have
-\[ \frac{1}{2}\int_{-T}^T \frac{e^{i\theta c}}{i \theta} = \int_0^T \frac{\sin(\theta c)}{\theta} \, d\theta. \]
-
-Therefore,
-\[ 
-\begin{aligned}
-\frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta
-&= \frac{1}{\pi} \int_{\mathbb{R}} \int_0^T \left(  \frac{\sin((x - a)\theta)}{\theta} -  \frac{\sin((x - b)\theta)}{\theta} \right) f_X(x) \, d\theta dx
-\end{aligned}
-\]
-Taking the limit \(T\to\infty\) and using the fact that
-\[
-\lim_{T \to \infty}\int_0^T \frac{\sin ((x-a)\theta)}{\theta} d\theta = 
-\begin{cases}
-    \frac{-\pi}{2} \,, & x < a \,,\\
-    \frac{\pi}{2} \,, & x > a \,, \\
-    0 \,, & x = a \,.
-\end{cases}\]
-Therefore,
-\[ 
-\begin{aligned}
-\lim_{T\to \infty}\frac{1}{2\pi}
-\int_{\mathbb{R}}\int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta dx
-&= 
-\left(\int_{(a,\infty)} f_X(x) \, dx  - \int_{ (-\infty, a]} f_X(x) \, dx \right)\\
-& \quad -
-\left(\int_{(b,\infty)} f_X(x) \, dx  - \int_{ (-\infty, b]} f_X(x) \, dx \right) \\
-&= (\mathbb{P}(X>a) - \mathbb{P}(X\leq a)) - (\mathbb{P}(X>b) - \mathbb{P}(X\leq b)) \\
-&= \mathbb{P}( a < X < b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right),
-\end{aligned} 
-\]
-as desired.
+to be written
 \end{proof}
-
-\begin{exercise}
-Verify that
-\[\lim_{T \to \infty} \int_0^\infty \frac{\sin(x)}{x} \, dx = \frac{\pi}{2}.\]
-If you can't, watch this:
-\url{https://www.youtube.com/watch?v=Bq5TB6cZNng}.
-
-Another way is to use contour integral from complex analysis (TODO: write instructions).
-\end{exercise}
 
 \section{Inequalities}\label{inequalities}
 
