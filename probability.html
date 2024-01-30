@@ -119,7 +119,12 @@
 <li class="chapter" data-level="1.2.1" data-path="probability.html"><a href="probability.html#moment-generating-functions"><i class="fa fa-check"></i><b>1.2.1</b> Moment Generating Functions</a></li>
 <li class="chapter" data-level="1.2.2" data-path="probability.html"><a href="probability.html#characteristic-functions"><i class="fa fa-check"></i><b>1.2.2</b> Characteristic Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.3</b> Inequalities</a></li>
+<li class="chapter" data-level="1.3" data-path="probability.html"><a href="probability.html#inequalities"><i class="fa fa-check"></i><b>1.3</b> Inequalities</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="probability.html"><a href="probability.html#typical-tail-bound-inequalities"><i class="fa fa-check"></i><b>1.3.1</b> Typical tail bound inequalities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="probability.html"><a href="probability.html#exponential-concentration-inequalities"><i class="fa fa-check"></i><b>1.3.2</b> Exponential concentration inequalities</a></li>
+<li class="chapter" data-level="1.3.3" data-path="probability.html"><a href="probability.html#inequalities-for-expectations"><i class="fa fa-check"></i><b>1.3.3</b> Inequalities for expectations</a></li>
+</ul></li>
 <li class="chapter" data-level="1.4" data-path="probability.html"><a href="probability.html#law-of-large-numbers"><i class="fa fa-check"></i><b>1.4</b> Law of Large Numbers</a></li>
 <li class="chapter" data-level="1.5" data-path="probability.html"><a href="probability.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.5</b> Central Limit Theorem</a></li>
 </ul></li>
@@ -802,6 +807,46 @@ and
 </div>
 <div id="inequalities" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Inequalities<a href="probability.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="typical-tail-bound-inequalities" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Typical tail bound inequalities<a href="probability.html#typical-tail-bound-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-50" class="theorem"><strong>Theorem 1.8  (Markov's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a non-negative RV and <span class="math inline">\(\mathbb{E}(X)\)</span> exists.
+Then, for each <span class="math inline">\(k &gt;0\)</span>,
+<span class="math display">\[ \mathbb{P}( X &gt; k) \leq \frac{\mathbb{E}(X)}{k}. \]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-51" class="theorem"><strong>Theorem 1.9  (Chebyshev's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a RV such with expected value <span class="math inline">\(\mu\)</span> and standard variation <span class="math inline">\(\sigma\)</span>.
+Then for each <span class="math inline">\(k &gt;0\)</span>,
+<span class="math display">\[ \mathbb{P}(| X - \mu | &gt; k \sigma ) \leq \frac{1}{k^2}. \]</span></p>
+</div>
+</div>
+<div id="exponential-concentration-inequalities" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Exponential concentration inequalities<a href="probability.html#exponential-concentration-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 1.10  (Mill's inequality) </strong></span>Let <span class="math inline">\(Z \sim N(0,1)\)</span>. Then,
+for each <span class="math inline">\(t &gt;0\)</span>,
+<span class="math display">\[ \mathbb{P}(|Z| &gt; t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}. \]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-53" class="theorem"><strong>Theorem 1.11  (Hoeffding's inequality) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
+<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
+For each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
+<span class="math display">\[ \mathbb{P}\left(  \sum_{i=1}^n X_i \geq \epsilon \right)
+\leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]</span></p>
+</div>
+</div>
+<div id="inequalities-for-expectations" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Inequalities for expectations<a href="probability.html#inequalities-for-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-54" class="theorem"><strong>Theorem 1.12  (Cauchy-Schwartz inequality) </strong></span>Let <span class="math inline">\(X, Y\)</span> be RVs with finite variances. Then,
+<span class="math display">\[\mathbb{E}( |XY| ) \leq \sqrt{ \mathbb{E}(X^2) \mathbb{E}(Y^2) }.\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 1.13  (Jensen's inequality) </strong></span>Suppose <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> is a convex function.
+Then
+<span class="math display">\[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]</span></p>
+</div>
+</div>
 </div>
 <div id="law-of-large-numbers" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Law of Large Numbers<a href="probability.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>

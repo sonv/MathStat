@@ -987,6 +987,49 @@ The \emph{probability generating function} of \(X\) is defined to be
 
 \section{Inequalities}\label{inequalities}
 
+\subsection{Typical tail bound inequalities}\label{typical-tail-bound-inequalities}
+
+\begin{theorem}[Markov's Inequality]
+Let \(X\) be a non-negative RV and \(\mathbb{E}(X)\) exists.
+Then, for each \(k >0\),
+\[ \mathbb{P}( X > k) \leq \frac{\mathbb{E}(X)}{k}. \]
+\end{theorem}
+
+\begin{theorem}[Chebyshev's Inequality]
+Let \(X\) be a RV such with expected value \(\mu\) and standard variation \(\sigma\).
+Then for each \(k >0\),
+\[ \mathbb{P}(| X - \mu | > k \sigma ) \leq \frac{1}{k^2}. \]
+\end{theorem}
+
+\subsection{Exponential concentration inequalities}\label{exponential-concentration-inequalities}
+
+\begin{theorem}[Mill's inequality]
+Let \(Z \sim N(0,1)\). Then,
+for each \(t >0\),
+\[ \mathbb{P}(|Z| > t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}. \]
+\end{theorem}
+
+\begin{theorem}[Hoeffding's inequality]
+Let \(X_1, \dots, X_n\) be independent RVs such that
+\(\mathbb{E}( X_i ) = 0\), \(a_i \leq Y_i \leq b_i\).
+For each \(\epsilon >0\) and \(t>0\), we have
+\[ \mathbb{P}\left(  \sum_{i=1}^n X_i \geq \epsilon \right) 
+\leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]
+\end{theorem}
+
+\subsection{Inequalities for expectations}\label{inequalities-for-expectations}
+
+\begin{theorem}[Cauchy-Schwartz inequality]
+Let \(X, Y\) be RVs with finite variances. Then,
+\[\mathbb{E}( |XY| ) \leq \sqrt{ \mathbb{E}(X^2) \mathbb{E}(Y^2) }.\]
+\end{theorem}
+
+\begin{theorem}[Jensen's inequality]
+Suppose \(g:\mathbb{R}\to \mathbb{R}\) is a convex function.
+Then
+\[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]
+\end{theorem}
+
 \section{Law of Large Numbers}\label{law-of-large-numbers}
 
 \section{Central Limit Theorem}\label{central-limit-theorem}
