@@ -497,7 +497,7 @@ Can you construct \(f_{XY}\) if you know \(f_X\) and \(f_Y\)?
   We write \(X \sim \text{Binomial}(n,p)\).
 \item
   Poisson distribution: \(X \sim \text{Poisson}(\lambda)\).
-  \[f_X (x) = e^{-\lambda} \frac{\lambda^x}{x!}\,, x \geq 0.\]
+  \[f_X (k) = e^{-\lambda} \frac{\lambda^k}{k!}\,, k = 0, 1, 2 \dots\]
   \(X\) is a RV that describe a given number of events occurring in a
   fixed interval of time or space if these events occur with a known constant mean rate and
   independently of the time since the last event
@@ -1032,7 +1032,50 @@ Then
 
 \section{Law of Large Numbers}\label{law-of-large-numbers}
 
+\begin{theorem}
+Let \(X_i\), \(i\in \mathbb{N}\) be independent RVs such that \(\mathbb{E}(X_i) = \mu\)
+and \(\mathbb{V}(X_i) = \sigma^2\).
+Then, for each \(\epsilon > 0\),
+\[ \lim_{n\to \infty} \mathbb{P}\left( \left| \frac{1}{n} \sum_{i=1}^n X_i - \mu  \right| > \epsilon   \right) = 0 \,.\]
+\end{theorem}
+
+The above kind of convergence is sometimes called \emph{convergence in probability}.
+There are other modes of convergence such as convergence almost surely and
+uniform convergence.
+
 \section{Central Limit Theorem}\label{central-limit-theorem}
+
+\begin{definition}[Convergence in distribution]
+Let \(\{X_i\}_{i \in \mathbb{N}}\) be a sequence of RVs with CDF \(F_i\).
+Let \(X\) be a RV with CDF \(F\).
+We say that \(X_n\) convergence to \(X\) in distribution if
+\[ \lim_{n\to \infty} F_n (x) = F(x) \] at every point at which \(F\) is continuous.
+\end{definition}
+
+\begin{definition}[Continuity theorems]
+
+Let \(X_i\), \(i \in \mathbb{N}\) RVs with CDF \(F_i\) and \(X\) a RV with CDF \(\bar F\).
+Suppose that either
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\varphi_{X_n}(s)\) converges to \(\varphi_X(s)\) for all \(s\) in some open interval around \(0\).
+\item
+  \(\lim_{n\to\infty} \phi_{X_n}(s) = \phi_X(s)\) for every \(s \in \mathbb{R}\).
+
+  Then \(X_n \to X\) in distribution.
+\end{enumerate}
+
+\end{definition}
+
+\begin{theorem}[Central limit theorem]
+Let \(\{ X_i \}_{i\in \mathbb{N}}\) be a sequence of IID RVs with mean \(0\) and
+variance \(\sigma^2 < \infty\).
+Define
+\[ G_n = \frac{\sum_{i=1}^n X_i}{\sigma \sqrt{n}}. \]
+Then \(G_n\) converges to \(G \sim N(0,1)\) in distribution.
+\end{theorem}
 
 \chapter*{PART 2: Inference}\label{part-2-inference}
 

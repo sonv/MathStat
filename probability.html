@@ -435,7 +435,7 @@ Then
 \end{cases}\]</span>
 We write <span class="math inline">\(X \sim \text{Binomial}(n,p)\)</span>.</p></li>
 <li><p>Poisson distribution: <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span>.
-<span class="math display">\[f_X (x) = e^{-\lambda} \frac{\lambda^x}{x!}\,, x \geq 0.\]</span>
+<span class="math display">\[f_X (k) = e^{-\lambda} \frac{\lambda^k}{k!}\,, k = 0, 1, 2 \dots\]</span>
 <span class="math inline">\(X\)</span> is a RV that describe a given number of events occurring in a
 fixed interval of time or space if these events occur with a known constant mean rate and
 independently of the time since the last event</p></li>
@@ -850,9 +850,40 @@ Then
 </div>
 <div id="law-of-large-numbers" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Law of Large Numbers<a href="probability.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-56" class="theorem"><strong>Theorem 1.14  </strong></span>Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i\in \mathbb{N}\)</span> be independent RVs such that <span class="math inline">\(\mathbb{E}(X_i) = \mu\)</span>
+and <span class="math inline">\(\mathbb{V}(X_i) = \sigma^2\)</span>.
+Then, for each <span class="math inline">\(\epsilon &gt; 0\)</span>,
+<span class="math display">\[ \lim_{n\to \infty} \mathbb{P}\left( \left| \frac{1}{n} \sum_{i=1}^n X_i - \mu  \right| &gt; \epsilon   \right) = 0 \,.\]</span></p>
+</div>
+<p>The above kind of convergence is sometimes called <em>convergence in probability</em>.
+There are other modes of convergence such as convergence almost surely and
+uniform convergence.</p>
 </div>
 <div id="central-limit-theorem" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Central Limit Theorem<a href="probability.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-57" class="definition"><strong>Definition 1.17  (Convergence in distribution) </strong></span>Let <span class="math inline">\(\{X_i\}_{i \in \mathbb{N}}\)</span> be a sequence of RVs with CDF <span class="math inline">\(F_i\)</span>.
+Let <span class="math inline">\(X\)</span> be a RV with CDF <span class="math inline">\(F\)</span>.
+We say that <span class="math inline">\(X_n\)</span> convergence to <span class="math inline">\(X\)</span> in distribution if
+<span class="math display">\[ \lim_{n\to \infty} F_n (x) = F(x) \]</span> at every point at which <span class="math inline">\(F\)</span> is continuous.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-58" class="definition"><strong>Definition 1.18  (Continuity theorems) </strong></span>Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i \in \mathbb{N}\)</span> RVs with CDF <span class="math inline">\(F_i\)</span> and <span class="math inline">\(X\)</span> a RV with CDF <span class="math inline">\(\bar F\)</span>.
+Suppose that either</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\varphi_{X_n}(s)\)</span> converges to <span class="math inline">\(\varphi_X(s)\)</span> for all <span class="math inline">\(s\)</span> in some open interval around <span class="math inline">\(0\)</span>.</p></li>
+<li><p><span class="math inline">\(\lim_{n\to\infty} \phi_{X_n}(s) = \phi_X(s)\)</span> for every <span class="math inline">\(s \in \mathbb{R}\)</span>.</p>
+<p>Then <span class="math inline">\(X_n \to X\)</span> in distribution.</p></li>
+</ol>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-59" class="theorem"><strong>Theorem 1.15  (Central limit theorem) </strong></span>Let <span class="math inline">\(\{ X_i \}_{i\in \mathbb{N}}\)</span> be a sequence of IID RVs with mean <span class="math inline">\(0\)</span> and
+variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>.
+Define
+<span class="math display">\[ G_n = \frac{\sum_{i=1}^n X_i}{\sigma \sqrt{n}}. \]</span>
+Then <span class="math inline">\(G_n\)</span> converges to <span class="math inline">\(G \sim N(0,1)\)</span> in distribution.</p>
+</div>
 
 </div>
 </div>
