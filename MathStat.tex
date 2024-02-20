@@ -1052,7 +1052,8 @@ We say that \(X_n\) convergence to \(X\) in distribution if
 \[ \lim_{n\to \infty} F_n (x) = F(x) \] at every point at which \(F\) is continuous.
 \end{definition}
 
-\begin{definition}[Continuity theorems]
+\begin{theorem}[Continuity theorems]
+\protect\hypertarget{thm:cont}{}\label{thm:cont}
 
 Let \(X_i\), \(i \in \mathbb{N}\) RVs with CDF \(F_i\) and \(X\) a RV with CDF \(\bar F\).
 Suppose that either
@@ -1067,15 +1068,42 @@ Suppose that either
   Then \(X_n \to X\) in distribution.
 \end{enumerate}
 
-\end{definition}
+\end{theorem}
 
 \begin{theorem}[Central limit theorem]
 Let \(\{ X_i \}_{i\in \mathbb{N}}\) be a sequence of IID RVs with mean \(0\) and
 variance \(\sigma^2 < \infty\).
 Define
-\[ G_n = \frac{\sum_{i=1}^n X_i}{\sigma \sqrt{n}}. \]
-Then \(G_n\) converges to \(G \sim N(0,1)\) in distribution.
+\[ Z_n = \frac{\sum_{i=1}^n X_i}{\sigma \sqrt{n}}. \]
+Then \(Z_n\) converges to \(Z \sim N(0,1)\) in distribution.
 \end{theorem}
+
+There are a few ways to go about proving this theorem.
+Two most common ways employ the MGF and the characteristic function.
+Both methods rely on the one crucial idea of using the Taylor expansion,
+which we will see shortly.
+We present the proof using MGF (adopted from Rice's book) and leave it to the reader the proof using characteristic function.
+
+\begin{proof}
+For each \(n \in \mathbb{N}\), we have that
+\[ \varphi_{Z_n} (t) = \left( \varphi_{X_1} \left( \frac{t}{\sigma \sqrt{n}} \right) \right)^n. \]
+
+Observe first that
+\(\varphi_{X_1}'(0) = \mathbb{E}X_1 = 0\) and \(\varphi_{X_1}''(0) = \mathbb{E}X_1^2 = \sigma^2\).
+So, performing Taylor expansion for \(\varphi_{X_1}\), we get
+\[
+\begin{aligned}
+\varphi_{X_1} \left( \frac{t}{\sigma \sqrt{n}} \right)  
+        &=  1 + \varphi_{X_1}'(0) \left( \frac{t}{\sigma \sqrt{n}} \right) 
+           + \frac{1}{2} \varphi_{X_1}''(0) \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n  \\
+        & = 1 + \frac{1}{2} \sigma^2 \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n \\
+        & = 1 + \frac{1}{2} \left( \frac{t^2}{n} \right) + \epsilon_n \,.
+\end{aligned}\]
+where \(\epsilon_n / (t^2 / (n\sigma^2)) \to 0\) as \(n \to \infty\).
+It can then be shown that
+\[ \lim_{n\to \infty} \varphi_{Z_n}(t) = \lim_{n\to \infty} \left( 1 + \frac{1}{2} \left( \frac{t^2}{n} \right) + \epsilon_n  \right) = e^{t^2/2} = \varphi_Z .\]
+Combine this with Theorem \ref{thm:cont}, we arrive at our result.
+\end{proof}
 
 \chapter*{PART 2: Inference}\label{part-2-inference}
 
