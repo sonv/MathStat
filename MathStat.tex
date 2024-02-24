@@ -69,7 +69,7 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
@@ -230,7 +230,7 @@ A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), wh
 \item
   \(\mathbb{P}(\Omega) =1\),
 \item
-  If \(F\) is a disjoint union of \(\left\{ F_n \right\}_{n=1}^\infty\), then
+  If \(F\) is a disjoint union of \(\left\{ F_n  \right\}_{n=1}^\infty\), then
   \[ \mathbb{P}(F) = \sum_{n=1}^\infty \mathbb{P}(F_n) . \]
 \end{enumerate}
 
@@ -447,7 +447,7 @@ True or false:
 \item
   \(f_{XY}(x,y) = f_{X}(x) + f_{Y}(y)\)
 \item
-  \(f_{XY}(x,y) = f_{X}(x) f_{Y}(y)\)
+  \(f_{XY}(x,y) = f_{X}(x)  f_{Y}(y)\)
 \end{enumerate}
 
 \end{exercise}
@@ -921,7 +921,7 @@ Another way is to use contour integral from complex analysis.
 \end{exercise}
 
 \begin{exercise}
-Let \(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\) be independent and \(Y_n = \max\{ X_1, \dots, X_n \}\).
+Let \(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\) be independent and \(Y_n = \max\{ X_1, \dots, X_n  \}\).
 Find \(\mathbb{E}(Y_n)\).
 \end{exercise}
 
@@ -1063,7 +1063,7 @@ Suppose that either
 \item
   \(\varphi_{X_n}(s)\) converges to \(\varphi_X(s)\) for all \(s\) in some open interval around \(0\).
 \item
-  \(\lim_{n\to\infty} \phi_{X_n}(s) = \phi_X(s)\) for every \(s \in \mathbb{R}\).
+  \(\lim_{n\to\infty} \phi_{X_n}(s) =  \phi_X(s)\) for every \(s \in \mathbb{R}\).
 
   Then \(X_n \to X\) in distribution.
 \end{enumerate}
@@ -1113,6 +1113,45 @@ Prove the central limit theorem using the characteristic function.
 
 
 \chapter{Sampling, Estimating CDF and Statistical Functionals}\label{sampling-estimating-cdf-and-statistical-functionals}
+
+Sampling is the act of gathering data from a certain
+population, in order to make prediction about some property
+of the population of interest.
+Each time one goes out to the field to sample, one gets different
+answers for the same set of quantities of interest, making those
+answers random variables.
+
+\begin{definition}[Standard Random Sample]
+\protect\hypertarget{def:stdSample}{}\label{def:stdSample}The random variables \(X_i\), \(i = 1,\dots , n\) are called \emph{standard random sample of
+size \(n\) from population \(f(x)\)} if \(X_i\)'s are I.I.D. RVs from the same
+probability density function \(f\).
+\end{definition}
+
+There is a few nuisances regarding general practice in statistics and this definition.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For finite population, there are two techniques called \emph{sampling with replacement} and
+  \emph{sampling without replacement}.
+\item
+  Definition \ref{def:stdSample} is either for \emph{infinite} population or finite population with \emph{sampling with replacement}.
+\item
+  For finite population of size \(n\), sample data \(X_i\) from \emph{sampling without replacement}
+  can never be independent as
+  \(\mathbb{P}(X_2 = y | X_1 = y) = 0\) and \(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\).
+\item
+  Sampling without replacement is sometimes called \emph{simple random sampling} and
+  one needs to be careful with it. However, if the population size is very very large
+  compared to the sample size (a very subjective judgement),
+  it is common in practice to treat the sampling data as I.I.D. RVs.
+\end{enumerate}
+
+\subsection{Simple Random Sample}\label{simple-random-sample}
+
+(Rice, Chapter 7.3)
+
+The process
 
 \section{Empirical Distribution}\label{empirical-distribution}
 
