@@ -1270,10 +1270,10 @@ The bias of an estimator is defined by
 We say that \(\hat \theta_n\) is \emph{unbiased} if \(b(\hat \theta_n) = 0\).
 
 We also define the variance of an estimator by
-\[ v(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]
+\[ \mathbb{V}_\theta(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]
 
 The standard error (\(\mathrm{se}\) for short sometimes) is then
-\[ \mathrm{se}(\hat \theta_n) = \sqrt{v(\hat \theta_n)}. \]
+\[ \mathrm{se}(\hat \theta_n) = \sqrt{\mathbb{V}_\theta (\hat \theta_n)}. \]
 \end{definition}
 
 Classically, unbiased estimators received a lot of attention since people
@@ -1304,12 +1304,12 @@ The mean squared error of an estimator is defined by
 \end{definition}
 
 \begin{theorem}[Bias-Variance decomposition]
-\[ MSE = b_\theta^2(\hat \theta_n) + v_\theta(\hat \theta_n) \]
+\[ MSE = b_\theta^2(\hat \theta_n) + \mathbb{V}_\theta(\hat \theta_n) \]
 \end{theorem}
 
 \begin{theorem}
 If, as \(n\to \infty\),
-\(b_\theta^2(\hat \theta_n) \to 0\) and \(v_\theta(\hat \theta_n) \to 0\),
+\(b_\theta^2(\hat \theta_n) \to 0\) and \(\mathbb{V}_\theta(\hat \theta_n) \to 0\),
 then \(\hat\theta_n\) is consistent.
 \end{theorem}
 

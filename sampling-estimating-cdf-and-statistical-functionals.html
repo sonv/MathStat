@@ -289,9 +289,9 @@ the true value of the quantity of interest <span class="math inline">\(\theta\)<
 <span class="math display">\[ b(\hat \theta_n) = \mathbb{E}(\hat \theta_n) - \theta. \]</span>
 We say that <span class="math inline">\(\hat \theta_n\)</span> is <em>unbiased</em> if <span class="math inline">\(b(\hat \theta_n) = 0\)</span>.</p>
 <p>We also define the variance of an estimator by
-<span class="math display">\[ v(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]</span></p>
+<span class="math display">\[ \mathbb{V}_\theta(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]</span></p>
 <p>The standard error (<span class="math inline">\(\mathrm{se}\)</span> for short sometimes) is then
-<span class="math display">\[ \mathrm{se}(\hat \theta_n) = \sqrt{v(\hat \theta_n)}. \]</span></p>
+<span class="math display">\[ \mathrm{se}(\hat \theta_n) = \sqrt{\mathbb{V}_\theta (\hat \theta_n)}. \]</span></p>
 </div>
 <p>Classically, unbiased estimators received a lot of attention since people
 wanted to have unbiased samples.
@@ -315,11 +315,11 @@ How do we measure bias in the samples?
 <span class="math display">\[ MSE = \mathbb{E}_\theta (\theta - \hat \theta_n)^2 \,.\]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.1  (Bias-Variance decomposition) </strong></span><span class="math display">\[ MSE = b_\theta^2(\hat \theta_n) + v_\theta(\hat \theta_n) \]</span></p>
+<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.1  (Bias-Variance decomposition) </strong></span><span class="math display">\[ MSE = b_\theta^2(\hat \theta_n) + \mathbb{V}_\theta(\hat \theta_n) \]</span></p>
 </div>
 <div class="theorem">
 <p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.2  </strong></span>If, as <span class="math inline">\(n\to \infty\)</span>,
-<span class="math inline">\(b_\theta^2(\hat \theta_n) \to 0\)</span> and <span class="math inline">\(v_\theta(\hat \theta_n) \to 0\)</span>,
+<span class="math inline">\(b_\theta^2(\hat \theta_n) \to 0\)</span> and <span class="math inline">\(\mathbb{V}_\theta(\hat \theta_n) \to 0\)</span>,
 then <span class="math inline">\(\hat\theta_n\)</span> is consistent.</p>
 </div>
 <p>A big part of elementary statistics dealt with estimators being approximately
