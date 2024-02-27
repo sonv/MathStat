@@ -64,6 +64,12 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\usepackage{tcolorbox}
+
+\newtcolorbox{bbox}{
+  colframe=orange,
+  boxsep=5pt,
+  arc=4pt}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -110,8 +116,8 @@
 
 
 This is class notes for Mathematical Statistics at Fublbright University Vietnam.
-I claim no originality in this work as it is mostly taken from the reference books.
-However, all errors and typos are solely mine.
+I claim no mathematiacal originality in this work as it is mostly taken from the reference books.
+The only original contribution of mine are typos and errors.
 
 \newcommand{\vectorproj}[2][]{\mathrm{proj}_{\vect{#1}}\vect{#2}}
 \newcommand{\vectorcomp}[2][]{\mathrm{comp}_{\vect{#1}}\vect{#2}}
@@ -129,8 +135,6 @@ However, all errors and typos are solely mine.
 \newcommand{\cF}{\mathcal{F}}
 \newcommand{\cB}{\mathcal{B}}
 \newtheorem{question}{Question}
-
-\newpage
 
 \chapter*{PART 1: Background}\label{part-1-background}
 
@@ -1017,6 +1021,15 @@ For each \(\epsilon >0\) and \(t>0\), we have
 \leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]
 \end{theorem}
 
+\begin{exercise}
+\protect\hypertarget{exr:Hoeffding}{}\label{exr:Hoeffding}Let \(X_1, \dots, X_n\) be independent RVs such that
+\(\mathbb{E}( X_i ) = 0\), \(a_i \leq Y_i \leq b_i\).
+Show that
+for each \(\epsilon >0\) and \(t>0\), we have
+\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right) 
+\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right). \]
+\end{exercise}
+
 \subsection{Inequalities for expectations}\label{inequalities-for-expectations}
 
 \begin{theorem}[Cauchy-Schwartz inequality]
@@ -1105,10 +1118,28 @@ It can then be shown that
 Combine this with Theorem \ref{thm:cont}, we arrive at our result.
 \end{proof}
 
+\begin{exercise}
+Prove the central limit theorem using the characteristic function.
+\end{exercise}
+
 \chapter*{PART 2: Inference}\label{part-2-inference}
 
 
+Readings:
+
+\begin{itemize}
+\tightlist
+\item
+  Rice Chapters 7, 8
+\item
+  Wasserman Chapter 7
+\item
+  Casella-Berger Chapter 7
+\end{itemize}
+
 \chapter{Sampling, Estimating CDF and Statistical Functionals}\label{sampling-estimating-cdf-and-statistical-functionals}
+
+\section{Sampling}\label{sampling}
 
 Sampling is the act of gathering data from a certain
 population, in order to make prediction about some property
@@ -1116,6 +1147,24 @@ of the population of interest.
 Each time one goes out to the field to sample, one gets different
 answers for the same set of quantities of interest, making those
 answers random variables.
+
+\begin{itemize}
+\item
+  For finite population, there are two techniques called \emph{sampling with replacement} and
+  \emph{sampling without replacement}.
+\item
+  Sampling without replacement is sometimes called \emph{simple random sampling} and
+  one needs to be careful with it. However, if the population size is very very large
+  compared to the sample size (a very subjective judgement),
+  it is common in practice to treat the sampling data as I.I.D. RVs.
+\end{itemize}
+
+\subsection{Simple Random Sample}\label{simple-random-sample}
+
+We will not discuss Simple Random Sampling in this class.
+Interested readers can consult Rice, Chapter 7.3.
+
+\subsection{Standard Random Sample}\label{standard-random-sample}
 
 \begin{definition}[Standard Random Sample]
 \protect\hypertarget{def:stdSample}{}\label{def:stdSample}The random variables \(X_i\), \(i = 1,\dots , n\) are called \emph{standard random sample of
@@ -1128,26 +1177,213 @@ There is a few nuisances regarding general practice in statistics and this defin
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  For finite population, there are two techniques called \emph{sampling with replacement} and
-  \emph{sampling without replacement}.
-\item
   Definition \ref{def:stdSample} is either for \emph{infinite} population or finite population with \emph{sampling with replacement}.
 \item
   For finite population of size \(n\), sample data \(X_i\) from \emph{sampling without replacement}
   can never be independent as
   \(\mathbb{P}(X_2 = y | X_1 = y) = 0\) and \(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\).
-\item
-  Sampling without replacement is sometimes called \emph{simple random sampling} and
-  one needs to be careful with it. However, if the population size is very very large
-  compared to the sample size (a very subjective judgement),
-  it is common in practice to treat the sampling data as I.I.D. RVs.
 \end{enumerate}
 
-\subsection{Simple Random Sample}\label{simple-random-sample}
+In this course, when we talk about sampling, we will understand it as in Definition \ref{def:stdSample}.
 
-(Rice, Chapter 7.3)
+\section{Statistical Estimation}\label{statistical-estimation}
 
-The process
+\begin{itemize}
+\tightlist
+\item
+  Reading: Wasserman Chapter 6.
+\end{itemize}
+
+Statistical inference, often rebranded as learning in computer science, is the process
+of figuring out certain information of a distribution function \(F\) given
+sample \(X_1, \dots, X_n \sim F\).
+
+Typically, we don't know which distribution function our sample comes from.
+However, sometimes, with some background theory (or simply just to make life easier),
+we may assume that the data come from certain family of distributions so that
+we can narrow our search.
+This gives rise to the following definitions.
+
+\begin{definition}
+A \emph{statistical model} \(\mathcal{F}\) is a set of distributions (or densities).
+
+A \emph{parametric model} is a set set \(\mathcal{F}\) that can be parametrized
+by a finite number of parameters.
+
+A \emph{non-parametric model} is a statistical model that is not parametric.
+\end{definition}
+
+\begin{example}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The set of Gaussians is a two parameter models:
+  \[ \mathcal{F} = \left\{ f(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} \exp\left\{ -\frac{(x-\mu)^2}{2\sigma^2}  \right\}, \mu \in \mathbb{R}, \sigma > 0   \right\}. \]
+\item
+  The set of Bernoulli distributions is a set of one parameter model:
+  \[ \mathcal{F} = \left\{ \mathbb{P}(X = 1) = p, \mathbb{P}(X = 0) = 1 -p, 0\leq p \leq 1   \right\}.\]
+\item
+  Generally, a parametric model has the following form
+  \[\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\]
+  where \(\Theta\) is some parameter space.
+\end{enumerate}
+
+\end{example}
+
+\textbf{Notation.}
+Given a parametric model
+\(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\)
+we denote
+\[ \mathbb{P}(X \in A ) = \int_A f(x;\theta) \, dx\]
+and
+\[ \mathbb{E}_\theta ( r(X)) = \int r(x) f(x;\theta) \, dx \,.\]
+
+\subsection{Point Estimation}\label{point-estimation}
+
+(Casella - Berger Chapter 7, Wasserman Chapter 6.1)
+
+\begin{definition}
+Let \(\{X_i\}\), \(i = 1, \dots, n\) be a sample.
+A \emph{point estimator} of \(\{X_i\}\) is a function
+\(g(X_1, \dots, X_n)\).
+\end{definition}
+
+The purpose of the \emph{point estimator} is to provide the ``best guess'' of certain quantity of interest.
+Those quantities could be a parameter in a parametric model, a CDF, PDF,\ldots{}
+
+Typically, the quantity of interest is denoted by \(\theta\), the point
+estimator is denoted by \(\hat \theta\) or \(\hat \theta_n\).
+So, combined with the above definition,
+\[ \hat \theta_n = g(X_1, \dots, X_n).\]
+Note that, \(\hat \theta_n\) is still a random variable as this is a function of
+your sample data, which are RVs themselves.
+
+Of course, we know that there are cases when samples suffer from biases.
+A way to measure biases is to compare the expected value of \(\hat \theta_n\) and
+the true value of the quantity of interest \(\theta\).
+
+\begin{definition}
+The bias of an estimator is defined by
+\[ b(\hat \theta_n) = \mathbb{E}(\hat \theta_n) - \theta. \]
+We say that \(\hat \theta_n\) is \emph{unbiased} if \(b(\hat \theta_n) = 0\).
+
+We also define the variance of an estimator by
+\[ v(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]
+
+The standard error (\(\mathrm{se}\) for short sometimes) is then
+\[ \mathrm{se}(\hat \theta_n) = \sqrt{v(\hat \theta_n)}. \]
+\end{definition}
+
+Classically, unbiased estimators received a lot of attention since people
+wanted to have unbiased samples.
+However, modern statistics has a different point of view: because data
+is large, it doesn't matter if the samples are biased as long as the
+estimators converge to the true quantity of interest.
+This gives rise to the following definition
+
+\begin{definition}
+A point estimator \(\hat \theta_n\) of a parameter \(\theta\) is \emph{consistent}
+if \(\hat \theta_n\) converges to \(\theta\) in probability.
+\end{definition}
+
+Here comes the million-dollar question:
+
+\begin{bbox}
+
+How do we measure bias in the samples?
+
+\end{bbox}
+
+One possible approach is to use the so-called mean squared error.
+
+\begin{definition}
+The mean squared error of an estimator is defined by
+\[ MSE = \mathbb{E}_\theta (\theta - \hat \theta_n)^2 \,.\]
+\end{definition}
+
+\begin{theorem}[Bias-Variance decomposition]
+\[ MSE = b_\theta^2(\hat \theta_n) + v_\theta(\hat \theta_n) \]
+\end{theorem}
+
+\begin{theorem}
+If, as \(n\to \infty\),
+\(b_\theta^2(\hat \theta_n) \to 0\) and \(v_\theta(\hat \theta_n) \to 0\),
+then \(\hat\theta_n\) is consistent.
+\end{theorem}
+
+A big part of elementary statistics dealt with estimators being approximately
+related to the Normal distribution.
+
+\begin{definition}
+An estimator is said to be \emph{asymptotically Normal} if
+\[ \frac{\hat \theta_n - \theta}{\mathrm{se}(\hat \theta_n)} \to N(0,1) \]
+in distribution.
+\end{definition}
+
+\subsection{Confidence set}\label{confidence-set}
+
+In elementary statistics,
+given sample \(X_1, \dots, X_n\),
+we define confidence interval with significance level \(\alpha\)
+to be the interval \((a,b)\) such that \(\mathbb{P}_\theta( \theta \in (a,b) ) \geq 1 - \alpha\).
+
+Note that \((a,b)\) depends on your sample, i.e.,
+\(a = a(X_1, \dots, X_n), b = b(X_1, \dots, X_n)\).
+
+It must be stressed that \(\theta\) is fixed and \((a,b)\) is random.
+
+For higher dimension / different kinds of data, the notion of confidence interval
+is replaced by the notion of confidence set.
+
+\begin{definition}
+Given sample \(X_1, \dots, X_n\).
+A \emph{confidence set} associated with significance level \(\alpha\) is the set (random) \(C_n\) (depending on the sample)
+such that
+\[ \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha. \]
+\end{definition}
+
+Confidence set is not a probability statement about the parameter \(\theta\). It is
+rather a statement about the uncertainty of your data.
+
+\begin{example}[Example 6.14 in Wasserman]
+
+Let \(\theta \in \mathbb{R}\). Let \(X_1, X_2\) RVs coming from the distribution
+\(\mathbb{P}(X_i = 1) = \mathbb{P}(X_i = -1) = 1/2\).
+Suppose \(Y_i = \theta + X_i\) are your observed data.
+Define
+\[ C = \begin{cases}
+    \{ Y_1 - 1\} & Y_1 = Y_2 \,, \\
+    \{ (Y_1 + Y_2)/2 \} & Y_1 \not= Y_2 \,.
+\end{cases}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For all \(\theta\in \mathbb{R}\), \(\mathbb{P}_\theta(\theta \in C ) = 3/4\).
+\item
+  Suppose we get \(Y_1 = 9\), \(Y_2 = 11\), \(C = \{ 10 \}\). Then, for sure, \(\theta = 10\).
+  Therefore,
+  \(\mathbb{P}(\theta \in C | Y_1, Y_2) = 1\).
+\end{enumerate}
+
+\end{example}
+
+\begin{example}
+Recall Hoeffding's inequality
+\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right) 
+\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right) \]
+for \(X_i \in [a_i, b_i]\).
+
+Apply this to the Bernoulli parametric model
+\[\mathcal{F} = \left\{ \mathbb{P}(X= 1) = p, \mathbb{P}(X = 0) = 1-p; p \in [0,1]   \right\}.\]
+
+\textbf{Question:} Suppose our sample comes from a Bernoulli distribution.
+What is a confidence interval that gives significance level \(\alpha\)?
+
+Try with two approaches: Hoeffding and Chebyshev.
+\end{example}
 
 \section{Empirical Distribution}\label{empirical-distribution}
 

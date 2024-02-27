@@ -132,10 +132,19 @@
 <li class="chapter" data-level="" data-path="part-2-inference.html"><a href="part-2-inference.html"><i class="fa fa-check"></i>PART 2: Inference</a></li>
 <li class="chapter" data-level="6" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>6</b> Sampling, Estimating CDF and Statistical Functionals</a>
 <ul>
-<li class="chapter" data-level="6.0.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#simple-random-sample"><i class="fa fa-check"></i><b>6.0.1</b> Simple Random Sample</a></li>
-<li class="chapter" data-level="6.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution"><i class="fa fa-check"></i><b>6.1</b> Empirical Distribution</a></li>
-<li class="chapter" data-level="6.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals"><i class="fa fa-check"></i><b>6.2</b> Statistical Functionals</a></li>
-<li class="chapter" data-level="6.3" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#bootstrap"><i class="fa fa-check"></i><b>6.3</b> Bootstrap</a></li>
+<li class="chapter" data-level="6.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#sampling"><i class="fa fa-check"></i><b>6.1</b> Sampling</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#simple-random-sample"><i class="fa fa-check"></i><b>6.1.1</b> Simple Random Sample</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#standard-random-sample"><i class="fa fa-check"></i><b>6.1.2</b> Standard Random Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-estimation"><i class="fa fa-check"></i><b>6.2</b> Statistical Estimation</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#point-estimation"><i class="fa fa-check"></i><b>6.2.1</b> Point Estimation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#confidence-set"><i class="fa fa-check"></i><b>6.2.2</b> Confidence set</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution"><i class="fa fa-check"></i><b>6.3</b> Empirical Distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals"><i class="fa fa-check"></i><b>6.4</b> Statistical Functionals</a></li>
+<li class="chapter" data-level="6.5" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#bootstrap"><i class="fa fa-check"></i><b>6.5</b> Bootstrap</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>7</b> Parametric Inference (Parameter Estimation)</a>
 <ul>
@@ -180,12 +189,29 @@
             <section class="normal" id="section-">
 <div id="sampling-estimating-cdf-and-statistical-functionals" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Sampling, Estimating CDF and Statistical Functionals<a href="sampling-estimating-cdf-and-statistical-functionals.html#sampling-estimating-cdf-and-statistical-functionals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sampling" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Sampling<a href="sampling-estimating-cdf-and-statistical-functionals.html#sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sampling is the act of gathering data from a certain
 population, in order to make prediction about some property
 of the population of interest.
 Each time one goes out to the field to sample, one gets different
 answers for the same set of quantities of interest, making those
 answers random variables.</p>
+<ul>
+<li><p>For finite population, there are two techniques called <em>sampling with replacement</em> and
+<em>sampling without replacement</em>.</p></li>
+<li><p>Sampling without replacement is sometimes called <em>simple random sampling</em> and
+one needs to be careful with it. However, if the population size is very very large
+compared to the sample size (a very subjective judgement),
+it is common in practice to treat the sampling data as I.I.D. RVs.</p></li>
+</ul>
+<div id="simple-random-sample" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Simple Random Sample<a href="sampling-estimating-cdf-and-statistical-functionals.html#simple-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will not discuss Simple Random Sampling in this class.
+Interested readers can consult Rice, Chapter 7.3.</p>
+</div>
+<div id="standard-random-sample" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Standard Random Sample<a href="sampling-estimating-cdf-and-statistical-functionals.html#standard-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
 <p><span id="def:stdSample" class="definition"><strong>Definition 6.1  (Standard Random Sample) </strong></span>The random variables <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i = 1,\dots , n\)</span> are called <em>standard random sample of
 size <span class="math inline">\(n\)</span> from population <span class="math inline">\(f(x)\)</span></em> if <span class="math inline">\(X_i\)</span>’s are I.I.D. RVs from the same
@@ -193,30 +219,173 @@ probability density function <span class="math inline">\(f\)</span>.</p>
 </div>
 <p>There is a few nuisances regarding general practice in statistics and this definition.</p>
 <ol style="list-style-type: decimal">
-<li><p>For finite population, there are two techniques called <em>sampling with replacement</em> and
-<em>sampling without replacement</em>.</p></li>
 <li><p>Definition <a href="sampling-estimating-cdf-and-statistical-functionals.html#def:stdSample">6.1</a> is either for <em>infinite</em> population or finite population with <em>sampling with replacement</em>.</p></li>
 <li><p>For finite population of size <span class="math inline">\(n\)</span>, sample data <span class="math inline">\(X_i\)</span> from <em>sampling without replacement</em>
 can never be independent as
 <span class="math inline">\(\mathbb{P}(X_2 = y | X_1 = y) = 0\)</span> and <span class="math inline">\(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\)</span>.</p></li>
-<li><p>Sampling without replacement is sometimes called <em>simple random sampling</em> and
-one needs to be careful with it. However, if the population size is very very large
-compared to the sample size (a very subjective judgement),
-it is common in practice to treat the sampling data as I.I.D. RVs.</p></li>
 </ol>
-<div id="simple-random-sample" class="section level3 hasAnchor" number="6.0.1">
-<h3><span class="header-section-number">6.0.1</span> Simple Random Sample<a href="sampling-estimating-cdf-and-statistical-functionals.html#simple-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>(Rice, Chapter 7.3)</p>
-<p>The process</p>
+<p>In this course, when we talk about sampling, we will understand it as in Definition <a href="sampling-estimating-cdf-and-statistical-functionals.html#def:stdSample">6.1</a>.</p>
 </div>
-<div id="empirical-distribution" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Empirical Distribution<a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="statistical-functionals" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Statistical Functionals<a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="statistical-estimation" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Statistical Estimation<a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Reading: Wasserman Chapter 6.</li>
+</ul>
+<p>Statistical inference, often rebranded as learning in computer science, is the process
+of figuring out certain information of a distribution function <span class="math inline">\(F\)</span> given
+sample <span class="math inline">\(X_1, \dots, X_n \sim F\)</span>.</p>
+<p>Typically, we don’t know which distribution function our sample comes from.
+However, sometimes, with some background theory (or simply just to make life easier),
+we may assume that the data come from certain family of distributions so that
+we can narrow our search.
+This gives rise to the following definitions.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-61" class="definition"><strong>Definition 6.2  </strong></span>A <em>statistical model</em> <span class="math inline">\(\mathcal{F}\)</span> is a set of distributions (or densities).</p>
+<p>A <em>parametric model</em> is a set set <span class="math inline">\(\mathcal{F}\)</span> that can be parametrized
+by a finite number of parameters.</p>
+<p>A <em>non-parametric model</em> is a statistical model that is not parametric.</p>
 </div>
-<div id="bootstrap" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Bootstrap<a href="sampling-estimating-cdf-and-statistical-functionals.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="example">
+<p><span id="exm:unlabeled-div-62" class="example"><strong>Example 6.1  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p>The set of Gaussians is a two parameter models:
+<span class="math display">\[ \mathcal{F} = \left\{ f(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} \exp\left\{ -\frac{(x-\mu)^2}{2\sigma^2}  \right\}, \mu \in \mathbb{R}, \sigma &gt; 0   \right\}. \]</span></p></li>
+<li><p>The set of Bernoulli distributions is a set of one parameter model:
+<span class="math display">\[ \mathcal{F} = \left\{ \mathbb{P}(X = 1) = p, \mathbb{P}(X = 0) = 1 -p, 0\leq p \leq 1   \right\}.\]</span></p></li>
+<li><p>Generally, a parametric model has the following form
+<span class="math display">\[\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\]</span>
+where <span class="math inline">\(\Theta\)</span> is some parameter space.</p></li>
+</ol>
+</div>
+<p><strong>Notation.</strong>
+Given a parametric model
+<span class="math inline">\(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\)</span>
+we denote
+<span class="math display">\[ \mathbb{P}(X \in A ) = \int_A f(x;\theta) \, dx\]</span>
+and
+<span class="math display">\[ \mathbb{E}_\theta ( r(X)) = \int r(x) f(x;\theta) \, dx \,.\]</span></p>
+<div id="point-estimation" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Point Estimation<a href="sampling-estimating-cdf-and-statistical-functionals.html#point-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(Casella - Berger Chapter 7, Wasserman Chapter 6.1)</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.3  </strong></span>Let <span class="math inline">\(\{X_i\}\)</span>, <span class="math inline">\(i = 1, \dots, n\)</span> be a sample.
+A <em>point estimator</em> of <span class="math inline">\(\{X_i\}\)</span> is a function
+<span class="math inline">\(g(X_1, \dots, X_n)\)</span>.</p>
+</div>
+<p>The purpose of the <em>point estimator</em> is to provide the “best guess” of certain quantity of interest.
+Those quantities could be a parameter in a parametric model, a CDF, PDF,…</p>
+<p>Typically, the quantity of interest is denoted by <span class="math inline">\(\theta\)</span>, the point
+estimator is denoted by <span class="math inline">\(\hat \theta\)</span> or <span class="math inline">\(\hat \theta_n\)</span>.
+So, combined with the above definition,
+<span class="math display">\[ \hat \theta_n = g(X_1, \dots, X_n).\]</span>
+Note that, <span class="math inline">\(\hat \theta_n\)</span> is still a random variable as this is a function of
+your sample data, which are RVs themselves.</p>
+<p>Of course, we know that there are cases when samples suffer from biases.
+A way to measure biases is to compare the expected value of <span class="math inline">\(\hat \theta_n\)</span> and
+the true value of the quantity of interest <span class="math inline">\(\theta\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.4  </strong></span>The bias of an estimator is defined by
+<span class="math display">\[ b(\hat \theta_n) = \mathbb{E}(\hat \theta_n) - \theta. \]</span>
+We say that <span class="math inline">\(\hat \theta_n\)</span> is <em>unbiased</em> if <span class="math inline">\(b(\hat \theta_n) = 0\)</span>.</p>
+<p>We also define the variance of an estimator by
+<span class="math display">\[ v(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]</span></p>
+<p>The standard error (<span class="math inline">\(\mathrm{se}\)</span> for short sometimes) is then
+<span class="math display">\[ \mathrm{se}(\hat \theta_n) = \sqrt{v(\hat \theta_n)}. \]</span></p>
+</div>
+<p>Classically, unbiased estimators received a lot of attention since people
+wanted to have unbiased samples.
+However, modern statistics has a different point of view: because data
+is large, it doesn’t matter if the samples are biased as long as the
+estimators converge to the true quantity of interest.
+This gives rise to the following definition</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-65" class="definition"><strong>Definition 6.5  </strong></span>A point estimator <span class="math inline">\(\hat \theta_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> is <em>consistent</em>
+if <span class="math inline">\(\hat \theta_n\)</span> converges to <span class="math inline">\(\theta\)</span> in probability.</p>
+</div>
+<p>Here comes the million-dollar question:</p>
+<div class="bbox">
+<center>
+How do we measure bias in the samples?
+</center>
+</div>
+<p>One possible approach is to use the so-called mean squared error.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-66" class="definition"><strong>Definition 6.6  </strong></span>The mean squared error of an estimator is defined by
+<span class="math display">\[ MSE = \mathbb{E}_\theta (\theta - \hat \theta_n)^2 \,.\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.1  (Bias-Variance decomposition) </strong></span><span class="math display">\[ MSE = b_\theta^2(\hat \theta_n) + v_\theta(\hat \theta_n) \]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.2  </strong></span>If, as <span class="math inline">\(n\to \infty\)</span>,
+<span class="math inline">\(b_\theta^2(\hat \theta_n) \to 0\)</span> and <span class="math inline">\(v_\theta(\hat \theta_n) \to 0\)</span>,
+then <span class="math inline">\(\hat\theta_n\)</span> is consistent.</p>
+</div>
+<p>A big part of elementary statistics dealt with estimators being approximately
+related to the Normal distribution.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-69" class="definition"><strong>Definition 6.7  </strong></span>An estimator is said to be <em>asymptotically Normal</em> if
+<span class="math display">\[ \frac{\hat \theta_n - \theta}{\mathrm{se}(\hat \theta_n)} \to N(0,1) \]</span>
+in distribution.</p>
+</div>
+</div>
+<div id="confidence-set" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Confidence set<a href="sampling-estimating-cdf-and-statistical-functionals.html#confidence-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In elementary statistics,
+given sample <span class="math inline">\(X_1, \dots, X_n\)</span>,
+we define confidence interval with significance level <span class="math inline">\(\alpha\)</span>
+to be the interval <span class="math inline">\((a,b)\)</span> such that <span class="math inline">\(\mathbb{P}_\theta( \theta \in (a,b) ) \geq 1 - \alpha\)</span>.</p>
+<p>Note that <span class="math inline">\((a,b)\)</span> depends on your sample, i.e.,
+<span class="math inline">\(a = a(X_1, \dots, X_n), b = b(X_1, \dots, X_n)\)</span>.</p>
+<p>It must be stressed that <span class="math inline">\(\theta\)</span> is fixed and <span class="math inline">\((a,b)\)</span> is random.</p>
+<p>For higher dimension / different kinds of data, the notion of confidence interval
+is replaced by the notion of confidence set.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-70" class="definition"><strong>Definition 6.8  </strong></span>Given sample <span class="math inline">\(X_1, \dots, X_n\)</span>.
+A <em>confidence set</em> associated with significance level <span class="math inline">\(\alpha\)</span> is the set (random) <span class="math inline">\(C_n\)</span> (depending on the sample)
+such that
+<span class="math display">\[ \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha. \]</span></p>
+</div>
+<p>Confidence set is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. It is
+rather a statement about the uncertainty of your data.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-71" class="example"><strong>Example 6.2  (Example 6.14 in Wasserman) </strong></span>Let <span class="math inline">\(\theta \in \mathbb{R}\)</span>. Let <span class="math inline">\(X_1, X_2\)</span> RVs coming from the distribution
+<span class="math inline">\(\mathbb{P}(X_i = 1) = \mathbb{P}(X_i = -1) = 1/2\)</span>.
+Suppose <span class="math inline">\(Y_i = \theta + X_i\)</span> are your observed data.
+Define
+<span class="math display">\[ C = \begin{cases}
+    \{ Y_1 - 1\} &amp; Y_1 = Y_2 \,, \\
+    \{ (Y_1 + Y_2)/2 \} &amp; Y_1 \not= Y_2 \,.
+\end{cases}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>For all <span class="math inline">\(\theta\in \mathbb{R}\)</span>, <span class="math inline">\(\mathbb{P}_\theta(\theta \in C ) = 3/4\)</span>.</p></li>
+<li><p>Suppose we get <span class="math inline">\(Y_1 = 9\)</span>, <span class="math inline">\(Y_2 = 11\)</span>, <span class="math inline">\(C = \{ 10 \}\)</span>. Then, for sure, <span class="math inline">\(\theta = 10\)</span>.
+Therefore,
+<span class="math inline">\(\mathbb{P}(\theta \in C | Y_1, Y_2) = 1\)</span>.</p></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-72" class="example"><strong>Example 6.3  </strong></span>Recall Hoeffding’s inequality
+<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right)
+\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right) \]</span>
+for <span class="math inline">\(X_i \in [a_i, b_i]\)</span>.</p>
+<p>Apply this to the Bernoulli parametric model
+<span class="math display">\[\mathcal{F} = \left\{ \mathbb{P}(X= 1) = p, \mathbb{P}(X = 0) = 1-p; p \in [0,1]   \right\}.\]</span></p>
+<p><strong>Question:</strong> Suppose our sample comes from a Bernoulli distribution.
+What is a confidence interval that gives significance level <span class="math inline">\(\alpha\)</span>?</p>
+<p>Try with two approaches: Hoeffding and Chebyshev.</p>
+</div>
+</div>
+</div>
+<div id="empirical-distribution" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Empirical Distribution<a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="statistical-functionals" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Statistical Functionals<a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="bootstrap" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Bootstrap<a href="sampling-estimating-cdf-and-statistical-functionals.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

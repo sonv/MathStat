@@ -67,16 +67,26 @@ h1.title {
 .definition{
     border: 1px solid;
     background: #f4ecf7;
+    padding: 0.2em;
 }
 .theorem{
     border: 1px solid;
     background:  #d5f5e3;
+    padding: 0.2em;
 }
 .exercise{
     border: 1px solid;
+    padding: 0.2em;
     background:  #fef9e7;
 }
 .proposition{
     border: 1px solid;
     background:  #D0D3D4;
+    padding: 0.2em;
+}
+.bbox {
+  padding: 0.2em;
+  background: white;
+  border: 2px solid orange;
+  border-radius: 10px;
 }
