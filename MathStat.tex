@@ -1385,6 +1385,48 @@ What is a confidence interval that gives significance level \(\alpha\)?
 Try with two approaches: Hoeffding and Chebyshev.
 \end{example}
 
+\subsection{Constructing estimators}\label{constructing-estimators}
+
+\subsubsection{Method of Moments}\label{method-of-moments}
+
+Let \(l \in \mathbb{N}\), the \(l\) sample moment is
+\[
+   \hat m_l = \frac 1 n \sum_{i=1}^n X_i^l \,.
+\]
+
+Suppose that we want to determine \(k\) different parameters in a parametric model.
+The population moments are functions of those parameters:
+\[
+ \mu_l = \mu_l (\theta_1, \dots, \theta_k) \,.
+\]
+
+The method of moments says that one can construct parameters \(\hat \theta_1, \dots, \hat \theta_k\) by solving
+\[
+\begin{aligned}
+    \hat m_1 &= \mu_1 (\hat \theta_1, \dots, \hat \theta_k) \\
+    &\vdots\\
+    \hat m_k &= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
+\end{aligned}
+\]
+
+\begin{example}
+Let \(X_1, \dots, X_n \sim N(\theta, \sigma^2)\).
+Construct estimators for the two parameters \(\theta\) and \(\sigma^2\).
+\end{example}
+
+\subsubsection{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
+
+\begin{definition}
+Suppose \(X_1, \dots, X_n \sim f_\theta\).
+The \emph{likelihood} function is defined by
+\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]
+The \emph{log-likelihood function} is defined by
+\[ \ell_n (\theta) h = \ln \mathcal{L}_n (\theta) \,. \]
+
+The \emph{maximum likelihood estimator} MLE, denoted by \(\hat \theta_n\), is the value of
+\(\theta\) that maximizes \(\mathcal{L}_n(\theta)\).
+\end{definition}
+
 \section{Empirical Distribution}\label{empirical-distribution}
 
 \section{Statistical Functionals}\label{statistical-functionals}
@@ -1393,7 +1435,7 @@ Try with two approaches: Hoeffding and Chebyshev.
 
 \chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}
 
-\section{Method of Moments}\label{method-of-moments}
+\section{Method of Moments}\label{method-of-moments-1}
 
 \section{Method of Maximum Likelihood}\label{method-of-maximum-likelihood}
 

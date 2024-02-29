@@ -141,6 +141,7 @@
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#point-estimation"><i class="fa fa-check"></i><b>6.2.1</b> Point Estimation</a></li>
 <li class="chapter" data-level="6.2.2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#confidence-set"><i class="fa fa-check"></i><b>6.2.2</b> Confidence set</a></li>
+<li class="chapter" data-level="6.2.3" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#constructing-estimators"><i class="fa fa-check"></i><b>6.2.3</b> Constructing estimators</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#empirical-distribution"><i class="fa fa-check"></i><b>6.3</b> Empirical Distribution</a></li>
 <li class="chapter" data-level="6.4" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html#statistical-functionals"><i class="fa fa-check"></i><b>6.4</b> Statistical Functionals</a></li>
@@ -148,7 +149,7 @@
 </ul></li>
 <li class="chapter" data-level="7" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>7</b> Parametric Inference (Parameter Estimation)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-moments"><i class="fa fa-check"></i><b>7.1</b> Method of Moments</a></li>
+<li class="chapter" data-level="7.1" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-moments-1"><i class="fa fa-check"></i><b>7.1</b> Method of Moments</a></li>
 <li class="chapter" data-level="7.2" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#method-of-maximum-likelihood"><i class="fa fa-check"></i><b>7.2</b> Method of Maximum Likelihood</a></li>
 <li class="chapter" data-level="7.3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#bayesian-approach"><i class="fa fa-check"></i><b>7.3</b> Bayesian Approach</a></li>
 <li class="chapter" data-level="7.4" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html#expectation-maximization-algorithm"><i class="fa fa-check"></i><b>7.4</b> Expectation-Maximization Algorithm</a></li>
@@ -375,6 +376,45 @@ for <span class="math inline">\(X_i \in [a_i, b_i]\)</span>.</p>
 <p><strong>Question:</strong> Suppose our sample comes from a Bernoulli distribution.
 What is a confidence interval that gives significance level <span class="math inline">\(\alpha\)</span>?</p>
 <p>Try with two approaches: Hoeffding and Chebyshev.</p>
+</div>
+</div>
+<div id="constructing-estimators" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Constructing estimators<a href="sampling-estimating-cdf-and-statistical-functionals.html#constructing-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="method-of-moments" class="section level4 hasAnchor" number="6.2.3.1">
+<h4><span class="header-section-number">6.2.3.1</span> Method of Moments<a href="sampling-estimating-cdf-and-statistical-functionals.html#method-of-moments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let <span class="math inline">\(l \in \mathbb{N}\)</span>, the <span class="math inline">\(l\)</span> sample moment is
+<span class="math display">\[
+   \hat m_l = \frac 1 n \sum_{i=1}^n X_i^l \,.
+\]</span></p>
+<p>Suppose that we want to determine <span class="math inline">\(k\)</span> different parameters in a parametric model.
+The population moments are functions of those parameters:
+<span class="math display">\[
+\mu_l = \mu_l (\theta_1, \dots, \theta_k) \,.
+\]</span></p>
+<p>The method of moments says that one can construct parameters <span class="math inline">\(\hat \theta_1, \dots, \hat \theta_k\)</span> by solving
+<span class="math display">\[
+\begin{aligned}
+    \hat m_1 &amp;= \mu_1 (\hat \theta_1, \dots, \hat \theta_k) \\
+    &amp;\vdots\\
+    \hat m_k &amp;= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
+\end{aligned}
+\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-73" class="example"><strong>Example 6.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
+Construct estimators for the two parameters <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+</div>
+<div id="maximum-likelihood-estimation" class="section level4 hasAnchor" number="6.2.3.2">
+<h4><span class="header-section-number">6.2.3.2</span> Maximum Likelihood Estimation<a href="sampling-estimating-cdf-and-statistical-functionals.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="definition">
+<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 6.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
+The <em>likelihood</em> function is defined by
+<span class="math display">\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]</span>
+The <em>log-likelihood function</em> is defined by
+<span class="math display">\[ \ell_n (\theta) h = \ln \mathcal{L}_n (\theta) \,. \]</span></p>
+<p>The <em>maximum likelihood estimator</em> MLE, denoted by <span class="math inline">\(\hat \theta_n\)</span>, is the value of
+<span class="math inline">\(\theta\)</span> that maximizes <span class="math inline">\(\mathcal{L}_n(\theta)\)</span>.</p>
+</div>
 </div>
 </div>
 </div>
