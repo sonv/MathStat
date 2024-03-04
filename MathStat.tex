@@ -1307,11 +1307,19 @@ The mean squared error of an estimator is defined by
 \[ MSE = b_\theta^2(\hat \theta_n) + \mathbb{V}_\theta(\hat \theta_n) \]
 \end{theorem}
 
+\begin{exercise}
+Prove the Bias-Variance decomposition.
+\end{exercise}
+
 \begin{theorem}
 If, as \(n\to \infty\),
 \(b_\theta^2(\hat \theta_n) \to 0\) and \(\mathbb{V}_\theta(\hat \theta_n) \to 0\),
 then \(\hat\theta_n\) is consistent.
 \end{theorem}
+
+\begin{exercise}
+Prove the above theorem.
+\end{exercise}
 
 A big part of elementary statistics dealt with estimators being approximately
 related to the Normal distribution.
@@ -1370,11 +1378,11 @@ Define
 
 \end{example}
 
-\begin{example}
+\begin{exercise}
 Recall Hoeffding's inequality
 \[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right) 
 \leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right) \]
-for \(X_i \in [a_i, b_i]\).
+for \(X_i \in [a_i, b_i]\) and \(\mathbb{E}X_i = 0\).
 
 Apply this to the Bernoulli parametric model
 \[\mathcal{F} = \left\{ \mathbb{P}(X= 1) = p, \mathbb{P}(X = 0) = 1-p; p \in [0,1]   \right\}.\]
@@ -1383,7 +1391,7 @@ Apply this to the Bernoulli parametric model
 What is a confidence interval that gives significance level \(\alpha\)?
 
 Try with two approaches: Hoeffding and Chebyshev.
-\end{example}
+\end{exercise}
 
 \subsection{Constructing estimators}\label{constructing-estimators}
 
