@@ -423,17 +423,28 @@ The population moments are functions of those parameters:
 <p><span id="exm:unlabeled-div-76" class="example"><strong>Example 2.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
 Construct estimators for the two parameters <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
 </div>
+<div class="example">
+<p><span id="exm:unlabeled-div-77" class="example"><strong>Example 2.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\)</span>, i.e.,
+<span class="math display">\[ \mathbb{P}(X_i = x) ={k \choose x} p^x (1-p)^{k-x}. \]</span>
+Construct estimators for <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>.</p>
+</div>
 </div>
 <div id="maximum-likelihood-estimation" class="section level4 hasAnchor" number="2.2.3.2">
 <h4><span class="header-section-number">2.2.3.2</span> Maximum Likelihood Estimation<a href="sampling-estimating-cdf-and-statistical-functionals.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="definition">
-<p><span id="def:unlabeled-div-77" class="definition"><strong>Definition 2.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
+<p><span id="def:unlabeled-div-78" class="definition"><strong>Definition 2.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
 The <em>likelihood</em> function is defined by
 <span class="math display">\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]</span>
 The <em>log-likelihood function</em> is defined by
 <span class="math display">\[ \ell_n (\theta) h = \ln \mathcal{L}_n (\theta) \,. \]</span></p>
 <p>The <em>maximum likelihood estimator</em> MLE, denoted by <span class="math inline">\(\hat \theta_n\)</span>, is the value of
 <span class="math inline">\(\theta\)</span> that maximizes <span class="math inline">\(\mathcal{L}_n(\theta)\)</span>.</p>
+</div>
+<p><strong>Notation.</strong> Another common notation for the likelihood function is
+<span class="math display">\[ L(\theta| X) = \mathcal{L}_n(\theta).\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-79" class="example"><strong>Example 2.5  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\theta, 1)\)</span>.
+Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p>
 </div>
 </div>
 </div>

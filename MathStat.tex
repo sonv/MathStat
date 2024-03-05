@@ -1447,6 +1447,12 @@ Let \(X_1, \dots, X_n \sim N(\theta, \sigma^2)\).
 Construct estimators for the two parameters \(\theta\) and \(\sigma^2\).
 \end{example}
 
+\begin{example}
+Let \(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\), i.e.,
+\[ \mathbb{P}(X_i = x) ={k \choose x} p^x (1-p)^{k-x}. \]
+Construct estimators for \(k\) and \(p\).
+\end{example}
+
 \subsubsection{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
 
 \begin{definition}
@@ -1459,6 +1465,14 @@ The \emph{log-likelihood function} is defined by
 The \emph{maximum likelihood estimator} MLE, denoted by \(\hat \theta_n\), is the value of
 \(\theta\) that maximizes \(\mathcal{L}_n(\theta)\).
 \end{definition}
+
+\textbf{Notation.} Another common notation for the likelihood function is
+\[ L(\theta| X) = \mathcal{L}_n(\theta).\]
+
+\begin{example}
+Let \(X_1, \dots, X_n\) be sample from \(N(\theta, 1)\).
+Use MLE to find an estimator for \(\theta\).
+\end{example}
 
 \section{Empirical Distribution}\label{empirical-distribution}
 
