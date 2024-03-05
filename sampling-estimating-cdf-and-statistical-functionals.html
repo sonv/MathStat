@@ -101,6 +101,11 @@
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#learning-support"><i class="fa fa-check"></i>Learning Support</a></li>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#wellbeing"><i class="fa fa-check"></i>Wellbeing</a></li>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#tentative-course-schedule"><i class="fa fa-check"></i>Tentative Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#project"><i class="fa fa-check"></i>Project</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#topics"><i class="fa fa-check"></i>Topics</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#deadlines"><i class="fa fa-check"></i>Deadlines</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-1-background.html"><a href="part-1-background.html"><i class="fa fa-check"></i>PART 1: Background</a></li>
 <li class="chapter" data-level="1" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
@@ -383,6 +388,20 @@ for <span class="math inline">\(X_i \in [a_i, b_i]\)</span> and <span class="mat
 What is a confidence interval that gives significance level <span class="math inline">\(\alpha\)</span>?</p>
 <p>Try with two approaches: Hoeffding and Chebyshev.</p>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-75" class="exercise"><strong>Exercise 2.4  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\)</span> and let <span class="math inline">\(\widehat{p}_n=n^{-1} \sum_{i=1}^n X_i\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Compute <span class="math inline">\(\mathbb{V}( X_i)\)</span> and <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span></p></li>
+<li><p>Suppose we don’t know <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span>, so we use an estimator of this quantity
+<span class="math display">\[\widehat{\mathrm{se}}^2 = {\widehat{p}_n\left(1-\widehat{p}_n\right) / n} \,.\]</span>
+Convince yourself that, by the Central Limit Theorem, <span class="math inline">\(\widehat{p}_n \approx N\left(p, \widehat{\operatorname{se}}^2\right)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the confidence interval for the significance level <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Compare this with the confidence interval in the previous exercise.
+You should see that the Normal-based interval is shorter but it only has approximately (when sample size is large ) correct coverage.</p></li>
+</ol></li>
+</ol>
+</div>
 </div>
 <div id="constructing-estimators" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Constructing estimators<a href="sampling-estimating-cdf-and-statistical-functionals.html#constructing-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -406,14 +425,14 @@ The population moments are functions of those parameters:
 \end{aligned}
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-75" class="example"><strong>Example 2.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
+<p><span id="exm:unlabeled-div-76" class="example"><strong>Example 2.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
 Construct estimators for the two parameters <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
 </div>
 </div>
 <div id="maximum-likelihood-estimation" class="section level4 hasAnchor" number="2.2.3.2">
 <h4><span class="header-section-number">2.2.3.2</span> Maximum Likelihood Estimation<a href="sampling-estimating-cdf-and-statistical-functionals.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="definition">
-<p><span id="def:unlabeled-div-76" class="definition"><strong>Definition 2.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
+<p><span id="def:unlabeled-div-77" class="definition"><strong>Definition 2.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
 The <em>likelihood</em> function is defined by
 <span class="math display">\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]</span>
 The <em>log-likelihood function</em> is defined by

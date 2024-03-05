@@ -1393,6 +1393,31 @@ What is a confidence interval that gives significance level \(\alpha\)?
 Try with two approaches: Hoeffding and Chebyshev.
 \end{exercise}
 
+\begin{exercise}
+
+Let \(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\) and let \(\widehat{p}_n=n^{-1} \sum_{i=1}^n X_i\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Compute \(\mathbb{V}( X_i)\) and \(\mathbb{V}(\hat p_n)\)
+\item
+  Suppose we don't know \(\mathbb{V}(\hat p_n)\), so we use an estimator of this quantity
+  \[\widehat{\mathrm{se}}^2 = {\widehat{p}_n\left(1-\widehat{p}_n\right) / n} \,.\]
+  Convince yourself that, by the Central Limit Theorem, \(\widehat{p}_n \approx N\left(p, \widehat{\operatorname{se}}^2\right)\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Find the confidence interval for the significance level \(\alpha\).
+  \item
+    Compare this with the confidence interval in the previous exercise.
+    You should see that the Normal-based interval is shorter but it only has approximately (when sample size is large ) correct coverage.
+  \end{enumerate}
+\end{enumerate}
+
+\end{exercise}
+
 \subsection{Constructing estimators}\label{constructing-estimators}
 
 \subsubsection{Method of Moments}\label{method-of-moments}
