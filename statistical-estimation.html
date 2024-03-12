@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.6 Bootstrap | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="2.6 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>2.2 Statistical Estimation | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="2.2 Statistical Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.6 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="2.2 Statistical Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.6 Bootstrap | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="2.2 Statistical Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-functionals.html"/>
-<link rel="next" href="parametric-inference-parameter-estimation.html"/>
+<link rel="prev" href="sampling.html"/>
+<link rel="next" href="constructing-estimators.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -192,18 +192,184 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bootstrap" class="section level2 hasAnchor" number="2.6">
-<h2><span class="header-section-number">2.6</span> Bootstrap<a href="bootstrap.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-
+<div id="statistical-estimation" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Statistical Estimation<a href="statistical-estimation.html#statistical-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Reading: Wasserman Chapter 6.</li>
+</ul>
+<p>Statistical inference, often rebranded as learning in computer science, is the process
+of figuring out certain information of a distribution function <span class="math inline">\(F\)</span> given
+sample <span class="math inline">\(X_1, \dots, X_n \sim F\)</span>.</p>
+<p>Typically, we don’t know which distribution function our sample comes from.
+However, sometimes, with some background theory (or simply just to make life easier),
+we may assume that the data come from certain family of distributions so that
+we can narrow our search.
+This gives rise to the following definitions.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-61" class="definition"><strong>Definition 2.2  </strong></span>A <em>statistical model</em> <span class="math inline">\(\mathcal{F}\)</span> is a set of distributions (or densities).</p>
+<p>A <em>parametric model</em> is a set set <span class="math inline">\(\mathcal{F}\)</span> that can be parametrized
+by a finite number of parameters.</p>
+<p>A <em>non-parametric model</em> is a statistical model that is not parametric.</p>
 </div>
-<!-- </div> -->
+<div class="example">
+<p><span id="exm:unlabeled-div-62" class="example"><strong>Example 2.1  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p>The set of Gaussians is a two parameter models:
+<span class="math display">\[ \mathcal{F} = \left\{ f(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} \exp\left\{ -\frac{(x-\mu)^2}{2\sigma^2}  \right\}, \mu \in \mathbb{R}, \sigma &gt; 0   \right\}. \]</span></p></li>
+<li><p>The set of Bernoulli distributions is a set of one parameter model:
+<span class="math display">\[ \mathcal{F} = \left\{ \mathbb{P}(X = 1) = p, \mathbb{P}(X = 0) = 1 -p, 0\leq p \leq 1   \right\}.\]</span></p></li>
+<li><p>Generally, a parametric model has the following form
+<span class="math display">\[\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\]</span>
+where <span class="math inline">\(\Theta\)</span> is some parameter space.</p></li>
+</ol>
+</div>
+<p><strong>Notation.</strong>
+Given a parametric model
+<span class="math inline">\(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\)</span>
+we denote
+<span class="math display">\[ \mathbb{P}(X \in A ) = \int_A f(x;\theta) \, dx\]</span>
+and
+<span class="math display">\[ \mathbb{E}_\theta ( r(X)) = \int r(x) f(x;\theta) \, dx \,.\]</span></p>
+<div id="point-estimation" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Point Estimation<a href="statistical-estimation.html#point-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(Casella - Berger Chapter 7, Wasserman Chapter 6.1)</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 2.3  </strong></span>Let <span class="math inline">\(\{X_i\}\)</span>, <span class="math inline">\(i = 1, \dots, n\)</span> be a sample.
+A <em>point estimator</em> of <span class="math inline">\(\{X_i\}\)</span> is a function
+<span class="math inline">\(g(X_1, \dots, X_n)\)</span>.</p>
+</div>
+<p>The purpose of the <em>point estimator</em> is to provide the “best guess” of certain quantity of interest.
+Those quantities could be a parameter in a parametric model, a CDF, PDF,…</p>
+<p>Typically, the quantity of interest is denoted by <span class="math inline">\(\theta\)</span>, the point
+estimator is denoted by <span class="math inline">\(\hat \theta\)</span> or <span class="math inline">\(\hat \theta_n\)</span>.
+So, combined with the above definition,
+<span class="math display">\[ \hat \theta_n = g(X_1, \dots, X_n).\]</span>
+Note that, <span class="math inline">\(\hat \theta_n\)</span> is still a random variable as this is a function of
+your sample data, which are RVs themselves.</p>
+<p>Of course, we know that there are cases when samples suffer from biases.
+A way to measure biases is to compare the expected value of <span class="math inline">\(\hat \theta_n\)</span> and
+the true value of the quantity of interest <span class="math inline">\(\theta\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 2.4  </strong></span>The bias of an estimator is defined by
+<span class="math display">\[ b(\hat \theta_n) = \mathbb{E}(\hat \theta_n) - \theta. \]</span>
+We say that <span class="math inline">\(\hat \theta_n\)</span> is <em>unbiased</em> if <span class="math inline">\(b(\hat \theta_n) = 0\)</span>.</p>
+<p>We also define the variance of an estimator by
+<span class="math display">\[ \mathbb{V}_\theta(\hat \theta_n) = \mathbb{E}_\theta (\hat \theta_n - \mathbb{E}_\theta (\hat \theta_n))^2 .\]</span></p>
+<p>The standard error (<span class="math inline">\(\mathrm{se}\)</span> for short sometimes) is then
+<span class="math display">\[ \mathrm{se}(\hat \theta_n) = \sqrt{\mathbb{V}_\theta (\hat \theta_n)}. \]</span></p>
+</div>
+<p>Classically, unbiased estimators received a lot of attention since people
+wanted to have unbiased samples.
+However, modern statistics has a different point of view: because data
+is large, it doesn’t matter if the samples are biased as long as the
+estimators converge to the true quantity of interest.
+This gives rise to the following definition</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-65" class="definition"><strong>Definition 2.5  </strong></span>A point estimator <span class="math inline">\(\hat \theta_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> is <em>consistent</em>
+if <span class="math inline">\(\hat \theta_n\)</span> converges to <span class="math inline">\(\theta\)</span> in probability.</p>
+</div>
+<p>Here comes the million-dollar question:</p>
+<div class="bbox">
+<center>
+How do we measure bias in the samples?
+</center>
+</div>
+<p>One possible approach is to use the so-called mean squared error.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-66" class="definition"><strong>Definition 2.6  </strong></span>The mean squared error of an estimator is defined by
+<span class="math display">\[ MSE = \mathbb{E}_\theta (\theta - \hat \theta_n)^2 \,.\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 2.1  (Bias-Variance decomposition) </strong></span><span class="math display">\[ MSE = b_\theta^2(\hat \theta_n) + \mathbb{V}_\theta(\hat \theta_n) \]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-68" class="exercise"><strong>Exercise 2.1  </strong></span>Prove the Bias-Variance decomposition.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-69" class="theorem"><strong>Theorem 2.2  </strong></span>If, as <span class="math inline">\(n\to \infty\)</span>,
+<span class="math inline">\(b_\theta^2(\hat \theta_n) \to 0\)</span> and <span class="math inline">\(\mathbb{V}_\theta(\hat \theta_n) \to 0\)</span>,
+then <span class="math inline">\(\hat\theta_n\)</span> is consistent.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-70" class="exercise"><strong>Exercise 2.2  </strong></span>Prove the above theorem.</p>
+</div>
+<p>A big part of elementary statistics dealt with estimators being approximately
+related to the Normal distribution.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 2.7  </strong></span>An estimator is said to be <em>asymptotically Normal</em> if
+<span class="math display">\[ \frac{\hat \theta_n - \theta}{\mathrm{se}(\hat \theta_n)} \to N(0,1) \]</span>
+in distribution.</p>
+</div>
+</div>
+<div id="confidence-set" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Confidence set<a href="statistical-estimation.html#confidence-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In elementary statistics,
+given sample <span class="math inline">\(X_1, \dots, X_n\)</span>,
+we define confidence interval with significance level <span class="math inline">\(\alpha\)</span>
+to be the interval <span class="math inline">\((a,b)\)</span> such that <span class="math inline">\(\mathbb{P}_\theta( \theta \in (a,b) ) \geq 1 - \alpha\)</span>.</p>
+<p>Note that <span class="math inline">\((a,b)\)</span> depends on your sample, i.e.,
+<span class="math inline">\(a = a(X_1, \dots, X_n), b = b(X_1, \dots, X_n)\)</span>.</p>
+<p>It must be stressed that <span class="math inline">\(\theta\)</span> is fixed and <span class="math inline">\((a,b)\)</span> is random.</p>
+<p>For higher dimension / different kinds of data, the notion of confidence interval
+is replaced by the notion of confidence set.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 2.8  </strong></span>Given sample <span class="math inline">\(X_1, \dots, X_n\)</span>.
+A <em>confidence set</em> associated with significance level <span class="math inline">\(\alpha\)</span> is the set (random) <span class="math inline">\(C_n\)</span> (depending on the sample)
+such that
+<span class="math display">\[ \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha. \]</span></p>
+</div>
+<p>Confidence set is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. It is
+rather a statement about the uncertainty of your data.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-73" class="example"><strong>Example 2.2  (Example 6.14 in Wasserman) </strong></span>Let <span class="math inline">\(\theta \in \mathbb{R}\)</span>. Let <span class="math inline">\(X_1, X_2\)</span> RVs coming from the distribution
+<span class="math inline">\(\mathbb{P}(X_i = 1) = \mathbb{P}(X_i = -1) = 1/2\)</span>.
+Suppose <span class="math inline">\(Y_i = \theta + X_i\)</span> are your observed data.
+Define
+<span class="math display">\[ C = \begin{cases}
+    \{ Y_1 - 1\} &amp; Y_1 = Y_2 \,, \\
+    \{ (Y_1 + Y_2)/2 \} &amp; Y_1 \not= Y_2 \,.
+\end{cases}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>For all <span class="math inline">\(\theta\in \mathbb{R}\)</span>, <span class="math inline">\(\mathbb{P}_\theta(\theta \in C ) = 3/4\)</span>.</p></li>
+<li><p>Suppose we get <span class="math inline">\(Y_1 = 9\)</span>, <span class="math inline">\(Y_2 = 11\)</span>, <span class="math inline">\(C = \{ 10 \}\)</span>. Then, for sure, <span class="math inline">\(\theta = 10\)</span>.
+Therefore,
+<span class="math inline">\(\mathbb{P}(\theta \in C | Y_1, Y_2) = 1\)</span>.</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-74" class="exercise"><strong>Exercise 2.3  </strong></span>Recall Hoeffding’s inequality
+<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right)
+\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right) \]</span>
+for <span class="math inline">\(X_i \in [a_i, b_i]\)</span> and <span class="math inline">\(\mathbb{E}X_i = 0\)</span>.</p>
+<p>Apply this to the Bernoulli parametric model
+<span class="math display">\[\mathcal{F} = \left\{ \mathbb{P}(X= 1) = p, \mathbb{P}(X = 0) = 1-p; p \in [0,1]   \right\}.\]</span></p>
+<p><strong>Question:</strong> Suppose our sample comes from a Bernoulli distribution.
+What is a confidence interval that gives significance level <span class="math inline">\(\alpha\)</span>?</p>
+<p>Try with two approaches: Hoeffding and Chebyshev.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-75" class="exercise"><strong>Exercise 2.4  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\)</span> and let <span class="math inline">\(\widehat{p}_n=n^{-1} \sum_{i=1}^n X_i\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Compute <span class="math inline">\(\mathbb{V}( X_i)\)</span> and <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span></p></li>
+<li><p>Suppose we don’t know <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span>, so we use an estimator of this quantity
+<span class="math display">\[\widehat{\mathrm{se}}^2 = {\widehat{p}_n\left(1-\widehat{p}_n\right) / n} \,.\]</span>
+Convince yourself that, by the Central Limit Theorem, <span class="math inline">\(\widehat{p}_n \approx N\left(p, \widehat{\operatorname{se}}^2\right)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the confidence interval for the significance level <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Compare this with the confidence interval in the previous exercise.
+You should see that the Normal-based interval is shorter but it only has approximately (when sample size is large ) correct coverage.</p></li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistical-functionals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parametric-inference-parameter-estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="constructing-estimators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

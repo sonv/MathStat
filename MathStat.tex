@@ -1418,9 +1418,9 @@ Let \(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\) and let \(\widehat{p}_
 
 \end{exercise}
 
-\subsection{Constructing estimators}\label{constructing-estimators}
+\section{Constructing estimators}\label{constructing-estimators}
 
-\subsubsection{Method of Moments}\label{method-of-moments}
+\subsection{Method of Moments}\label{method-of-moments}
 
 Let \(l \in \mathbb{N}\), the \(l\) sample moment is
 \[
@@ -1434,13 +1434,14 @@ The population moments are functions of those parameters:
 \]
 
 The method of moments says that one can construct parameters \(\hat \theta_1, \dots, \hat \theta_k\) by solving
-\[
-\begin{aligned}
-    \hat m_1 &= \mu_1 (\hat \theta_1, \dots, \hat \theta_k) \\
-    &\vdots\\
-    \hat m_k &= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
-\end{aligned}
-\]
+\begin{equation}
+    \begin{aligned}
+        \hat m_1 &= \mu_1 (\hat \theta_1, \dots, \hat \theta_k) \\
+        &\vdots\\
+        \hat m_k &= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
+    \end{aligned}
+        \label{eq:moments}
+\end{equation}
 
 \begin{example}
 Let \(X_1, \dots, X_n \sim N(\theta, \sigma^2)\).
@@ -1453,7 +1454,101 @@ Let \(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\), i.e.,
 Construct estimators for \(k\) and \(p\).
 \end{example}
 
-\subsubsection{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
+Suppose the model we are considering has \(k\) parameters \(\theta_j \in \mathbb{R}\),
+where \(j = 1, \dots, k\).
+
+Define a function \(g: \mathbb{R}^k \to \mathbb{R}^k\) by
+\[ g(\theta) = \mu, \]
+where
+\[\theta = (\theta_1, \dots, \theta_k)\]
+and
+\[\mu = (\mu_1, \dots, \mu_k).\]
+
+We can rephrase the above construction of the estimators
+as solving for \(\hat \theta\), given \(\hat \mu\) in the equation
+\begin{equation}
+ \hat \mu = g(\hat \theta) .
+ \label{eq:estimator}
+ \end{equation}
+
+(Note that \(\hat \mu\) and \(\hat \theta\) depends on the sample (size))
+
+Two natural questions arise:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Can we solve this equation?
+\item
+  Are the estimators consistent?
+\end{enumerate}
+
+The answer to the first question is not so obvious.
+However, if we can solve the first problem, then the second problem is
+somewhat more manageable, given some reasonable assumptions.
+
+\begin{exercise}
+Suppose that \(g:\mathbb{R}^k \to \mathbb{R}^k\) defined above is a bijection with continuous inverse.
+Then, for each \(\epsilon >0\), there exists an \(N>0\) such that for every \(n \geq N\),
+
+\[\lim_{n\to \infty}\mathbb{P}( |\hat \theta - \bar \theta| ) \geq 1 - 1/ \epsilon.\]
+
+That is, \(\hat \theta\) is consistent.
+\end{exercise}
+
+Of course, \(g\) is nonlinear generally. So, the assumption that \(g\) is a bijection may seem to
+be too strong and not too satisfying.
+To fix this issue, let's consider a more general version of the above construction of estimators.
+
+Define a modified version of the estimator \(\hat \theta\) as follows
+
+\[ \tilde \theta =
+\begin{cases} \hat \theta & \text{if it is solvable } \\
+   0 & \text{otherwise}\end{cases}\]
+
+\begin{theorem}
+Suppose that all the moments of the underlying population are finte,
+\(g\) is of class \(C^1\) and that \(\det[Dg]\not= 0\).
+For each \(\epsilon >0\),
+\[\lim_{n\to \infty}\mathbb{P}( |\tilde \theta - \bar \theta| > \epsilon ) = 0.\]
+\end{theorem}
+
+\begin{proof}
+Let \(\epsilon, \alpha >0\).
+
+From the weak law of large number, there exists \(\bar m\) so that \(\hat m \to \bar m\)
+as \(n \to \infty\) in probability.
+Note, that \(\bar m\) is the list of moments that are generated from the underlying
+population, therefore,
+\[\bar m = g (\bar \theta),\]
+where \(\bar\theta\) is the list of underlying parameters.
+
+By the inverse function theorem, there exists a \(\delta >0\) such that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(g\) is invertible in the ball \(B(\bar m, \delta)\),
+\item
+  \(g^{-1}\) is of class \(C^1\),
+\item
+  \(g^{-1}(B(\bar m, \delta)) \subseteq B(\bar \theta, \epsilon)\).
+\end{enumerate}
+
+Let \(N\) be such that for every \(n > N\),
+\[\mathbb{P}( |\hat m - \bar m| < \delta) \geq 1 - \alpha. \]
+
+Since \(|\hat m - \bar m| < \delta\) implies that \(\hat\theta\) is uniquely solvable, i.e.~
+\(\hat\theta = g^{-1}(\hat m)\),
+we have
+\[ \mathbb{P}(| \tilde \theta - \bar \theta | > \epsilon) \leq \mathbb{P}( |\hat m - \bar m| \geq \delta) \leq \alpha. \]
+
+Therefore, since \(\alpha\) is arbitrary,
+\[\lim_{n\to \infty}\mathbb{P}( |\tilde \theta - \bar \theta| > \epsilon ) = 0,\]
+as desired.
+\end{proof}
+
+\subsection{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
 
 \begin{definition}
 Suppose \(X_1, \dots, X_n \sim f_\theta\).
@@ -1470,9 +1565,49 @@ The \emph{maximum likelihood estimator} MLE, denoted by \(\hat \theta_n\), is th
 \[ L(\theta| X) = \mathcal{L}_n(\theta).\]
 
 \begin{example}
+Let \(X_1, \dots, X_n\) be sample from \(\mathrm{Bernoulli}(p)\).
+Use MLE to find an estimator for \(p\).
+\end{example}
+
+\begin{example}
 Let \(X_1, \dots, X_n\) be sample from \(N(\theta, 1)\).
 Use MLE to find an estimator for \(\theta\).
 \end{example}
+
+\begin{theorem}
+Let \(\tau = g(\theta)\) be a bijective function of \(\theta\).
+Suppose that \(\hat \theta_n\) is the MLE of \(\theta\).
+Then \(\hat \tau_n = g(\hat \theta_n)\) is the MLE of \(\tau\).
+\end{theorem}
+
+To discuss about the consistency of the MLE, we define the
+Kullback-Leibler distance between two pdf \(f\) and \(g\).
+
+\[ D(f,g) = \int f(x) \ln \left( \frac{f(x)}{g(x)} \right) \, dx.\]
+
+Abusing notation, we will write
+\(D(\theta, \varphi)\) to mean \(D(f(x;\theta), f(x;\varphi))\).
+
+We say that a model \(\mathcal{F}\) is \emph{identifiable} if \(\theta \not= \varphi\) implies
+\(D(\theta, \varphi) > 0\).
+
+\begin{theorem}
+Let \(\theta_{\star}\) denote the true value of \(\theta\). Define
+\[
+M_n(\theta)=\frac{1}{n} \sum_i \log \frac{f\left(X_i ; \theta\right)}{f\left(X_i ; \theta_{\star}\right)}
+\]
+and \(M(\theta)=-D\left(\theta_{\star}, \theta\right)\). Suppose that
+\[
+\sup _{\theta \in \Theta}\left|M_n(\theta)-M(\theta)\right| \to 0
+\]
+in probability
+and that, for every \(\epsilon>0\),
+\[
+\sup _{\theta:|\theta-\theta,| \geq \epsilon} M(\theta)<M\left(\theta_{\star}\right) .
+\]
+
+Let \(\widehat{\theta}_n\) denote the MLE. Then \(\widehat{\theta}_n \to \theta_{\star}\) in probability.
+\end{theorem}
 
 \section{Empirical Distribution}\label{empirical-distribution}
 
