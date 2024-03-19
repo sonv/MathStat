@@ -311,8 +311,16 @@ Use MLE to find an estimator for <span class="math inline">\(p\)</span>.</p>
 <p><span id="exm:unlabeled-div-83" class="example"><strong>Example 2.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\theta, 1)\)</span>.
 Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 2.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform(0,\theta)\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Find an estimator by the method of moments.</p></li>
+<li><p>Compute the mean and the variance of the two estimators above.</p></li>
+</ol>
+</div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-84" class="theorem"><strong>Theorem 2.4  </strong></span>Let <span class="math inline">\(\tau = g(\theta)\)</span> be a bijective function of <span class="math inline">\(\theta\)</span>.
+<p><span id="thm:unlabeled-div-85" class="theorem"><strong>Theorem 2.4  </strong></span>Let <span class="math inline">\(\tau = g(\theta)\)</span> be a bijective function of <span class="math inline">\(\theta\)</span>.
 Suppose that <span class="math inline">\(\hat \theta_n\)</span> is the MLE of <span class="math inline">\(\theta\)</span>.
 Then <span class="math inline">\(\hat \tau_n = g(\hat \theta_n)\)</span> is the MLE of <span class="math inline">\(\tau\)</span>.</p>
 </div>
@@ -324,7 +332,7 @@ Kullback-Leibler distance between two pdf <span class="math inline">\(f\)</span>
 <p>We say that a model <span class="math inline">\(\mathcal{F}\)</span> is <em>identifiable</em> if <span class="math inline">\(\theta \not= \varphi\)</span> implies
 <span class="math inline">\(D(\theta, \varphi) &gt; 0\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-85" class="theorem"><strong>Theorem 2.5  </strong></span>Let <span class="math inline">\(\theta_{\star}\)</span> denote the true value of <span class="math inline">\(\theta\)</span>. Define
+<p><span id="thm:unlabeled-div-86" class="theorem"><strong>Theorem 2.5  </strong></span>Let <span class="math inline">\(\theta_{\star}\)</span> denote the true value of <span class="math inline">\(\theta\)</span>. Define
 <span class="math display">\[
 M_n(\theta)=\frac{1}{n} \sum_i \log \frac{f\left(X_i ; \theta\right)}{f\left(X_i ; \theta_{\star}\right)}
 \]</span>
@@ -338,6 +346,22 @@ and that, for every <span class="math inline">\(\epsilon&gt;0\)</span>,
 \sup _{\theta:|\theta-\theta,| \geq \epsilon} M(\theta)&lt;M\left(\theta_{\star}\right) .
 \]</span></p>
 <p>Let <span class="math inline">\(\widehat{\theta}_n\)</span> denote the MLE. Then <span class="math inline">\(\widehat{\theta}_n \to \theta_{\star}\)</span> in probability.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-87" class="exercise"><strong>Exercise 2.7  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a distribution with density:
+<span class="math display">\[ p(x; \theta) = \theta x^{-2}, \quad 0 &lt; \theta \leq x &lt; \infty. \]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Find the Method of Moments estimator for <span class="math inline">\(\theta\)</span>.</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-88" class="exercise"><strong>Exercise 2.8  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the method of moments estimator, the maximum likelihood estimator, and the Fisher information <span class="math inline">\(I(\lambda)\)</span>.</p></li>
+<li><p>Use the fact that the mean and variance of the Poisson distribution are both <span class="math inline">\(\lambda\)</span> to propose two unbiased estimators of <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Show that one of these estimators has a larger variance than the other.</p></li>
+</ol>
 </div>
 </div>
 </div>

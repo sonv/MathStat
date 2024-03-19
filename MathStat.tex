@@ -1574,6 +1574,22 @@ Let \(X_1, \dots, X_n\) be sample from \(N(\theta, 1)\).
 Use MLE to find an estimator for \(\theta\).
 \end{example}
 
+\begin{exercise}
+
+Let \(X_1, \dots, X_n\) be sample from \(Uniform(0,\theta)\), where \(\theta >0\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the MLE for \(\theta\).
+\item
+  Find an estimator by the method of moments.
+\item
+  Compute the mean and the variance of the two estimators above.
+\end{enumerate}
+
+\end{exercise}
+
 \begin{theorem}
 Let \(\tau = g(\theta)\) be a bijective function of \(\theta\).
 Suppose that \(\hat \theta_n\) is the MLE of \(\theta\).
@@ -1608,6 +1624,37 @@ and that, for every \(\epsilon>0\),
 
 Let \(\widehat{\theta}_n\) denote the MLE. Then \(\widehat{\theta}_n \to \theta_{\star}\) in probability.
 \end{theorem}
+
+\begin{exercise}
+
+Let \(X_1, \ldots, X_n\) be a random sample from a distribution with density:
+\[ p(x; \theta) = \theta x^{-2}, \quad 0 < \theta \leq x < \infty. \]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the MLE for \(\theta\).
+\item
+  Find the Method of Moments estimator for \(\theta\).
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}
+
+Let \(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the method of moments estimator, the maximum likelihood estimator, and the Fisher information \(I(\lambda)\).
+\item
+  Use the fact that the mean and variance of the Poisson distribution are both \(\lambda\) to propose two unbiased estimators of \(\lambda\).
+\item
+  Show that one of these estimators has a larger variance than the other.
+\end{enumerate}
+
+\end{exercise}
 
 \section{Empirical Distribution}\label{empirical-distribution}
 
