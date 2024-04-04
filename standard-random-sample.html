@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>2.2 Standard Random Sample | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="2.2 Standard Random Sample | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="2.2 Standard Random Sample | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="2.2 Standard Random Sample | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="moment-generating-and-characteristic-functions.html"/>
-<link rel="next" href="law-of-large-numbers.html"/>
+<link rel="prev" href="simple-random-sample.html"/>
+<link rel="next" href="parametric-inference-parameter-estimation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -177,64 +177,31 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inequalities" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Inequalities<a href="inequalities.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="typical-tail-bound-inequalities" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Typical tail bound inequalities<a href="inequalities.html#typical-tail-bound-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-50" class="theorem"><strong>Theorem 1.8  (Markov's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a non-negative RV and <span class="math inline">\(\mathbb{E}(X)\)</span> exists.
-Then, for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}( X &gt; k) \leq \frac{\mathbb{E}(X)}{k}. \]</span></p>
+<div id="standard-random-sample" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Standard Random Sample<a href="standard-random-sample.html#standard-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:stdSample" class="definition"><strong>Definition 2.1  (Standard Random Sample) </strong></span>The random variables <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i = 1,\dots , n\)</span> are called <em>standard random sample of
+size <span class="math inline">\(n\)</span> from population <span class="math inline">\(f(x)\)</span></em> if <span class="math inline">\(X_i\)</span>’s are I.I.D. RVs from the same
+probability density function <span class="math inline">\(f\)</span>.</p>
 </div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-51" class="theorem"><strong>Theorem 1.9  (Chebyshev's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a RV such with expected value <span class="math inline">\(\mu\)</span> and standard variation <span class="math inline">\(\sigma\)</span>.
-Then for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(| X - \mu | &gt; k \sigma ) \leq \frac{1}{k^2}. \]</span></p>
+<p>There is a few nuisances regarding general practice in statistics and this definition.</p>
+<ol style="list-style-type: decimal">
+<li><p>Definition <a href="standard-random-sample.html#def:stdSample">2.1</a> is either for <em>infinite</em> population or finite population with <em>sampling with replacement</em>.</p></li>
+<li><p>For finite population of size <span class="math inline">\(n\)</span>, sample data <span class="math inline">\(X_i\)</span> from <em>sampling without replacement</em>
+can never be independent as
+<span class="math inline">\(\mathbb{P}(X_2 = y | X_1 = y) = 0\)</span> and <span class="math inline">\(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\)</span>.</p></li>
+</ol>
+<p>In this course, when we talk about sampling, we will understand it as in Definition <a href="standard-random-sample.html#def:stdSample">2.1</a>.</p>
+
 </div>
-</div>
-<div id="exponential-concentration-inequalities" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Exponential concentration inequalities<a href="inequalities.html#exponential-concentration-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 1.10  (Mill's inequality) </strong></span>Let <span class="math inline">\(Z \sim N(0,1)\)</span>. Then,
-for each <span class="math inline">\(t &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(|Z| &gt; t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}. \]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-53" class="theorem"><strong>Theorem 1.11  (Hoeffding's inequality) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-For each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left(  \sum_{i=1}^n X_i \geq \epsilon \right)
-\leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]</span></p>
-</div>
-<div class="exercise">
-<p><span id="exr:Hoeffding" class="exercise"><strong>Exercise 1.22  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-Show that
-for each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right)
-\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right). \]</span></p>
-</div>
-</div>
-<div id="inequalities-for-expectations" class="section level3 hasAnchor" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Inequalities for expectations<a href="inequalities.html#inequalities-for-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-54" class="theorem"><strong>Theorem 1.12  (Cauchy-Schwartz inequality) </strong></span>Let <span class="math inline">\(X, Y\)</span> be RVs with finite variances. Then,
-<span class="math display">\[\mathbb{E}( |XY| ) \leq \sqrt{ \mathbb{E}(X^2) \mathbb{E}(Y^2) }.\]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 1.13  (Jensen's inequality) </strong></span>Suppose <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> is a convex function.
-Then
-<span class="math display">\[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]</span></p>
-</div>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="moment-generating-and-characteristic-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="law-of-large-numbers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="simple-random-sample.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parametric-inference-parameter-estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

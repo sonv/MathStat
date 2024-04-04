@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>3.3 Method of Moments | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="3.3 Method of Moments | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="3.3 Method of Moments | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="3.3 Method of Moments | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="moment-generating-and-characteristic-functions.html"/>
-<link rel="next" href="law-of-large-numbers.html"/>
+<link rel="prev" href="confidence-set.html"/>
+<link rel="next" href="maximum-likelihood-estimation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -177,55 +177,100 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inequalities" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Inequalities<a href="inequalities.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="typical-tail-bound-inequalities" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Typical tail bound inequalities<a href="inequalities.html#typical-tail-bound-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-50" class="theorem"><strong>Theorem 1.8  (Markov's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a non-negative RV and <span class="math inline">\(\mathbb{E}(X)\)</span> exists.
-Then, for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}( X &gt; k) \leq \frac{\mathbb{E}(X)}{k}. \]</span></p>
+<div id="method-of-moments" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Method of Moments<a href="method-of-moments.html#method-of-moments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let <span class="math inline">\(l \in \mathbb{N}\)</span>, the <span class="math inline">\(l\)</span> sample moment is
+<span class="math display">\[
+   \hat m_l = \frac 1 n \sum_{i=1}^n X_i^l \,.
+\]</span></p>
+<p>Suppose that we want to determine <span class="math inline">\(k\)</span> different parameters in a parametric model.
+The population moments are functions of those parameters:
+<span class="math display">\[
+\mu_l = \mu_l (\theta_1, \dots, \theta_k) \,.
+\]</span></p>
+<p>The method of moments says that one can construct parameters <span class="math inline">\(\hat \theta_1, \dots, \hat \theta_k\)</span> by solving
+<span class="math display" id="eq:moments">\[\begin{equation}
+    \begin{aligned}
+        \hat m_1 &amp;= \mu_1 (\hat \theta_1, \dots, \hat \theta_k) \\
+        &amp;\vdots\\
+        \hat m_k &amp;= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
+    \end{aligned}
+        \tag{3.1}
+\end{equation}\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-76" class="example"><strong>Example 3.2  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
+Construct estimators for the two parameters <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
 </div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-51" class="theorem"><strong>Theorem 1.9  (Chebyshev's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a RV such with expected value <span class="math inline">\(\mu\)</span> and standard variation <span class="math inline">\(\sigma\)</span>.
-Then for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(| X - \mu | &gt; k \sigma ) \leq \frac{1}{k^2}. \]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-77" class="example"><strong>Example 3.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\)</span>, i.e.,
+<span class="math display">\[ \mathbb{P}(X_i = x) ={k \choose x} p^x (1-p)^{k-x}. \]</span>
+Construct estimators for <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>.</p>
 </div>
-</div>
-<div id="exponential-concentration-inequalities" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Exponential concentration inequalities<a href="inequalities.html#exponential-concentration-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 1.10  (Mill's inequality) </strong></span>Let <span class="math inline">\(Z \sim N(0,1)\)</span>. Then,
-for each <span class="math inline">\(t &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(|Z| &gt; t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}. \]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-53" class="theorem"><strong>Theorem 1.11  (Hoeffding's inequality) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-For each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left(  \sum_{i=1}^n X_i \geq \epsilon \right)
-\leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]</span></p>
-</div>
+<p>Suppose the model we are considering has <span class="math inline">\(k\)</span> parameters <span class="math inline">\(\theta_j \in \mathbb{R}\)</span>,
+where <span class="math inline">\(j = 1, \dots, k\)</span>.</p>
+<p>Define a function <span class="math inline">\(g: \mathbb{R}^k \to \mathbb{R}^k\)</span> by
+<span class="math display">\[ g(\theta) = \mu, \]</span>
+where
+<span class="math display">\[\theta = (\theta_1, \dots, \theta_k)\]</span>
+and
+<span class="math display">\[\mu = (\mu_1, \dots, \mu_k).\]</span></p>
+<p>We can rephrase the above construction of the estimators
+as solving for <span class="math inline">\(\hat \theta\)</span>, given <span class="math inline">\(\hat \mu\)</span> in the equation
+<span class="math display" id="eq:estimator">\[\begin{equation}
+\hat \mu = g(\hat \theta) .
+\tag{3.2}
+\end{equation}\]</span></p>
+<p>(Note that <span class="math inline">\(\hat \mu\)</span> and <span class="math inline">\(\hat \theta\)</span> depends on the sample (size))</p>
+<p>Two natural questions arise:</p>
+<ol style="list-style-type: decimal">
+<li><p>Can we solve this equation?</p></li>
+<li><p>Are the estimators consistent?</p></li>
+</ol>
+<p>The answer to the first question is not so obvious.
+However, if we can solve the first problem, then the second problem is
+somewhat more manageable, given some reasonable assumptions.</p>
 <div class="exercise">
-<p><span id="exr:Hoeffding" class="exercise"><strong>Exercise 1.22  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-Show that
-for each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right)
-\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right). \]</span></p>
+<p><span id="exr:unlabeled-div-78" class="exercise"><strong>Exercise 3.5  </strong></span>Suppose that <span class="math inline">\(g:\mathbb{R}^k \to \mathbb{R}^k\)</span> defined above is a bijection with continuous inverse.
+Then, for each <span class="math inline">\(\epsilon &gt;0\)</span>,</p>
+<p><span class="math display">\[\lim_{n\to \infty}\mathbb{P}( |\hat \theta - \bar \theta|   &gt;  \epsilon) =0.\]</span></p>
+<p>That is, <span class="math inline">\(\hat \theta\)</span> is consistent.</p>
 </div>
-</div>
-<div id="inequalities-for-expectations" class="section level3 hasAnchor" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Inequalities for expectations<a href="inequalities.html#inequalities-for-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Of course, <span class="math inline">\(g\)</span> is nonlinear generally. So, the assumption that <span class="math inline">\(g\)</span> is a bijection may seem to
+be too strong and not too satisfying.
+To fix this issue, let’s consider a more general version of the above construction of estimators.</p>
+<p>Define a modified version of the estimator <span class="math inline">\(\hat \theta\)</span> as follows</p>
+<p><span class="math display">\[ \tilde \theta =
+\begin{cases} \hat \theta &amp; \text{if it is solvable } \\
+   0 &amp; \text{otherwise}\end{cases}\]</span></p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-54" class="theorem"><strong>Theorem 1.12  (Cauchy-Schwartz inequality) </strong></span>Let <span class="math inline">\(X, Y\)</span> be RVs with finite variances. Then,
-<span class="math display">\[\mathbb{E}( |XY| ) \leq \sqrt{ \mathbb{E}(X^2) \mathbb{E}(Y^2) }.\]</span></p>
+<p><span id="thm:unlabeled-div-79" class="theorem"><strong>Theorem 3.3  </strong></span>Suppose that all the moments of the underlying population are finte,
+<span class="math inline">\(g\)</span> is of class <span class="math inline">\(C^1\)</span> and that <span class="math inline">\(\det[Dg]\not= 0\)</span>.
+For each <span class="math inline">\(\epsilon &gt;0\)</span>,
+<span class="math display">\[\lim_{n\to \infty}\mathbb{P}( |\tilde \theta - \bar \theta| &gt; \epsilon ) = 0.\]</span></p>
 </div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 1.13  (Jensen's inequality) </strong></span>Suppose <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> is a convex function.
-Then
-<span class="math display">\[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]</span></p>
-</div>
+<div class="proof">
+<p><span id="unlabeled-div-80" class="proof"><em>Proof</em>. </span>Let <span class="math inline">\(\epsilon, \alpha &gt;0\)</span>.</p>
+<p>From the weak law of large number, there exists <span class="math inline">\(\bar m\)</span> so that <span class="math inline">\(\hat m \to \bar m\)</span>
+as <span class="math inline">\(n \to \infty\)</span> in probability.
+Note, that <span class="math inline">\(\bar m\)</span> is the list of moments that are generated from the underlying
+population, therefore,
+<span class="math display">\[\bar m = g (\bar \theta),\]</span>
+where <span class="math inline">\(\bar\theta\)</span> is the list of underlying parameters.</p>
+<p>By the inverse function theorem, there exists a <span class="math inline">\(\delta &gt;0\)</span> such that:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(g\)</span> is invertible in the ball <span class="math inline">\(B(\bar m, \delta)\)</span>,</p></li>
+<li><p><span class="math inline">\(g^{-1}\)</span> is of class <span class="math inline">\(C^1\)</span>,</p></li>
+<li><p><span class="math inline">\(g^{-1}(B(\bar m, \delta)) \subseteq B(\bar \theta, \epsilon)\)</span>.</p></li>
+</ol>
+<p>Let <span class="math inline">\(N\)</span> be such that for every <span class="math inline">\(n &gt; N\)</span>,
+<span class="math display">\[\mathbb{P}( |\hat m - \bar m| &lt; \delta) \geq 1 - \alpha. \]</span></p>
+<p>Since <span class="math inline">\(|\hat m - \bar m| &lt; \delta\)</span> implies that <span class="math inline">\(\hat\theta\)</span> is uniquely solvable, i.e. 
+<span class="math inline">\(\hat\theta = g^{-1}(\hat m)\)</span>,
+we have
+<span class="math display">\[ \mathbb{P}(| \tilde \theta - \bar \theta | &gt; \epsilon) \leq \mathbb{P}( |\hat m - \bar m| \geq \delta) \leq \alpha. \]</span></p>
+<p>Therefore, since <span class="math inline">\(\alpha\)</span> is arbitrary,
+<span class="math display">\[\lim_{n\to \infty}\mathbb{P}( |\tilde \theta - \bar \theta| &gt; \epsilon ) = 0,\]</span>
+as desired.</p>
 </div>
 </div>
             </section>
@@ -233,8 +278,8 @@ Then
           </div>
         </div>
       </div>
-<a href="moment-generating-and-characteristic-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="law-of-large-numbers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="confidence-set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="maximum-likelihood-estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

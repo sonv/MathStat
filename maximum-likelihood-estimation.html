@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>3.4 Maximum Likelihood Estimation | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="3.4 Maximum Likelihood Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="3.4 Maximum Likelihood Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Inequalities | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="3.4 Maximum Likelihood Estimation | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="moment-generating-and-characteristic-functions.html"/>
-<link rel="next" href="law-of-large-numbers.html"/>
+<link rel="prev" href="method-of-moments.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -177,64 +177,140 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inequalities" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Inequalities<a href="inequalities.html#inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="typical-tail-bound-inequalities" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Typical tail bound inequalities<a href="inequalities.html#typical-tail-bound-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-50" class="theorem"><strong>Theorem 1.8  (Markov's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a non-negative RV and <span class="math inline">\(\mathbb{E}(X)\)</span> exists.
-Then, for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}( X &gt; k) \leq \frac{\mathbb{E}(X)}{k}. \]</span></p>
+<div id="maximum-likelihood-estimation" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Maximum Likelihood Estimation<a href="maximum-likelihood-estimation.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-81" class="definition"><strong>Definition 3.7  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
+The <em>likelihood</em> function is defined by
+<span class="math display">\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]</span>
+The <em>log-likelihood function</em> is defined by
+<span class="math display">\[ \ell_n (\theta) h = \ln \mathcal{L}_n (\theta) \,. \]</span></p>
+<p>The <em>maximum likelihood estimator</em> MLE, denoted by <span class="math inline">\(\hat \theta_n\)</span>, is the value of
+<span class="math inline">\(\theta\)</span> that maximizes <span class="math inline">\(\mathcal{L}_n(\theta)\)</span>.</p>
 </div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-51" class="theorem"><strong>Theorem 1.9  (Chebyshev's Inequality) </strong></span>Let <span class="math inline">\(X\)</span> be a RV such with expected value <span class="math inline">\(\mu\)</span> and standard variation <span class="math inline">\(\sigma\)</span>.
-Then for each <span class="math inline">\(k &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(| X - \mu | &gt; k \sigma ) \leq \frac{1}{k^2}. \]</span></p>
+<p><strong>Notation.</strong> Another common notation for the likelihood function is
+<span class="math display">\[ L(\theta| X) = \mathcal{L}_n(\theta).\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-82" class="example"><strong>Example 3.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.
+Use MLE to find an estimator for <span class="math inline">\(p\)</span>.</p>
 </div>
-</div>
-<div id="exponential-concentration-inequalities" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Exponential concentration inequalities<a href="inequalities.html#exponential-concentration-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 1.10  (Mill's inequality) </strong></span>Let <span class="math inline">\(Z \sim N(0,1)\)</span>. Then,
-for each <span class="math inline">\(t &gt;0\)</span>,
-<span class="math display">\[ \mathbb{P}(|Z| &gt; t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}. \]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-53" class="theorem"><strong>Theorem 1.11  (Hoeffding's inequality) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-For each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left(  \sum_{i=1}^n X_i \geq \epsilon \right)
-\leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i - a_i)^2/8}. \]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-83" class="example"><strong>Example 3.5  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\theta, 1)\)</span>.
+Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:Hoeffding" class="exercise"><strong>Exercise 1.22  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be independent RVs such that
-<span class="math inline">\(\mathbb{E}( X_i ) = 0\)</span>, <span class="math inline">\(a_i \leq Y_i \leq b_i\)</span>.
-Show that
-for each <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span>, we have
-<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right)
-\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right). \]</span></p>
-</div>
-</div>
-<div id="inequalities-for-expectations" class="section level3 hasAnchor" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Inequalities for expectations<a href="inequalities.html#inequalities-for-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-54" class="theorem"><strong>Theorem 1.12  (Cauchy-Schwartz inequality) </strong></span>Let <span class="math inline">\(X, Y\)</span> be RVs with finite variances. Then,
-<span class="math display">\[\mathbb{E}( |XY| ) \leq \sqrt{ \mathbb{E}(X^2) \mathbb{E}(Y^2) }.\]</span></p>
+<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 3.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform(0,\theta)\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Find an estimator by the method of moments.</p></li>
+<li><p>Compute the mean and the variance of the two estimators above.</p></li>
+</ol>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 1.13  (Jensen's inequality) </strong></span>Suppose <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> is a convex function.
-Then
-<span class="math display">\[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]</span></p>
+<p><span id="thm:unlabeled-div-85" class="theorem"><strong>Theorem 3.4  </strong></span>Let <span class="math inline">\(\tau = g(\theta)\)</span> be a bijective function of <span class="math inline">\(\theta\)</span>.
+Suppose that <span class="math inline">\(\hat \theta_n\)</span> is the MLE of <span class="math inline">\(\theta\)</span>.
+Then <span class="math inline">\(\hat \tau_n = g(\hat \theta_n)\)</span> is the MLE of <span class="math inline">\(\tau\)</span>.</p>
+</div>
+<div id="consistency" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Consistency<a href="maximum-likelihood-estimation.html#consistency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="example">
+<p><span id="exm:unlabeled-div-86" class="example"><strong>Example 3.6  (Inconsistency of MLE) </strong></span>Let <span class="math inline">\(Y_{i,1}, Y_{i,2} \sim N(\mu_1, \sigma^2)\)</span>. Our goal is to find MLE for <span class="math inline">\(\sigma^2\)</span>, which
+turns out to be
+<span class="math display">\[\hat \sigma^2 = \frac{1}{4n} \sum_{i=1}^n (Y_{i,1} - Y_{i,2})^2.\]</span>
+By law of large number, this will converge to
+<span class="math display">\[\mathbb{E}(\hat \sigma^2) = \sigma^2/2,\]</span>
+which means that the MLE is not consistent.</p>
+</div>
+<p>To discuss about the consistency of the MLE, we define the
+Kullback-Leibler distance between two pdf <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p><span class="math display">\[ D(f,g) = \int f(x) \ln \left( \frac{f(x)}{g(x)} \right) \, dx.\]</span></p>
+<p>Abusing notation, we will write
+<span class="math inline">\(D(\theta, \varphi)\)</span> to mean <span class="math inline">\(D(f(x;\theta), f(x;\varphi))\)</span>.</p>
+<p>We say that a model <span class="math inline">\(\mathcal{F}\)</span> is <em>identifiable</em> if <span class="math inline">\(\theta \not= \varphi\)</span> implies
+<span class="math inline">\(D(\theta, \varphi) &gt; 0\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-87" class="theorem"><strong>Theorem 3.5  </strong></span>Let <span class="math inline">\(\theta_{\star}\)</span> denote the true value of <span class="math inline">\(\theta\)</span>. Define
+<span class="math display">\[
+M_n(\theta)=\frac{1}{n} \sum_i \log \frac{f\left(X_i ; \theta\right)}{f\left(X_i ; \theta_{\star}\right)}
+\]</span>
+and <span class="math inline">\(M(\theta)=-D\left(\theta_{\star}, \theta\right)\)</span>. Suppose that
+<span class="math display">\[
+\sup _{\theta \in \Theta}\left|M_n(\theta)-M(\theta)\right| \to 0
+\]</span>
+in probability
+and that, for every <span class="math inline">\(\epsilon&gt;0\)</span>,
+<span class="math display">\[
+\sup _{\theta:|\theta-\theta,| \geq \epsilon} M(\theta)&lt;M\left(\theta_{\star}\right) .
+\]</span></p>
+<p>Let <span class="math inline">\(\widehat{\theta}_n\)</span> denote the MLE. Then <span class="math inline">\(\widehat{\theta}_n \to \theta_{\star}\)</span> in probability.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-88" class="exercise"><strong>Exercise 3.7  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a distribution with density:
+<span class="math display">\[ p(x; \theta) = \theta x^{-2}, \quad 0 &lt; \theta \leq x &lt; \infty. \]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Find the Method of Moments estimator for <span class="math inline">\(\theta\)</span>.</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-89" class="exercise"><strong>Exercise 3.8  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the method of moments estimator, the maximum likelihood estimator, and the Fisher information <span class="math inline">\(I(\lambda)\)</span>.</p></li>
+<li><p>Use the fact that the mean and variance of the Poisson distribution are both <span class="math inline">\(\lambda\)</span> to propose two unbiased estimators of <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Show that one of these estimators has a larger variance than the other.</p></li>
+</ol>
+</div>
+<p>The conditions listed in the above theorem is not very easy to check.
+Hogg-McKean-Craig has a better theorem (this is a good theorem to read).</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-90" class="theorem"><strong>Theorem 3.6  </strong></span>Assume that</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\theta \not = \theta&#39; \implies f_\theta \not = f_{\theta&#39;}\)</span></p></li>
+<li><p><span class="math inline">\(f_\theta\)</span> has common support for all <span class="math inline">\(\theta\)</span></p></li>
+<li><p><span class="math inline">\(\theta^*\)</span> is an interior point in <span class="math inline">\(\Omega\)</span></p>
+<p>If <span class="math inline">\(f_\theta(x)\)</span> is differentiable with respect to <span class="math inline">\(\theta\)</span>.
+Then the likelihood equation
+<span class="math display">\[ \frac{\partial}{\partial \theta}  l_n(\theta) = 0 \]</span>
+has a solution <span class="math inline">\(\hat \theta_n\)</span> such that
+<span class="math display">\[\lim_{n\to \infty} \hat \theta_n \to \theta^*\]</span> in distribution.</p></li>
+</ol>
 </div>
 </div>
+<div id="asymptotic-normality" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Asymptotic normality<a href="maximum-likelihood-estimation.html#asymptotic-normality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-91" class="definition"><strong>Definition 3.8  </strong></span>Given a RV <span class="math inline">\(X\)</span>.
+The score function is defined to be
+<span class="math display">\[ s (X;\theta) = \frac{\partial \log f(X; \theta)}{\partial \theta} .\]</span></p>
+<p>The <em>Fisher information</em> is defined to be
+<span class="math display">\[ I_n = \mathbb{V}_\theta \left( \sum_{i=1}^n s(X_i; \theta)  \right) = \sum_{i=1}^n \mathbb{V}_\theta \left( s(X_i; \theta)  \right).\]</span></p>
 </div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-92" class="theorem"><strong>Theorem 3.7  </strong></span><span class="math inline">\(I_n (\theta) = n I(\theta)\)</span>.
+Furthermore,
+<span class="math display">\[ I(\theta) = \mathbb{E}_\theta \left( \frac{\partial^2 \log(f(X;\theta))}{\partial \theta^2} \right).\]</span></p>
+</div>
+<p>The significance of this is that you can think of
+the Fisher information as the curvature (second derivative) on the “manifold”
+of parameters.
+So, error of the score function has certain geometric interpretation.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-93" class="theorem"><strong>Theorem 3.8  </strong></span>Let <span class="math inline">\(\mathrm{se} = \sqrt{\mathbb{V}(\hat \theta_n)}\)</span>.
+Given some regularity conditions,
+there exists a random variable <span class="math inline">\(Z \sim N(0,1)\)</span> such that
+<span class="math display">\[\frac{\hat\theta_n - \theta}{\mathrm{se}} \to Z.\]</span></p>
+</div>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="moment-generating-and-characteristic-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="law-of-large-numbers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="method-of-moments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

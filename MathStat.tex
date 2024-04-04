@@ -1132,66 +1132,9 @@ Readings:
 \item
   Rice Chapters 7, 8
 \item
-  Wasserman Chapter 7
+  Wasserman Chapters 6, 7
 \item
   Casella-Berger Chapter 7
-\end{itemize}
-
-\chapter{Sampling, Estimating CDF and Statistical Functionals}\label{sampling-estimating-cdf-and-statistical-functionals}
-
-\section{Sampling}\label{sampling}
-
-Sampling is the act of gathering data from a certain
-population, in order to make prediction about some property
-of the population of interest.
-Each time one goes out to the field to sample, one gets different
-answers for the same set of quantities of interest, making those
-answers random variables.
-
-\begin{itemize}
-\item
-  For finite population, there are two techniques called \emph{sampling with replacement} and
-  \emph{sampling without replacement}.
-\item
-  Sampling without replacement is sometimes called \emph{simple random sampling} and
-  one needs to be careful with it. However, if the population size is very very large
-  compared to the sample size (a very subjective judgement),
-  it is common in practice to treat the sampling data as I.I.D. RVs.
-\end{itemize}
-
-\subsection{Simple Random Sample}\label{simple-random-sample}
-
-We will not discuss Simple Random Sampling in this class.
-Interested readers can consult Rice, Chapter 7.3.
-
-\subsection{Standard Random Sample}\label{standard-random-sample}
-
-\begin{definition}[Standard Random Sample]
-\protect\hypertarget{def:stdSample}{}\label{def:stdSample}The random variables \(X_i\), \(i = 1,\dots , n\) are called \emph{standard random sample of
-size \(n\) from population \(f(x)\)} if \(X_i\)'s are I.I.D. RVs from the same
-probability density function \(f\).
-\end{definition}
-
-There is a few nuisances regarding general practice in statistics and this definition.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Definition \ref{def:stdSample} is either for \emph{infinite} population or finite population with \emph{sampling with replacement}.
-\item
-  For finite population of size \(n\), sample data \(X_i\) from \emph{sampling without replacement}
-  can never be independent as
-  \(\mathbb{P}(X_2 = y | X_1 = y) = 0\) and \(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\).
-\end{enumerate}
-
-In this course, when we talk about sampling, we will understand it as in Definition \ref{def:stdSample}.
-
-\section{Statistical Estimation}\label{statistical-estimation}
-
-\begin{itemize}
-\tightlist
-\item
-  Reading: Wasserman Chapter 6.
 \end{itemize}
 
 Statistical inference, often rebranded as learning in computer science, is the process
@@ -1232,6 +1175,55 @@ A \emph{non-parametric model} is a statistical model that is not parametric.
 
 \end{example}
 
+\chapter{Sampling}\label{sampling}
+
+Sampling is the act of gathering data from a certain
+population, in order to make prediction about some property
+of the population of interest.
+Each time one goes out to the field to sample, one gets different
+answers for the same set of quantities of interest, making those
+answers random variables.
+
+\begin{itemize}
+\item
+  For finite population, there are two techniques called \emph{sampling with replacement} and
+  \emph{sampling without replacement}.
+\item
+  Sampling without replacement is sometimes called \emph{simple random sampling} and
+  one needs to be careful with it. However, if the population size is very very large
+  compared to the sample size (a very subjective judgement),
+  it is common in practice to treat the sampling data as I.I.D. RVs.
+\end{itemize}
+
+\section{Simple Random Sample}\label{simple-random-sample}
+
+We will not discuss Simple Random Sampling in this class.
+Interested readers can consult Rice, Chapter 7.3.
+
+\section{Standard Random Sample}\label{standard-random-sample}
+
+\begin{definition}[Standard Random Sample]
+\protect\hypertarget{def:stdSample}{}\label{def:stdSample}The random variables \(X_i\), \(i = 1,\dots , n\) are called \emph{standard random sample of
+size \(n\) from population \(f(x)\)} if \(X_i\)'s are I.I.D. RVs from the same
+probability density function \(f\).
+\end{definition}
+
+There is a few nuisances regarding general practice in statistics and this definition.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Definition \ref{def:stdSample} is either for \emph{infinite} population or finite population with \emph{sampling with replacement}.
+\item
+  For finite population of size \(n\), sample data \(X_i\) from \emph{sampling without replacement}
+  can never be independent as
+  \(\mathbb{P}(X_2 = y | X_1 = y) = 0\) and \(\mathbb{P}(X_2 = y | X_1 = x) = 1/(n-1)\).
+\end{enumerate}
+
+In this course, when we talk about sampling, we will understand it as in Definition \ref{def:stdSample}.
+
+\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}
+
 \textbf{Notation.}
 Given a parametric model
 \(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\)
@@ -1240,7 +1232,7 @@ we denote
 and
 \[ \mathbb{E}_\theta ( r(X)) = \int r(x) f(x;\theta) \, dx \,.\]
 
-\subsection{Point Estimation}\label{point-estimation}
+\section{Point Estimation}\label{point-estimation}
 
 (Casella - Berger Chapter 7, Wasserman Chapter 6.1)
 
@@ -1330,7 +1322,7 @@ An estimator is said to be \emph{asymptotically Normal} if
 in distribution.
 \end{definition}
 
-\subsection{Confidence set}\label{confidence-set}
+\section{Confidence set}\label{confidence-set}
 
 In elementary statistics,
 given sample \(X_1, \dots, X_n\),
@@ -1418,9 +1410,7 @@ Let \(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\) and let \(\widehat{p}_
 
 \end{exercise}
 
-\section{Constructing estimators}\label{constructing-estimators}
-
-\subsection{Method of Moments}\label{method-of-moments}
+\section{Method of Moments}\label{method-of-moments}
 
 Let \(l \in \mathbb{N}\), the \(l\) sample moment is
 \[
@@ -1548,7 +1538,7 @@ Therefore, since \(\alpha\) is arbitrary,
 as desired.
 \end{proof}
 
-\subsection{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
+\section{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
 
 \begin{definition}
 Suppose \(X_1, \dots, X_n \sim f_\theta\).
@@ -1595,6 +1585,17 @@ Let \(\tau = g(\theta)\) be a bijective function of \(\theta\).
 Suppose that \(\hat \theta_n\) is the MLE of \(\theta\).
 Then \(\hat \tau_n = g(\hat \theta_n)\) is the MLE of \(\tau\).
 \end{theorem}
+
+\subsection{Consistency}\label{consistency}
+
+\begin{example}[Inconsistency of MLE]
+Let \(Y_{i,1}, Y_{i,2} \sim N(\mu_1, \sigma^2)\). Our goal is to find MLE for \(\sigma^2\), which
+turns out to be
+\[\hat \sigma^2 = \frac{1}{4n} \sum_{i=1}^n (Y_{i,1} - Y_{i,2})^2.\]
+By law of large number, this will converge to
+\[\mathbb{E}(\hat \sigma^2) = \sigma^2/2,\]
+which means that the MLE is not consistent.
+\end{example}
 
 To discuss about the consistency of the MLE, we define the
 Kullback-Leibler distance between two pdf \(f\) and \(g\).
@@ -1656,27 +1657,59 @@ Let \(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\).
 
 \end{exercise}
 
-\section{Empirical Distribution}\label{empirical-distribution}
+The conditions listed in the above theorem is not very easy to check.
+Hogg-McKean-Craig has a better theorem (this is a good theorem to read).
 
-\section{Statistical Functionals}\label{statistical-functionals}
+\begin{theorem}
 
-\section{Bootstrap}\label{bootstrap}
+Assume that
 
-\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\theta \not = \theta' \implies f_\theta \not = f_{\theta'}\)
+\item
+  \(f_\theta\) has common support for all \(\theta\)
+\item
+  \(\theta^*\) is an interior point in \(\Omega\)
 
-\section{Method of Moments}\label{method-of-moments-1}
+  If \(f_\theta(x)\) is differentiable with respect to \(\theta\).
+  Then the likelihood equation
+  \[ \frac{\partial}{\partial \theta}  l_n(\theta) = 0 \]
+  has a solution \(\hat \theta_n\) such that
+  \[\lim_{n\to \infty} \hat \theta_n \to \theta^*\] in distribution.
+\end{enumerate}
 
-\section{Method of Maximum Likelihood}\label{method-of-maximum-likelihood}
+\end{theorem}
 
-\section{Bayesian Approach}\label{bayesian-approach}
+\subsection{Asymptotic normality}\label{asymptotic-normality}
 
-\section{Expectation-Maximization Algorithm}\label{expectation-maximization-algorithm}
+\begin{definition}
+Given a RV \(X\).
+The score function is defined to be
+\[ s (X;\theta) = \frac{\partial \log f(X; \theta)}{\partial \theta} .\]
 
-\section{Unbiased Estimators}\label{unbiased-estimators}
+The \emph{Fisher information} is defined to be
+\[ I_n = \mathbb{V}_\theta \left( \sum_{i=1}^n s(X_i; \theta)  \right) = \sum_{i=1}^n \mathbb{V}_\theta \left( s(X_i; \theta)  \right).\]
+\end{definition}
 
-\section{Efficiency: Cramer-Rao Inequality}\label{efficiency-cramer-rao-inequality}
+\begin{theorem}
+\(I_n (\theta) = n I(\theta)\).
+Furthermore,
+\[ I(\theta) = \mathbb{E}_\theta \left( \frac{\partial^2 \log(f(X;\theta))}{\partial \theta^2} \right).\]
+\end{theorem}
 
-\section{Sufficiency and Unbiasedness: Rao-Blackwell Theorem}\label{sufficiency-and-unbiasedness-rao-blackwell-theorem}
+The significance of this is that you can think of
+the Fisher information as the curvature (second derivative) on the ``manifold''
+of parameters.
+So, error of the score function has certain geometric interpretation.
+
+\begin{theorem}
+Let \(\mathrm{se} = \sqrt{\mathbb{V}(\hat \theta_n)}\).
+Given some regularity conditions,
+there exists a random variable \(Z \sim N(0,1)\) such that
+\[\frac{\hat\theta_n - \theta}{\mathrm{se}} \to Z.\]
+\end{theorem}
 
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="2.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>3.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="3.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="3.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="3.3 Constructing estimators | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-estimation.html"/>
-<link rel="next" href="empirical-distribution.html"/>
+<link rel="prev" href="confidence-set.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -130,36 +130,20 @@
 <li class="chapter" data-level="1.5" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>1.5</b> Central Limit Theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-2-inference.html"><a href="part-2-inference.html"><i class="fa fa-check"></i>PART 2: Inference</a></li>
-<li class="chapter" data-level="2" data-path="sampling-estimating-cdf-and-statistical-functionals.html"><a href="sampling-estimating-cdf-and-statistical-functionals.html"><i class="fa fa-check"></i><b>2</b> Sampling, Estimating CDF and Statistical Functionals</a>
+<li class="chapter" data-level="2" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>2</b> Sampling</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>2.1</b> Sampling</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="sampling.html"><a href="sampling.html#simple-random-sample"><i class="fa fa-check"></i><b>2.1.1</b> Simple Random Sample</a></li>
-<li class="chapter" data-level="2.1.2" data-path="sampling.html"><a href="sampling.html#standard-random-sample"><i class="fa fa-check"></i><b>2.1.2</b> Standard Random Sample</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="statistical-estimation.html"><a href="statistical-estimation.html"><i class="fa fa-check"></i><b>2.2</b> Statistical Estimation</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="statistical-estimation.html"><a href="statistical-estimation.html#point-estimation"><i class="fa fa-check"></i><b>2.2.1</b> Point Estimation</a></li>
-<li class="chapter" data-level="2.2.2" data-path="statistical-estimation.html"><a href="statistical-estimation.html#confidence-set"><i class="fa fa-check"></i><b>2.2.2</b> Confidence set</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="constructing-estimators.html"><a href="constructing-estimators.html"><i class="fa fa-check"></i><b>2.3</b> Constructing estimators</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="constructing-estimators.html"><a href="constructing-estimators.html#method-of-moments"><i class="fa fa-check"></i><b>2.3.1</b> Method of Moments</a></li>
-<li class="chapter" data-level="2.3.2" data-path="constructing-estimators.html"><a href="constructing-estimators.html#maximum-likelihood-estimation"><i class="fa fa-check"></i><b>2.3.2</b> Maximum Likelihood Estimation</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="empirical-distribution.html"><a href="empirical-distribution.html"><i class="fa fa-check"></i><b>2.4</b> Empirical Distribution</a></li>
-<li class="chapter" data-level="2.5" data-path="statistical-functionals.html"><a href="statistical-functionals.html"><i class="fa fa-check"></i><b>2.5</b> Statistical Functionals</a></li>
-<li class="chapter" data-level="2.6" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>2.6</b> Bootstrap</a></li>
+<li class="chapter" data-level="2.1" data-path="simple-random-sample.html"><a href="simple-random-sample.html"><i class="fa fa-check"></i><b>2.1</b> Simple Random Sample</a></li>
+<li class="chapter" data-level="2.2" data-path="standard-random-sample.html"><a href="standard-random-sample.html"><i class="fa fa-check"></i><b>2.2</b> Standard Random Sample</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>3</b> Parametric Inference (Parameter Estimation)</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="method-of-moments-1.html"><a href="method-of-moments-1.html"><i class="fa fa-check"></i><b>3.1</b> Method of Moments</a></li>
-<li class="chapter" data-level="3.2" data-path="method-of-maximum-likelihood.html"><a href="method-of-maximum-likelihood.html"><i class="fa fa-check"></i><b>3.2</b> Method of Maximum Likelihood</a></li>
-<li class="chapter" data-level="3.3" data-path="bayesian-approach.html"><a href="bayesian-approach.html"><i class="fa fa-check"></i><b>3.3</b> Bayesian Approach</a></li>
-<li class="chapter" data-level="3.4" data-path="expectation-maximization-algorithm.html"><a href="expectation-maximization-algorithm.html"><i class="fa fa-check"></i><b>3.4</b> Expectation-Maximization Algorithm</a></li>
-<li class="chapter" data-level="3.5" data-path="unbiased-estimators.html"><a href="unbiased-estimators.html"><i class="fa fa-check"></i><b>3.5</b> Unbiased Estimators</a></li>
-<li class="chapter" data-level="3.6" data-path="efficiency-cramer-rao-inequality.html"><a href="efficiency-cramer-rao-inequality.html"><i class="fa fa-check"></i><b>3.6</b> Efficiency: Cramer-Rao Inequality</a></li>
-<li class="chapter" data-level="3.7" data-path="sufficiency-and-unbiasedness-rao-blackwell-theorem.html"><a href="sufficiency-and-unbiasedness-rao-blackwell-theorem.html"><i class="fa fa-check"></i><b>3.7</b> Sufficiency and Unbiasedness: Rao-Blackwell Theorem</a></li>
+<li class="chapter" data-level="3.1" data-path="point-estimation.html"><a href="point-estimation.html"><i class="fa fa-check"></i><b>3.1</b> Point Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="confidence-set.html"><a href="confidence-set.html"><i class="fa fa-check"></i><b>3.2</b> Confidence set</a></li>
+<li class="chapter" data-level="3.3" data-path="constructing-estimators.html"><a href="constructing-estimators.html"><i class="fa fa-check"></i><b>3.3</b> Constructing estimators</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="constructing-estimators.html"><a href="constructing-estimators.html#method-of-moments"><i class="fa fa-check"></i><b>3.3.1</b> Method of Moments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="constructing-estimators.html"><a href="constructing-estimators.html#maximum-likelihood-estimation"><i class="fa fa-check"></i><b>3.3.2</b> Maximum Likelihood Estimation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
@@ -192,10 +176,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="constructing-estimators" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Constructing estimators<a href="constructing-estimators.html#constructing-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="method-of-moments" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Method of Moments<a href="constructing-estimators.html#method-of-moments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="constructing-estimators" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Constructing estimators<a href="constructing-estimators.html#constructing-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="method-of-moments" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Method of Moments<a href="constructing-estimators.html#method-of-moments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let <span class="math inline">\(l \in \mathbb{N}\)</span>, the <span class="math inline">\(l\)</span> sample moment is
 <span class="math display">\[
    \hat m_l = \frac 1 n \sum_{i=1}^n X_i^l \,.
@@ -212,14 +196,14 @@ The population moments are functions of those parameters:
         &amp;\vdots\\
         \hat m_k &amp;= \mu_k (\hat \theta_1, \dots, \hat \theta_k) \\
     \end{aligned}
-        \tag{2.1}
+        \tag{3.1}
 \end{equation}\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-76" class="example"><strong>Example 2.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
+<p><span id="exm:unlabeled-div-76" class="example"><strong>Example 3.2  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim N(\theta, \sigma^2)\)</span>.
 Construct estimators for the two parameters <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-77" class="example"><strong>Example 2.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\)</span>, i.e.,
+<p><span id="exm:unlabeled-div-77" class="example"><strong>Example 3.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Binomial}(k,p)\)</span>, i.e.,
 <span class="math display">\[ \mathbb{P}(X_i = x) ={k \choose x} p^x (1-p)^{k-x}. \]</span>
 Construct estimators for <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>.</p>
 </div>
@@ -235,7 +219,7 @@ and
 as solving for <span class="math inline">\(\hat \theta\)</span>, given <span class="math inline">\(\hat \mu\)</span> in the equation
 <span class="math display" id="eq:estimator">\[\begin{equation}
 \hat \mu = g(\hat \theta) .
-\tag{2.2}
+\tag{3.2}
 \end{equation}\]</span></p>
 <p>(Note that <span class="math inline">\(\hat \mu\)</span> and <span class="math inline">\(\hat \theta\)</span> depends on the sample (size))</p>
 <p>Two natural questions arise:</p>
@@ -247,7 +231,7 @@ as solving for <span class="math inline">\(\hat \theta\)</span>, given <span cla
 However, if we can solve the first problem, then the second problem is
 somewhat more manageable, given some reasonable assumptions.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-78" class="exercise"><strong>Exercise 2.5  </strong></span>Suppose that <span class="math inline">\(g:\mathbb{R}^k \to \mathbb{R}^k\)</span> defined above is a bijection with continuous inverse.
+<p><span id="exr:unlabeled-div-78" class="exercise"><strong>Exercise 3.5  </strong></span>Suppose that <span class="math inline">\(g:\mathbb{R}^k \to \mathbb{R}^k\)</span> defined above is a bijection with continuous inverse.
 Then, for each <span class="math inline">\(\epsilon &gt;0\)</span>,</p>
 <p><span class="math display">\[\lim_{n\to \infty}\mathbb{P}( |\hat \theta - \bar \theta|   &gt;  \epsilon) =0.\]</span></p>
 <p>That is, <span class="math inline">\(\hat \theta\)</span> is consistent.</p>
@@ -260,7 +244,7 @@ To fix this issue, let’s consider a more general version of the above construc
 \begin{cases} \hat \theta &amp; \text{if it is solvable } \\
    0 &amp; \text{otherwise}\end{cases}\]</span></p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-79" class="theorem"><strong>Theorem 2.3  </strong></span>Suppose that all the moments of the underlying population are finte,
+<p><span id="thm:unlabeled-div-79" class="theorem"><strong>Theorem 3.3  </strong></span>Suppose that all the moments of the underlying population are finte,
 <span class="math inline">\(g\)</span> is of class <span class="math inline">\(C^1\)</span> and that <span class="math inline">\(\det[Dg]\not= 0\)</span>.
 For each <span class="math inline">\(\epsilon &gt;0\)</span>,
 <span class="math display">\[\lim_{n\to \infty}\mathbb{P}( |\tilde \theta - \bar \theta| &gt; \epsilon ) = 0.\]</span></p>
@@ -290,10 +274,10 @@ we have
 as desired.</p>
 </div>
 </div>
-<div id="maximum-likelihood-estimation" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Maximum Likelihood Estimation<a href="constructing-estimators.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="maximum-likelihood-estimation" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Maximum Likelihood Estimation<a href="constructing-estimators.html#maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-81" class="definition"><strong>Definition 2.9  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
+<p><span id="def:unlabeled-div-81" class="definition"><strong>Definition 3.7  </strong></span>Suppose <span class="math inline">\(X_1, \dots, X_n \sim f_\theta\)</span>.
 The <em>likelihood</em> function is defined by
 <span class="math display">\[ \mathcal{L}_n(\theta) = \prod_{i = 1}^n f (X_i; \theta) \,. \]</span>
 The <em>log-likelihood function</em> is defined by
@@ -304,15 +288,15 @@ The <em>log-likelihood function</em> is defined by
 <p><strong>Notation.</strong> Another common notation for the likelihood function is
 <span class="math display">\[ L(\theta| X) = \mathcal{L}_n(\theta).\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-82" class="example"><strong>Example 2.5  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.
+<p><span id="exm:unlabeled-div-82" class="example"><strong>Example 3.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.
 Use MLE to find an estimator for <span class="math inline">\(p\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-83" class="example"><strong>Example 2.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\theta, 1)\)</span>.
+<p><span id="exm:unlabeled-div-83" class="example"><strong>Example 3.5  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\theta, 1)\)</span>.
 Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 2.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform(0,\theta)\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
+<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 3.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform(0,\theta)\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
 <li><p>Find an estimator by the method of moments.</p></li>
@@ -320,9 +304,17 @@ Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p
 </ol>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-85" class="theorem"><strong>Theorem 2.4  </strong></span>Let <span class="math inline">\(\tau = g(\theta)\)</span> be a bijective function of <span class="math inline">\(\theta\)</span>.
+<p><span id="thm:unlabeled-div-85" class="theorem"><strong>Theorem 3.4  </strong></span>Let <span class="math inline">\(\tau = g(\theta)\)</span> be a bijective function of <span class="math inline">\(\theta\)</span>.
 Suppose that <span class="math inline">\(\hat \theta_n\)</span> is the MLE of <span class="math inline">\(\theta\)</span>.
 Then <span class="math inline">\(\hat \tau_n = g(\hat \theta_n)\)</span> is the MLE of <span class="math inline">\(\tau\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-86" class="example"><strong>Example 3.6  (Inconsistency of MLE) </strong></span>Let <span class="math inline">\(Y_{i,1}, Y_{i,2} \sim N(\mu_1, \sigma^2)\)</span>. Our goal is to find MLE for <span class="math inline">\(\sigma^2\)</span>, which
+turns out to be
+<span class="math display">\[\hat \sigma^2 = \frac{1}{4n} \sum_{i=1}^n (Y_{i,1} - Y_{i,2})^2.\]</span>
+By law of large number, this will converge to
+<span class="math display">\[\mathbb{E}(\hat \sigma^2) = \sigma^2/2,\]</span>
+which means that the MLE is not consistent.</p>
 </div>
 <p>To discuss about the consistency of the MLE, we define the
 Kullback-Leibler distance between two pdf <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>.</p>
@@ -332,7 +324,7 @@ Kullback-Leibler distance between two pdf <span class="math inline">\(f\)</span>
 <p>We say that a model <span class="math inline">\(\mathcal{F}\)</span> is <em>identifiable</em> if <span class="math inline">\(\theta \not= \varphi\)</span> implies
 <span class="math inline">\(D(\theta, \varphi) &gt; 0\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-86" class="theorem"><strong>Theorem 2.5  </strong></span>Let <span class="math inline">\(\theta_{\star}\)</span> denote the true value of <span class="math inline">\(\theta\)</span>. Define
+<p><span id="thm:unlabeled-div-87" class="theorem"><strong>Theorem 3.5  </strong></span>Let <span class="math inline">\(\theta_{\star}\)</span> denote the true value of <span class="math inline">\(\theta\)</span>. Define
 <span class="math display">\[
 M_n(\theta)=\frac{1}{n} \sum_i \log \frac{f\left(X_i ; \theta\right)}{f\left(X_i ; \theta_{\star}\right)}
 \]</span>
@@ -348,7 +340,7 @@ and that, for every <span class="math inline">\(\epsilon&gt;0\)</span>,
 <p>Let <span class="math inline">\(\widehat{\theta}_n\)</span> denote the MLE. Then <span class="math inline">\(\widehat{\theta}_n \to \theta_{\star}\)</span> in probability.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-87" class="exercise"><strong>Exercise 2.7  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a distribution with density:
+<p><span id="exr:unlabeled-div-88" class="exercise"><strong>Exercise 3.7  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a random sample from a distribution with density:
 <span class="math display">\[ p(x; \theta) = \theta x^{-2}, \quad 0 &lt; \theta \leq x &lt; \infty. \]</span></p>
 <ol style="list-style-type: decimal">
 <li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
@@ -356,22 +348,39 @@ and that, for every <span class="math inline">\(\epsilon&gt;0\)</span>,
 </ol>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-88" class="exercise"><strong>Exercise 2.8  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\)</span>.</p>
+<p><span id="exr:unlabeled-div-89" class="exercise"><strong>Exercise 3.8  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \text{Poisson}(\lambda)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Find the method of moments estimator, the maximum likelihood estimator, and the Fisher information <span class="math inline">\(I(\lambda)\)</span>.</p></li>
 <li><p>Use the fact that the mean and variance of the Poisson distribution are both <span class="math inline">\(\lambda\)</span> to propose two unbiased estimators of <span class="math inline">\(\lambda\)</span>.</p></li>
 <li><p>Show that one of these estimators has a larger variance than the other.</p></li>
 </ol>
 </div>
+<p>The conditions listed in the above theorem is not very easy to check.
+Hogg-McKean-Craig has a better theorem (this is a good theorem to read).</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-90" class="theorem"><strong>Theorem 3.6  </strong></span>Assume that</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\theta \not = \theta&#39; \implies f_\theta \not = f_{\theta&#39;}\)</span></p></li>
+<li><p><span class="math inline">\(f_\theta\)</span> has common support for all <span class="math inline">\(\theta\)</span></p></li>
+<li><p><span class="math inline">\(\theta^*\)</span> is an interior point in <span class="math inline">\(\Omega\)</span></p>
+<p>If <span class="math inline">\(f_\theta(x)\)</span> is differentiable with respect to <span class="math inline">\(\theta\)</span>.
+Then the likelihood equation
+<span class="math display">\[ \frac{\partial}{\partial \theta}  l_n(\theta) = 0 \]</span>
+has a solution <span class="math inline">\(\hat \theta_n\)</span> such that
+<span class="math display">\[\lim_{n\to \infty} \hat \theta_n \to \theta^*\]</span> in distribution.</p></li>
+</ol>
+</div>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistical-estimation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="empirical-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="confidence-set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
