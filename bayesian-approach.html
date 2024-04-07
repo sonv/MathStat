@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.3 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="5.3 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>3.6 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="3.6 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.3 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="3.6 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.3 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="3.6 Bayesian Approach | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="method-of-maximum-likelihood.html"/>
-<link rel="next" href="expectation-maximization-algorithm.html"/>
+<link rel="prev" href="optional-expectation-maximization-algorithm.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,39 +135,33 @@
 <li class="chapter" data-level="2.1" data-path="simple-random-sample.html"><a href="simple-random-sample.html"><i class="fa fa-check"></i><b>2.1</b> Simple Random Sample</a></li>
 <li class="chapter" data-level="2.2" data-path="standard-random-sample.html"><a href="standard-random-sample.html"><i class="fa fa-check"></i><b>2.2</b> Standard Random Sample</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="statistical-estimation.html"><a href="statistical-estimation.html"><i class="fa fa-check"></i><b>3</b> Statistical Estimation</a>
+<li class="chapter" data-level="3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>3</b> Parametric Inference (Parameter Estimation)</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="point-estimation.html"><a href="point-estimation.html"><i class="fa fa-check"></i><b>3.1</b> Point Estimation</a></li>
 <li class="chapter" data-level="3.2" data-path="confidence-set.html"><a href="confidence-set.html"><i class="fa fa-check"></i><b>3.2</b> Confidence set</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="constructing-estimators.html"><a href="constructing-estimators.html"><i class="fa fa-check"></i><b>4</b> Constructing estimators</a>
+<li class="chapter" data-level="3.3" data-path="method-of-moments.html"><a href="method-of-moments.html"><i class="fa fa-check"></i><b>3.3</b> Method of Moments</a></li>
+<li class="chapter" data-level="3.4" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>3.4</b> Maximum Likelihood Estimation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="method-of-moments.html"><a href="method-of-moments.html"><i class="fa fa-check"></i><b>4.1</b> Method of Moments</a></li>
-<li class="chapter" data-level="4.2" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>4.2</b> Maximum Likelihood Estimation</a></li>
+<li class="chapter" data-level="3.4.1" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#consistency"><i class="fa fa-check"></i><b>3.4.1</b> Consistency</a></li>
+<li class="chapter" data-level="3.4.2" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#asymptotic-normality"><i class="fa fa-check"></i><b>3.4.2</b> Asymptotic normality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#efficiency"><i class="fa fa-check"></i><b>3.4.3</b> Efficiency</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>5</b> Parametric Inference (Parameter Estimation)</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="method-of-moments-1.html"><a href="method-of-moments-1.html"><i class="fa fa-check"></i><b>5.1</b> Method of Moments</a></li>
-<li class="chapter" data-level="5.2" data-path="method-of-maximum-likelihood.html"><a href="method-of-maximum-likelihood.html"><i class="fa fa-check"></i><b>5.2</b> Method of Maximum Likelihood</a></li>
-<li class="chapter" data-level="5.3" data-path="bayesian-approach.html"><a href="bayesian-approach.html"><i class="fa fa-check"></i><b>5.3</b> Bayesian Approach</a></li>
-<li class="chapter" data-level="5.4" data-path="expectation-maximization-algorithm.html"><a href="expectation-maximization-algorithm.html"><i class="fa fa-check"></i><b>5.4</b> Expectation-Maximization Algorithm</a></li>
-<li class="chapter" data-level="5.5" data-path="unbiased-estimators.html"><a href="unbiased-estimators.html"><i class="fa fa-check"></i><b>5.5</b> Unbiased Estimators</a></li>
-<li class="chapter" data-level="5.6" data-path="efficiency-cramer-rao-inequality.html"><a href="efficiency-cramer-rao-inequality.html"><i class="fa fa-check"></i><b>5.6</b> Efficiency: Cramer-Rao Inequality</a></li>
-<li class="chapter" data-level="5.7" data-path="sufficiency-and-unbiasedness-rao-blackwell-theorem.html"><a href="sufficiency-and-unbiasedness-rao-blackwell-theorem.html"><i class="fa fa-check"></i><b>5.7</b> Sufficiency and Unbiasedness: Rao-Blackwell Theorem</a></li>
+<li class="chapter" data-level="3.5" data-path="optional-expectation-maximization-algorithm.html"><a href="optional-expectation-maximization-algorithm.html"><i class="fa fa-check"></i><b>3.5</b> (Optional) Expectation-Maximization Algorithm</a></li>
+<li class="chapter" data-level="3.6" data-path="bayesian-approach.html"><a href="bayesian-approach.html"><i class="fa fa-check"></i><b>3.6</b> Bayesian Approach</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>6</b> Hypothesis Testing</a>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>6.1</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="6.2" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>6.2</b> Wald Test</a></li>
-<li class="chapter" data-level="6.3" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>6.3</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="6.4" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>6.4</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.1</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="4.2" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.2</b> Wald Test</a></li>
+<li class="chapter" data-level="4.3" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.3</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.4" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.4</b> Comparing samples</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
-<li class="chapter" data-level="7" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>7</b> Linear Least Squares</a>
+<li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>7.1</b> Simple Linear Regression</a></li>
-<li class="chapter" data-level="7.2" data-path="matrix-approach.html"><a href="matrix-approach.html"><i class="fa fa-check"></i><b>7.2</b> Matrix Approach</a></li>
-<li class="chapter" data-level="7.3" data-path="statistical-properties.html"><a href="statistical-properties.html"><i class="fa fa-check"></i><b>7.3</b> Statistical Properties</a></li>
+<li class="chapter" data-level="5.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>5.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="matrix-approach.html"><a href="matrix-approach.html"><i class="fa fa-check"></i><b>5.2</b> Matrix Approach</a></li>
+<li class="chapter" data-level="5.3" data-path="statistical-properties.html"><a href="statistical-properties.html"><i class="fa fa-check"></i><b>5.3</b> Statistical Properties</a></li>
 </ul></li>
 </ul>
 
@@ -186,16 +180,63 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bayesian-approach" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Bayesian Approach<a href="bayesian-approach.html#bayesian-approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bayesian-approach" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Bayesian Approach<a href="bayesian-approach.html#bayesian-approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(Wasserman Chapter 11)</p>
+<p>Please watch this great video by Philippe Rigollet (MIT) for the Bayesian approach:
+<a href="https://youtu.be/bFZ-0FH5hfs?si=IItsPqGD9g9kCC76" class="uri">https://youtu.be/bFZ-0FH5hfs?si=IItsPqGD9g9kCC76</a></p>
+<p>In short, we have that
+<span class="math display">\[ f(\theta | X_1, \dots, X_n) \propto \mathcal{L}_n (\theta) f(\theta), \]</span>
+where <span class="math inline">\(f(\theta | X_1, \dots, X_n)\)</span> is a (believed) density distribution of the parameter <span class="math inline">\(\theta\)</span> called the posterior,
+<span class="math inline">\(f(\theta)\)</span> is a (believed) density distribution called the prior,
+and <span class="math inline">\(\mathcal{L}_n(\theta)\)</span> is the likelihood function.</p>
+<p>One can think about this as how we update belief about the certain truth
+from a prior belief after seeing the evidence.
+This point of view is crucial in science; it is the scientific method written in mathematical form.</p>
+<p>We can then construct Bayesian estimator by simply taking the expectation of the posterior:</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-98" class="definition"><strong>Definition 3.9  (Bayes estimator) </strong></span>Let <span class="math inline">\(\Theta\)</span> be a RV from the posterior <span class="math inline">\(f(\theta | X_1, \dots, X_n)\)</span>.
+<span class="math display">\[ \hat \theta_n = \mathbb{E}_{\theta|X}(\Theta) = \int \theta f(\theta | X_1, \dots, X_n) d\theta.\]</span></p>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-99" class="exercise"><strong>Exercise 3.11  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from Bernoulli distribution <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose that at the beginning we believe that <span class="math inline">\(p\)</span> obeys <span class="math inline">\(\mathrm{Beta}(\alpha, \beta)\)</span> (see <a href="https://en.wikipedia.org/wiki/Beta_distribution">Definition</a>).
+What is the posterior distribution of <span class="math inline">\(p\)</span> after knowing the above sample?</p></li>
+<li><p>Compute the Bayes estimator with the above posterior estimator. Compare this with MLE of <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Suppose that at the beginning we believe that <span class="math inline">\(p\)</span> obeys <span class="math inline">\(\mathrm{Uniform}([0,1])\)</span>.
+What is the posterior distribution of <span class="math inline">\(p\)</span> after knowing the above sample? Compare this with part (1). Explain what you see.</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-100" class="exercise"><strong>Exercise 3.12  (Rice, 8.10.4) </strong></span>Suppose <span class="math inline">\(X\)</span> is RV with the following distribution
+<span class="math display">\[
+\begin{aligned}
+&amp;\mathbb{P}(X= 0) = \frac{2}{3}\theta \\
+&amp; \mathbb{P}(X=1)=\frac{1}{3} \theta \\
+&amp; \mathbb{P}(X=2)=\frac{2}{3}(1-\theta) \\
+&amp; \mathbb{P}(X=3)=\frac{1}{3}(1-\theta)
+\end{aligned}
+\]</span>
+where <span class="math inline">\(0 \leq \theta \leq 1\)</span> is a parameter. The following 10 independent observations were taken from such a distribution: <span class="math inline">\((3,0,2,1,3,2,1,0,2,1)\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Find the method of moments estimate of <span class="math inline">\(\theta\)</span>.</li>
+<li>Find an approximate standard error for your estimate.</li>
+<li>What is the maximum likelihood estimate of <span class="math inline">\(\theta\)</span> ?</li>
+<li>What is an approximate standard error of the maximum likelihood estimate?</li>
+<li>If the prior distribution of <span class="math inline">\(\Theta\)</span> is uniform on <span class="math inline">\([0,1]\)</span>, what is the posterior density? Plot it. What is the mode of the posterior?</li>
+</ol>
+</div>
+
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="method-of-maximum-likelihood.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="expectation-maximization-algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="optional-expectation-maximization-algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

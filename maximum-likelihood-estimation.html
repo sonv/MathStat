@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="method-of-moments.html"/>
-<link rel="next" href="hypothesis-testing.html"/>
+<link rel="next" href="optional-expectation-maximization-algorithm.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -144,7 +144,10 @@
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#consistency"><i class="fa fa-check"></i><b>3.4.1</b> Consistency</a></li>
 <li class="chapter" data-level="3.4.2" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#asymptotic-normality"><i class="fa fa-check"></i><b>3.4.2</b> Asymptotic normality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#efficiency"><i class="fa fa-check"></i><b>3.4.3</b> Efficiency</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="optional-expectation-maximization-algorithm.html"><a href="optional-expectation-maximization-algorithm.html"><i class="fa fa-check"></i><b>3.5</b> (Optional) Expectation-Maximization Algorithm</a></li>
+<li class="chapter" data-level="3.6" data-path="bayesian-approach.html"><a href="bayesian-approach.html"><i class="fa fa-check"></i><b>3.6</b> Bayesian Approach</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
@@ -199,11 +202,12 @@ Use MLE to find an estimator for <span class="math inline">\(p\)</span>.</p>
 Use MLE to find an estimator for <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 3.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform(0,\theta)\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
+<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Exercise 3.6  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(Uniform([0,\theta])\)</span>, where <span class="math inline">\(\theta &gt;0\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Find the MLE for <span class="math inline">\(\theta\)</span>.</p></li>
 <li><p>Find an estimator by the method of moments.</p></li>
 <li><p>Compute the mean and the variance of the two estimators above.</p></li>
+<li><p>Can you find the MLE if we consider <span class="math inline">\(Uniform((0,\theta))\)</span>?</p></li>
 </ol>
 </div>
 <div class="theorem">
@@ -300,17 +304,51 @@ Given some regularity conditions,
 there exists a random variable <span class="math inline">\(Z \sim N(0,1)\)</span> such that
 <span class="math display">\[\frac{\hat\theta_n - \theta}{\mathrm{se}} \to Z.\]</span></p>
 </div>
-
+</div>
+<div id="efficiency" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Efficiency<a href="maximum-likelihood-estimation.html#efficiency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As <span class="math inline">\(n\)</span> gets large, the MLE is the most efficient estimator.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-94" class="theorem"><strong>Theorem 3.9  (Cramer-Rao Inequality) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample with density <span class="math inline">\(f(x;\theta)\)</span>.
+Suppose <span class="math inline">\(\theta&#39;\)</span> is an unbiased estimator of <span class="math inline">\(\theta\)</span>, then
+under similar regularity conditions as in asymptotic normality,
+<span class="math display">\[ \mathbb{V}(\theta&#39;_n) \geq \frac{1}{n I(\theta)}.\]</span></p>
+</div>
+<p>Note that, in the proof of asymptotic normality, we have that
+as <span class="math inline">\(n\)</span> gets large, the MLE <span class="math inline">\(\hat \theta\)</span>, if obeys the required regularity conditions, satisfies
+<span class="math inline">\(\mathbb{V}( \hat \theta_n )\sim \frac{1}{n I(\theta)}\)</span>.</p>
+<p>By consistency, <span class="math inline">\(\hat \theta \sim \theta\)</span> when <span class="math inline">\(n\)</span> is very large.
+This means that
+<span class="math display">\[\mathbb{V}( \hat \theta_n - \theta ) \sim\mathbb{V}( \hat \theta_n )\sim \frac{1}{n I(\theta)}.\]</span></p>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-95" class="corollary"><strong>Corollary 3.1  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample with density <span class="math inline">\(f(x;\theta)\)</span>.
+Suppose <span class="math inline">\(\theta&#39;_n\)</span> is an unbiased estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\hat \theta_n\)</span> the MLE of <span class="math inline">\(\theta\)</span>, then, under regularity condition as in asymptotic normality, we have
+<span class="math display">\[ \lim_{n\to \infty} n \mathbb{V}(\theta&#39;_n) \geq \lim_{n\to \infty} n\mathbb{V}(\hat \theta_n - \theta) .\]</span></p>
+</div>
+<p>Note that this doesn’t say that MLE (if consistent) is the most efficient for any finite <span class="math inline">\(n\)</span>.
+In fact, this is a difficult question and one can only verify it for some
+specific estimator.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-96" class="exercise"><strong>Exercise 3.9  </strong></span>Show that for Poisson processes, the MLE <span class="math inline">\(\hat \theta_n\)</span> is the most efficient for every <span class="math inline">\(n\)</span>, compared to any other unbiased
+estimator <span class="math inline">\(\theta&#39;_n\)</span>, i.e,
+<span class="math display">\[\mathbb{V}(\theta&#39;_n) \geq \mathbb{V}(\hat\theta - \theta)\]</span> for every <span class="math inline">\(n\in \mathbb{N}\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-97" class="exercise"><strong>Exercise 3.10  (Rice, 8.10.6) </strong></span>Let <span class="math inline">\(X \sim \mathrm{Binomial}(n,p)\)</span> .</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Find the MLE of <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Show that the MLE from part (a) attains the Cramer-Rao lower bound.</p></li>
+</ol>
 </div>
 </div>
-<!-- </div> -->
+</div>
             </section>
 
           </div>
         </div>
       </div>
 <a href="method-of-moments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="optional-expectation-maximization-algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
