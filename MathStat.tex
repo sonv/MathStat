@@ -1838,6 +1838,65 @@ where \(0 \leq \theta \leq 1\) is a parameter. The following 10 independent obse
 
 \end{exercise}
 
+\section{Comparing Estimator / Decision Theory}\label{comparing-estimator-decision-theory}
+
+Recall that we always denote:
+- \(\theta\): true parameter
+- \(\hat \theta\): estimator of the true parameter (a function of the data)
+
+So far, we learned a variety of ways to construct estimators: estimator by moment method, MLE, Bayes estimator.
+Which one would work the best? This is what we call \emph{decision theory}.
+Often, within this theory, an estimator is called a \emph{decision rule} and the possible values of the decision rule are called \emph{actions}.
+
+The language here is also the language used in machine learning. You will find a few repeated ideas from previous sections.
+However, the ideas are natural.
+
+Before, one way to measure the discrepancy between the estimator \(\hat \theta\) and \(\theta\) is
+the mean square error that we learned previously.
+However, that is not the only way.
+To generalize this idea, we define the \emph{loss function} \(L(\theta, \hat \theta)\) mapping from
+\(\Theta\times \Theta \to \mathbb{R}\), where \(\Theta\) is the set of parameters.
+
+\begin{example}
+
+Here is a few examples of loss functions:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(L(\theta,\hat \theta) = (\theta - \hat \theta)^2\) & Squared error loss \\
+\(L(\theta, \hat \theta) = |\theta - \hat\theta|^p\) & \(L^p\) loss \\
+\(L(\theta,\hat \theta) = \begin{cases}0, & \theta = \hat \theta \\ 1,  & \theta\not= \hat\theta\end{cases}\) & zero-one loss \\
+\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|>c)\) where \(I(x>c) = \begin{cases}0, & |\theta -  \hat \theta| \leq c \\ 1,  & |\theta -  \hat \theta| > c\end{cases}\) & large deviation loss \\
+\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)}  \right) f(x;\theta)\) & Kullback-Leiber loss \\
+\end{longtable}
+
+\end{example}
+
+\begin{definition}
+The \emph{risk} of an estimator is
+\[ R(\theta, \hat\theta) = \mathbb{E}_\theta (L(\theta,\hat \theta)). \]
+\end{definition}
+
+The risk from the squared error loss is the mean squared error.
+
+\begin{example}
+Compute the risks from the squared error for the MLE and Bayes estimator (with prior \(\mathrm{Beta}(\alpha, \beta)\)) for the
+family \(\mathrm{Bernoulli}(p)\).
+\end{example}
+
+\begin{definition}
+The \emph{maximum risk} is
+\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta)\]
+and the \emph{Bayes risk} is
+\[ r(f, \hat \theta) = \int R(\theta, \hat\theta) f(\theta) \, d\theta\]
+where \(f(\theta)\) is the prior for \(\theta\).
+\end{definition}
+
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 
 \section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}
