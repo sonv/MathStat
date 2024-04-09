@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)" />
+  
+  
+  
+
+<meta name="author" content="Truong-Son Van" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bayesian-approach.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>Mathematical Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a>
+<ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#key-information"><i class="fa fa-check"></i>Key information</a></li>
+<li class="chapter" data-level="" data-path="textbooks-and-references.html"><a href="textbooks-and-references.html"><i class="fa fa-check"></i>Textbooks and references</a>
+<ul>
+<li class="chapter" data-level="" data-path="textbooks-and-references.html"><a href="textbooks-and-references.html#course-description"><i class="fa fa-check"></i>Course description</a></li>
+<li class="chapter" data-level="" data-path="textbooks-and-references.html"><a href="textbooks-and-references.html#learning-objectives"><i class="fa fa-check"></i>Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="assessment.html"><a href="assessment.html"><i class="fa fa-check"></i>Assessment</a></li>
+<li class="chapter" data-level="" data-path="core-content.html"><a href="core-content.html"><i class="fa fa-check"></i>Core content</a></li>
+<li class="chapter" data-level="" data-path="project-description.html"><a href="project-description.html"><i class="fa fa-check"></i>Project description</a>
+<ul>
+<li class="chapter" data-level="" data-path="project-description.html"><a href="project-description.html#topics"><i class="fa fa-check"></i>Topics</a></li>
+<li class="chapter" data-level="" data-path="project-description.html"><a href="project-description.html#deadlines"><i class="fa fa-check"></i>Deadlines</a></li>
+<li class="chapter" data-level="" data-path="project-description.html"><a href="project-description.html#project-guidelines"><i class="fa fa-check"></i>Project Guidelines</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="late-assignments.html"><a href="late-assignments.html"><i class="fa fa-check"></i>Late assignments</a></li>
+<li class="chapter" data-level="" data-path="time-expectations.html"><a href="time-expectations.html"><i class="fa fa-check"></i>Time expectations</a>
+<ul>
+<li class="chapter" data-level="" data-path="time-expectations.html"><a href="time-expectations.html#collaboration-plagiarism"><i class="fa fa-check"></i>Collaboration &amp; Plagiarism</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="learning-support.html"><a href="learning-support.html"><i class="fa fa-check"></i>Learning Support</a></li>
+<li class="chapter" data-level="" data-path="wellbeing.html"><a href="wellbeing.html"><i class="fa fa-check"></i>Wellbeing</a></li>
+<li class="chapter" data-level="" data-path="tentative-course-schedule.html"><a href="tentative-course-schedule.html"><i class="fa fa-check"></i>Tentative Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-1-background.html"><a href="part-1-background.html"><i class="fa fa-check"></i>PART 1: Background</a></li>
+<li class="chapter" data-level="1" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="review.html"><a href="review.html"><i class="fa fa-check"></i><b>1.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="review.html"><a href="review.html#probability-space"><i class="fa fa-check"></i><b>1.1.1</b> Probability Space</a></li>
+<li class="chapter" data-level="1.1.2" data-path="review.html"><a href="review.html#random-variables"><i class="fa fa-check"></i><b>1.1.2</b> Random Variables</a></li>
+<li class="chapter" data-level="1.1.3" data-path="review.html"><a href="review.html#joint-distribution-of-rvs"><i class="fa fa-check"></i><b>1.1.3</b> Joint distribution of RVs</a></li>
+<li class="chapter" data-level="1.1.4" data-path="review.html"><a href="review.html#some-important-random-variables"><i class="fa fa-check"></i><b>1.1.4</b> Some important random variables</a></li>
+<li class="chapter" data-level="1.1.5" data-path="review.html"><a href="review.html#independent-random-variables"><i class="fa fa-check"></i><b>1.1.5</b> Independent random variables</a></li>
+<li class="chapter" data-level="1.1.6" data-path="review.html"><a href="review.html#transformations-of-rvs"><i class="fa fa-check"></i><b>1.1.6</b> Transformations of RVs</a></li>
+<li class="chapter" data-level="1.1.7" data-path="review.html"><a href="review.html#expectation"><i class="fa fa-check"></i><b>1.1.7</b> Expectation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="moment-generating-and-characteristic-functions.html"><a href="moment-generating-and-characteristic-functions.html"><i class="fa fa-check"></i><b>1.2</b> Moment Generating and Characteristic Functions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="moment-generating-and-characteristic-functions.html"><a href="moment-generating-and-characteristic-functions.html#moment-generating-functions"><i class="fa fa-check"></i><b>1.2.1</b> Moment Generating Functions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="moment-generating-and-characteristic-functions.html"><a href="moment-generating-and-characteristic-functions.html#characteristic-functions"><i class="fa fa-check"></i><b>1.2.2</b> Characteristic Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="inequalities.html"><a href="inequalities.html"><i class="fa fa-check"></i><b>1.3</b> Inequalities</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="inequalities.html"><a href="inequalities.html#typical-tail-bound-inequalities"><i class="fa fa-check"></i><b>1.3.1</b> Typical tail bound inequalities</a></li>
+<li class="chapter" data-level="1.3.2" data-path="inequalities.html"><a href="inequalities.html#exponential-concentration-inequalities"><i class="fa fa-check"></i><b>1.3.2</b> Exponential concentration inequalities</a></li>
+<li class="chapter" data-level="1.3.3" data-path="inequalities.html"><a href="inequalities.html#inequalities-for-expectations"><i class="fa fa-check"></i><b>1.3.3</b> Inequalities for expectations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="law-of-large-numbers.html"><a href="law-of-large-numbers.html"><i class="fa fa-check"></i><b>1.4</b> Law of Large Numbers</a></li>
+<li class="chapter" data-level="1.5" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>1.5</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-2-inference.html"><a href="part-2-inference.html"><i class="fa fa-check"></i>PART 2: Inference</a></li>
+<li class="chapter" data-level="2" data-path="sampling.html"><a href="sampling.html"><i class="fa fa-check"></i><b>2</b> Sampling</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="simple-random-sample.html"><a href="simple-random-sample.html"><i class="fa fa-check"></i><b>2.1</b> Simple Random Sample</a></li>
+<li class="chapter" data-level="2.2" data-path="standard-random-sample.html"><a href="standard-random-sample.html"><i class="fa fa-check"></i><b>2.2</b> Standard Random Sample</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="parametric-inference-parameter-estimation.html"><a href="parametric-inference-parameter-estimation.html"><i class="fa fa-check"></i><b>3</b> Parametric Inference (Parameter Estimation)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="point-estimation.html"><a href="point-estimation.html"><i class="fa fa-check"></i><b>3.1</b> Point Estimation</a></li>
+<li class="chapter" data-level="3.2" data-path="confidence-set.html"><a href="confidence-set.html"><i class="fa fa-check"></i><b>3.2</b> Confidence set</a></li>
+<li class="chapter" data-level="3.3" data-path="method-of-moments.html"><a href="method-of-moments.html"><i class="fa fa-check"></i><b>3.3</b> Method of Moments</a></li>
+<li class="chapter" data-level="3.4" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>3.4</b> Maximum Likelihood Estimation</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#consistency"><i class="fa fa-check"></i><b>3.4.1</b> Consistency</a></li>
+<li class="chapter" data-level="3.4.2" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#asymptotic-normality"><i class="fa fa-check"></i><b>3.4.2</b> Asymptotic normality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="maximum-likelihood-estimation.html"><a href="maximum-likelihood-estimation.html#efficiency"><i class="fa fa-check"></i><b>3.4.3</b> Efficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="optional-expectation-maximization-algorithm.html"><a href="optional-expectation-maximization-algorithm.html"><i class="fa fa-check"></i><b>3.5</b> (Optional) Expectation-Maximization Algorithm</a></li>
+<li class="chapter" data-level="3.6" data-path="bayesian-approach.html"><a href="bayesian-approach.html"><i class="fa fa-check"></i><b>3.6</b> Bayesian Approach</a></li>
+<li class="chapter" data-level="3.7" data-path="comparing-estimator-decision-theory.html"><a href="comparing-estimator-decision-theory.html"><i class="fa fa-check"></i><b>3.7</b> Comparing Estimator / Decision Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.1</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="4.2" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.2</b> Wald Test</a></li>
+<li class="chapter" data-level="4.3" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.3</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.4" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.4</b> Comparing samples</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
+<li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>5.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="matrix-approach.html"><a href="matrix-approach.html"><i class="fa fa-check"></i><b>5.2</b> Matrix Approach</a></li>
+<li class="chapter" data-level="5.3" data-path="statistical-properties.html"><a href="statistical-properties.html"><i class="fa fa-check"></i><b>5.3</b> Statistical Properties</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 310: Mathematical Statistics (brief notes)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comparing-estimator-decision-theory" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Comparing Estimator / Decision Theory<a href="comparing-estimator-decision-theory.html#comparing-estimator-decision-theory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recall that we always denote:
+- <span class="math inline">\(\theta\)</span>: true parameter
+- <span class="math inline">\(\hat \theta\)</span>: estimator of the true parameter (a function of the data)</p>
+<p>So far, we learned a variety of ways to construct estimators: estimator by moment method, MLE, Bayes estimator.
+Which one would work the best? This is what we call <em>decision theory</em>.
+Often, within this theory, an estimator is called a <em>decision rule</em> and the possible values of the decision rule are called <em>actions</em>.</p>
+<p>The language here is also the language used in machine learning. You will find a few repeated ideas from previous sections.
+However, the ideas are natural.</p>
+<p>Before, one way to measure the discrepancy between the estimator <span class="math inline">\(\hat \theta\)</span> and <span class="math inline">\(\theta\)</span> is
+the mean square error that we learned previously.
+However, that is not the only way.
+To generalize this idea, we define the <em>loss function</em> <span class="math inline">\(L(\theta, \hat \theta)\)</span> mapping from
+<span class="math inline">\(\Theta\times \Theta \to \mathbb{R}\)</span>, where <span class="math inline">\(\Theta\)</span> is the set of parameters.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-101" class="example"><strong>Example 3.7  </strong></span>Here is a few examples of loss functions:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(L(\theta,\hat \theta) = (\theta - \hat \theta)^2\)</span></td>
+<td>Squared error loss</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L(\theta, \hat \theta) = |\theta - \hat\theta|^p\)</span></td>
+<td><span class="math inline">\(L^p\)</span> loss</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(L(\theta,\hat \theta) = \begin{cases}0, &amp; \theta = \hat \theta \\ 1,  &amp; \theta\not= \hat\theta\end{cases}\)</span></td>
+<td>zero-one loss</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|&gt;c)\)</span> where <span class="math inline">\(I(x&gt;c) = \begin{cases}0, &amp; |\theta -  \hat \theta| \leq c \\ 1,  &amp; |\theta -  \hat \theta| &gt; c\end{cases}\)</span></td>
+<td>large deviation loss</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)}  \right) f(x;\theta)\)</span></td>
+<td>Kullback-Leiber loss</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-102" class="definition"><strong>Definition 3.10  </strong></span>The <em>risk</em> of an estimator is
+<span class="math display">\[ R(\theta, \hat\theta) = \mathbb{E}_\theta (L(\theta,\hat \theta)). \]</span></p>
+</div>
+<p>The risk from the squared error loss is the mean squared error.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-103" class="example"><strong>Example 3.8  </strong></span>Compute the risks from the squared error for the MLE and Bayes estimator (with prior <span class="math inline">\(\mathrm{Beta}(\alpha, \beta)\)</span>) for the
+family <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-104" class="definition"><strong>Definition 3.11  </strong></span>The <em>maximum risk</em> is
+<span class="math display">\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta)\]</span>
+and the <em>Bayes risk</em> is
+<span class="math display">\[ r(f, \hat \theta) = \int R(\theta, \hat\theta) f(\theta) \, d\theta\]</span>
+where <span class="math inline">\(f(\theta)\)</span> is the prior for <span class="math inline">\(\theta\)</span>.</p>
+</div>
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bayesian-approach.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MathStat.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
