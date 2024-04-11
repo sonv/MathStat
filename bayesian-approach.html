@@ -194,11 +194,12 @@ and <span class="math inline">\(\mathcal{L}_n(\theta)\)</span> is the likelihood
 <p>One can think about this as how we update belief about the certain truth
 from a prior belief after seeing the evidence.
 This point of view is crucial in science; it is the scientific method written in mathematical form.</p>
-<p>We can then construct Bayesian estimator by simply taking the expectation of the posterior:</p>
+<p>We can then construct a Bayesian estimator by simply taking the expectation of the posterior:</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-98" class="definition"><strong>Definition 3.9  (Bayes estimator) </strong></span>Let <span class="math inline">\(\Theta\)</span> be a RV from the posterior <span class="math inline">\(f(\theta | X_1, \dots, X_n)\)</span>.
+<p><span id="def:unlabeled-div-98" class="definition"><strong>Definition 3.9  (Bayes estimator: Posterior mean) </strong></span>Let <span class="math inline">\(\Theta\)</span> be a RV from the posterior <span class="math inline">\(f(\theta | X_1, \dots, X_n)\)</span>.
 <span class="math display">\[ \hat \theta_n = \mathbb{E}_{\theta|X}(\Theta) = \int \theta f(\theta | X_1, \dots, X_n) d\theta.\]</span></p>
 </div>
+<p>Note that this is one of the many candidates from Bayesian approach to talk about an estimator.</p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-99" class="exercise"><strong>Exercise 3.11  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from Bernoulli distribution <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.</p>
 <ol style="list-style-type: decimal">

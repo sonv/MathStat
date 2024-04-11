@@ -1783,12 +1783,14 @@ One can think about this as how we update belief about the certain truth
 from a prior belief after seeing the evidence.
 This point of view is crucial in science; it is the scientific method written in mathematical form.
 
-We can then construct Bayesian estimator by simply taking the expectation of the posterior:
+We can then construct a Bayesian estimator by simply taking the expectation of the posterior:
 
-\begin{definition}[Bayes estimator]
+\begin{definition}[Bayes estimator: Posterior mean]
 Let \(\Theta\) be a RV from the posterior \(f(\theta | X_1, \dots, X_n)\).
 \[ \hat \theta_n = \mathbb{E}_{\theta|X}(\Theta) = \int \theta f(\theta | X_1, \dots, X_n) d\theta.\]
 \end{definition}
+
+Note that this is one of the many candidates from Bayesian approach to talk about an estimator.
 
 \begin{exercise}
 
