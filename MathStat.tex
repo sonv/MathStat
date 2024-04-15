@@ -1893,11 +1893,48 @@ family \(\mathrm{Bernoulli}(p)\).
 
 \begin{definition}
 The \emph{maximum risk} is
-\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta)\]
-and the \emph{Bayes risk} is
+\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta).\]
+The minimizer of the maximum risk is called the \emph{minimax estimator}.
+
+The \emph{Bayes risk} is
 \[ r(f, \hat \theta) = \int R(\theta, \hat\theta) f(\theta) \, d\theta\]
 where \(f(\theta)\) is the prior for \(\theta\).
+The minimizer of the Bayes risk is called the \emph{Bayes estimator}.
 \end{definition}
+
+Let's do a heuristic calculation.
+
+\begin{align*}
+r(f,\hat \theta) &= \int R(\theta, \hat \theta) f(\theta) \, d\theta 
+        = \int \left( \int L(\theta, \hat \theta) f(x^n| \theta) dx^n \right) f(\theta) d \theta \\
+        &= \int  \int L(\theta, \hat \theta)   f(\theta|x^n) f(x^n) d x^n d \theta \\
+        &= \int  \left( \int L(\theta, \hat \theta)   f(\theta|x^n) d \theta \right) f(x^n) d x^n .
+\end{align*}
+
+Denote the posterior risk as
+\[r(\hat \theta; \theta |x^n) = \int L(\theta, \hat \theta)   f(\theta|x^n) d \theta.  \]
+
+Because \(r(\hat \theta; \theta | x^n) \geq 0\), a minimizer for
+\(r(\hat \theta; \theta | x^n)\) for all \(x^n\)
+would minimize \(r(f, \hat \theta)\).
+
+Note that \(\hat \theta\) is a function that we are trying to find so
+this is a calculus of variations problem. Basic calculus isn't sufficient
+to solve this problem. However, we may proceed heuristically.
+
+\begin{example}
+Suppose that \(L(\theta, \hat \theta) = |\theta - \hat \theta|^2\).
+Then,
+\[r(\hat \theta; \theta | x^n) = \int |\theta - \hat \theta|^2 f(\theta| x^n)  d\theta\]
+Heuristically, the minimizer of the above is found when
+\[ 0 =   \frac{\partial}{\partial \hat\theta} r(\hat \theta; \theta | x^n) 
+=  \int (\hat \theta - \theta  ) f(\theta| x^n)  d\theta \,.\]
+Therefore,
+\[ \hat \theta = \int \theta f(\theta | x^n) d \theta.\]
+So, the Bayes estimator for squared cost would be the expected mean.
+\end{example}
+
+The above calculation can be made rigorous via the study calculus of variations.
 
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 

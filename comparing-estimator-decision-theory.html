@@ -238,11 +238,40 @@ family <span class="math inline">\(\mathrm{Bernoulli}(p)\)</span>.</p>
 </div>
 <div class="definition">
 <p><span id="def:unlabeled-div-104" class="definition"><strong>Definition 3.11  </strong></span>The <em>maximum risk</em> is
-<span class="math display">\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta)\]</span>
-and the <em>Bayes risk</em> is
+<span class="math display">\[ \overline{R}(\hat \theta) = \sup_\theta R(\theta, \hat \theta).\]</span>
+The minimizer of the maximum risk is called the <em>minimax estimator</em>.</p>
+<p>The <em>Bayes risk</em> is
 <span class="math display">\[ r(f, \hat \theta) = \int R(\theta, \hat\theta) f(\theta) \, d\theta\]</span>
-where <span class="math inline">\(f(\theta)\)</span> is the prior for <span class="math inline">\(\theta\)</span>.</p>
+where <span class="math inline">\(f(\theta)\)</span> is the prior for <span class="math inline">\(\theta\)</span>.
+The minimizer of the Bayes risk is called the <em>Bayes estimator</em>.</p>
 </div>
+<p>Let’s do a heuristic calculation.</p>
+<p><span class="math display">\[\begin{align*}
+r(f,\hat \theta) &amp;= \int R(\theta, \hat \theta) f(\theta) \, d\theta
+        = \int \left( \int L(\theta, \hat \theta) f(x^n| \theta) dx^n \right) f(\theta) d \theta \\
+        &amp;= \int  \int L(\theta, \hat \theta)   f(\theta|x^n) f(x^n) d x^n d \theta \\
+        &amp;= \int  \left( \int L(\theta, \hat \theta)   f(\theta|x^n) d \theta \right) f(x^n) d x^n .
+\end{align*}\]</span></p>
+<p>Denote the posterior risk as
+<span class="math display">\[r(\hat \theta; \theta |x^n) = \int L(\theta, \hat \theta)   f(\theta|x^n) d \theta.  \]</span></p>
+<p>Because <span class="math inline">\(r(\hat \theta; \theta | x^n) \geq 0\)</span>, a minimizer for
+<span class="math inline">\(r(\hat \theta; \theta | x^n)\)</span> for all <span class="math inline">\(x^n\)</span>
+would minimize <span class="math inline">\(r(f, \hat \theta)\)</span>.</p>
+<p>Note that <span class="math inline">\(\hat \theta\)</span> is a function that we are trying to find so
+this is a calculus of variations problem. Basic calculus isn’t sufficient
+to solve this problem. However, we may proceed heuristically.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-105" class="example"><strong>Example 3.9  </strong></span>Suppose that <span class="math inline">\(L(\theta, \hat \theta) = |\theta - \hat \theta|^2\)</span>.
+Then,
+<span class="math display">\[r(\hat \theta; \theta | x^n) = \int |\theta - \hat \theta|^2 f(\theta| x^n)  d\theta\]</span>
+Heuristically, the minimizer of the above is found when
+<span class="math display">\[ 0 =   \frac{\partial}{\partial \hat\theta} r(\hat \theta; \theta | x^n)
+=  \int (\hat \theta - \theta  ) f(\theta| x^n)  d\theta \,.\]</span>
+Therefore,
+<span class="math display">\[ \hat \theta = \int \theta f(\theta | x^n) d \theta.\]</span>
+So, the Bayes estimator for squared cost would be the expected mean.</p>
+</div>
+<p>The above calculation can be made rigorous via the study calculus of variations.</p>
 
 </div>
 <!-- </div> -->
