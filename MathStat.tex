@@ -1931,10 +1931,27 @@ Heuristically, the minimizer of the above is found when
 =  \int (\hat \theta - \theta  ) f(\theta| x^n)  d\theta \,.\]
 Therefore,
 \[ \hat \theta = \int \theta f(\theta | x^n) d \theta.\]
-So, the Bayes estimator for squared cost would be the expected mean.
+So, the Bayes estimator for square loss would be the posterior mean.
 \end{example}
 
 The above calculation can be made rigorous via the study calculus of variations.
+
+\begin{exercise}
+\leavevmode
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Let \(X\) be a continuous random variable. Show that
+  \[\min_a \mathbb{E}|X - a|\]
+  is achieved when \(a\) is the median of \(X\), i.e,
+  \[ \mathbb{P}(X\geq a) = \mathbb{P}(X\leq a) = 1/2.\]
+\item
+  For absolute error loss, \(L(\theta,\hat \theta) = |\theta - \hat \theta|\), show that
+  the Bayes estimator is the median of of the posterior distribution.
+\end{enumerate}
+
+\end{exercise}
 
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 
