@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Wellbeing | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="Wellbeing | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>4.1 Procedure | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="4.1 Procedure | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Wellbeing | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="4.1 Procedure | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Wellbeing | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="4.1 Procedure | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="learning-support.html"/>
-<link rel="next" href="tentative-course-schedule.html"/>
+<link rel="prev" href="hypothesis-testing.html"/>
+<link rel="next" href="neyman-pearson-lemma.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -182,25 +182,99 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="wellbeing" class="section level2 unnumbered hasAnchor">
-<h2>Wellbeing<a href="wellbeing.html#wellbeing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Mental health and wellbeing are essential for the success of your academic journey. The
-Fulbright Wellness Center provides various services including counseling, safer community,
-and accessibility services. If you are experiencing undue personal or academic stress, are
-feeling unsafe, or would like to know more about issues related to wellbeing, please contact
-the Wellness Center via <a href="mailto:wellness@fulbright.edu.vn" class="email">wellness@fulbright.edu.vn</a> or visit the Wellness Center office on
-Level 5 of the Crescent campus.</p>
-<p>For more information, pleaes check
-<a href="https://onestop.fulbright.edu.vn/s/article/Health-and-Wellness-Introduction" class="uri">https://onestop.fulbright.edu.vn/s/article/Health-and-Wellness-Introduction</a></p>
-<div style="page-break-after: always;"></div>
+<div id="procedure" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Procedure<a href="procedure.html#procedure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Denote the quantity of interest (parameter or functional) to be <span class="math inline">\(\theta\)</span>.
+This parameter will be assumed to take place in a space <span class="math inline">\(D\)</span>.</p>
+<p>Suppose that, because of previous experience, we think that <span class="math inline">\(\theta\)</span> could only be in <span class="math inline">\(D_1\)</span> or <span class="math inline">\(D_2\)</span>
+(but not both), where <span class="math inline">\(D_0 \cap D_1 = \emptyset\)</span> and <span class="math inline">\(D_0 \cup D_1 = D\)</span>.</p>
+<p>The components of our test would be:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(H_0 : \theta \in D_0\)</span> versus <span class="math inline">\(H_1: \theta \in D_1\)</span></li>
+<li>Sample: <span class="math inline">\(X_1, \dots, X_n\)</span></li>
+<li>Rejection (Critical) region <span class="math inline">\(C\)</span>: determines the decision rule as follows:
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\((X_1, \dots, X_n) \in C\)</span></li>
+<li>Reject <span class="math inline">\(H_1\)</span> if <span class="math inline">\((X_1, \dots, X_n) \not\in C\)</span></li>
+</ul></li>
+</ol>
+<p>For <span class="math inline">\(i=0,1\)</span>, if <span class="math inline">\(D_i = \{ \theta_i \}\)</span> (that is, <span class="math inline">\(D_i\)</span> is a singleton), then <span class="math inline">\(H_i\)</span> is called a <em>simple</em> hypothesis.
+A hypothesis is <em>composite</em> if it is not simple.
+So, we could have cases where one of the hypotheses is simple and the other is composite,
+both are simple, or both are composite.</p>
+<p>Due to probabilistic nature of the procedure, there are a few scenarios</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(H_0\)</span> is true</th>
+<th align="center"><span class="math inline">\(H_1\)</span> is true</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Type I error (false positive)</td>
+<td align="center">Correct decision</td>
+</tr>
+<tr class="even">
+<td align="center">Reject <span class="math inline">\(H_1\)</span></td>
+<td align="center">Correct decision</td>
+<td align="center">Type II error (false negative)</td>
+</tr>
+</tbody>
+</table>
+<p>One of the working assumption of science is that all models are wrong and only approximations
+of reality. So, the goal of science is to try to reject the hypothesis <span class="math inline">\(H_0\)</span>. The harder
+it is to reject <span class="math inline">\(H_0\)</span>, the better of a theory as an approximation of reality.</p>
+<p>However, there is a conundrum the two types of errors will happen and it is
+not possible to minimize both at the same time.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-107" class="example"><strong>Example 4.1  </strong></span>Let <span class="math inline">\(C = \emptyset\)</span>. Then the probability for Type I error is <span class="math inline">\(0\)</span> as one will never
+reject <span class="math inline">\(H_0\)</span>.
+However, if it turns out that <span class="math inline">\(H_1\)</span> is true, then the probability for Type II error
+would be <span class="math inline">\(1\)</span>.</p>
+</div>
+<p>Often, we consider a false positive to be worse than a false negative (imagine
+a medical test says that you don’t have a sickness while you do).
+So, we want to do the following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose small probability <span class="math inline">\(\alpha\)</span> and find reasonable
+critical regions that make the probability for Type I error be bounded by <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Among these critical regions, minimize the probability for Type II error.</p></li>
+</ol>
+<p>Note that we have
+<span class="math display">\[ 1 - \mathbb{P}_\theta ( \text{Type II error}) = \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]</span></p>
+<p>This inspires the following definitions</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-108" class="definition"><strong>Definition 4.1  (size of critical region) </strong></span>We say that a critical region <span class="math inline">\(C\)</span> is of <em>size</em> <span class="math inline">\(\alpha\)</span> if
+<span class="math display">\[ \alpha = \max_{\theta \in D_0} \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-109" class="definition"><strong>Definition 4.2  (Power function of critical region) </strong></span>A <em>power function</em> of a critical region <span class="math inline">\(C\)</span> is a function <span class="math inline">\(\gamma_C: D_1 \to [0,1]\)</span>
+so that
+<span class="math display">\[ \gamma_C(\theta) = \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]</span></p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-110" class="remark"><em>Remark</em>. </span>From the above discussion, the quality of a hypothesis test is really determined by
+choosing the right critical region <span class="math inline">\(C\)</span>. So a test is better than another test
+when the critical region of it is better than the critical region of the other one.
+We, thus, need to be able to compare critical regions.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-111" class="definition"><strong>Definition 4.3  </strong></span>Given two critical regions <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> of size <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(C_1\)</span>
+is better than <span class="math inline">\(C_2\)</span> (denoted by <span class="math inline">\(C_1 \succeq C_2\)</span>) if
+<span class="math display">\[\gamma_{C_1}(\theta) \geq \gamma_{C_2}(\theta)\,, \forall  \theta \in D_1.\]</span></p>
+</div>
+<p>Note that, not any pair of critical regions are comparable.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="learning-support.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tentative-course-schedule.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="neyman-pearson-lemma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

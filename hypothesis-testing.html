@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="comparing-estimator-decision-theory.html"/>
-<link rel="next" href="neyman-pearson-lemma.html"/>
+<link rel="next" href="procedure.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,10 +152,11 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.1</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.2" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.2</b> Wald Test</a></li>
-<li class="chapter" data-level="4.3" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.3</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.4" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.4</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
+<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="4.3" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.3</b> Wald Test</a></li>
+<li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
 <li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
@@ -183,6 +184,23 @@
             <section class="normal" id="section-">
 <div id="hypothesis-testing" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Hypothesis Testing<a href="hypothesis-testing.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>(I wasn’t entirely happy with the treatment of Wasserman and Casella &amp; Berger.
+So I’m following the treatment of Hogg, McKean &amp; Craig.)</p>
+<p>A hypothesis test is a process to reject or not reject a well-defined statements.
+Intuitively, there are three components to a hypothesis test:</p>
+<ol style="list-style-type: decimal">
+<li>Null hypothesis <span class="math inline">\(H_0\)</span>versus Alternative hypothesis <span class="math inline">\(H_1\)</span></li>
+<li>Data</li>
+<li>Decision rule to reject <span class="math inline">\(H_0\)</span> and accept <span class="math inline">\(H_1\)</span> or to not reject <span class="math inline">\(H_0\)</span> and reject <span class="math inline">\(H_1\)</span>.</li>
+</ol>
+<p>The mathematical formulation of this is a bit more restrictive because of the
+need for well-defined and verifiable statements.
+We will restrict our attention to hypotheses about either:</p>
+<ol style="list-style-type: decimal">
+<li>a parameter of a model, or</li>
+<li>a functional of the underlying density distribution <span class="math inline">\(f\)</span>, i.e., a mapping <span class="math inline">\(T(f) \in \mathbb{R}\)</span>.
+For example, <span class="math inline">\(\mu(f) = \int x  f(x) dx\)</span>.</li>
+</ol>
 </div>
             </section>
 
@@ -190,7 +208,7 @@
         </div>
       </div>
 <a href="comparing-estimator-decision-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="neyman-pearson-lemma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="procedure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

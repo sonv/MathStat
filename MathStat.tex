@@ -1955,7 +1955,197 @@ The above calculation can be made rigorous via the study calculus of variations.
 
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 
+(I wasn't entirely happy with the treatment of Wasserman and Casella \& Berger.
+So I'm following the treatment of Hogg, McKean \& Craig.)
+
+A hypothesis test is a process to reject or not reject a well-defined statements.
+Intuitively, there are three components to a hypothesis test:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Null hypothesis \(H_0\)versus Alternative hypothesis \(H_1\)
+\item
+  Data
+\item
+  Decision rule to reject \(H_0\) and accept \(H_1\) or to not reject \(H_0\) and reject \(H_1\).
+\end{enumerate}
+
+The mathematical formulation of this is a bit more restrictive because of the
+need for well-defined and verifiable statements.
+We will restrict our attention to hypotheses about either:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  a parameter of a model, or
+\item
+  a functional of the underlying density distribution \(f\), i.e., a mapping \(T(f) \in \mathbb{R}\).
+  For example, \(\mu(f) = \int x  f(x) dx\).
+\end{enumerate}
+
+\section{Procedure}\label{procedure}
+
+Denote the quantity of interest (parameter or functional) to be \(\theta\).
+This parameter will be assumed to take place in a space \(D\).
+
+Suppose that, because of previous experience, we think that \(\theta\) could only be in \(D_1\) or \(D_2\)
+(but not both), where \(D_0 \cap D_1 = \emptyset\) and \(D_0 \cup D_1 = D\).
+
+The components of our test would be:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(H_0 : \theta \in D_0\) versus \(H_1: \theta \in D_1\)
+\item
+  Sample: \(X_1, \dots, X_n\)
+\item
+  Rejection (Critical) region \(C\): determines the decision rule as follows:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Reject \(H_0\) if \((X_1, \dots, X_n) \in C\)
+  \item
+    Reject \(H_1\) if \((X_1, \dots, X_n) \not\in C\)
+  \end{itemize}
+\end{enumerate}
+
+For \(i=0,1\), if \(D_i = \{ \theta_i \}\) (that is, \(D_i\) is a singleton), then \(H_i\) is called a \emph{simple} hypothesis.
+A hypothesis is \emph{composite} if it is not simple.
+So, we could have cases where one of the hypotheses is simple and the other is composite,
+both are simple, or both are composite.
+
+Due to probabilistic nature of the procedure, there are a few scenarios
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+& \(H_0\) is true & \(H_1\) is true \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Reject \(H_0\) & Type I error (false positive) & Correct decision \\
+Reject \(H_1\) & Correct decision & Type II error (false negative) \\
+\end{longtable}
+
+One of the working assumption of science is that all models are wrong and only approximations
+of reality. So, the goal of science is to try to reject the hypothesis \(H_0\). The harder
+it is to reject \(H_0\), the better of a theory as an approximation of reality.
+
+However, there is a conundrum the two types of errors will happen and it is
+not possible to minimize both at the same time.
+
+\begin{example}
+Let \(C = \emptyset\). Then the probability for Type I error is \(0\) as one will never
+reject \(H_0\).
+However, if it turns out that \(H_1\) is true, then the probability for Type II error
+would be \(1\).
+\end{example}
+
+Often, we consider a false positive to be worse than a false negative (imagine
+a medical test says that you don't have a sickness while you do).
+So, we want to do the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Choose small probability \(\alpha\) and find reasonable
+  critical regions that make the probability for Type I error be bounded by \(\alpha\).
+\item
+  Among these critical regions, minimize the probability for Type II error.
+\end{enumerate}
+
+Note that we have
+\[ 1 - \mathbb{P}_\theta ( \text{Type II error}) = \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
+
+This inspires the following definitions
+
+\begin{definition}[size of critical region]
+We say that a critical region \(C\) is of \emph{size} \(\alpha\) if
+\[ \alpha = \max_{\theta \in D_0} \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
+\end{definition}
+
+\begin{definition}[Power function of critical region]
+A \emph{power function} of a critical region \(C\) is a function \(\gamma_C: D_1 \to [0,1]\)
+so that
+\[ \gamma_C(\theta) = \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
+\end{definition}
+
+\begin{remark}
+From the above discussion, the quality of a hypothesis test is really determined by
+choosing the right critical region \(C\). So a test is better than another test
+when the critical region of it is better than the critical region of the other one.
+We, thus, need to be able to compare critical regions.
+\end{remark}
+
+\begin{definition}
+Given two critical regions \(C_1\) and \(C_2\) of size \(\alpha\), \(C_1\)
+is better than \(C_2\) (denoted by \(C_1 \succeq C_2\)) if
+\[\gamma_{C_1}(\theta) \geq \gamma_{C_2}(\theta)\,, \forall  \theta \in D_1.\]
+\end{definition}
+
+Note that, not any pair of critical regions are comparable.
+
 \section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}
+
+\begin{bbox}
+
+Assumption throughout this section: both hypotheses are simple.
+
+\end{bbox}
+
+When both the null and alternative hypotheses are simple, we can talk about
+the most powerful tests (or the \emph{best critical region}).
+
+Denote \(X = (X_1, \dots, X_n)\) and recall that the space that this lives in
+is a state space \(S\).
+
+\begin{definition}
+
+Let \(C\) be a subset of the state space.
+Then we say that \(C\) is the \emph{best critical region} of size \(\alpha\) for testing
+the simple hypothesis \(H_0: \theta = \theta_0\) against the alternative simple
+hypothesis \(H_1: \theta = theta_1\) if
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \(P_{\theta_0}( (X_1, \dots, X_n) \in C ) = \alpha\)
+\item
+  And for every subset \(A\) of the state space
+  \[ \mathbb{P}_{\theta_0}( X \in A) = \alpha \implies \mathbb{P}_{\theta_1}(X \in C) \geq \mathbb{P}_{\theta_1} ( X \in A)\]
+\end{enumerate}
+
+\end{definition}
+
+Recall the likelihood function
+\[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]
+where \(x = (x_1, \dots, x_n)\).
+
+\begin{theorem}[Neyman-Pearson Theorem]
+Let \(X_1, \dots, X_n\) be a sample from a family of distributions \(f(x;\theta)\),
+where \(\theta \in \{\theta_0, \theta_1\}\).
+Let \(k\) be a positive number and \(C\) be a subset of the state space such that
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(\displaystyle{\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)}} \leq k\) for each point \(x\in C\).
+\item
+  \(\displaystyle\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)} \geq k\) for each point \(x\in C^c\).
+\item
+  \(\alpha = P_{\theta_0}(X \in C)\).
+\end{enumerate}
+
+Then \(C\) is a bests critical region of size \(\alpha\) for testing the hypothesis
+\(H_0: \theta= \theta_0\) against the alternative hypothesis \(H_1: \theta = \theta_1\).
+\end{theorem}
 
 \section{Wald Test}\label{wald-test}
 

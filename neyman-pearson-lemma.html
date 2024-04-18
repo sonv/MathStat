@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.1 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="4.1 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.1 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.1 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hypothesis-testing.html"/>
+<link rel="prev" href="procedure.html"/>
 <link rel="next" href="wald-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -152,10 +152,11 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.1</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.2" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.2</b> Wald Test</a></li>
-<li class="chapter" data-level="4.3" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.3</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.4" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.4</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
+<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
+<li class="chapter" data-level="4.3" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.3</b> Wald Test</a></li>
+<li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
 <li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
@@ -181,15 +182,50 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="neyman-pearson-lemma" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Neyman-Pearson Lemma<a href="neyman-pearson-lemma.html#neyman-pearson-lemma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="neyman-pearson-lemma" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Neyman-Pearson Lemma<a href="neyman-pearson-lemma.html#neyman-pearson-lemma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="bbox">
+<center>
+Assumption throughout this section: both hypotheses are simple.
+</center>
+</div>
+<p>When both the null and alternative hypotheses are simple, we can talk about
+the most powerful tests (or the <em>best critical region</em>).</p>
+<p>Denote <span class="math inline">\(X = (X_1, \dots, X_n)\)</span> and recall that the space that this lives in
+is a state space <span class="math inline">\(S\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-112" class="definition"><strong>Definition 4.4  </strong></span>Let <span class="math inline">\(C\)</span> be a subset of the state space.
+Then we say that <span class="math inline">\(C\)</span> is the <em>best critical region</em> of size <span class="math inline">\(\alpha\)</span> for testing
+the simple hypothesis <span class="math inline">\(H_0: \theta = \theta_0\)</span> against the alternative simple
+hypothesis <span class="math inline">\(H_1: \theta = theta_1\)</span> if</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P_{\theta_0}( (X_1, \dots, X_n) \in C ) = \alpha\)</span></p></li>
+<li><p>And for every subset <span class="math inline">\(A\)</span> of the state space
+<span class="math display">\[ \mathbb{P}_{\theta_0}( X \in A) = \alpha \implies \mathbb{P}_{\theta_1}(X \in C) \geq \mathbb{P}_{\theta_1} ( X \in A)\]</span></p></li>
+</ol>
+</div>
+<p>Recall the likelihood function
+<span class="math display">\[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]</span>
+where <span class="math inline">\(x = (x_1, \dots, x_n)\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-113" class="theorem"><strong>Theorem 4.1  (Neyman-Pearson Theorem) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
+where <span class="math inline">\(\theta \in \{\theta_0, \theta_1\}\)</span>.
+Let <span class="math inline">\(k\)</span> be a positive number and <span class="math inline">\(C\)</span> be a subset of the state space such that</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\displaystyle{\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)}} \leq k\)</span> for each point <span class="math inline">\(x\in C\)</span>.</li>
+<li><span class="math inline">\(\displaystyle\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)} \geq k\)</span> for each point <span class="math inline">\(x\in C^c\)</span>.</li>
+<li><span class="math inline">\(\alpha = P_{\theta_0}(X \in C)\)</span>.</li>
+</ol>
+<p>Then <span class="math inline">\(C\)</span> is a bests critical region of size <span class="math inline">\(\alpha\)</span> for testing the hypothesis
+<span class="math inline">\(H_0: \theta= \theta_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="procedure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="wald-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
