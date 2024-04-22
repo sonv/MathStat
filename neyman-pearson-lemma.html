@@ -158,13 +158,6 @@
 <li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
 <li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="part-3-models.html"><a href="part-3-models.html"><i class="fa fa-check"></i>PART 3: Models</a></li>
-<li class="chapter" data-level="5" data-path="linear-least-squares.html"><a href="linear-least-squares.html"><i class="fa fa-check"></i><b>5</b> Linear Least Squares</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>5.1</b> Simple Linear Regression</a></li>
-<li class="chapter" data-level="5.2" data-path="matrix-approach.html"><a href="matrix-approach.html"><i class="fa fa-check"></i><b>5.2</b> Matrix Approach</a></li>
-<li class="chapter" data-level="5.3" data-path="statistical-properties.html"><a href="statistical-properties.html"><i class="fa fa-check"></i><b>5.3</b> Statistical Properties</a></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -204,11 +197,35 @@ hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span> if</p>
 <span class="math display">\[ \mathbb{P}_{\theta_0}( X \in A) = \alpha \implies \mathbb{P}_{\theta_1}(X \in C) \geq \mathbb{P}_{\theta_1} ( X \in A)\]</span></p></li>
 </ol>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Exercise 4.1  (Hogg et. al., 4.5.3) </strong></span>Let <span class="math inline">\(X\)</span> be an RV that has pdf <span class="math inline">\(f(x;\theta)  = \theta x^{\theta - 1}\)</span> for <span class="math inline">\(0&lt;x&lt;1\)</span>, zero elsewhere.
+Here, <span class="math inline">\(\theta \in \{ 1,2\}\)</span>.
+To test the simple hypothesis <span class="math inline">\(H_0: \theta = 1\)</span> against the alternative
+simple hypothesis <span class="math inline">\(H_1: \theta = 2\)</span>, use a random sample <span class="math inline">\(X_1, X_2\)</span> of size
+<span class="math inline">\(n = 2\)</span> and define the critical region to be <span class="math inline">\(C = \{ x: x_1 x_2 \geq 3/4 \}\)</span>.
+Find the power function of the test.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-114" class="exercise"><strong>Exercise 4.2  (Hogg et. al., 4.5.5) </strong></span>Let <span class="math inline">\(X_1, X_2\)</span> be a random sample of size <span class="math inline">\(n=2\)</span> from the distribution having pdf <span class="math inline">\(f(x ; \theta)=(1 / \theta) e^{-x / \theta}, 0&lt;x&lt;\infty\)</span>, zero elsewhere.
+Here <span class="math inline">\(\theta \in \{1,2\}\)</span>.
+We reject <span class="math inline">\(H_0: \theta=2\)</span> and accept <span class="math inline">\(H_1: \theta=1\)</span> if the observed values of <span class="math inline">\(X_1, X_2\)</span>, say <span class="math inline">\(x_1, x_2\)</span>, are such that
+<span class="math display">\[
+\frac{f\left(x_1 ; 2\right) f\left(x_2 ; 2\right)}{f\left(x_1 ; 1\right) f\left(x_2 ; 1\right)} \leq \frac{1}{2} .
+\]</span></p>
+<p>Find the significance level of the test and the power of the test when <span class="math inline">\(H_0\)</span> is false.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Exercise 4.3  (Hogg et. al., 4.5.9) </strong></span>Let <span class="math inline">\(X\)</span> have a Poisson distribution with mean <span class="math inline">\(\theta\)</span>. Consider the simple hypothesis <span class="math inline">\(H_0: \theta=\frac{1}{2}\)</span> and the alternative composite hypothesis <span class="math inline">\(H_1: \theta&lt;\frac{1}{2}\)</span>. Thus <span class="math inline">\(\Omega=\left\{\theta: 0&lt;\theta \leq \frac{1}{2}\right\}\)</span>. Let <span class="math inline">\(X_1, \ldots, X_{12}\)</span> denote a random sample of size 12 from this distribution. We reject <span class="math inline">\(H_0\)</span> if and only if the observed value of <span class="math inline">\(Y=X_1+\cdots+X_{12} \leq 2\)</span>. Show that the following <span class="math inline">\(\mathrm{R}\)</span> code graphs the power function of this test:</p>
+<pre><code>theta =seq(.1, .5, .05)$; gam=ppois(2, theta * 12)
+plot (gam theta,pch=&quot; &quot;,xlab=expression(theta),ylab=expression(gamma))
+lines (gam ~ theta)</code></pre>
+<p>Run the code. Determine the significance level from the plot.</p>
+</div>
 <p>Recall the likelihood function
 <span class="math display">\[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]</span>
 where <span class="math inline">\(x = (x_1, \dots, x_n)\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-113" class="theorem"><strong>Theorem 4.1  (Neyman-Pearson Theorem) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
+<p><span id="thm:unlabeled-div-116" class="theorem"><strong>Theorem 4.1  (Neyman-Pearson Theorem) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
 where <span class="math inline">\(\theta \in \{\theta_0, \theta_1\}\)</span>.
 Let <span class="math inline">\(k\)</span> be a positive number and <span class="math inline">\(C\)</span> be a subset of the state space such that</p>
 <ol style="list-style-type: lower-alpha">

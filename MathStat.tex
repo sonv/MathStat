@@ -2123,6 +2123,38 @@ hypothesis \(H_1: \theta = \theta_1\) if
 
 \end{definition}
 
+\begin{exercise}[Hogg et. al., 4.5.3]
+Let \(X\) be an RV that has pdf \(f(x;\theta)  = \theta x^{\theta - 1}\) for \(0<x<1\), zero elsewhere.
+Here, \(\theta \in \{ 1,2\}\).
+To test the simple hypothesis \(H_0: \theta = 1\) against the alternative
+simple hypothesis \(H_1: \theta = 2\), use a random sample \(X_1, X_2\) of size
+\(n = 2\) and define the critical region to be \(C = \{ x: x_1 x_2 \geq 3/4 \}\).
+Find the power function of the test.
+\end{exercise}
+
+\begin{exercise}[Hogg et. al., 4.5.5]
+Let \(X_1, X_2\) be a random sample of size \(n=2\) from the distribution having pdf \(f(x ; \theta)=(1 / \theta) e^{-x / \theta}, 0<x<\infty\), zero elsewhere.
+Here \(\theta \in \{1,2\}\).
+We reject \(H_0: \theta=2\) and accept \(H_1: \theta=1\) if the observed values of \(X_1, X_2\), say \(x_1, x_2\), are such that
+\[
+\frac{f\left(x_1 ; 2\right) f\left(x_2 ; 2\right)}{f\left(x_1 ; 1\right) f\left(x_2 ; 1\right)} \leq \frac{1}{2} .
+\]
+
+Find the significance level of the test and the power of the test when \(H_0\) is false.
+\end{exercise}
+
+\begin{exercise}[Hogg et. al., 4.5.9]
+Let \(X\) have a Poisson distribution with mean \(\theta\). Consider the simple hypothesis \(H_0: \theta=\frac{1}{2}\) and the alternative composite hypothesis \(H_1: \theta<\frac{1}{2}\). Thus \(\Omega=\left\{\theta: 0<\theta \leq \frac{1}{2}\right\}\). Let \(X_1, \ldots, X_{12}\) denote a random sample of size 12 from this distribution. We reject \(H_0\) if and only if the observed value of \(Y=X_1+\cdots+X_{12} \leq 2\). Show that the following \(\mathrm{R}\) code graphs the power function of this test:
+
+\begin{verbatim}
+theta =seq(.1, .5, .05)$; gam=ppois(2, theta * 12)
+plot (gam theta,pch=" ",xlab=expression(theta),ylab=expression(gamma))
+lines (gam ~ theta)
+\end{verbatim}
+
+Run the code. Determine the significance level from the plot.
+\end{exercise}
+
 Recall the likelihood function
 \[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]
 where \(x = (x_1, \dots, x_n)\).
@@ -2152,16 +2184,5 @@ Then \(C\) is a bests critical region of size \(\alpha\) for testing the hypothe
 \section{Likelihood Ratio Test}\label{likelihood-ratio-test}
 
 \section{Comparing samples}\label{comparing-samples}
-
-\chapter*{PART 3: Models}\label{part-3-models}
-
-
-\chapter{Linear Least Squares}\label{linear-least-squares}
-
-\section{Simple Linear Regression}\label{simple-linear-regression}
-
-\section{Matrix Approach}\label{matrix-approach}
-
-\section{Statistical Properties}\label{statistical-properties}
 
 \end{document}
