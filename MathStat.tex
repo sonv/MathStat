@@ -2065,8 +2065,8 @@ Note that we have
 
 This inspires the following definitions
 
-\begin{definition}[size of critical region]
-We say that a critical region \(C\) is of \emph{size} \(\alpha\) if
+\begin{definition}[size (significance level) of critical region]
+We say that a critical region \(C\) is of \emph{size} (or \emph{significance level}) \(\alpha\) if
 \[ \alpha = \max_{\theta \in D_0} \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
 \end{definition}
 
@@ -2155,6 +2155,57 @@ lines (gam ~ theta)
 Run the code. Determine the significance level from the plot.
 \end{exercise}
 
+\begin{example}
+\protect\hypertarget{exm:critical-region}{}\label{exm:critical-region}
+
+Consider the following table
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(x\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+5
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x ; 1 / 2)\) & \(1 / 32\) & \(5 / 32\) & \(10 / 32\) & \(10/32\) & \(5/32\) & \(1/32\) \\
+\(f(x ; 3 / 4)\) & \(1 / 1024\) & \(15 / 1024\) & \(90 / 1024\) & \(270/1024\) & \(405/1024\) & \(243/1024\) \\
+\(f(x ; 1 / 2) / f(x ; 3 / 4)\) & \(32 / 1\) & \(32 / 3\) & \(32 / 9\) & \(32/27\) & \(32/81\) & \(32/243\) \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find the critical regions of sizes \(1/32\) and \(6/32\).
+\item
+  Find the best critical region of size \(1/32\) ad \(6/32\).
+\item
+  Observe what happens to the ratio \(f(x;½)/ f(x; ¾)\).
+\end{enumerate}
+
+\end{example}
+
 Recall the likelihood function
 \[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]
 where \(x = (x_1, \dots, x_n)\).
@@ -2178,6 +2229,25 @@ Let \(k\) be a positive number and \(C\) be a subset of the state space such tha
 Then \(C\) is a bests critical region of size \(\alpha\) for testing the hypothesis
 \(H_0: \theta= \theta_0\) against the alternative hypothesis \(H_1: \theta = \theta_1\).
 \end{theorem}
+
+From Example \ref{exm:critical-region}, we see that the best critical region has the
+the property that its power is higher than its significance level.
+This is interpreted as: the probability of falsely rejecting \(H_0\) is less than
+the probability of correctly rejecting \(H_0\).
+We say that the kind of test (i.e., critical region) that has this property
+is \emph{unbiased}. Formally,
+
+\begin{definition}
+Let \(X \sim f(x;\theta)\). A test is said to be \emph{unbiased} if
+\[\inf_{\theta \in D_1} \mathbb{P}_{\theta} (X \in C) \geq \alpha.\]
+\end{definition}
+
+\begin{proposition}
+Let \(C\) be the critical region of the best test of \(H_0: \theta = \theta_0\)
+versus \(H_1: \theta = \theta_1\).
+Suppose the significance level of the test is \(\alpha\), then the power of the test is at least \(\alpha\), .i.e,
+\[\gamma_C (\theta_1) \geq \alpha.\]
+\end{proposition}
 
 \section{Wald Test}\label{wald-test}
 

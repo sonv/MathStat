@@ -221,6 +221,65 @@ plot (gam theta,pch=&quot; &quot;,xlab=expression(theta),ylab=expression(gamma))
 lines (gam ~ theta)</code></pre>
 <p>Run the code. Determine the significance level from the plot.</p>
 </div>
+<div class="example">
+<p><span id="exm:critical-region" class="example"><strong>Example 4.2  </strong></span>Consider the following table</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(x\)</span></th>
+<th align="right">0</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(f(x ; 1 / 2)\)</span></td>
+<td align="right"><span class="math inline">\(1 / 32\)</span></td>
+<td align="right"><span class="math inline">\(5 / 32\)</span></td>
+<td align="right"><span class="math inline">\(10 / 32\)</span></td>
+<td align="right"><span class="math inline">\(10/32\)</span></td>
+<td align="right"><span class="math inline">\(5/32\)</span></td>
+<td align="right"><span class="math inline">\(1/32\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(f(x ; 3 / 4)\)</span></td>
+<td align="right"><span class="math inline">\(1 / 1024\)</span></td>
+<td align="right"><span class="math inline">\(15 / 1024\)</span></td>
+<td align="right"><span class="math inline">\(90 / 1024\)</span></td>
+<td align="right"><span class="math inline">\(270/1024\)</span></td>
+<td align="right"><span class="math inline">\(405/1024\)</span></td>
+<td align="right"><span class="math inline">\(243/1024\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(f(x ; 1 / 2) / f(x ; 3 / 4)\)</span></td>
+<td align="right"><span class="math inline">\(32 / 1\)</span></td>
+<td align="right"><span class="math inline">\(32 / 3\)</span></td>
+<td align="right"><span class="math inline">\(32 / 9\)</span></td>
+<td align="right"><span class="math inline">\(32/27\)</span></td>
+<td align="right"><span class="math inline">\(32/81\)</span></td>
+<td align="right"><span class="math inline">\(32/243\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Find the critical regions of sizes <span class="math inline">\(1/32\)</span> and <span class="math inline">\(6/32\)</span>.</li>
+<li>Find the best critical region of size <span class="math inline">\(1/32\)</span> ad <span class="math inline">\(6/32\)</span>.</li>
+<li>Observe what happens to the ratio <span class="math inline">\(f(x;½)/ f(x; ¾)\)</span>.</li>
+</ol>
+</div>
 <p>Recall the likelihood function
 <span class="math display">\[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]</span>
 where <span class="math inline">\(x = (x_1, \dots, x_n)\)</span>.</p>
@@ -235,6 +294,22 @@ Let <span class="math inline">\(k\)</span> be a positive number and <span class=
 </ol>
 <p>Then <span class="math inline">\(C\)</span> is a bests critical region of size <span class="math inline">\(\alpha\)</span> for testing the hypothesis
 <span class="math inline">\(H_0: \theta= \theta_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span>.</p>
+</div>
+<p>From Example <a href="neyman-pearson-lemma.html#exm:critical-region">4.2</a>, we see that the best critical region has the
+the property that its power is higher than its significance level.
+This is interpreted as: the probability of falsely rejecting <span class="math inline">\(H_0\)</span> is less than
+the probability of correctly rejecting <span class="math inline">\(H_0\)</span>.
+We say that the kind of test (i.e., critical region) that has this property
+is <em>unbiased</em>. Formally,</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-117" class="definition"><strong>Definition 4.5  </strong></span>Let <span class="math inline">\(X \sim f(x;\theta)\)</span>. A test is said to be <em>unbiased</em> if
+<span class="math display">\[\inf_{\theta \in D_1} \mathbb{P}_{\theta} (X \in C) \geq \alpha.\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-118" class="proposition"><strong>Proposition 4.1  </strong></span>Let <span class="math inline">\(C\)</span> be the critical region of the best test of <span class="math inline">\(H_0: \theta = \theta_0\)</span>
+versus <span class="math inline">\(H_1: \theta = \theta_1\)</span>.
+Suppose the significance level of the test is <span class="math inline">\(\alpha\)</span>, then the power of the test is at least <span class="math inline">\(\alpha\)</span>, .i.e,
+<span class="math display">\[\gamma_C (\theta_1) \geq \alpha.\]</span></p>
 </div>
 </div>
             </section>
