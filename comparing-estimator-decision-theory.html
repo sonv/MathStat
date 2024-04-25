@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)</title>
   <meta name="description" content="3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.7 Comparing Estimator / Decision Theory | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
@@ -48,16 +48,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/toc.css" type="text/css" />
@@ -154,9 +151,10 @@
 <ul>
 <li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
 <li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.3" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.3</b> Wald Test</a></li>
-<li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
+<li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
+<li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.6" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.6</b> Comparing samples</a></li>
 </ul></li>
 </ul>
 
@@ -207,15 +205,15 @@ To generalize this idea, we define the <em>loss function</em> <span class="math 
 <td><span class="math inline">\(L^p\)</span> loss</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(L(\theta,\hat \theta) = \begin{cases}0, &amp; \theta = \hat \theta \\ 1,  &amp; \theta\not= \hat\theta\end{cases}\)</span></td>
+<td><span class="math inline">\(L(\theta,\hat \theta) = \begin{cases}0, &amp; \theta = \hat \theta \\ 1, &amp; \theta\not= \hat\theta\end{cases}\)</span></td>
 <td>zero-one loss</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|&gt;c)\)</span> where <span class="math inline">\(I(x&gt;c) = \begin{cases}0, &amp; |\theta -  \hat \theta| \leq c \\ 1,  &amp; |\theta -  \hat \theta| &gt; c\end{cases}\)</span></td>
+<td><span class="math inline">\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|&gt;c)\)</span> where <span class="math inline">\(I(x&gt;c) = \begin{cases}0, &amp; |\theta - \hat \theta| \leq c \\ 1, &amp; |\theta - \hat \theta| &gt; c\end{cases}\)</span></td>
 <td>large deviation loss</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)}  \right) f(x;\theta)\)</span></td>
+<td><span class="math inline">\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)} \right) f(x;\theta)\)</span></td>
 <td>Kullback-Leiber loss</td>
 </tr>
 </tbody>
@@ -241,7 +239,7 @@ The minimizer of the Bayes risk is called the <em>Bayes estimator</em>.</p>
 </div>
 <p>Let’s do a heuristic calculation.</p>
 <p><span class="math display">\[\begin{align*}
-r(f,\hat \theta) &amp;= \int R(\theta, \hat \theta) f(\theta) \, d\theta
+r(f,\hat \theta) &amp;= \int R(\theta, \hat \theta) f(\theta) \, d\theta 
         = \int \left( \int L(\theta, \hat \theta) f(x^n| \theta) dx^n \right) f(\theta) d \theta \\
         &amp;= \int  \int L(\theta, \hat \theta)   f(\theta|x^n) f(x^n) d x^n d \theta \\
         &amp;= \int  \left( \int L(\theta, \hat \theta)   f(\theta|x^n) d \theta \right) f(x^n) d x^n .
@@ -259,7 +257,7 @@ to solve this problem. However, we may proceed heuristically.</p>
 Then,
 <span class="math display">\[r(\hat \theta; \theta | x^n) = \int |\theta - \hat \theta|^2 f(\theta| x^n)  d\theta\]</span>
 Heuristically, the minimizer of the above is found when
-<span class="math display">\[ 0 =   \frac{\partial}{\partial \hat\theta} r(\hat \theta; \theta | x^n)
+<span class="math display">\[ 0 =   \frac{\partial}{\partial \hat\theta} r(\hat \theta; \theta | x^n) 
 =  \int (\hat \theta - \theta  ) f(\theta| x^n)  d\theta \,.\]</span>
 Therefore,
 <span class="math display">\[ \hat \theta = \int \theta f(\theta | x^n) d \theta.\]</span>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Confidence set | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="3.2 Confidence set | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Confidence set | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Confidence set | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="point-estimation.html"/>
-<link rel="next" href="method-of-moments.html"/>
+<link rel="prev" href="neyman-pearson-lemma.html"/>
+<link rel="next" href="wald-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -173,65 +173,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="confidence-set" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Confidence set<a href="confidence-set.html#confidence-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In elementary statistics,
-given sample <span class="math inline">\(X_1, \dots, X_n\)</span>,
-we define confidence interval with significance level <span class="math inline">\(\alpha\)</span>
-to be the interval <span class="math inline">\((a,b)\)</span> such that <span class="math inline">\(\mathbb{P}_\theta( \theta \in (a,b) ) \geq 1 - \alpha\)</span>.</p>
-<p>Note that <span class="math inline">\((a,b)\)</span> depends on your sample, i.e.,
-<span class="math inline">\(a = a(X_1, \dots, X_n), b = b(X_1, \dots, X_n)\)</span>.</p>
-<p>It must be stressed that <span class="math inline">\(\theta\)</span> is fixed and <span class="math inline">\((a,b)\)</span> is random.</p>
-<p>For higher dimension / different kinds of data, the notion of confidence interval
-is replaced by the notion of confidence set.</p>
+<div id="uniformly-most-powerful-test" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Uniformly Most Powerful Test<a href="uniformly-most-powerful-test.html#uniformly-most-powerful-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In a simple testing case, the Neyman-Pearson theorem provides a theoretical justification for
+choosing a critical region to create the best hypothesis test, given
+the significance level.</p>
+<p>However, when the hypotheses are no longer simple, the situation becomes more complicated.</p>
+<p>To extend the result of Neyman-Pearson to non-simple cases, we need the following notion.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 3.6  </strong></span>Given sample <span class="math inline">\(X_1, \dots, X_n\)</span>.
-A <em>confidence set</em> associated with significance level <span class="math inline">\(\alpha\)</span> is the set (random) <span class="math inline">\(C_n\)</span> (depending on the sample)
-such that
-<span class="math display">\[ \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha. \]</span></p>
+<p><span id="def:unlabeled-div-120" class="definition"><strong>Definition 4.6  (Uniformly Most Powerful Test) </strong></span>The critical region <span class="math inline">\(C\)</span> is a <em>Uniformly Most Powerful</em> (UMP) critical region
+of size <span class="math inline">\(\alpha\)</span> for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against an
+alternative composite hypothesis <span class="math inline">\(H_1\)</span> if the set <span class="math inline">\(C\)</span> is a best critical
+region of size <span class="math inline">\(\alpha\)</span> for testing <span class="math inline">\(H_0\)</span> against each simple
+hypothesis in <span class="math inline">\(H_1\)</span>.</p>
+<p>A test defined by this critical region <span class="math inline">\(C\)</span> is
+called a uniformly most powerful test, with significance level <span class="math inline">\(\alpha\)</span>,
+for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against the alternative composite hypothesis <span class="math inline">\(H_1\)</span>.</p>
 </div>
-<p>Confidence set is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. It is
-rather a statement about the uncertainty of your data.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-73" class="example"><strong>Example 3.1  (Example 6.14 in Wasserman) </strong></span>Let <span class="math inline">\(\theta \in \mathbb{R}\)</span>. Let <span class="math inline">\(X_1, X_2\)</span> RVs coming from the distribution
-<span class="math inline">\(\mathbb{P}(X_i = 1) = \mathbb{P}(X_i = -1) = 1/2\)</span>.
-Suppose <span class="math inline">\(Y_i = \theta + X_i\)</span> are your observed data.
-Define
-<span class="math display">\[ C = \begin{cases}
-    \{ Y_1 - 1\} &amp; Y_1 = Y_2 \,, \\
-    \{ (Y_1 + Y_2)/2 \} &amp; Y_1 \not= Y_2 \,.
-\end{cases}\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>For all <span class="math inline">\(\theta\in \mathbb{R}\)</span>, <span class="math inline">\(\mathbb{P}_\theta(\theta \in C ) = 3/4\)</span>.</p></li>
-<li><p>Suppose we get <span class="math inline">\(Y_1 = 9\)</span>, <span class="math inline">\(Y_2 = 11\)</span>, <span class="math inline">\(C = \{ 10 \}\)</span>. Then, for sure, <span class="math inline">\(\theta = 10\)</span>.
-Therefore,
-<span class="math inline">\(\mathbb{P}(\theta \in C | Y_1, Y_2) = 1\)</span>.</p></li>
-</ol>
+<p><span id="exm:unlabeled-div-121" class="example"><strong>Example 4.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\mu, 1)\)</span>.
+Let <span class="math inline">\(H_0: \mu = 1\)</span> and <span class="math inline">\(H_1: \mu &gt;1\)</span> be our hypotheses.
+Suppose we want the significance level to be <span class="math inline">\(\alpha = 0.9\)</span>,
+use whatever software you can to find the uniformly most
+powerful critical region for this significance level and <span class="math inline">\(n = 10\)</span>.</p>
 </div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-74" class="exercise"><strong>Exercise 3.3  </strong></span>Recall Hoeffding’s inequality
-<span class="math display">\[ \mathbb{P}\left( \left| \frac{1}{n}\sum_{i=1}^n X_i \right| \geq t \right) 
-\leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right) \]</span>
-for <span class="math inline">\(X_i \in [a_i, b_i]\)</span> and <span class="math inline">\(\mathbb{E}X_i = 0\)</span>.</p>
-<p>Apply this to the Bernoulli parametric model
-<span class="math display">\[\mathcal{F} = \left\{ \mathbb{P}(X= 1) = p, \mathbb{P}(X = 0) = 1-p; p \in [0,1]   \right\}.\]</span></p>
-<p><strong>Question:</strong> Suppose our sample comes from a Bernoulli distribution.
-What is a confidence interval that gives significance level <span class="math inline">\(\alpha\)</span>?</p>
-<p>Try with two approaches: Hoeffding and Chebyshev.</p>
-</div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-75" class="exercise"><strong>Exercise 3.4  </strong></span>Let <span class="math inline">\(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\)</span> and let <span class="math inline">\(\widehat{p}_n=n^{-1} \sum_{i=1}^n X_i\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>Compute <span class="math inline">\(\mathbb{V}( X_i)\)</span> and <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span></p></li>
-<li><p>Suppose we don’t know <span class="math inline">\(\mathbb{V}(\hat p_n)\)</span>, so we use an estimator of this quantity
-<span class="math display">\[\widehat{\mathrm{se}}^2 = {\widehat{p}_n\left(1-\widehat{p}_n\right) / n} \,.\]</span>
-Convince yourself that, by the Central Limit Theorem, <span class="math inline">\(\widehat{p}_n \approx N\left(p, \widehat{\operatorname{se}}^2\right)\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>Find the confidence interval for the significance level <span class="math inline">\(\alpha\)</span>.</p></li>
-<li><p>Compare this with the confidence interval in the previous exercise.
-You should see that the Normal-based interval is shorter but it only has approximately (when sample size is large ) correct coverage.</p></li>
-</ol></li>
-</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-122" class="example"><strong>Example 4.4  </strong></span>There is no uniformly most powerful critical region for the two-tail test of the Gaussian.</p>
 </div>
 </div>
             </section>
@@ -239,8 +206,8 @@ You should see that the Normal-based interval is shorter but it only has approxi
           </div>
         </div>
       </div>
-<a href="point-estimation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="method-of-moments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="neyman-pearson-lemma.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="wald-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

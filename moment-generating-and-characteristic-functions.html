@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.2 Moment Generating and Characteristic Functions | MATH 310: Mathematical Statistics (brief notes)</title>
   <meta name="description" content="1.2 Moment Generating and Characteristic Functions | MATH 310: Mathematical Statistics (brief notes)" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.2 Moment Generating and Characteristic Functions | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
@@ -48,16 +48,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/toc.css" type="text/css" />
@@ -154,9 +151,10 @@
 <ul>
 <li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
 <li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.3" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.3</b> Wald Test</a></li>
-<li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
+<li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
+<li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.6" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.6</b> Comparing samples</a></li>
 </ul></li>
 </ul>
 
@@ -273,8 +271,8 @@ for every <span class="math inline">\(n\in \mathbb{N}\)</span>. Then
 <span class="math display">\[ \varphi_X(t) = \mathbb{E}(e^{Xt}) = \sum_{i = 1}^N e^{it} \mathbb{P}( X = i). \]</span>
 This is a finite sums of analytic functions and is, therefore, analytic.
 Thus, <span class="math inline">\(\varphi_X\)</span> can be expanded into Taylor series, i.e.,
-<span class="math display">\[ \varphi_X(t)  = \sum_{n=0}^\infty \frac{\varphi_X^{(n)}(0)}{n!} t^n
-= \sum_{n=0}^\infty \frac{\mathbb{E}(X^n)}{n!} t^n.\]</span>
+<span class="math display">\[ \varphi_X(t)  = \sum_{n=0}^\infty \frac{\varphi_X^{(n)}(0)}{n!} t^n 
+ = \sum_{n=0}^\infty \frac{\mathbb{E}(X^n)}{n!} t^n.\]</span>
 This means that the moments of <span class="math inline">\(X\)</span> determines its moment generating function
 (which may not be true in general).</p>
 <p>A similar argument can be made for <span class="math inline">\(\varphi_Y\)</span> and as the coefficents of the
@@ -302,7 +300,7 @@ inversion formula of the characteristic functions.</p>
 <p><span id="thm:unlabeled-div-41" class="theorem"><strong>Theorem 1.7  (Inversion Formula) </strong></span>Let <span class="math inline">\(X:\Omega \to S\)</span> be a RV (either continuous or discrete)
 and <span class="math inline">\(\phi_X\)</span> be its characteristic function.
 Then
-<span class="math display">\[  \lim_{T \to \infty} \frac{1}{2\pi}\int_{-T}^T \frac{e^{-i\theta a}
+<span class="math display">\[  \lim_{T \to \infty} \frac{1}{2\pi}\int_{-T}^T \frac{e^{-i\theta a} 
 - e^{-i\theta b}}{i\theta} \phi_X(\theta) \, d\theta
 = \mathbb{P}( a &lt; X &lt; b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right). \]</span></p>
 </div>
@@ -317,7 +315,7 @@ Then
 we have
 <span class="math display">\[ \frac{1}{2}\int_{-T}^T \frac{e^{i\theta c}}{i \theta} = \int_0^T \frac{\sin(\theta c)}{\theta} \, d\theta. \]</span></p>
 <p>Therefore,
-<span class="math display">\[
+<span class="math display">\[ 
 \begin{aligned}
 \frac{1}{2\pi} \int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta
 &amp;= \frac{1}{\pi} \int_{\mathbb{R}} \int_0^T \left(  \frac{\sin((x - a)\theta)}{\theta} -  \frac{\sin((x - b)\theta)}{\theta} \right) f_X(x) \, d\theta dx
@@ -325,24 +323,24 @@ we have
 \]</span>
 Taking the limit <span class="math inline">\(T\to\infty\)</span> and using the fact that
 <span class="math display">\[
-\lim_{T \to \infty}\int_0^T \frac{\sin ((x-a)\theta)}{\theta} d\theta =
+\lim_{T \to \infty}\int_0^T \frac{\sin ((x-a)\theta)}{\theta} d\theta = 
 \begin{cases}
     \frac{-\pi}{2} \,, &amp; x &lt; a \,,\\
     \frac{\pi}{2} \,, &amp; x &gt; a \,, \\
     0 \,, &amp; x = a \,.
 \end{cases}\]</span>
 Therefore,
-<span class="math display">\[
+<span class="math display">\[ 
 \begin{aligned}
 \lim_{T\to \infty}\frac{1}{2\pi}
 \int_{\mathbb{R}}\int_{-T}^T \frac{ e^{ - i \theta a} - e^{- i \theta b}}{i\theta} \phi_X(\theta) \, d\theta dx
-&amp;=
+&amp;= 
 \left(\int_{(a,\infty)} f_X(x) \, dx  - \int_{ (-\infty, a]} f_X(x) \, dx \right)\\
 &amp; \quad -
 \left(\int_{(b,\infty)} f_X(x) \, dx  - \int_{ (-\infty, b]} f_X(x) \, dx \right) \\
 &amp;= (\mathbb{P}(X&gt;a) - \mathbb{P}(X\leq a)) - (\mathbb{P}(X&gt;b) - \mathbb{P}(X\leq b)) \\
 &amp;= \mathbb{P}( a &lt; X &lt; b) + \frac{1}{2} \left( \mathbb{P}(X = a) + \mathbb{P}(X = b)  \right),
-\end{aligned}
+\end{aligned} 
 \]</span>
 as desired.</p>
 </div>
@@ -354,7 +352,7 @@ If you can’t, watch this:
 <p>Another way is to use contour integral from complex analysis.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-44" class="exercise"><strong>Exercise 1.16  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\)</span> be independent and <span class="math inline">\(Y_n = \max\{ X_1, \dots, X_n  \}\)</span>.
+<p><span id="exr:unlabeled-div-44" class="exercise"><strong>Exercise 1.16  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\)</span> be independent and <span class="math inline">\(Y_n = \max\{ X_1, \dots, X_n \}\)</span>.
 Find <span class="math inline">\(\mathbb{E}(Y_n)\)</span>.</p>
 </div>
 <div class="exercise">
