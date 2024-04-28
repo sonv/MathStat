@@ -4,17 +4,20 @@
 %
 \documentclass[
   openany]{book}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -33,16 +36,9 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={MATH 310: Mathematical Statistics (brief notes)},
-  pdfauthor={Truong-Son Van},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -74,8 +70,19 @@
   colframe=orange,
   boxsep=5pt,
   arc=4pt}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={MATH 310: Mathematical Statistics (brief notes)},
+  pdfauthor={Truong-Son Van},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{MATH 310: Mathematical Statistics (brief notes)}
 \author{Truong-Son Van}
@@ -105,8 +112,7 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{disclaimer}{%
-\chapter*{Disclaimer}\label{disclaimer}}
+\chapter*{Disclaimer}\label{disclaimer}
 
 
 This is class notes for Mathematical Statistics at Fublbright University Vietnam.
@@ -130,8 +136,7 @@ The only original contribution of mine are typos and errors.
 \newcommand{\cB}{\mathcal{B}}
 \newtheorem{question}{Question}
 
-\hypertarget{part-1-background}{%
-\chapter*{PART 1: Background}\label{part-1-background}}
+\chapter*{PART 1: Background}\label{part-1-background}
 
 
 Readings:
@@ -143,8 +148,7 @@ Readings:
   Chapters 1-5 of Rice
 \end{itemize}
 
-\hypertarget{probability}{%
-\chapter{Probability}\label{probability}}
+\chapter{Probability}\label{probability}
 
 \begin{quote}
 ``If we have an atom that is in an excited state and so is going to emit a photon, we cannot say when it will emit the photon. It has a certain amplitude to emit the photon at any time, and we can predict only a probability for emission; we cannot predict the future exactly.''
@@ -152,11 +156,9 @@ Readings:
 \hfill --- Richard Feynman
 \end{quote}
 
-\hypertarget{review}{%
-\section{Review}\label{review}}
+\section{Review}\label{review}
 
-\hypertarget{probability-space}{%
-\subsection{Probability Space}\label{probability-space}}
+\subsection{Probability Space}\label{probability-space}
 
 \begin{definition}[Sigma-algebra]
 
@@ -232,7 +234,7 @@ A \emph{Probability Space} is a triple \((\Omega, \mathcal{F}, \mathbb{P})\), wh
 \item
   \(\mathbb{P}(\Omega) =1\),
 \item
-  If \(F\) is a disjoint union of \(\left\{ F_n \right\}_{n=1}^\infty\), then
+  If \(F\) is a disjoint union of \(\left\{ F_n  \right\}_{n=1}^\infty\), then
   \[ \mathbb{P}(F) = \sum_{n=1}^\infty \mathbb{P}(F_n) . \]
 \end{enumerate}
 
@@ -278,8 +280,7 @@ The theorem is often expressed in words as:
 
 It is a good idea to ponder why those mathematical terms have those names.
 
-\hypertarget{random-variables}{%
-\subsection{Random Variables}\label{random-variables}}
+\subsection{Random Variables}\label{random-variables}
 
 The notion of probability alone isn't sufficient for us to describe ideas about the world.
 We need to have a notion of objects that associated with probabilities.
@@ -413,8 +414,7 @@ Prove the following:
 
 \end{exercise}
 
-\hypertarget{joint-distribution-of-rvs}{%
-\subsection{Joint distribution of RVs}\label{joint-distribution-of-rvs}}
+\subsection{Joint distribution of RVs}\label{joint-distribution-of-rvs}
 
 Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
 We denote
@@ -451,7 +451,7 @@ True or false:
 \item
   \(f_{XY}(x,y) = f_{X}(x) + f_{Y}(y)\)
 \item
-  \(f_{XY}(x,y) = f_{X}(x) f_{Y}(y)\)
+  \(f_{XY}(x,y) = f_{X}(x)  f_{Y}(y)\)
 \end{enumerate}
 
 \end{exercise}
@@ -466,8 +466,7 @@ The marginal density of \(X_i\) is
 Can you construct \(f_{XY}\) if you know \(f_X\) and \(f_Y\)?
 \end{exercise}
 
-\hypertarget{some-important-random-variables}{%
-\subsection{Some important random variables}\label{some-important-random-variables}}
+\subsection{Some important random variables}\label{some-important-random-variables}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -532,8 +531,7 @@ Let \(x\in \mathbb{N}\).
 
 \end{exercise}
 
-\hypertarget{independent-random-variables}{%
-\subsection{Independent random variables}\label{independent-random-variables}}
+\subsection{Independent random variables}\label{independent-random-variables}
 
 \begin{definition}
 Let \(X:\Omega \to S\) and \(Y: \Omega \to S\) be RVs.
@@ -570,8 +568,7 @@ following density function
 
 \[f(x; \mu, \Sigma) = \frac{1}{(2\pi)^{n/2} | \Sigma |^{1/2}} \exp\big( -\frac{1}{2} (x-mu)^T \Sigma^{-1} (x-\mu)  \big).\]
 
-\hypertarget{transformations-of-rvs}{%
-\subsection{Transformations of RVs}\label{transformations-of-rvs}}
+\subsection{Transformations of RVs}\label{transformations-of-rvs}
 
 Sometimes, we don't work with RV directly but certain characteristics of RVs.
 Those characteristics are represented by certain transformation.
@@ -607,8 +604,7 @@ RVs that are independent and share the same distribution are called
 We often shorthand this by IID RVs.
 \end{definition}
 
-\hypertarget{expectation}{%
-\subsection{Expectation}\label{expectation}}
+\subsection{Expectation}\label{expectation}
 
 \begin{definition}
 Let \(X\) be a RV.
@@ -706,8 +702,7 @@ Let \(X\) and \(Y\) be Rvs. We have that
 \[ \mathbb{E}[ \mathbb{E}[X | Y]] = \mathbb{E}X. \]
 \end{theorem}
 
-\hypertarget{moment-generating-and-characteristic-functions}{%
-\section{Moment Generating and Characteristic Functions}\label{moment-generating-and-characteristic-functions}}
+\section{Moment Generating and Characteristic Functions}\label{moment-generating-and-characteristic-functions}
 
 \begin{definition}
 
@@ -779,8 +774,7 @@ where \(f^{(n)}\) denotes the \(n\)-th derivative of \(f\).
 \(\mathbb{E}(X^n)\) is called the \(n\)-th moment of \(X\) and it tells you the tail behavior of \(f_X\).
 \end{exercise}
 
-\hypertarget{moment-generating-functions}{%
-\subsection{Moment Generating Functions}\label{moment-generating-functions}}
+\subsection{Moment Generating Functions}\label{moment-generating-functions}
 
 \begin{theorem}
 \protect\hypertarget{thm:moment-generating}{}\label{thm:moment-generating}Let \(X\) and \(Y\) be RVs. If \(\varphi_X(t) = \varphi_Y(t)\) for all \(t\) in an interval around 0, then
@@ -855,8 +849,7 @@ by Theorem \ref{thm:moment-generating},
 as desired.
 \end{proof}
 
-\hypertarget{characteristic-functions}{%
-\subsection{Characteristic Functions}\label{characteristic-functions}}
+\subsection{Characteristic Functions}\label{characteristic-functions}
 
 Similar idea with the moment generating functions, but
 characteristic functions are easier to work with and we don't have to
@@ -932,7 +925,7 @@ Another way is to use contour integral from complex analysis.
 \end{exercise}
 
 \begin{exercise}
-Let \(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\) be independent and \(Y_n = \max\{ X_1, \dots, X_n \}\).
+Let \(X_1, \dots, X_n \sim \mathrm{Uniform}(0,1)\) be independent and \(Y_n = \max\{ X_1, \dots, X_n  \}\).
 Find \(\mathbb{E}(Y_n)\).
 \end{exercise}
 
@@ -996,11 +989,9 @@ The \emph{probability generating function} of \(X\) is defined to be
 
 \end{exercise}
 
-\hypertarget{inequalities}{%
-\section{Inequalities}\label{inequalities}}
+\section{Inequalities}\label{inequalities}
 
-\hypertarget{typical-tail-bound-inequalities}{%
-\subsection{Typical tail bound inequalities}\label{typical-tail-bound-inequalities}}
+\subsection{Typical tail bound inequalities}\label{typical-tail-bound-inequalities}
 
 \begin{theorem}[Markov's Inequality]
 Let \(X\) be a non-negative RV and \(\mathbb{E}(X)\) exists.
@@ -1014,8 +1005,7 @@ Then for each \(k >0\),
 \[ \mathbb{P}(| X - \mu | > k \sigma ) \leq \frac{1}{k^2}. \]
 \end{theorem}
 
-\hypertarget{exponential-concentration-inequalities}{%
-\subsection{Exponential concentration inequalities}\label{exponential-concentration-inequalities}}
+\subsection{Exponential concentration inequalities}\label{exponential-concentration-inequalities}
 
 \begin{theorem}[Mill's inequality]
 Let \(Z \sim N(0,1)\). Then,
@@ -1040,8 +1030,7 @@ for each \(\epsilon >0\) and \(t>0\), we have
 \leq 2  \exp\left( - \frac{2 n^2 t^2}{\sum_{i=1}^n (b_i - a_i)^2}   \right). \]
 \end{exercise}
 
-\hypertarget{inequalities-for-expectations}{%
-\subsection{Inequalities for expectations}\label{inequalities-for-expectations}}
+\subsection{Inequalities for expectations}\label{inequalities-for-expectations}
 
 \begin{theorem}[Cauchy-Schwartz inequality]
 Let \(X, Y\) be RVs with finite variances. Then,
@@ -1054,8 +1043,7 @@ Then
 \[ \mathbb{E}g(X) \geq g(\mathbb{E}X). \]
 \end{theorem}
 
-\hypertarget{law-of-large-numbers}{%
-\section{Law of Large Numbers}\label{law-of-large-numbers}}
+\section{Law of Large Numbers}\label{law-of-large-numbers}
 
 \begin{theorem}
 Let \(X_i\), \(i\in \mathbb{N}\) be independent RVs such that \(\mathbb{E}(X_i) = \mu\)
@@ -1068,8 +1056,7 @@ The above kind of convergence is sometimes called \emph{convergence in probabili
 There are other modes of convergence such as convergence almost surely and
 uniform convergence.
 
-\hypertarget{central-limit-theorem}{%
-\section{Central Limit Theorem}\label{central-limit-theorem}}
+\section{Central Limit Theorem}\label{central-limit-theorem}
 
 \begin{definition}[Convergence in distribution]
 Let \(\{X_i\}_{i \in \mathbb{N}}\) be a sequence of RVs with CDF \(F_i\).
@@ -1089,7 +1076,7 @@ Suppose that either
 \item
   \(\varphi_{X_n}(s)\) converges to \(\varphi_X(s)\) for all \(s\) in some open interval around \(0\).
 \item
-  \(\lim_{n\to\infty} \phi_{X_n}(s) = \phi_X(s)\) for every \(s \in \mathbb{R}\).
+  \(\lim_{n\to\infty} \phi_{X_n}(s) =  \phi_X(s)\) for every \(s \in \mathbb{R}\).
 
   Then \(X_n \to X\) in distribution.
 \end{enumerate}
@@ -1135,8 +1122,7 @@ Combine this with Theorem \ref{thm:cont}, we arrive at our result.
 Prove the central limit theorem using the characteristic function.
 \end{exercise}
 
-\hypertarget{part-2-inference}{%
-\chapter*{PART 2: Inference}\label{part-2-inference}}
+\chapter*{PART 2: Inference}\label{part-2-inference}
 
 
 Readings:
@@ -1189,8 +1175,7 @@ A \emph{non-parametric model} is a statistical model that is not parametric.
 
 \end{example}
 
-\hypertarget{sampling}{%
-\chapter{Sampling}\label{sampling}}
+\chapter{Sampling}\label{sampling}
 
 Sampling is the act of gathering data from a certain
 population, in order to make prediction about some property
@@ -1210,14 +1195,12 @@ answers random variables.
   it is common in practice to treat the sampling data as I.I.D. RVs.
 \end{itemize}
 
-\hypertarget{simple-random-sample}{%
-\section{Simple Random Sample}\label{simple-random-sample}}
+\section{Simple Random Sample}\label{simple-random-sample}
 
 We will not discuss Simple Random Sampling in this class.
 Interested readers can consult Rice, Chapter 7.3.
 
-\hypertarget{standard-random-sample}{%
-\section{Standard Random Sample}\label{standard-random-sample}}
+\section{Standard Random Sample}\label{standard-random-sample}
 
 \begin{definition}[Standard Random Sample]
 \protect\hypertarget{def:stdSample}{}\label{def:stdSample}The random variables \(X_i\), \(i = 1,\dots , n\) are called \emph{standard random sample of
@@ -1239,19 +1222,17 @@ There is a few nuisances regarding general practice in statistics and this defin
 
 In this course, when we talk about sampling, we will understand it as in Definition \ref{def:stdSample}.
 
-\hypertarget{parametric-inference-parameter-estimation}{%
-\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}}
+\chapter{Parametric Inference (Parameter Estimation)}\label{parametric-inference-parameter-estimation}
 
 \textbf{Notation.}
 Given a parametric model
-\(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta \right\} ,\)
+\(\mathcal{F} = \left\{ f(x;\theta) : \theta \in \Theta  \right\} ,\)
 we denote
 \[ \mathbb{P}(X \in A ) = \int_A f(x;\theta) \, dx\]
 and
 \[ \mathbb{E}_\theta ( r(X)) = \int r(x) f(x;\theta) \, dx \,.\]
 
-\hypertarget{point-estimation}{%
-\section{Point Estimation}\label{point-estimation}}
+\section{Point Estimation}\label{point-estimation}
 
 (Casella - Berger Chapter 7, Wasserman Chapter 6.1)
 
@@ -1341,8 +1322,7 @@ An estimator is said to be \emph{asymptotically Normal} if
 in distribution.
 \end{definition}
 
-\hypertarget{confidence-set}{%
-\section{Confidence set}\label{confidence-set}}
+\section{Confidence set}\label{confidence-set}
 
 In elementary statistics,
 given sample \(X_1, \dots, X_n\),
@@ -1430,8 +1410,7 @@ Let \(X_1, \ldots, X_n \sim \operatorname{Bernoulli}(p)\) and let \(\widehat{p}_
 
 \end{exercise}
 
-\hypertarget{method-of-moments}{%
-\section{Method of Moments}\label{method-of-moments}}
+\section{Method of Moments}\label{method-of-moments}
 
 Let \(l \in \mathbb{N}\), the \(l\) sample moment is
 \[
@@ -1559,8 +1538,7 @@ Therefore, since \(\alpha\) is arbitrary,
 as desired.
 \end{proof}
 
-\hypertarget{maximum-likelihood-estimation}{%
-\section{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}}
+\section{Maximum Likelihood Estimation}\label{maximum-likelihood-estimation}
 
 \begin{definition}
 Suppose \(X_1, \dots, X_n \sim f_\theta\).
@@ -1610,8 +1588,7 @@ Suppose that \(\hat \theta_n\) is the MLE of \(\theta\).
 Then \(\hat \tau_n = g(\hat \theta_n)\) is the MLE of \(\tau\).
 \end{theorem}
 
-\hypertarget{consistency}{%
-\subsection{Consistency}\label{consistency}}
+\subsection{Consistency}\label{consistency}
 
 \begin{example}[Inconsistency of MLE]
 Let \(Y_{i,1}, Y_{i,2} \sim N(\mu_1, \sigma^2)\). Our goal is to find MLE for \(\sigma^2\), which
@@ -1707,8 +1684,7 @@ Assume that
 
 \end{theorem}
 
-\hypertarget{asymptotic-normality}{%
-\subsection{Asymptotic normality}\label{asymptotic-normality}}
+\subsection{Asymptotic normality}\label{asymptotic-normality}
 
 \begin{definition}
 Given a RV \(X\).
@@ -1737,8 +1713,7 @@ there exists a random variable \(Z \sim N(0,1)\) such that
 \[\frac{\hat\theta_n - \theta}{\mathrm{se}} \to Z.\]
 \end{theorem}
 
-\hypertarget{efficiency}{%
-\subsection{Efficiency}\label{efficiency}}
+\subsection{Efficiency}\label{efficiency}
 
 As \(n\) gets large, the MLE is the most efficient estimator.
 
@@ -1787,13 +1762,11 @@ Let \(X \sim \mathrm{Binomial}(n,p)\) .
 
 \end{exercise}
 
-\hypertarget{optional-expectation-maximization-algorithm}{%
-\section{(Optional) Expectation-Maximization Algorithm}\label{optional-expectation-maximization-algorithm}}
+\section{(Optional) Expectation-Maximization Algorithm}\label{optional-expectation-maximization-algorithm}
 
 Read Wasserman Section 9.13.4
 
-\hypertarget{bayesian-approach}{%
-\section{Bayesian Approach}\label{bayesian-approach}}
+\section{Bayesian Approach}\label{bayesian-approach}
 
 (Wasserman Chapter 11)
 
@@ -1867,8 +1840,7 @@ where \(0 \leq \theta \leq 1\) is a parameter. The following 10 independent obse
 
 \end{exercise}
 
-\hypertarget{comparing-estimator-decision-theory}{%
-\section{Comparing Estimator / Decision Theory}\label{comparing-estimator-decision-theory}}
+\section{Comparing Estimator / Decision Theory}\label{comparing-estimator-decision-theory}
 
 Recall that we always denote:
 - \(\theta\): true parameter
@@ -1891,35 +1863,18 @@ To generalize this idea, we define the \emph{loss function} \(L(\theta, \hat \th
 
 Here is a few examples of loss functions:
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
 \endhead
-\begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L(\theta,\hat \theta) = (\theta - \hat \theta)^2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
-Squared error loss\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L(\theta, \hat \theta) = |\theta - \hat\theta|^p\)\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L^p\) loss\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L(\theta,\hat \theta) = \begin{cases}0, & \theta = \hat \theta \\ 1, & \theta\not= \hat\theta\end{cases}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
-zero-one loss\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|>c)\) where \(I(x>c) = \begin{cases}0, & |\theta - \hat \theta| \leq c \\ 1, & |\theta - \hat \theta| > c\end{cases}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
-large deviation loss\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.47\columnwidth}\raggedright
-\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)} \right) f(x;\theta)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
-Kullback-Leiber loss\strut
-\end{minipage}\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+\(L(\theta,\hat \theta) = (\theta - \hat \theta)^2\) & Squared error loss \\
+\(L(\theta, \hat \theta) = |\theta - \hat\theta|^p\) & \(L^p\) loss \\
+\(L(\theta,\hat \theta) = \begin{cases}0, & \theta = \hat \theta \\ 1,  & \theta\not= \hat\theta\end{cases}\) & zero-one loss \\
+\(L(\theta,\hat \theta) = I(|\theta - \hat\theta|>c)\) where \(I(x>c) = \begin{cases}0, & |\theta -  \hat \theta| \leq c \\ 1,  & |\theta -  \hat \theta| > c\end{cases}\) & large deviation loss \\
+\(L(\theta,\hat \theta) = \int \log\left( \frac{f(x;\theta)}{f(x;\hat \theta)}  \right) f(x;\theta)\) & Kullback-Leiber loss \\
 \end{longtable}
 
 \end{example}
@@ -1998,8 +1953,7 @@ The above calculation can be made rigorous via the study calculus of variations.
 
 \end{exercise}
 
-\hypertarget{hypothesis-testing}{%
-\chapter{Hypothesis Testing}\label{hypothesis-testing}}
+\chapter{Hypothesis Testing}\label{hypothesis-testing}
 
 (I wasn't entirely happy with the treatment of Wasserman and Casella \& Berger.
 So I'm following the treatment of Hogg, McKean \& Craig.)
@@ -2029,11 +1983,10 @@ We will restrict our attention to hypotheses about either:
   a parameter of a model, or
 \item
   a functional of the underlying density distribution \(f\), i.e., a mapping \(T(f) \in \mathbb{R}\).
-  For example, \(\mu(f) = \int x f(x) dx\).
+  For example, \(\mu(f) = \int x  f(x) dx\).
 \end{enumerate}
 
-\hypertarget{procedure}{%
-\section{Procedure}\label{procedure}}
+\section{Procedure}\label{procedure}
 
 Denote the quantity of interest (parameter or functional) to be \(\theta\).
 This parameter will be assumed to take place in a space \(D\).
@@ -2070,13 +2023,14 @@ both are simple, or both are composite.
 Due to probabilistic nature of the procedure, there are a few scenarios
 
 \begin{longtable}[]{@{}ccc@{}}
-\toprule
-& \(H_0\) is true & \(H_1\) is true\tabularnewline
-\midrule
+\toprule\noalign{}
+& \(H_0\) is true & \(H_1\) is true \\
+\midrule\noalign{}
 \endhead
-Reject \(H_0\) & Type I error (false positive) & Correct decision\tabularnewline
-Reject \(H_1\) & Correct decision & Type II error (false negative)\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+Reject \(H_0\) & Type I error (false positive) & Correct decision \\
+Reject \(H_1\) & Correct decision & Type II error (false negative) \\
 \end{longtable}
 
 One of the working assumption of science is that all models are wrong and only approximations
@@ -2137,8 +2091,7 @@ is better than \(C_2\) (denoted by \(C_1 \succeq C_2\)) if
 
 Note that, not any pair of critical regions are comparable.
 
-\hypertarget{neyman-pearson-lemma}{%
-\section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}}
+\section{Neyman-Pearson Lemma}\label{neyman-pearson-lemma}
 
 \begin{bbox}
 
@@ -2171,7 +2124,7 @@ hypothesis \(H_1: \theta = \theta_1\) if
 \end{definition}
 
 \begin{exercise}[Hogg et. al., 4.5.3]
-Let \(X\) be an RV that has pdf \(f(x;\theta) = \theta x^{\theta - 1}\) for \(0<x<1\), zero elsewhere.
+Let \(X\) be an RV that has pdf \(f(x;\theta)  = \theta x^{\theta - 1}\) for \(0<x<1\), zero elsewhere.
 Here, \(\theta \in \{ 1,2\}\).
 To test the simple hypothesis \(H_0: \theta = 1\) against the alternative
 simple hypothesis \(H_1: \theta = 2\), use a random sample \(X_1, X_2\) of size
@@ -2211,15 +2164,37 @@ Let's consider the hypothesis test of \(H_0: \theta = 1/2\) versus
 \(H_1: \theta = 3/4\)
 with the following probability table:
 
-\begin{longtable}[]{@{}lrrrrrr@{}}
-\toprule
-\(x\) & 0 & 1 & 2 & 3 & 4 & 5\tabularnewline
-\midrule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(x\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+5
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
-\(f(x ; 1 / 2)\) & \(1 / 32\) & \(5 / 32\) & \(10 / 32\) & \(10/32\) & \(5/32\) & \(1/32\)\tabularnewline
-\(f(x ; 3 / 4)\) & \(1 / 1024\) & \(15 / 1024\) & \(90 / 1024\) & \(270/1024\) & \(405/1024\) & \(243/1024\)\tabularnewline
-\(f(x ; 1 / 2) / f(x ; 3 / 4)\) & \(32 / 1\) & \(32 / 3\) & \(32 / 9\) & \(32/27\) & \(32/81\) & \(32/243\)\tabularnewline
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x ; 1 / 2)\) & \(1 / 32\) & \(5 / 32\) & \(10 / 32\) & \(10/32\) & \(5/32\) & \(1/32\) \\
+\(f(x ; 3 / 4)\) & \(1 / 1024\) & \(15 / 1024\) & \(90 / 1024\) & \(270/1024\) & \(405/1024\) & \(243/1024\) \\
+\(f(x ; 1 / 2) / f(x ; 3 / 4)\) & \(32 / 1\) & \(32 / 3\) & \(32 / 9\) & \(32/27\) & \(32/81\) & \(32/243\) \\
 \end{longtable}
 
 \begin{enumerate}
@@ -2394,7 +2369,6 @@ Furthermore,
 the equality is achieved if and only if \(\theta_1 = \theta_0\).
 \end{proposition}
 
-<<<<<<< HEAD
 \begin{proof}
 See \citep[Corollary 3.2.1]{lehmann2005testing}.
 \end{proof}
@@ -2442,63 +2416,10 @@ There is no uniformly most powerful critical region for the two-tail test of the
 \end{example}
 
 \section{Wald Test}\label{wald-test}
-=======
-\begin{exercise}[Hogg et. al., 8.1.5]
-If \(X_1, X_2, \ldots, X_n\) is a random sample from a distribution having pdf of the form \(f(x ; \theta)=\theta x^{\theta-1}, 0<x<1\), zero elsewhere, show that a best critical region for testing \(H_0: \theta=1\) against \(H_1: \theta=2\) is \(C=\left\{\left(x_1, x_2, \ldots, x_n\right): c \leq \prod_{i=1}^n x_i\right\}\).
-\end{exercise}
->>>>>>> 3d2f2a799dca0df6bb2985d6f1597118159b568b
 
-\hypertarget{uniformly-most-powerful-test}{%
-\section{Uniformly Most Powerful Test}\label{uniformly-most-powerful-test}}
+\section{Likelihood Ratio Test}\label{likelihood-ratio-test}
 
-In a simple testing case, the Neyman-Pearson theorem provides a theoretical justification for
-choosing a critical region to create the best hypothesis test, given
-the significance level.
-
-However, when the hypotheses are no longer simple, the situation becomes more complicated.
-
-To extend the result of Neyman-Pearson to non-simple cases, we need the following notion.
-
-\begin{definition}[Uniformly Most Powerful Test]
-The critical region \(C\) is a \emph{Uniformly Most Powerful} (UMP) critical region
-of size \(\alpha\) for testing the simple hypothesis \(H_0\) against an
-alternative composite hypothesis \(H_1\) if the set \(C\) is a best critical
-region of size \(\alpha\) for testing \(H_0\) against each simple
-hypothesis in \(H_1\).
-
-A test defined by this critical region \(C\) is
-called a uniformly most powerful test, with significance level \(\alpha\),
-for testing the simple hypothesis \(H_0\) against the alternative composite hypothesis \(H_1\).
-\end{definition}
-
-\begin{example}
-Let \(X_1, \dots, X_n\) be sample from \(N(\mu, 1)\).
-Let \(H_0: \mu = 1\) and \(H_1: \mu >1\) be our hypotheses.
-Suppose we want the significance level to be \(\alpha = 0.9\),
-use whatever software you can to find the uniformly most
-powerful critical region for this significance level and \(n = 10\).
-\end{example}
-
-\begin{example}
-Let \(X_1, \dots, X_n\) be sample from \(N(0, \theta)\).
-Let \(H_0: \theta = 3\) and \(H_1: \theta >3\) be our hypotheses.
-Suppose we want the significance level to be \(\alpha = 0.9\),
-use whatever software you can to find the uniformly most
-powerful critical region for this significance level and \(n = 10\).
-\end{example}
-
-\begin{example}
-There is no uniformly most powerful critical region for the two-tail test of the Gaussian.
-\end{example}
-
-\hypertarget{wald-test}{%
-\section{Wald Test}\label{wald-test}}
-
-\hypertarget{likelihood-ratio-test}{%
-\section{Likelihood Ratio Test}\label{likelihood-ratio-test}}
-
-\hypertarget{comparing-samples}{%
-\section{Comparing samples}\label{comparing-samples}}
+\section{Comparing samples}\label{comparing-samples}
 
   \bibliography{bibo.bib}
 

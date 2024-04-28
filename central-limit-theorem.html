@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)</title>
   <meta name="description" content="1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
@@ -48,14 +48,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
-<<<<<<< HEAD
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -83,8 +81,6 @@ div.csl-indent {
   margin-left: 2em;
 }
 </style>
-=======
->>>>>>> 3d2f2a799dca0df6bb2985d6f1597118159b568b
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/toc.css" type="text/css" />
@@ -180,14 +176,10 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
-<<<<<<< HEAD
 <li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html#random-test"><i class="fa fa-check"></i><b>4.2.1</b> Randomized Test (Optional)</a></li>
 </ul></li>
-=======
-<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
->>>>>>> 3d2f2a799dca0df6bb2985d6f1597118159b568b
 <li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
 <li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
 <li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
@@ -223,7 +215,7 @@ We say that <span class="math inline">\(X_n\)</span> convergence to <span class=
 Suppose that either</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\varphi_{X_n}(s)\)</span> converges to <span class="math inline">\(\varphi_X(s)\)</span> for all <span class="math inline">\(s\)</span> in some open interval around <span class="math inline">\(0\)</span>.</p></li>
-<li><p><span class="math inline">\(\lim_{n\to\infty} \phi_{X_n}(s) = \phi_X(s)\)</span> for every <span class="math inline">\(s \in \mathbb{R}\)</span>.</p>
+<li><p><span class="math inline">\(\lim_{n\to\infty} \phi_{X_n}(s) =  \phi_X(s)\)</span> for every <span class="math inline">\(s \in \mathbb{R}\)</span>.</p>
 <p>Then <span class="math inline">\(X_n \to X\)</span> in distribution.</p></li>
 </ol>
 </div>
@@ -248,7 +240,7 @@ So, performing Taylor expansion for <span class="math inline">\(\varphi_{X_1}\)<
 <span class="math display">\[
 \begin{aligned}
 \varphi_{X_1} \left( \frac{t}{\sigma \sqrt{n}} \right)  
-        &amp;=  1 + \varphi_{X_1}&#39;(0) \left( \frac{t}{\sigma \sqrt{n}} \right) 
+        &amp;=  1 + \varphi_{X_1}&#39;(0) \left( \frac{t}{\sigma \sqrt{n}} \right)
            + \frac{1}{2} \varphi_{X_1}&#39;&#39;(0) \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n  \\
         &amp; = 1 + \frac{1}{2} \sigma^2 \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n \\
         &amp; = 1 + \frac{1}{2} \left( \frac{t^2}{n} \right) + \epsilon_n \,.
