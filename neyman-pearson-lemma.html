@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="procedure.html"/>
-<link rel="next" href="wald-test.html"/>
+<link rel="next" href="uniformly-most-powerful-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -57,6 +57,29 @@
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -153,10 +176,14 @@
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
-<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
-<li class="chapter" data-level="4.3" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.3</b> Wald Test</a></li>
-<li class="chapter" data-level="4.4" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.4</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.5" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.5</b> Comparing samples</a></li>
+<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html#random-test"><i class="fa fa-check"></i><b>4.2.1</b> Randomized Test (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
+<li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
+<li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.6" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.6</b> Comparing samples</a></li>
 </ul></li>
 </ul>
 
@@ -287,9 +314,9 @@ with the following probability table:</p>
 <span class="math display">\[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]</span>
 where <span class="math inline">\(x = (x_1, \dots, x_n)\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-116" class="theorem"><strong>Theorem 4.1  (Neyman-Pearson Theorem) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
+<p><span id="thm:unlabeled-div-116" class="theorem"><strong>Theorem 4.1  (baby Neyman-Pearson Theorem) </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
 where <span class="math inline">\(\theta \in \{\theta_0, \theta_1\}\)</span>.
-Let <span class="math inline">\(k\)</span> be a positive number and <span class="math inline">\(C\)</span> be a subset of the state space such that</p>
+Suppose that <span class="math inline">\(k\)</span> is a positive number and <span class="math inline">\(C\)</span> be a subset of the state space such that</p>
 <ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(\displaystyle{\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)}} \leq k\)</span> for each point <span class="math inline">\(x\in C\)</span>.</li>
 <li><span class="math inline">\(\displaystyle\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)} \geq k\)</span> for each point <span class="math inline">\(x\in C^c\)</span>.</li>
@@ -298,6 +325,15 @@ Let <span class="math inline">\(k\)</span> be a positive number and <span class=
 <p>Then <span class="math inline">\(C\)</span> is a bests critical region of size <span class="math inline">\(\alpha\)</span> for testing the hypothesis
 <span class="math inline">\(H_0: \theta= \theta_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span>.</p>
 </div>
+<div class="bbox">
+<p>Note that the above theorem doesn’t mention about the existence of <span class="math inline">\(k\)</span> and <span class="math inline">\(C\)</span>.
+This is a conceptual weakness, due to the lack of convexity (surprise!) of deicion rules
+based on critical regions. To overcome this, we need to generalize the decision
+rules (see Section <a href="neyman-pearson-lemma.html#random-test">4.2.1</a>).</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Exercise 4.4  (Hogg et. al., 8.1.5) </strong></span>If <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> is a random sample from a distribution having pdf of the form <span class="math inline">\(f(x ; \theta)=\theta x^{\theta-1}, 0&lt;x&lt;1\)</span>, zero elsewhere, show that a best critical region for testing <span class="math inline">\(H_0: \theta=1\)</span> against <span class="math inline">\(H_1: \theta=2\)</span> is <span class="math inline">\(C=\left\{\left(x_1, x_2, \ldots, x_n\right): c \leq \prod_{i=1}^n x_i\right\}\)</span>.</p>
+</div>
 <p>From Example <a href="neyman-pearson-lemma.html#exm:critical-region">4.2</a>, we see that the best critical region has the
 the property that its power is higher than its significance level.
 This is interpreted as: the probability of falsely rejecting <span class="math inline">\(H_0\)</span> is less than
@@ -305,14 +341,105 @@ the probability of correctly rejecting <span class="math inline">\(H_0\)</span>.
 We say that the kind of test (i.e., critical region) that has this property
 is <em>unbiased</em>. Formally,</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-117" class="definition"><strong>Definition 4.5  </strong></span>Let <span class="math inline">\(X \sim f(x;\theta)\)</span>. A test is said to be <em>unbiased</em> if
+<p><span id="def:unlabeled-div-118" class="definition"><strong>Definition 4.5  </strong></span>Let <span class="math inline">\(X \sim f(x;\theta)\)</span>. A test is said to be <em>unbiased</em> if
 <span class="math display">\[\inf_{\theta \in D_1} \mathbb{P}_{\theta} (X \in C) \geq \alpha.\]</span></p>
 </div>
+<div id="random-test" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Randomized Test (Optional)<a href="neyman-pearson-lemma.html#random-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>The following discussion is very heuristic. Rigorous justifications
+are beyond the level of the class that these notes are intended for.
+In particular, we deliberately avoid a technical discussion on regularity of
+sets and functions in order to convey the big picture.
+Interested readers, who seek rigors, should consult <span class="citation">(<a href="#ref-keener2010theoretical">Keener 2010</a>)</span> and <span class="citation">(<a href="#ref-lehmann2005testing">Lehmann and Romano 2005</a>)</span>.</em></p>
+<p>The decision rule so far is very rigid and deterministic: if the sample data
+falls into the rejection region, one simply just rejects the null hypothesis.
+This way of reasoning is a nice and intuitive.
+However, there are some obstacles regarding the rigorous details.
+For example, in the (baby) Neyman-Pearson theorem, there is no guarantee that
+<span class="math inline">\(k\)</span> and <span class="math inline">\(C\)</span> would exists to satisfy the significance level <span class="math inline">\(\alpha\)</span>.
+This is because of the lack of certain convexity in the decision making process.</p>
+<p>Take a closer look at the (baby) Pearson-Neyman theorem, we see that</p>
+<p>To escape from this predicament, we will first make the following observation:</p>
+<p><span class="math display">\[\mathbb{P}_\theta (X \in C) = \mathbb{E}_\theta \varphi(X)\]</span>
+where <span class="math inline">\(\varphi\)</span> is the indicator function of <span class="math inline">\(C\)</span>, i.e,
+<span class="math display">\[\varphi (x) = \begin{cases} 1 \,, &amp; x \in C \\ 0 \,, &amp; x \in C^c\end{cases} \,.\]</span></p>
+<p>Since each set can be represented by its characteristics function, as
+each hypothesis test depends on its rejection region, each hypothesis test
+can be characterized by <span class="math inline">\(\varphi\)</span>.
+It is then customary to talk about a test <span class="math inline">\(\varphi\)</span>.</p>
+<p>Denote <span class="math inline">\(\mathcal{D}\)</span> be the set of all characteristic functions associated with
+subsets of <span class="math inline">\(\mathbb{R}^n\)</span>.
+We can now turn our problem into an optimization problem in the following form:</p>
+<p><span class="math display">\[\begin{aligned} &amp; \min_{\varphi \in \mathcal{D}} \mathbb{E}_{\theta_1} \varphi \\
+\text{st} \qquad &amp;  \mathbb{E}_{\theta_0} \varphi = \alpha \end{aligned}. \]</span></p>
+<p>A problem arises: the set <span class="math inline">\(\mathcal{D}\)</span> is not convex (reasons for this are beyond
+the scope of this class but interested readers can verify this independently without
+too much difficulty). This is the reason why we couldn’t find <span class="math inline">\(k\)</span> and <span class="math inline">\(C\)</span> in Example
+<a href="neyman-pearson-lemma.html#exm:critical-region">4.2</a> if <span class="math inline">\(\alpha=1/1000\)</span>.</p>
+<p>As a fix to this problem, one seeks to convexify the set <span class="math inline">\(\mathcal{D}\)</span>,
+which turns out to be the set
+<span class="math inline">\(\mathcal{H} = \{\varphi \, | \, 0\leq \varphi \leq 1 \}\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-119" class="definition"><strong>Definition 4.6  </strong></span>A <em>randomized critcal function</em> <span class="math inline">\(\varphi\)</span> is a function such that
+<span class="math display">\[ 0 \leq \varphi \leq 1. \]</span></p>
+<p>The <em>power</em> of the randomized critical function <span class="math inline">\(\varphi\)</span> for a paremeter <span class="math inline">\(\theta_1 \in D_1\)</span> is
+<span class="math display">\[\beta_{\theta_1}(\varphi) = \mathbb{E}_{\theta_1} \varphi(X).\]</span></p>
+<p>The <em>size</em> of a randomized critical function <span class="math inline">\(\varphi\)</span> is
+<span class="math display">\[ \sup_{\theta_0 \in D_0} \mathbb{E}_{\theta_0} \varphi(X).\]</span></p>
+</div>
+<p>Note that, in this setting, critical regions only correspond to non-randomized
+critical functions.
+In the randomized setting, critical regions become less relevant.
+What’s important is what kind of critical function are we using to make decision.
+However, there’s an an intepretation of the randomized critical function
+in terms of critical region, if we are willing to take into consideration a decision process
+that is completely random and independent with what we are testing (hence the term randomized critical function). This process is captured by the following exercise:</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-120" class="exercise"><strong>Exercise 4.5  (Keener, 12.8.1) </strong></span>Suppose <span class="math inline">\(X \sim P_\theta\)</span> for some <span class="math inline">\(\theta \in \Omega\)</span>, and that <span class="math inline">\(U\)</span>
+is uniformly distributed on <span class="math inline">\((0,1)\)</span> and is independent of <span class="math inline">\(X\)</span>.
+Let <span class="math inline">\(\phi(X)\)</span> be a test based on <span class="math inline">\(X\)</span>.
+Find a nonrandomized test based on <span class="math inline">\(X\)</span> and <span class="math inline">\(U\)</span>, so <span class="math inline">\(\psi(X, U) = \chi_S(X, U)\)</span>
+for some critical region <span class="math inline">\(S\)</span>, with the same power function
+as <span class="math inline">\(\phi\)</span>, <span class="math inline">\(E_\theta\phi(X) = E_\theta\psi(X, U)\)</span>, for all <span class="math inline">\(\theta \in \Omega\)</span>.</p>
+</div>
+<p>With this new technical tool, Neyman-Pearson theorem is cloaked in a new, more powerful coat.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-121" class="theorem"><strong>Theorem 4.2  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be a sample from a family of distributions <span class="math inline">\(f(x;\theta)\)</span>,
+where <span class="math inline">\(\theta \in \{\theta_0, \theta_1\}\)</span>.
+There exist <span class="math inline">\(k\)</span> is a positive number and a randomized critical function <span class="math inline">\(\varphi\)</span> such that</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\displaystyle{\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)}} &lt; k\)</span> when <span class="math inline">\(\varphi(x) = 1\)</span>.</li>
+<li><span class="math inline">\(\displaystyle\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)} &gt; k\)</span> when <span class="math inline">\(\varphi(x) = 0\)</span>.</li>
+<li><span class="math inline">\(\alpha = E_{\theta_0}\varphi(X)\)</span>.</li>
+</ol>
+<p><span class="math inline">\(\varphi\)</span> is a best randomized critical function of size <span class="math inline">\(\alpha\)</span> for testing the hypothesis
+<span class="math inline">\(H_0: \theta= \theta_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span>. That is, among all the critical functions of size <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(varphi\)</span> has the biggest power.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-122" class="proof"><em>Proof</em>. </span>See <span class="citation">(<a href="#ref-lehmann2005testing">Lehmann and Romano 2005</a>, Theorem 3.2.1)</span>.</p>
+</div>
+<p>Finally, it could be proved that the best randomized test given by the Neyman-Pearson theorem
+is unbiased.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-118" class="proposition"><strong>Proposition 4.1  </strong></span>Let <span class="math inline">\(C\)</span> be the critical region of the best test of <span class="math inline">\(H_0: \theta = \theta_0\)</span>
+<p><span id="prp:unlabeled-div-123" class="proposition"><strong>Proposition 4.1  </strong></span>Let <span class="math inline">\(\varphi\)</span> be the best randomized critical function of size <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(H_0: \theta = \theta_0\)</span>
 versus <span class="math inline">\(H_1: \theta = \theta_1\)</span>.
-Suppose the significance level of the test is <span class="math inline">\(\alpha\)</span>, then the power of the test is at least <span class="math inline">\(\alpha\)</span>, .i.e,
-<span class="math display">\[\gamma_C (\theta_1) \geq \alpha.\]</span></p>
+Then
+<span class="math display">\[\beta_{\theta_1}(\varphi) \geq \alpha.\]</span>
+Furthermore,
+the equality is achieved if and only if <span class="math inline">\(\theta_1 = \theta_0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-124" class="proof"><em>Proof</em>. </span>See <span class="citation">(<a href="#ref-lehmann2005testing">Lehmann and Romano 2005</a>, Corollary 3.2.1)</span>.</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-keener2010theoretical" class="csl-entry">
+Keener, Robert W. 2010. <em>Theoretical Statistics: Topics for a Core Course</em>. New York: Springer.
+</div>
+<div id="ref-lehmann2005testing" class="csl-entry">
+Lehmann, Erich L., and Joseph P. Romano. 2005. <em>Testing Statistical Hypotheses</em>. 3rd ed. New York: Springer.
 </div>
 </div>
             </section>
@@ -321,7 +448,7 @@ Suppose the significance level of the test is <span class="math inline">\(\alpha
         </div>
       </div>
 <a href="procedure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="wald-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="uniformly-most-powerful-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

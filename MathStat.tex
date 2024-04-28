@@ -2067,7 +2067,7 @@ This inspires the following definitions
 
 \begin{definition}[size (significance level) of critical region]
 We say that a critical region \(C\) is of \emph{size} (or \emph{significance level}) \(\alpha\) if
-\[ \alpha = \max_{\theta \in D_0} \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
+\[ \alpha = \sup_{\theta \in D_0} \mathbb{P}_\theta \left[ (X_1, \dots, X_n) \in C  \right].\]
 \end{definition}
 
 \begin{definition}[Power function of critical region]
@@ -2214,10 +2214,10 @@ Recall the likelihood function
 \[\mathcal{L}(\theta;x) = \prod_{i=1}^n f(x_i;\theta)\]
 where \(x = (x_1, \dots, x_n)\).
 
-\begin{theorem}[Neyman-Pearson Theorem]
+\begin{theorem}[baby Neyman-Pearson Theorem]
 Let \(X_1, \dots, X_n\) be a sample from a family of distributions \(f(x;\theta)\),
 where \(\theta \in \{\theta_0, \theta_1\}\).
-Let \(k\) be a positive number and \(C\) be a subset of the state space such that
+Suppose that \(k\) is a positive number and \(C\) be a subset of the state space such that
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -2234,6 +2234,18 @@ Then \(C\) is a bests critical region of size \(\alpha\) for testing the hypothe
 \(H_0: \theta= \theta_0\) against the alternative hypothesis \(H_1: \theta = \theta_1\).
 \end{theorem}
 
+\begin{bbox}
+Note that the above theorem doesn't mention about the existence of \(k\) and \(C\).
+This is a conceptual weakness, due to the lack of convexity (surprise!) of deicion rules
+based on critical regions. To overcome this, we need to generalize the decision
+rules (see Section \ref{random-test}).
+
+\end{bbox}
+
+\begin{exercise}[Hogg et. al., 8.1.5]
+If \(X_1, X_2, \ldots, X_n\) is a random sample from a distribution having pdf of the form \(f(x ; \theta)=\theta x^{\theta-1}, 0<x<1\), zero elsewhere, show that a best critical region for testing \(H_0: \theta=1\) against \(H_1: \theta=2\) is \(C=\left\{\left(x_1, x_2, \ldots, x_n\right): c \leq \prod_{i=1}^n x_i\right\}\).
+\end{exercise}
+
 From Example \ref{exm:critical-region}, we see that the best critical region has the
 the property that its power is higher than its significance level.
 This is interpreted as: the probability of falsely rejecting \(H_0\) is less than
@@ -2246,17 +2258,169 @@ Let \(X \sim f(x;\theta)\). A test is said to be \emph{unbiased} if
 \[\inf_{\theta \in D_1} \mathbb{P}_{\theta} (X \in C) \geq \alpha.\]
 \end{definition}
 
+\subsection{Randomized Test (Optional)}\label{random-test}
+
+\emph{The following discussion is very heuristic. Rigorous justifications
+are beyond the level of the class that these notes are intended for.
+In particular, we deliberately avoid a technical discussion on regularity of
+sets and functions in order to convey the big picture.
+Interested readers, who seek rigors, should consult \citep{keener2010theoretical} and \citep{lehmann2005testing}.}
+
+The decision rule so far is very rigid and deterministic: if the sample data
+falls into the rejection region, one simply just rejects the null hypothesis.
+This way of reasoning is a nice and intuitive.
+However, there are some obstacles regarding the rigorous details.
+For example, in the (baby) Neyman-Pearson theorem, there is no guarantee that
+\(k\) and \(C\) would exists to satisfy the significance level \(\alpha\).
+This is because of the lack of certain convexity in the decision making process.
+
+Take a closer look at the (baby) Pearson-Neyman theorem, we see that
+
+To escape from this predicament, we will first make the following observation:
+
+\[\mathbb{P}_\theta (X \in C) = \mathbb{E}_\theta \varphi(X)\]
+where \(\varphi\) is the indicator function of \(C\), i.e,
+\[\varphi (x) = \begin{cases} 1 \,, & x \in C \\ 0 \,, & x \in C^c\end{cases} \,.\]
+
+Since each set can be represented by its characteristics function, as
+each hypothesis test depends on its rejection region, each hypothesis test
+can be characterized by \(\varphi\).
+It is then customary to talk about a test \(\varphi\).
+
+Denote \(\mathcal{D}\) be the set of all characteristic functions associated with
+subsets of \(\mathbb{R}^n\).
+We can now turn our problem into an optimization problem in the following form:
+
+\[\begin{aligned} & \min_{\varphi \in \mathcal{D}} \mathbb{E}_{\theta_1} \varphi \\
+ \text{st} \qquad &  \mathbb{E}_{\theta_0} \varphi = \alpha \end{aligned}. \]
+
+A problem arises: the set \(\mathcal{D}\) is not convex (reasons for this are beyond
+the scope of this class but interested readers can verify this independently without
+too much difficulty). This is the reason why we couldn't find \(k\) and \(C\) in Example
+\ref{exm:critical-region} if \(\alpha=1/1000\).
+
+As a fix to this problem, one seeks to convexify the set \(\mathcal{D}\),
+which turns out to be the set
+\(\mathcal{H} = \{\varphi \, | \, 0\leq \varphi \leq 1 \}\).
+
+\begin{definition}
+A \emph{randomized critcal function} \(\varphi\) is a function such that
+\[ 0 \leq \varphi \leq 1. \]
+
+The \emph{power} of the randomized critical function \(\varphi\) for a paremeter \(\theta_1 \in D_1\) is
+\[\beta_{\theta_1}(\varphi) = \mathbb{E}_{\theta_1} \varphi(X).\]
+
+The \emph{size} of a randomized critical function \(\varphi\) is
+\[ \sup_{\theta_0 \in D_0} \mathbb{E}_{\theta_0} \varphi(X).\]
+\end{definition}
+
+Note that, in this setting, critical regions only correspond to non-randomized
+critical functions.
+In the randomized setting, critical regions become less relevant.
+What's important is what kind of critical function are we using to make decision.
+However, there's an an intepretation of the randomized critical function
+in terms of critical region, if we are willing to take into consideration a decision process
+that is completely random and independent with what we are testing (hence the term randomized critical function). This process is captured by the following exercise:
+
+\begin{exercise}[Keener, 12.8.1]
+Suppose \(X \sim P_\theta\) for some \(\theta \in \Omega\), and that \(U\)
+is uniformly distributed on \((0,1)\) and is independent of \(X\).
+Let \(\phi(X)\) be a \textit{randomized} test based on \(X\).
+Find a nonrandomized test based on \(X\) and \(U\), so \(\psi(X, U) = \chi_S(X, U)\)
+for some critical region \(S\), with the same power function
+as \(\phi\), \(E_\theta\phi(X) = E_\theta\psi(X, U)\), for all \(\theta \in \Omega\).
+\end{exercise}
+
+With this new technical tool, Neyman-Pearson theorem is cloaked in a new, more powerful coat.
+
+\begin{theorem}
+Let \(X_1, \dots, X_n\) be a sample from a family of distributions \(f(x;\theta)\),
+where \(\theta \in \{\theta_0, \theta_1\}\).
+There exist \(k\) is a positive number and a randomized critical function \(\varphi\) such that
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(\displaystyle{\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)}} < k\) when \(\varphi(x) = 1\).
+\item
+  \(\displaystyle\frac{\mathcal{L}(\theta_0;x)}{\mathcal{L}(\theta_1;x)} > k\) when \(\varphi(x) = 0\).
+\item
+  \(\alpha = E_{\theta_0}\varphi(X)\).
+\end{enumerate}
+
+\(\varphi\) is a best randomized critical function of size \(\alpha\) for testing the hypothesis
+\(H_0: \theta= \theta_0\) against the alternative hypothesis \(H_1: \theta = \theta_1\). That is, among all the critical functions of size \(\alpha\), \(varphi\) has the biggest power.
+\end{theorem}
+
+\begin{proof}
+See \citep[Theorem 3.2.1]{lehmann2005testing}.
+\end{proof}
+
+Finally, it could be proved that the best randomized test given by the Neyman-Pearson theorem
+is unbiased.
+
 \begin{proposition}
-Let \(C\) be the critical region of the best test of \(H_0: \theta = \theta_0\)
+Let \(\varphi\) be the best randomized critical function of size \(\alpha\) of \(H_0: \theta = \theta_0\)
 versus \(H_1: \theta = \theta_1\).
-Suppose the significance level of the test is \(\alpha\), then the power of the test is at least \(\alpha\), .i.e,
-\[\gamma_C (\theta_1) \geq \alpha.\]
+Then
+\[\beta_{\theta_1}(\varphi) \geq \alpha.\]
+Furthermore,
+the equality is achieved if and only if \(\theta_1 = \theta_0\).
 \end{proposition}
+
+\begin{proof}
+See \citep[Corollary 3.2.1]{lehmann2005testing}.
+\end{proof}
+
+\section{Uniformly Most Powerful Test}\label{uniformly-most-powerful-test}
+
+In a simple testing case, the Neyman-Pearson theorem provides a theoretical justification for
+choosing a critical region to create the best hypothesis test, given
+the significance level.
+
+However, when the hypotheses are no longer simple, the situation becomes more complicated.
+
+To extend the result of Neyman-Pearson to non-simple cases, we need the following notion.
+
+\begin{definition}[Uniformly Most Powerful Test]
+The critical region \(C\) is a \emph{Uniformly Most Powerful} (UMP) critical region
+of size \(\alpha\) for testing the simple hypothesis \(H_0\) against an
+alternative composite hypothesis \(H_1\) if the set \(C\) is a best critical
+region of size \(\alpha\) for testing \(H_0\) against each simple
+hypothesis in \(H_1\).
+
+A test defined by this critical region \(C\) is
+called a uniformly most powerful test, with significance level \(\alpha\),
+for testing the simple hypothesis \(H_0\) against the alternative composite hypothesis \(H_1\).
+\end{definition}
+
+\begin{example}
+Let \(X_1, \dots, X_n\) be sample from \(N(\mu, 1)\).
+Let \(H_0: \mu = 1\) and \(H_1: \mu >1\) be our hypotheses.
+Suppose we want the significance level to be \(\alpha = 0.9\),
+use whatever software you can to find the uniformly most
+powerful critical region for this significance level and \(n = 10\).
+\end{example}
+
+\begin{example}
+Let \(X_1, \dots, X_n\) be sample from \(N(0, \theta)\).
+Let \(H_0: \theta = 3\) and \(H_1: \theta >3\) be our hypotheses.
+Suppose we want the significance level to be \(\alpha = 0.9\),
+use whatever software you can to find the uniformly most
+powerful critical region for this significance level and \(n = 10\).
+\end{example}
+
+\begin{example}
+There is no uniformly most powerful critical region for the two-tail test of the Gaussian.
+\end{example}
 
 \section{Wald Test}\label{wald-test}
 
 \section{Likelihood Ratio Test}\label{likelihood-ratio-test}
 
 \section{Comparing samples}\label{comparing-samples}
+
+  \bibliography{bibo.bib}
 
 \end{document}

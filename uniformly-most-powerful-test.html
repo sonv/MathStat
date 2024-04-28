@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)</title>
-  <meta name="description" content="1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)" />
+  <title>4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)</title>
+  <meta name="description" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta property="og:title" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Central Limit Theorem | MATH 310: Mathematical Statistics (brief notes)" />
+  <meta name="twitter:title" content="4.3 Uniformly Most Powerful Test | MATH 310: Mathematical Statistics (brief notes)" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="law-of-large-numbers.html"/>
-<link rel="next" href="part-2-inference.html"/>
+<link rel="prev" href="neyman-pearson-lemma.html"/>
+<link rel="next" href="wald-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -202,67 +202,48 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="central-limit-theorem" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Central Limit Theorem<a href="central-limit-theorem.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="uniformly-most-powerful-test" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Uniformly Most Powerful Test<a href="uniformly-most-powerful-test.html#uniformly-most-powerful-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In a simple testing case, the Neyman-Pearson theorem provides a theoretical justification for
+choosing a critical region to create the best hypothesis test, given
+the significance level.</p>
+<p>However, when the hypotheses are no longer simple, the situation becomes more complicated.</p>
+<p>To extend the result of Neyman-Pearson to non-simple cases, we need the following notion.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-57" class="definition"><strong>Definition 1.17  (Convergence in distribution) </strong></span>Let <span class="math inline">\(\{X_i\}_{i \in \mathbb{N}}\)</span> be a sequence of RVs with CDF <span class="math inline">\(F_i\)</span>.
-Let <span class="math inline">\(X\)</span> be a RV with CDF <span class="math inline">\(F\)</span>.
-We say that <span class="math inline">\(X_n\)</span> convergence to <span class="math inline">\(X\)</span> in distribution if
-<span class="math display">\[ \lim_{n\to \infty} F_n (x) = F(x) \]</span> at every point at which <span class="math inline">\(F\)</span> is continuous.</p>
+<p><span id="def:unlabeled-div-125" class="definition"><strong>Definition 4.7  (Uniformly Most Powerful Test) </strong></span>The critical region <span class="math inline">\(C\)</span> is a <em>Uniformly Most Powerful</em> (UMP) critical region
+of size <span class="math inline">\(\alpha\)</span> for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against an
+alternative composite hypothesis <span class="math inline">\(H_1\)</span> if the set <span class="math inline">\(C\)</span> is a best critical
+region of size <span class="math inline">\(\alpha\)</span> for testing <span class="math inline">\(H_0\)</span> against each simple
+hypothesis in <span class="math inline">\(H_1\)</span>.</p>
+<p>A test defined by this critical region <span class="math inline">\(C\)</span> is
+called a uniformly most powerful test, with significance level <span class="math inline">\(\alpha\)</span>,
+for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against the alternative composite hypothesis <span class="math inline">\(H_1\)</span>.</p>
 </div>
-<div class="theorem">
-<p><span id="thm:cont" class="theorem"><strong>Theorem 1.15  (Continuity theorems) </strong></span>Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i \in \mathbb{N}\)</span> RVs with CDF <span class="math inline">\(F_i\)</span> and <span class="math inline">\(X\)</span> a RV with CDF <span class="math inline">\(\bar F\)</span>.
-Suppose that either</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\varphi_{X_n}(s)\)</span> converges to <span class="math inline">\(\varphi_X(s)\)</span> for all <span class="math inline">\(s\)</span> in some open interval around <span class="math inline">\(0\)</span>.</p></li>
-<li><p><span class="math inline">\(\lim_{n\to\infty} \phi_{X_n}(s) =  \phi_X(s)\)</span> for every <span class="math inline">\(s \in \mathbb{R}\)</span>.</p>
-<p>Then <span class="math inline">\(X_n \to X\)</span> in distribution.</p></li>
-</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-126" class="example"><strong>Example 4.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\mu, 1)\)</span>.
+Let <span class="math inline">\(H_0: \mu = 1\)</span> and <span class="math inline">\(H_1: \mu &gt;1\)</span> be our hypotheses.
+Suppose we want the significance level to be <span class="math inline">\(\alpha = 0.9\)</span>,
+use whatever software you can to find the uniformly most
+powerful critical region for this significance level and <span class="math inline">\(n = 10\)</span>.</p>
 </div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-58" class="theorem"><strong>Theorem 1.16  (Central limit theorem) </strong></span>Let <span class="math inline">\(\{ X_i \}_{i\in \mathbb{N}}\)</span> be a sequence of IID RVs with mean <span class="math inline">\(0\)</span> and
-variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>.
-Define
-<span class="math display">\[ Z_n = \frac{\sum_{i=1}^n X_i}{\sigma \sqrt{n}}. \]</span>
-Then <span class="math inline">\(Z_n\)</span> converges to <span class="math inline">\(Z \sim N(0,1)\)</span> in distribution.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-127" class="example"><strong>Example 4.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(0, \theta)\)</span>.
+Let <span class="math inline">\(H_0: \theta = 3\)</span> and <span class="math inline">\(H_1: \theta &gt;3\)</span> be our hypotheses.
+Suppose we want the significance level to be <span class="math inline">\(\alpha = 0.9\)</span>,
+use whatever software you can to find the uniformly most
+powerful critical region for this significance level and <span class="math inline">\(n = 10\)</span>.</p>
 </div>
-<p>There are a few ways to go about proving this theorem.
-Two most common ways employ the MGF and the characteristic function.
-Both methods rely on the one crucial idea of using the Taylor expansion,
-which we will see shortly.
-We present the proof using MGF (adopted from Rice’s book) and leave it to the reader the proof using characteristic function.</p>
-<div class="proof">
-<p><span id="unlabeled-div-59" class="proof"><em>Proof</em>. </span>For each <span class="math inline">\(n \in \mathbb{N}\)</span>, we have that
-<span class="math display">\[ \varphi_{Z_n} (t) = \left( \varphi_{X_1} \left( \frac{t}{\sigma \sqrt{n}} \right) \right)^n. \]</span></p>
-<p>Observe first that
-<span class="math inline">\(\varphi_{X_1}&#39;(0) = \mathbb{E}X_1 = 0\)</span> and <span class="math inline">\(\varphi_{X_1}&#39;&#39;(0) = \mathbb{E}X_1^2 = \sigma^2\)</span>.
-So, performing Taylor expansion for <span class="math inline">\(\varphi_{X_1}\)</span>, we get
-<span class="math display">\[
-\begin{aligned}
-\varphi_{X_1} \left( \frac{t}{\sigma \sqrt{n}} \right)  
-        &amp;=  1 + \varphi_{X_1}&#39;(0) \left( \frac{t}{\sigma \sqrt{n}} \right)
-           + \frac{1}{2} \varphi_{X_1}&#39;&#39;(0) \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n  \\
-        &amp; = 1 + \frac{1}{2} \sigma^2 \left( \frac{t}{\sigma \sqrt{n}} \right)^2 + \epsilon_n \\
-        &amp; = 1 + \frac{1}{2} \left( \frac{t^2}{n} \right) + \epsilon_n \,.
-\end{aligned}\]</span>
-where <span class="math inline">\(\epsilon_n / (t^2 / (n\sigma^2)) \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.
-It can then be shown that
-<span class="math display">\[ \lim_{n\to \infty} \varphi_{Z_n}(t) = \lim_{n\to \infty} \left( 1 + \frac{1}{2} \left( \frac{t^2}{n} \right) + \epsilon_n  \right) = e^{t^2/2} = \varphi_Z .\]</span>
-Combine this with Theorem <a href="central-limit-theorem.html#thm:cont">1.15</a>, we arrive at our result.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-128" class="example"><strong>Example 4.5  </strong></span>There is no uniformly most powerful critical region for the two-tail test of the Gaussian.</p>
 </div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-60" class="exercise"><strong>Exercise 1.23  </strong></span>Prove the central limit theorem using the characteristic function.</p>
 </div>
-
-</div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="law-of-large-numbers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="part-2-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="neyman-pearson-lemma.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="wald-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
