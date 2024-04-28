@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)</title>
   <meta name="description" content="4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Neyman-Pearson Lemma | MATH 310: Mathematical Statistics (brief notes)" />
   <meta property="og:type" content="book" />
@@ -48,12 +48,14 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<<<<<<< HEAD
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -81,6 +83,8 @@ div.csl-indent {
   margin-left: 2em;
 }
 </style>
+=======
+>>>>>>> 3d2f2a799dca0df6bb2985d6f1597118159b568b
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/toc.css" type="text/css" />
@@ -176,10 +180,14 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis Testing</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="procedure.html"><a href="procedure.html"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
+<<<<<<< HEAD
 <li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html#random-test"><i class="fa fa-check"></i><b>4.2.1</b> Randomized Test (Optional)</a></li>
 </ul></li>
+=======
+<li class="chapter" data-level="4.2" data-path="neyman-pearson-lemma.html"><a href="neyman-pearson-lemma.html"><i class="fa fa-check"></i><b>4.2</b> Neyman-Pearson Lemma</a></li>
+>>>>>>> 3d2f2a799dca0df6bb2985d6f1597118159b568b
 <li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
 <li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
 <li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
@@ -225,7 +233,7 @@ hypothesis <span class="math inline">\(H_1: \theta = \theta_1\)</span> if</p>
 </ol>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Exercise 4.1  (Hogg et. al., 4.5.3) </strong></span>Let <span class="math inline">\(X\)</span> be an RV that has pdf <span class="math inline">\(f(x;\theta)  = \theta x^{\theta - 1}\)</span> for <span class="math inline">\(0&lt;x&lt;1\)</span>, zero elsewhere.
+<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Exercise 4.1  (Hogg et. al., 4.5.3) </strong></span>Let <span class="math inline">\(X\)</span> be an RV that has pdf <span class="math inline">\(f(x;\theta) = \theta x^{\theta - 1}\)</span> for <span class="math inline">\(0&lt;x&lt;1\)</span>, zero elsewhere.
 Here, <span class="math inline">\(\theta \in \{ 1,2\}\)</span>.
 To test the simple hypothesis <span class="math inline">\(H_0: \theta = 1\)</span> against the alternative
 simple hypothesis <span class="math inline">\(H_1: \theta = 2\)</span>, use a random sample <span class="math inline">\(X_1, X_2\)</span> of size
@@ -253,16 +261,7 @@ lines (gam ~ theta)</code></pre>
 <p>Let’s consider the hypothesis test of <span class="math inline">\(H_0: \theta = 1/2\)</span> versus
 <span class="math inline">\(H_1: \theta = 3/4\)</span>
 with the following probability table:</p>
-<table style="width:100%;">
-<colgroup>
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="left"><span class="math inline">\(x\)</span></th>
@@ -440,6 +439,9 @@ Keener, Robert W. 2010. <em>Theoretical Statistics: Topics for a Core Course</em
 </div>
 <div id="ref-lehmann2005testing" class="csl-entry">
 Lehmann, Erich L., and Joseph P. Romano. 2005. <em>Testing Statistical Hypotheses</em>. 3rd ed. New York: Springer.
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Exercise 4.4  (Hogg et. al., 8.1.5) </strong></span>If <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> is a random sample from a distribution having pdf of the form <span class="math inline">\(f(x ; \theta)=\theta x^{\theta-1}, 0&lt;x&lt;1\)</span>, zero elsewhere, show that a best critical region for testing <span class="math inline">\(H_0: \theta=1\)</span> against <span class="math inline">\(H_1: \theta=2\)</span> is <span class="math inline">\(C=\left\{\left(x_1, x_2, \ldots, x_n\right): c \leq \prod_{i=1}^n x_i\right\}\)</span>.</p>
 </div>
 </div>
             </section>
