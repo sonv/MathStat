@@ -134,6 +134,7 @@ The only original contribution of mine are typos and errors.
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cF}{\mathcal{F}}
 \newcommand{\cB}{\mathcal{B}}
+\newcommand{\cL}{\mathcal{L}}
 \newtheorem{question}{Question}
 
 \chapter*{PART 1: Background}\label{part-1-background}
@@ -1956,7 +1957,7 @@ The above calculation can be made rigorous via the study calculus of variations.
 \chapter{Hypothesis Testing}\label{hypothesis-testing}
 
 (I wasn't entirely happy with the treatment of Wasserman and Casella \& Berger.
-So I'm following the treatment of Hogg, McKean \& Craig.)
+So I'm following the treatment of \citep{hogg2019introduction})
 
 A hypothesis test is a process to reject or not reject a well-defined statements.
 Intuitively, there are three components to a hypothesis test:
@@ -2314,6 +2315,10 @@ The \emph{size} of a randomized critical function \(\varphi\) is
 \[ \sup_{\theta_0 \in D_0} \mathbb{E}_{\theta_0} \varphi(X).\]
 \end{definition}
 
+\begin{remark}
+It is customary to call a critical function \(\varphi\) a test \(\varphi\), when the context is clear.
+\end{remark}
+
 Note that, in this setting, critical regions only correspond to non-randomized
 critical functions.
 In the randomized setting, critical regions become less relevant.
@@ -2322,7 +2327,7 @@ However, there's an an intepretation of the randomized critical function
 in terms of critical region, if we are willing to take into consideration a decision process
 that is completely random and independent with what we are testing (hence the term randomized critical function). This process is captured by the following exercise:
 
-\begin{exercise}[Keener, 12.8.1]
+\begin{exercise}[Keener, Exercise 12.8.1]
 Suppose \(X \sim P_\theta\) for some \(\theta \in \Omega\), and that \(U\)
 is uniformly distributed on \((0,1)\) and is independent of \(X\).
 Let \(\phi(X)\) be a \textit{randomized} test based on \(X\).
@@ -2415,11 +2420,78 @@ powerful critical region for this significance level and \(n = 10\).
 There is no uniformly most powerful critical region for the two-tail test of the Gaussian.
 \end{example}
 
+\begin{definition}
+We say that the likelihood \(\mathcal{L}(\theta;\mathbf{x})\) has \emph{monotone likelihood ratio (mlr)} in the
+statistic \(y = u (\mathbf{x})\) if, for \(\theta_1 < \theta_2\), the ratio
+\[ \frac{\mathcal{L}(\theta_1;\mathbf{x} )}{\mathcal{L}( \theta_2;\mathbf{x} )}\]
+is monotonic with respect to \(y\).
+\end{definition}
+
+Using the language of randomized test, if mlr provides a sufficient condition
+to produce UMP tests.
+
+\begin{theorem}[Keener,  Theorem 12.9]
+
+Suppose the family of densities has monotone likelihood ratios. Then
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The test \(\phi^*\) given by
+  \[
+  \phi^*(x) = \begin{cases} 
+  1, & \text{if } T(x) > c; \\
+  \gamma, & \text{if } T(x) = c; \\
+  0, & \text{if } T(x) < c,
+  \end{cases}
+  \]
+  is uniformly most powerful for testing \(H_0 : \theta \leq \theta_0\) versus \(H_1 : \theta > \theta_0\) and has level \(\alpha = E_{\theta_0} \phi^*\). Also, the constants \(c \in \mathbb{R}\) and \(\gamma \in [0,1]\) can be adjusted to achieve any desired significance level \(\alpha \in (0,1)\).
+\item
+  The power function \(\beta(\theta) = E_{\theta} \phi^*\) for this test is nondecreasing and strictly increasing whenever \(\beta(\theta) \in (0,1)\).
+\item
+  If \(\theta_1 < \theta_0\), then this test \(\phi^*\) minimizes \(E_{\theta_1} \phi\) among all tests with \(E_{\theta_0} \phi = \alpha\).
+\end{enumerate}
+
+\end{theorem}
+
+\begin{example}[Hogg et.al., Example 8.2.5]
+Let \(X_1, X_2, \ldots, X_n\) be a random sample from a Bernoulli
+distribution with parameter \(p = \theta\), where \(0 < \theta < 1\). Let
+\(\theta' < \theta''\). Consider the ratio of likelihoods
+
+\[
+\frac{\mathcal{L}(\theta'; x_1, x_2, \ldots, x_n)}{\mathcal{L}(\theta''; x_1, x_2, \ldots, x_n)} = 
+\frac{(\theta')^{\sum x_i} (1 - \theta')^{n-\sum x_i}}{(\theta'')^{\sum x_i} 
+(1 - \theta'')^{n-\sum x_i}} = \left(\frac{\theta'(1 - \theta'')}{\theta''(1 - 
+\theta')}\right)^{\sum x_i} \left(\frac{1 - \theta'}{1 - \theta''}\right)^n.
+\]
+
+Since \(\frac{\theta'}{\theta''} < 1\) and \(\frac{(1 - \theta'')}{(1 - \theta')}
+< 1\), so that \(\frac{\theta'(1 - \theta'')}{\theta''(1 - \theta')} < 1\), the
+ratio is a decreasing function of \(y = \sum x_i\). Thus we have a monotone
+likelihood ratio in the statistic \(Y = \sum X_i\).
+
+Consider the hypotheses
+
+\[
+H_0 : \theta \leq \theta' \quad \text{versus} \quad H_1 : \theta > \theta'.
+\]
+
+By our discussion above, the UMP level \(\alpha\) decision rule for testing
+\(H_0\) versus \(H_1\) is given by
+
+\[
+\text{Reject } H_0 \text{ if } Y = \sum_{i=1}^n X_i \geq c,
+\]
+
+where \(c\) is such that \(\alpha = P_{\theta'}[Y \geq c]\).
+\end{example}
+
 \section{Wald Test}\label{wald-test}
 
-\section{Likelihood Ratio Test}\label{likelihood-ratio-test}
-
-\section{Comparing samples}\label{comparing-samples}
+Recall that there is no UMP test for two-tail test.
+So, there is a pressing question: how do weo justify the two-tail test?
+On what basis did we come up with that? Was it out of convenience?
 
   \bibliography{bibo.bib}
 

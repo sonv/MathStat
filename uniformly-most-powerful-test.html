@@ -182,8 +182,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="uniformly-most-powerful-test.html"><a href="uniformly-most-powerful-test.html"><i class="fa fa-check"></i><b>4.3</b> Uniformly Most Powerful Test</a></li>
 <li class="chapter" data-level="4.4" data-path="wald-test.html"><a href="wald-test.html"><i class="fa fa-check"></i><b>4.4</b> Wald Test</a></li>
-<li class="chapter" data-level="4.5" data-path="likelihood-ratio-test.html"><a href="likelihood-ratio-test.html"><i class="fa fa-check"></i><b>4.5</b> Likelihood Ratio Test</a></li>
-<li class="chapter" data-level="4.6" data-path="comparing-samples.html"><a href="comparing-samples.html"><i class="fa fa-check"></i><b>4.6</b> Comparing samples</a></li>
 </ul></li>
 </ul>
 
@@ -210,7 +208,7 @@ the significance level.</p>
 <p>However, when the hypotheses are no longer simple, the situation becomes more complicated.</p>
 <p>To extend the result of Neyman-Pearson to non-simple cases, we need the following notion.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-125" class="definition"><strong>Definition 4.7  (Uniformly Most Powerful Test) </strong></span>The critical region <span class="math inline">\(C\)</span> is a <em>Uniformly Most Powerful</em> (UMP) critical region
+<p><span id="def:unlabeled-div-126" class="definition"><strong>Definition 4.7  (Uniformly Most Powerful Test) </strong></span>The critical region <span class="math inline">\(C\)</span> is a <em>Uniformly Most Powerful</em> (UMP) critical region
 of size <span class="math inline">\(\alpha\)</span> for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against an
 alternative composite hypothesis <span class="math inline">\(H_1\)</span> if the set <span class="math inline">\(C\)</span> is a best critical
 region of size <span class="math inline">\(\alpha\)</span> for testing <span class="math inline">\(H_0\)</span> against each simple
@@ -220,21 +218,70 @@ called a uniformly most powerful test, with significance level <span class="math
 for testing the simple hypothesis <span class="math inline">\(H_0\)</span> against the alternative composite hypothesis <span class="math inline">\(H_1\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-126" class="example"><strong>Example 4.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\mu, 1)\)</span>.
+<p><span id="exm:unlabeled-div-127" class="example"><strong>Example 4.3  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(\mu, 1)\)</span>.
 Let <span class="math inline">\(H_0: \mu = 1\)</span> and <span class="math inline">\(H_1: \mu &gt;1\)</span> be our hypotheses.
 Suppose we want the significance level to be <span class="math inline">\(\alpha = 0.9\)</span>,
 use whatever software you can to find the uniformly most
 powerful critical region for this significance level and <span class="math inline">\(n = 10\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-127" class="example"><strong>Example 4.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(0, \theta)\)</span>.
+<p><span id="exm:unlabeled-div-128" class="example"><strong>Example 4.4  </strong></span>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be sample from <span class="math inline">\(N(0, \theta)\)</span>.
 Let <span class="math inline">\(H_0: \theta = 3\)</span> and <span class="math inline">\(H_1: \theta &gt;3\)</span> be our hypotheses.
 Suppose we want the significance level to be <span class="math inline">\(\alpha = 0.9\)</span>,
 use whatever software you can to find the uniformly most
 powerful critical region for this significance level and <span class="math inline">\(n = 10\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-128" class="example"><strong>Example 4.5  </strong></span>There is no uniformly most powerful critical region for the two-tail test of the Gaussian.</p>
+<p><span id="exm:unlabeled-div-129" class="example"><strong>Example 4.5  </strong></span>There is no uniformly most powerful critical region for the two-tail test of the Gaussian.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-130" class="definition"><strong>Definition 4.8  </strong></span>We say that the likelihood <span class="math inline">\(\mathcal{L}(\theta;\mathbf{x})\)</span> has <em>monotone likelihood ratio (mlr)</em> in the
+statistic <span class="math inline">\(y = u (\mathbf{x})\)</span> if, for <span class="math inline">\(\theta_1 &lt; \theta_2\)</span>, the ratio
+<span class="math display">\[ \frac{\mathcal{L}(\theta_1;\mathbf{x} )}{\mathcal{L}( \theta_2;\mathbf{x} )}\]</span>
+is monotonic with respect to <span class="math inline">\(y\)</span>.</p>
+</div>
+<p>Using the language of randomized test, if mlr provides a sufficient condition
+to produce UMP tests.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-131" class="theorem"><strong>Theorem 4.3  (Keener, Theorem 12.9) </strong></span>Suppose the family of densities has monotone likelihood ratios. Then</p>
+<ol style="list-style-type: decimal">
+<li><p>The test <span class="math inline">\(\phi^*\)</span> given by
+<span class="math display">\[
+\phi^*(x) = \begin{cases}
+1, &amp; \text{if } T(x) &gt; c; \\
+\gamma, &amp; \text{if } T(x) = c; \\
+0, &amp; \text{if } T(x) &lt; c,
+\end{cases}
+\]</span>
+is uniformly most powerful for testing <span class="math inline">\(H_0 : \theta \leq \theta_0\)</span> versus <span class="math inline">\(H_1 : \theta &gt; \theta_0\)</span> and has level <span class="math inline">\(\alpha = E_{\theta_0} \phi^*\)</span>. Also, the constants <span class="math inline">\(c \in \mathbb{R}\)</span> and <span class="math inline">\(\gamma \in [0,1]\)</span> can be adjusted to achieve any desired significance level <span class="math inline">\(\alpha \in (0,1)\)</span>.</p></li>
+<li><p>The power function <span class="math inline">\(\beta(\theta) = E_{\theta} \phi^*\)</span> for this test is nondecreasing and strictly increasing whenever <span class="math inline">\(\beta(\theta) \in (0,1)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\theta_1 &lt; \theta_0\)</span>, then this test <span class="math inline">\(\phi^*\)</span> minimizes <span class="math inline">\(E_{\theta_1} \phi\)</span> among all tests with <span class="math inline">\(E_{\theta_0} \phi = \alpha\)</span>.</p></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-132" class="example"><strong>Example 4.6  (Hogg et.al., Example 8.2.5) </strong></span>Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be a random sample from a Bernoulli
+distribution with parameter <span class="math inline">\(p = \theta\)</span>, where <span class="math inline">\(0 &lt; \theta &lt; 1\)</span>. Let
+<span class="math inline">\(\theta&#39; &lt; \theta&#39;&#39;\)</span>. Consider the ratio of likelihoods</p>
+<p><span class="math display">\[
+\frac{\mathcal{L}(\theta&#39;; x_1, x_2, \ldots, x_n)}{\mathcal{L}(\theta&#39;&#39;; x_1, x_2, \ldots, x_n)} =
+\frac{(\theta&#39;)^{\sum x_i} (1 - \theta&#39;)^{n-\sum x_i}}{(\theta&#39;&#39;)^{\sum x_i}
+(1 - \theta&#39;&#39;)^{n-\sum x_i}} = \left(\frac{\theta&#39;(1 - \theta&#39;&#39;)}{\theta&#39;&#39;(1 -
+\theta&#39;)}\right)^{\sum x_i} \left(\frac{1 - \theta&#39;}{1 - \theta&#39;&#39;}\right)^n.
+\]</span></p>
+<p>Since <span class="math inline">\(\frac{\theta&#39;}{\theta&#39;&#39;} &lt; 1\)</span> and <span class="math inline">\(\frac{(1 - \theta&#39;&#39;)}{(1 - \theta&#39;)}
+&lt; 1\)</span>, so that <span class="math inline">\(\frac{\theta&#39;(1 - \theta&#39;&#39;)}{\theta&#39;&#39;(1 - \theta&#39;)} &lt; 1\)</span>, the
+ratio is a decreasing function of <span class="math inline">\(y = \sum x_i\)</span>. Thus we have a monotone
+likelihood ratio in the statistic <span class="math inline">\(Y = \sum X_i\)</span>.</p>
+<p>Consider the hypotheses</p>
+<p><span class="math display">\[
+H_0 : \theta \leq \theta&#39; \quad \text{versus} \quad H_1 : \theta &gt; \theta&#39;.
+\]</span></p>
+<p>By our discussion above, the UMP level <span class="math inline">\(\alpha\)</span> decision rule for testing
+<span class="math inline">\(H_0\)</span> versus <span class="math inline">\(H_1\)</span> is given by</p>
+<p><span class="math display">\[
+\text{Reject } H_0 \text{ if } Y = \sum_{i=1}^n X_i \geq c,
+\]</span></p>
+<p>where <span class="math inline">\(c\)</span> is such that <span class="math inline">\(\alpha = P_{\theta&#39;}[Y \geq c]\)</span>.</p>
 </div>
 </div>
             </section>
